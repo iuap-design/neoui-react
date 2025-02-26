@@ -1,0 +1,44 @@
+.description-error-content{
+    margin-top: 16px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  
+    span, .copy{
+      float: right;
+      width: 48px;
+      height: 18px;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #0033CC;
+      line-height: 18px;
+      cursor: pointer;
+    }
+    .describe{
+      width: 75px;
+      margin-right: 16px;
+  
+      .uf{
+        font-size: 12px;
+      }
+    }
+    .receive-content pre{
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #666666;
+      line-height: 18px;
+      margin-top: 0;
+    }
+    .successCopy {
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 44px);
+      width: 88px;
+      height: 30px;
+      font-size: 14px;
+      color: #FFFFFF;
+      background: #505766;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 30px;
+    }
+}

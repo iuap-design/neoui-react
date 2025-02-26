@@ -1,0 +1,1690 @@
+@import "../../wui-core/scss/minxin-mixins";
+@import "../../wui-core/scss/util-keyframe";
+
+//$menu-prefix-cls: $prefix-cls + 'menu';
+
+$icon-color-light-contrast: #505F79;
+$icon-color-dark-contrast: #fff;
+$text-color-base: #212121;
+$disabled-text-color-base: #909090;
+$box-shadow-color: var(--#{$menu-prefix-cls}-border-color); // #f1f1f1;
+$base-bg-color: var(--#{$menu-prefix-cls}-bg-color); // $base-panel-bg-color;
+
+// edge兼容出现边框问题
+.#{$menu-prefix-cls} {
+    div, li{
+        outline: none;
+    }
+}
+
+.#{$menu-prefix-cls} {
+    font-size: var(--#{$menu-prefix-cls}-font-size);
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    //color: $text-color-base;
+    color: var(--#{$menu-prefix-cls}-color-text);
+    //background: #fff;
+    background: $base-bg-color;
+    line-height: 0;
+    -webkit-transition: background 0.3s, width 0.2s;
+    transition: background 0.3s, width 0.2s;
+    zoom: 1;
+    border: var(--#{$menu-prefix-cls}-border-width) solid $box-shadow-color;
+    // box-shadow: 2px 2px 5px $box-shadow-color;
+    border-radius: var(--#{$menu-prefix-cls}-border-radius); // $border-radius-base;
+}
+
+.#{$menu-prefix-cls}:before,
+.#{$menu-prefix-cls}:after {
+    content: '';
+    display: table;
+}
+
+.#{$menu-prefix-cls}:after {
+    clear: both;
+}
+
+.#{$menu-prefix-cls} ul,
+.#{$menu-prefix-cls} ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.#{$menu-prefix-cls}-hidden, .#{$menu-prefix-cls}-submenu-hidden{
+    display: none;
+}
+
+.#{$menu-prefix-cls}-item-group-title {
+    color: var(--#{$menu-prefix-cls}-color-text-disabled);
+    font-size: var(--#{$menu-prefix-cls}-arrow-icon-font-size);
+    font-weight: var(--#{$menu-prefix-cls}-font-weight);
+    line-height: 1.5;
+    padding: 8px 16px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-submenu-inline {
+    -webkit-transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-submenu{
+    border: 0;
+}
+
+.#{$menu-prefix-cls}-item:active,
+.#{$menu-prefix-cls}-submenu-title:active {
+    background: #e6f7ff;
+}
+
+.#{$menu-prefix-cls}-submenu .#{$menu-prefix-cls}-sub {
+    cursor: initial;
+    -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-item>a {
+    display: block;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.#{$menu-prefix-cls}-item>a:hover {
+    color: #108ee9;
+}
+
+.#{$menu-prefix-cls}-item>a:focus {
+    text-decoration: none;
+}
+
+.#{$menu-prefix-cls}-item>a:before {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: '';
+}
+
+.#{$menu-prefix-cls}-item-divider {
+    height: 1px;
+    overflow: hidden;
+    //background-color: #e8e8e8;
+    background-color: $border-color-base;
+    line-height: 0;
+}
+
+.#{$menu-prefix-cls}-item-divider-dashed,
+.#{$menu-prefix-cls}>.#{$menu-prefix-cls}-item-divider.#{$menu-prefix-cls}-item-divider-dashed{
+    background: linear-gradient(
+        to left,
+        transparent 0%,
+        transparent 50%,
+        $border-color-base 50%,
+        $border-color-base 100%
+    );
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+}   
+
+.#{$menu-prefix-cls}-item:hover,
+.#{$menu-prefix-cls}-item-active,
+.#{$menu-prefix-cls}:not(.#{$menu-prefix-cls}-inline) .#{$menu-prefix-cls}-submenu-open,
+.#{$menu-prefix-cls}-submenu-active,
+.#{$menu-prefix-cls}-submenu-title:hover {
+    background-color: var(--#{$menu-prefix-cls}-item-bg-color-hover); // $base-item-bg-color-hover;
+    // color: $brand-primary;
+}
+
+.#{$menu-prefix-cls}-horizontal .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-horizontal .#{$menu-prefix-cls}-submenu {
+    margin-top: -1px;
+}
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item:hover,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item-active,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu .#{$menu-prefix-cls}-submenu-title:hover {
+    background-color: transparent;
+}
+
+.#{$menu-prefix-cls}-item-selected {
+    color: var(--#{$menu-prefix-cls}-color-text-selected);
+}
+
+.#{$menu-prefix-cls}-item-selected>a,
+.#{$menu-prefix-cls}-item-selected>a:hover {
+    color: var(--#{$menu-prefix-cls}-color-text-selected);
+}
+
+.#{$menu-prefix-cls}:not(.#{$menu-prefix-cls}-horizontal) .#{$menu-prefix-cls}-item-selected {
+    background-color: var(--#{$menu-prefix-cls}-item-bg-color-selected);
+    &:hover {
+        background-color: var(--#{$menu-prefix-cls}-item-bg-color-selected-hover);
+    }
+    // 兼容键盘操作无聚焦背景色问题===QDJCJS-8403====
+    &:focus-visible {
+        background-color: var(--#{$menu-prefix-cls}-item-bg-color-selected-hover);
+    }
+}
+
+.#{$menu-prefix-cls}-inline,
+.#{$menu-prefix-cls}-vertical,
+.#{$menu-prefix-cls}-vertical-left {
+    border-right: var(--#{$menu-prefix-cls}-border-width) solid $border-color-base;
+    padding: 12px 0;
+}
+
+.#{$menu-prefix-cls}-vertical-right {
+    border-left: var(--#{$menu-prefix-cls}-border-width) solid $border-color-base;
+    padding: 12px 0;
+}
+
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub
+{
+    // border: 0;
+    padding: 8px 0;
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+}
+
+// 左边呼出阴影方向改变
+.#{$menu-prefix-cls}-submenu-placement-leftTop .#{$menu-prefix-cls}-sub {
+    box-shadow: -4px 4px 5px #f1f1f1;
+}
+
+// .#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub,
+// .#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub {
+   
+// }
+
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item
+{
+    border-right: 0;
+    margin-left: 0;
+    left: 0;
+}
+
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-item:after
+{
+    border-right: 0;
+}
+
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub>.#{$menu-prefix-cls}-submenu
+{
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.#{$menu-prefix-cls}-horizontal.#{$menu-prefix-cls}-sub,
+.#{$menu-prefix-cls}-vertical.#{$menu-prefix-cls}-sub,
+.#{$menu-prefix-cls}-vertical-left.#{$menu-prefix-cls}-sub,
+.#{$menu-prefix-cls}-vertical-right.#{$menu-prefix-cls}-sub
+{
+    min-width: 160px;
+}
+
+.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-submenu-title {
+    cursor: pointer;
+    margin: 0;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    -webkit-transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-item .anticon,
+.#{$menu-prefix-cls}-submenu-title .anticon {
+    min-width: 14px;
+    margin-right: 10px;
+    font-size: var(--#{$menu-prefix-cls}-font-size);
+    -webkit-transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-item .anticon+span,
+.#{$menu-prefix-cls}-submenu-title .anticon+span {
+    -webkit-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity: 1;
+}
+
+.#{$menu-prefix-cls}>.#{$menu-prefix-cls}-item-divider {
+    height: 1px;
+    margin: 1px 0;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0;
+    background-color: $border-color-base;
+}
+
+.#{$menu-prefix-cls}-submenu-popup {
+    position: absolute;
+    border-radius: $border-radius-base;
+    z-index: $zindex-menubar;
+    //background: #fff;
+    background: $base-bg-color;
+}
+
+.#{$menu-prefix-cls}-submenu-popup .submenu-title-wrapper {
+    padding-right: 20px;
+}
+
+.#{$menu-prefix-cls}-submenu-popup:before {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    opacity: 0.0001;
+}
+
+// 无用代码
+// .#{$menu-prefix-cls}-submenu-popup {
+//     &.#{$menu-prefix-cls}-submenu-placement-rightTop:before{
+//         top: 0;
+//         left: -4px;
+//     }
+//     &.#{$menu-prefix-cls}-submenu-placement-leftTop:before{
+//         top: 0;
+//         left: 0;
+//         right: -4px;
+//     }
+//     &.#{$menu-prefix-cls}-submenu-placement-topLeft:before{
+//         top: 0;
+//         left: 0;
+//         bottom: -7px;
+//     }
+// }
+
+.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls} {
+    //background-color: #fff;
+    background-color:$base-bg-color;
+    border-radius: $border-radius-base;
+}
+
+.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title:after {
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-submenu-vertical>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-submenu-vertical-left>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-submenu-vertical-right>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow {
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 10px;
+    color: $base-input-suffix-icon-color;
+}
+
+.#{$menu-prefix-cls}-submenu-vertical > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-left > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-right > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-inline > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-left > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-right > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-inline > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown > .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after {
+    content: '';
+    position: absolute;
+    vertical-align: baseline;
+    //background: #fff;
+    background: var(--#{$menu-prefix-cls}-arrow-icon-color); // $base-bg-color;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.65)), to(rgba(0, 0, 0, 0.65)));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+    width: 6px;
+    height: 1.5px;
+    border-radius: 2px;
+    -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-submenu-vertical>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-left>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-right>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before {
+    -webkit-transform: rotate(45deg) translateY(-2px);
+    -ms-transform: rotate(45deg) translateY(-2px);
+    transform: rotate(45deg) translateY(-2px);
+}
+
+.#{$menu-prefix-cls}-submenu-vertical>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-left>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-right>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after {
+    -webkit-transform: rotate(-45deg) translateY(2px);
+    -ms-transform: rotate(-45deg) translateY(2px);
+    transform: rotate(-45deg) translateY(2px);
+}
+
+.#{$menu-prefix-cls}-submenu-vertical>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-left>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical-right>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-vertical>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-left>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-vertical-right>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title:hover .#{$menu-prefix-cls}-submenu-arrow:before {
+    // background: -webkit-gradient(linear, left top, right top, from($icon-color-light-contrast), to($icon-color-light-contrast));
+    // background: -webkit-linear-gradient(left, $icon-color-light-contrast, $icon-color-light-contrast);
+    // background: linear-gradient(to right, $icon-color-light-contrast, $icon-color-light-contrast);
+    background: -webkit-gradient(linear, left top, right top, from(var(--#{$menu-prefix-cls}-arrow-icon-color-hover)), to(var(--#{$menu-prefix-cls}-arrow-icon-color-hover)));
+    background: -webkit-linear-gradient(left, var(--#{$menu-prefix-cls}-arrow-icon-color-hover), var(--#{$menu-prefix-cls}-arrow-icon-color-hover));
+    background: linear-gradient(to right, var(--#{$menu-prefix-cls}-arrow-icon-color-hover), var(--#{$menu-prefix-cls}-arrow-icon-color-hover));
+}
+
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before {
+    -webkit-transform: rotate(-45deg) translateX(2px);
+    -ms-transform: rotate(-45deg) translateX(2px);
+    transform: rotate(-45deg) translateX(2px);
+}
+
+.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after {
+    -webkit-transform: rotate(45deg) translateX(-2px);
+    -ms-transform: rotate(45deg) translateX(-2px);
+    transform: rotate(45deg) translateX(-2px);
+}
+
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow {
+    -webkit-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after {
+    -webkit-transform: rotate(-45deg) translateX(-2px);
+    -ms-transform: rotate(-45deg) translateX(-2px);
+    transform: rotate(-45deg) translateX(-2px);
+}
+
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-inline>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-open.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown>.#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before {
+    -webkit-transform: rotate(45deg) translateX(2px);
+    -ms-transform: rotate(45deg) translateX(2px);
+    transform: rotate(45deg) translateX(2px);
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-submenu-selected,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-submenu-selected,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-submenu-selected {
+    color: $brand-primary;
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-submenu-selected>a,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-submenu-selected>a,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-submenu-selected>a {
+    color: $brand-primary;
+}
+
+.#{$menu-prefix-cls}-horizontal {
+    border: 0;
+    border-bottom: 1px solid $border-color-base;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    line-height: 46px;
+    white-space: nowrap;
+}
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: 2px solid transparent;
+}
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item:hover,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu:hover,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item-active,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu-active,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item-open,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu-open,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item-selected,
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu-selected {
+    border-bottom: 2px solid var(--#{$menu-prefix-cls}-horizontal-underline-selected-border-color);
+    color: var(--#{$menu-prefix-cls}-color-text-selected);
+}
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item>a {
+    display: block;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+// .#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item>a:hover {
+//     color: $brand-primary;
+// }
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item>a:before {
+    bottom: -2px;
+}
+
+.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item-selected>a {
+    color: $brand-primary;
+}
+
+.#{$menu-prefix-cls}-horizontal:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item {
+    position: relative;
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-right: var(--#{$menu-prefix-cls}-item-border-width-selected) solid var(--#{$menu-prefix-cls}-item-border-color-selected);
+    -webkit-transform: scaleY(0.0001);
+    -ms-transform: scaleY(0.0001);
+    transform: scaleY(0.0001);
+    opacity: 0;
+    -webkit-transition: opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.#{$menu-prefix-cls}-submenu,.#{$dropdown-prefix-cls}-menu-submenu{
+    &-separate {
+        padding: 0!important;
+        background: red($color: #000000);
+        &-icon{
+            display: inline-block;
+            width: 30px;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            .#{$menu-prefix-cls}-submenu-arrow {
+                right: 8px!important;
+            }
+        }
+        &-title{
+            display: inline-block;
+            height: 100%;
+            width: calc(100% - 30px);
+            vertical-align: top;
+            padding-left: 16px;
+            cursor: pointer;
+        }
+        &-title:hover,&-icon:hover{
+            background: var(--#{$menu-prefix-cls}-separate-hover);
+        }
+    }
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-submenu-title {
+    padding: 0 28px 0 16px; // fix:bug QYJX-121934
+    font-size: var(--#{$menu-prefix-cls}-arrow-icon-font-size);
+    font-weight: var(--#{$menu-prefix-cls}-font-weight);
+    line-height: var(--#{$menu-prefix-cls}-item-size-height);
+    height: var(--#{$menu-prefix-cls}-item-size-height);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+// .#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-submenu-title,
+// .#{$menu-prefix-cls}-submenu-vertical-left .#{$menu-prefix-cls}-submenu-title,
+// .#{$menu-prefix-cls}-submenu-vertical-right .#{$menu-prefix-cls}-submenu-title{
+//     padding-right: 28px;
+// }
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-submenu {
+    padding-bottom: 0.01px;
+}
+
+.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item:not(:last-child),
+.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item:not(:last-child),
+.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item:not(:last-child),
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.#{$menu-prefix-cls}-vertical>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-left>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical-right>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-vertical>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-vertical-left>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-vertical-right>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-inline>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title {
+    line-height: 42px;
+    height: 42px;
+    margin: 0;
+}
+
+.#{$menu-prefix-cls}-inline {
+    width: 100%;
+}
+
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-selected:after,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item-selected:after {
+    -webkit-transition: opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-submenu-title {
+    width: calc(100% + 1px);
+    box-sizing: border-box;
+}
+
+.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-submenu-horizontal.#{$menu-prefix-cls}-submenu-arrowdown .#{$menu-prefix-cls}-submenu-title {
+    padding-right: 34px;
+}
+
+.#{$menu-prefix-cls}-inline-collapsed {
+    width: 80px;
+
+}
+
+.#{$menu-prefix-cls}-inline-collapsed>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline-collapsed>.#{$menu-prefix-cls}-item-group>.#{$menu-prefix-cls}-item-group-list>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-inline-collapsed>.#{$menu-prefix-cls}-item-group>.#{$menu-prefix-cls}-item-group-list>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-inline-collapsed>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title {
+    left: 0;
+    text-overflow: clip;
+    padding: 0 calc(50% - 16px / 2);
+  
+    .#{$menu-prefix-cls}-submenu-arrow {
+      display: none;
+    }
+    .#{$menu-prefix-cls}-item-icon,
+    i.uf {
+      font-size: 16px;
+      line-height: 42px;
+      margin: 0;
+      padding: 0;
+      + span {
+        display: inline-block;
+        max-width: 0;
+        opacity: 0;
+      }
+    }
+}
+
+.#{$menu-prefix-cls}-inline-collapsed-tooltip {
+    pointer-events: none;
+}
+
+.#{$menu-prefix-cls}-inline-collapsed-tooltip .#{menu-prefix-cls}-item-icon {
+    display: none;
+}
+
+.#{$menu-prefix-cls}-inline-collapsed-tooltip a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.#{$menu-prefix-cls}-inline-collapsed .#{$menu-prefix-cls}-item-group-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+// 新加样式
+.#{$menu-prefix-cls}-root.#{$menu-prefix-cls}-inline-collapsed {
+  .#{$menu-prefix-cls}-item,
+  .#{$menu-prefix-cls}-submenu .#{$menu-prefix-cls}-submenu-title {
+    > .#{$menu-prefix-cls}-inline-collapsed-noicon {
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+.#{$menu-prefix-cls}-item-group-list {
+    margin: 0;
+    padding: 0;
+}
+
+.#{$menu-prefix-cls}-item-group-list .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-item-group-list .#{$menu-prefix-cls}-submenu-title {
+    padding: 0 16px 0 28px;
+}
+
+// =======wui-menu box-shadow样式去除，对vertical系列弹框样式单独添加====
+// .#{$menu-prefix-cls}-root.#{$menu-prefix-cls}-vertical,
+// .#{$menu-prefix-cls}-root.#{$menu-prefix-cls}-vertical-left,
+// .#{$menu-prefix-cls}-root.#{$menu-prefix-cls}-vertical-right,
+// .#{$menu-prefix-cls}-root.#{$menu-prefix-cls}-inline {
+//     -webkit-box-shadow: none;
+//     box-shadow: none;
+// }
+
+.#{$menu-prefix-cls}-sub.#{$menu-prefix-cls}-inline {
+    padding: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.#{$menu-prefix-cls}-sub.#{$menu-prefix-cls}-inline>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-sub.#{$menu-prefix-cls}-inline>.#{$menu-prefix-cls}-submenu>.#{$menu-prefix-cls}-submenu-title {
+    line-height: 42px;
+    height: 42px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.#{$menu-prefix-cls}-sub.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item-group-title {
+    padding-left: 32px;
+}
+
+.#{$menu-prefix-cls}-item-disabled,
+.#{$menu-prefix-cls}-submenu-disabled {
+    //color: rgba(0, 0, 0, 0.25) !important;
+    color: $base-item-text-color-disabled !important;
+    cursor: not-allowed;
+    background: none;
+    border-color: transparent !important;
+}
+
+.#{$menu-prefix-cls}-item-disabled>a,
+.#{$menu-prefix-cls}-submenu-disabled>a {
+    //color: rgba(0, 0, 0, 0.25) !important;
+    color: $base-item-text-color-disabled !important;
+    pointer-events: none;
+}
+
+.#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title {
+    //color: rgba(0, 0, 0, 0.25) !important;
+    color: $base-item-text-color-disabled !important;
+    cursor: not-allowed;
+}
+
+.#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after {
+    //background: rgba(0, 0, 0, 0.25) !important;
+    background: $base-item-text-color-disabled !important;
+}
+
+.#{$menu-prefix-cls}.#{$menu-prefix-cls}-dark {
+    border: none;
+    color: #fff;
+    background-color: var(--#{$menu-prefix-cls}-dark-bg-color);
+    box-shadow: none;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-sub {
+    color: #fff;
+    background-color: #2E3C61;
+}
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item{
+    margin-top: 0;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow {
+    opacity: 0.45;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-sub .#{$menu-prefix-cls}-submenu-title .#{$menu-prefix-cls}-submenu-arrow:before {
+    background: var(--#{$menu-prefix-cls}-item-bg-color-selected-hover);
+}
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item{
+    margin-bottom: 0;
+}
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-submenu-popup {
+    background: transparent;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-inline.#{$menu-prefix-cls}-sub{
+    // background: #000c17; // fix bug QDJCJS-10665
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-horizontal {
+    border-bottom: 0;
+    background-color: #2E3C61;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-submenu {
+    border-color: #001529;
+    border-bottom: 0;
+    top: 0;
+    margin-top: 0;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-horizontal>.#{$menu-prefix-cls}-item>a:before {
+    bottom: 0;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-group-title,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item>a {
+    color: #fff;
+    background: #2E3C61;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-left,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-right {
+    border-right: 0;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item {
+    border-right: 0;
+    margin-left: 0;
+    left: 0;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-left .#{$menu-prefix-cls}-item:after,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-vertical-right .#{$menu-prefix-cls}-item:after {
+    border-right: 0;
+}
+
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-item,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-inline .#{$menu-prefix-cls}-submenu-title {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active,
+.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}:not(.#{$menu-prefix-cls}-inline) .#{$menu-prefix-cls}-submenu-open,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover {
+    background-color: var(--#{$menu-prefix-cls}-dark-bg-color-hover);
+    color: #fff;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>a {
+    color: #fff;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow {
+    opacity: 1;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-active>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-open>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-selected>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-title:hover>.#{$menu-prefix-cls}-submenu-arrow:before {
+    background: var(--#{$menu-prefix-cls}-dark-arrow-icon-color-hover);
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-selected {
+    border-right: 0;
+    color: #fff;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-selected:after {
+    border-right: 0;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-selected>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-selected>a:hover {
+    color: #fff;
+}
+
+.#{$menu-prefix-cls}.#{$menu-prefix-cls}-dark:not(.#{$menu-prefix-cls}-horizontal) .#{$menu-prefix-cls}-item-selected,
+.#{$menu-prefix-cls}-submenu-popup.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-selected {
+    color: #fff;
+    background: var(--#{$menu-prefix-cls}-dark-bg-color-selected);
+    border-right: 3px solid rgb(245, 60, 50);
+}
+.#{$menu-prefix-cls}.#{$menu-prefix-cls}-dark.#{$menu-prefix-cls}-horizontal .#{$menu-prefix-cls}-item-selected {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-disabled,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-disabled,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-disabled>a,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-disabled>a {
+    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title {
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:before,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-item-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after,
+.#{$menu-prefix-cls}-dark .#{$menu-prefix-cls}-submenu-disabled>.#{$menu-prefix-cls}-submenu-title>.#{$menu-prefix-cls}-submenu-arrow:after {
+    background: rgba(255, 255, 255, 0.35) !important;
+}
+
+//-----------
+
+.#{$menu-prefix-cls}-horizontal {
+    // background-color: #F3F5F7;
+    background-color: $base-bg-color;
+    border: none;
+    // border-bottom: 1px solid transparent;
+    border-bottom: var(--#{$menu-prefix-cls}-horizontal-underline-border-width) solid var(--#{$menu-prefix-cls}-horizontal-underline-border-color);
+    box-shadow: none;
+}
+// .#{$menu-prefix-cls}-horizontal .#{$menu-prefix-cls}-item-selected{
+//     border-bottom: 2px solid transparent;
+// }
+
+//-----------------dropdown-menu
+//$dropdown-prefix-cls: $prefix-cls + 'dropdown';
+
+.#{$dropdown-prefix-cls}-menu{
+    //max-height: $dropdown-menu-max-height;
+    //overflow-y: auto;
+    font-size: $dropdown-menu-font-size;
+    outline: none;
+    position: relative;
+    list-style-type: none;
+    // padding-top: 8px;
+    // padding-bottom: 8px;
+    padding: 8px 0;
+    margin: 0;
+    text-align: left;
+    //background-color: #fff;
+    background-color: $base-bg-color;
+    color: $font-color-base;
+    border-radius: $dropdown-border-radius;
+    max-width: 200px;
+    background-clip: padding-box;
+    // border: 1px solid $dropdown-border-color;
+
+    &-hidden,
+    &-submenu-hidden {
+        display: none;
+    }
+
+    &-match-trigger {
+        max-width: unset;
+    }
+
+    &-submenu-popup {
+        position: absolute;
+        z-index: $zindex-dropdown;
+        background: transparent;
+        box-shadow: $dropdown-shadow;
+        transform-origin: 0 0;
+        padding: 0;
+        ul,
+        li {
+            list-style: none;
+        }
+        .#{$dropdown-prefix-cls}-menu{
+            // top: 0;
+            // position: relative;
+            min-width: 160px;
+        }
+    }
+    &-submenu {
+        &-title {
+            margin: 0;
+            position: relative;
+            display: block;
+            white-space: nowrap;
+            padding:$dropdown-menu-item-padding;
+            line-height: $dropdown-menu-item-light-height;
+            height: $dropdown-menu-item-height;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            outline: none;
+        }
+        &-vertical > &-title:after,
+        &-vertical-right > &-title:after,
+        &-vertical-left > &-title:after,
+        &-separate-icon:hover::after
+        {
+            transform: rotate(270deg) scale(0.75);
+            font-family: "uf";
+            font-style: normal;
+            vertical-align: baseline;
+            text-align: center;
+            text-transform: none;
+            text-rendering: auto;
+            position: absolute;
+            transition: transform .3s ease;
+            content: unicode("e609");
+            right: 7px;
+            top: 0;
+            display: inline-block;
+            font-size: 8px \9;
+            /* transform: scale(0.66667) rotate(0deg); */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+            zoom: 1;
+            color: $hover-color-base;
+        }
+        &-disabled &-title,
+        &-disabled &-title:after,
+        &-disabled &-arrow{
+            color: $disabled-color-base;
+            cursor: not-allowed;
+            //pointer-events: none;
+
+            &:hover {
+                color: $disabled-color-base;
+                background-color: $base-bg-color;
+                cursor: not-allowed;
+            }
+        }
+        &:hover, &-active {
+            background-color: $base-item-bg-color-hover;
+        }
+        &-selected {
+            background-color: $selected-bg-color-base;
+        }
+    }
+    &-item-group-title {
+        //color: $dropdown-menu-title-color;
+        color: $base-item-text-color-disabled;
+        font-size: $dropdown-menu-title-font-size;
+        line-height: $dropdown-menu-title-line-height;
+        padding: $dropdown-menu-title-padding;
+        background: $disabled-bg-color;
+    }
+    &-item {
+        position: relative;
+        display: block;
+        padding:$dropdown-menu-item-padding;
+        line-height: $dropdown-menu-item-light-height;
+        height: $dropdown-menu-item-height;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        clear: both;
+        font-weight: normal;
+        color: $font-color-base;
+        white-space: nowrap;
+        outline: none;
+
+        // .uf {
+        //   float: left;
+        // }
+
+
+        &:hover, &-active {
+            background-color: $base-item-bg-color-hover;
+            cursor: pointer;
+        }
+        // 去除button.css 图标样式的影响，item内容遵从全局图标样式
+        i.uf {
+            font-size: 14px;
+            padding: 0 5px;
+        }
+        &-selected{
+            // color: $brand-primary;
+            background-color: $selected-bg-color-base;
+            position: relative;
+            &:hover{
+                background-color: $base-item-bg-color-selected-hover;
+            }
+            &-icon {
+                display: none;
+                color: $brand-primary;
+                position: absolute;
+                right: 3px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            & > &-icon {
+                display: inline-block;
+            }
+        }
+
+        &-has-selected-icon {
+            padding-right: 32px;
+        }
+
+
+        &-disabled {
+            color: $disabled-color-base;
+            cursor: not-allowed;
+            //pointer-events: none;
+
+            &:hover {
+                color: $disabled-color-base;
+                background-color: $base-bg-color;
+                cursor: not-allowed;
+            }
+        }
+
+        &:last-child {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:first-child {
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        &-divider {
+            height: 1px;
+            margin: 1px 0;
+            overflow: hidden;
+            //background-color: #d9d9d9;
+            background-color: $border-color-base;
+            line-height: 0;
+            // .#{dropdown-prefix-cls}-menu-submenu-expand-icon {
+            //   position: absolute;
+            //   right: 8px;
+
+            //   .#{dropdown-prefix-cls}-menu-submenu-arrow-icon {
+            //     margin-right: 0 !important;
+            //     color: $font-color-base;
+            //     font-size: 10px;
+            //     font-style: normal;
+            //   }
+            // }
+        }
+    }
+
+    &-item-group{
+        &-list{
+            padding: 0;
+            // 使用同一个dropdown-menu-item样式，fix bug QDJCJS-8577
+            // & > .#{$dropdown-prefix-cls}-menu-item{
+            //     padding:$dropdown-menu-item-padding;
+            //     line-height: $dropdown-menu-item-light-height;
+            //     height: $dropdown-menu-item-height;
+            //     overflow: hidden;
+            //     text-overflow: ellipsis;
+            //     cursor: pointer;
+            //     color:$font-color-base;
+            //     &:hover{
+            //       background: $base-item-bg-color-hover;
+            //     }
+            // }
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgb(255, 255, 255);
+        background: rgba(255, 255, 255, 0.01);
+    }
+
+    @include set-scrollbar-style(5px, 0);
+}
+
+
+.zoom-enter,.zoom-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-enter.zoom-enter-active,.zoom-appear.zoom-appear-active {
+    -webkit-animation-name: uZoomIn;
+    animation-name: uZoomIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-leave.zoom-leave-active {
+    -webkit-animation-name: uZoomOut;
+    animation-name: uZoomOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-big-enter,.zoom-big-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-big-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-big-enter.zoom-big-enter-active,.zoom-big-appear.zoom-big-appear-active {
+    -webkit-animation-name: uZoomBigIn;
+    animation-name: uZoomBigIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-big-leave.zoom-big-leave-active {
+    -webkit-animation-name: uZoomBigOut;
+    animation-name: uZoomBigOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-big-fast-enter,.zoom-big-fast-appear {
+    -webkit-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-big-fast-leave {
+    -webkit-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-big-fast-enter.zoom-big-fast-enter-active,.zoom-big-fast-appear.zoom-big-fast-appear-active {
+    -webkit-animation-name: uZoomBigIn;
+    animation-name: uZoomBigIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.zoom-big-fast-leave.zoom-big-fast-leave-active {
+    -webkit-animation-name: uZoomBigOut;
+    animation-name: uZoomBigOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-up-enter,.zoom-up-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-up-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-up-enter.zoom-up-enter-active,.zoom-up-appear.zoom-up-appear-active {
+    -webkit-animation-name: uZoomUpIn;
+    animation-name: uZoomUpIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.zoom-up-leave.zoom-up-leave-active {
+    -webkit-animation-name: uZoomUpOut;
+    animation-name: uZoomUpOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-down-enter,.zoom-down-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-down-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-down-enter.zoom-down-enter-active,.zoom-down-appear.zoom-down-appear-active {
+    -webkit-animation-name: uZoomDownIn;
+    animation-name: uZoomDownIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.zoom-down-leave.zoom-down-leave-active {
+    -webkit-animation-name: uZoomDownOut;
+    animation-name: uZoomDownOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-left-enter,.zoom-left-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-left-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-left-enter.zoom-left-enter-active,.zoom-left-appear.zoom-left-appear-active {
+    -webkit-animation-name: uZoomLeftIn;
+    animation-name: uZoomLeftIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.zoom-left-leave.zoom-left-leave-active {
+    -webkit-animation-name: uZoomLeftOut;
+    animation-name: uZoomLeftOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.zoom-right-enter,.zoom-right-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-right-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+.zoom-right-enter.zoom-right-enter-active,.zoom-right-appear.zoom-right-appear-active {
+    -webkit-animation-name: uZoomRightIn;
+    animation-name: uZoomRightIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.zoom-right-leave.zoom-right-leave-active {
+    -webkit-animation-name: uZoomRightOut;
+    animation-name: uZoomRightOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.#{$prefix-cls}motion-collapse {
+    overflow: hidden;
+}
+.#{$prefix-cls}motion-collapse-active {
+    -webkit-transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.zoom-big-enter, .zoom-big-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.zoom-big-enter.zoom-big-enter-active, .zoom-big-appear.zoom-big-appear-active {
+    -webkit-animation-name: uZoomBigIn;
+    animation-name: uZoomBigIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-up-enter,.slide-up-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide-up-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+.slide-up-enter.slide-up-enter-active,.slide-up-appear.slide-up-appear-active {
+    -webkit-animation-name: uSlideUpIn;
+    animation-name: uSlideUpIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-up-leave.slide-up-leave-active {
+    -webkit-animation-name: uSlideUpOut;
+    animation-name: uSlideUpOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-down-enter,.slide-down-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide-down-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.slide-down-enter.slide-down-enter-active,
+.slide-down-appear.slide-down-appear-active {
+    -webkit-animation-name: uSlideDownIn;
+    animation-name: uSlideDownIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.slide-down-leave.slide-down-leave-active {
+    -webkit-animation-name: uSlideDownOut;
+    animation-name: uSlideDownOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-left-enter,.slide-left-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide-left-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+.slide-left-enter.slide-left-enter-active,
+.slide-left-appear.slide-left-appear-active {
+    -webkit-animation-name: uSlideLeftIn;
+    animation-name: uSlideLeftIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-left-leave.slide-left-leave-active {
+    -webkit-animation-name: uSlideLeftOut;
+    animation-name: uSlideLeftOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slide-right-enter,.slide-right-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    opacity: 0;
+    -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+.slide-right-leave {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.slide-right-enter.slide-right-enter-active,
+.slide-right-appear.slide-right-appear-active {
+    -webkit-animation-name: uSlideRightIn;
+    animation-name: uSlideRightIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+.slide-right-leave.slide-right-leave-active {
+    -webkit-animation-name: uSlideRightOut;
+    animation-name: uSlideRightOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.swing-enter,.swing-appear {
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+.swing-enter.swing-enter-active,
+.swing-appear.swing-appear-active {
+    -webkit-animation-name: uSwingIn;
+    animation-name: uSwingIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}

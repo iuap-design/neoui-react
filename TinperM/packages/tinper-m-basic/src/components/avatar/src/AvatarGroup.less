@@ -1,0 +1,48 @@
+@import (reference) '../../../theme/index.less';
+
+.mui-avatar-group {
+  --avatar-gap: -8px;
+  --avatar-border-radius: ~'var(--@{avatar-prefix-cls}-border-radius-avatar)';
+  --avatar-size: ~'var(--@{avatar-prefix-cls}-font-size-avatar)';;
+  --max-color: #404040;
+  --max-bacground: #E5E5E5;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto; // 防止被压缩
+
+  .mui-avatar {
+    --border-radius: var(--avatar-border-radius);
+    --size: var(--avatar-size);
+    border: 1px solid #fff;
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+    &:not(:first-child) {
+      margin-left: var(--avatar-gap);
+      z-index: 1;
+    }
+  }
+  .max-text{
+    margin-left: 0.1rem;
+    color: #000000;
+    font-size: 0.28rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    &-number{
+      color: #000000;
+      font-size: 0.28rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  .max-avatar{
+    color: var(--max-color);
+    background: var(--max-bacground);
+  }
+}

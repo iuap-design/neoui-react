@@ -1,0 +1,66 @@
+@import "minxin-colors";
+
+// 默认色
+$default-color: $palette-blue-grey-50;
+$default-color-dark: "223,225,230";
+$default-color-light: "223,225,230";
+
+// 主题色
+$primary-color: "238, 34, 35" !default;
+$primary-color-dark: "230, 0, 18" !default;
+$primary-color-light: "230, 0, 18" !default;
+
+// 字体
+$font-family-primary: "Open Sans", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif !default;
+// 主字号
+$font-size-base: 12px !default;
+// 主按钮文本色
+$text-color-base: $color-dark-contrast !default;
+
+// 圆角，包括：button、select等
+// $border-radius: 3px !default;
+$border-radius: 4px !default;
+// 边框色，包括按钮、输入框、分页
+// $border-color: "165, 173, 186" !default;
+$border-color: "217, 217, 217" !default; // 根据ue新调整
+// 条目hover背景色，包括：select、dropdown、table、datepicker、tree、menu、calendar
+$item-hover-bg-color-base: "243, 245, 249" !default;
+// 条目selected背景色，包括：select、menu等
+$item-selected-bg-color-base: "255, 247, 231" !default;
+
+// Button 细化样式变量:
+// 次按钮背景色
+$secondary-color: "229,233,236" !default;
+$secondary-color-dark: "200,206,211" !default;
+$secondary-color-light: "219,224,229" !default;
+// 次按钮文本色
+$button-secondary-text-color: "80,87,102" !default;
+
+// Table 细化样式变量：
+// 表头背景色
+$table-header-background-color: "247, 249, 253";
+// 表头文字颜色
+$table-header-text-color: "51, 51, 51";
+// 表格分割线颜色
+$table-border-color-base: "219, 224, 229";
+
+// 向下兼容
+$color-primary: $palette-blue-600 !default;
+$color-primary-dark: $palette-blue-800 !default;
+$color-primary-light: $palette-blue-400 !default;
+
+// 辅色
+$color-accent: $palette-green-600 !default;
+$color-accent-dark: $palette-green-800 !default;
+$color-accent-light: $palette-green-400 !default;
+
+
+// cyan主题
+//$color-primary: $palette-cyan-500 !default;
+//$color-primary-dark: $palette-cyan-700 !default;
+//$color-accent: $palette-light-blue-500 !default;
+
+// orange主题
+//$color-primary: $palette-orange-500 !default;
+//$color-primary-dark: $palette-orange-700 !default;
+//$color-accent: $palette-deep-orange-500 !default;

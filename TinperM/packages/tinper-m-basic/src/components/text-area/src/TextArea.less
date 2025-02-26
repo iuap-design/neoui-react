@@ -1,0 +1,110 @@
+@import (reference) '../../../theme/index.less';
+
+.@{textarea-prefix-cls}-layout {
+  // display: inline-flex;
+  width: 100%;
+}
+
+.@{textarea-prefix-cls} {
+  --color: ~"var(--@{textarea-prefix-cls}-color-text-textarea)";
+  --disabled-color: ~"var(--@{textarea-prefix-cls}-color-text-textarea-disabled)";
+  --font-size: ~"var(--@{textarea-prefix-cls}-font-size-textarea)";
+  --placeholder-color: ~"var(--@{textarea-prefix-cls}-color-text-placeholder-textarea)";
+  --text-align: left;
+  background-color: ~"var(--@{textarea-prefix-cls}-color-bg-textarea)";
+
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  caret-color: ~"var(--@{textarea-prefix-cls}-color-cursor-textarea)";
+  box-sizing: border-box;
+
+  &-clear-box {
+    display: flex;
+    width: 0.36rem;
+    height: 0.36rem;
+    margin-left: 0.08rem;
+    margin-top: 0.04rem;
+  }
+
+  &-clear {
+    color: ~"var(--@{textarea-prefix-cls}-color-icon-clear-textarea)";
+  }
+}
+
+.@{textarea-prefix-cls}-element {
+  font-family: PingFangSC, PingFang SC;
+  resize: none;
+  flex: auto;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--color);
+  font-size: var(--font-size);
+  line-height: 0.44rem;
+  font-weight: 400;
+  background: inherit;
+  border: 0;
+  outline: none;
+  appearance: none;
+  min-height: 1.5em;
+  text-align: var(--text-align);
+
+  &::placeholder {
+    color: var(--placeholder-color);
+    font-size: ~"var(--@{textarea-prefix-cls}-font-size-placeholder-textarea)";
+    font-family: inherit;
+  }
+
+  &:-webkit-autofill {
+    background-color: transparent;
+  }
+
+  &:disabled {
+    color: var(--disabled-color);
+    cursor: not-allowed;
+    opacity: 1;
+    -webkit-text-fill-color: var(--disabled-color);
+  }
+
+  &:read-only {
+    color: ~"var(--@{textarea-prefix-cls}-color-text-textarea-readonly)";
+    cursor: default;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+  }
+}
+
+.@{textarea-prefix-cls}-count {
+  --count-text-align: right;
+  text-align: var(--count-text-align);
+  color: ~"var(--@{textarea-prefix-cls}-color-text-count-textarea)";
+  font-size: 0.24rem;
+  font-weight: 400;
+}
+
+.@{textarea-prefix-cls}-showClose {
+  .@{textarea-prefix-cls}-element-hidden {
+    width: calc(100% - 0.44rem);
+  }
+}

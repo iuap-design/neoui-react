@@ -1,0 +1,86 @@
+@import (reference) '../../styles/variables.less';
+
+.showcase-background {
+    position: relative;
+
+    .point-decoration {
+        position: absolute;
+        top: -60px;
+        left: 314px;
+        z-index: 0;
+    }
+
+    background: url('../../../../public/showcase-background.png') no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.dumi-default-resources-title {
+    padding-top: 80px;
+    text-align: center;
+    height: 37px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 26px;
+    color: #333333;
+    letter-spacing: 0;
+
+    @{dark-selector} & {
+        color: @c-text-dark;
+    }
+}
+
+.dumi-default-resources-description {
+    text-align: center;
+    height: 20px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #BFBFBF;
+    letter-spacing: 0;
+    
+}
+
+.dumi-default-resources {
+    .case-content {
+        display: flex;
+        margin: 0 auto;
+        padding: 50px;
+        width: 60%;
+        height: 117px;
+        justify-content: space-between;
+
+        .case-item {
+            flex: 1 1 auto;
+            // border: 1px solid black;
+            justify-content: center;
+
+            h3 {
+                text-align: center;
+                width: 100%;
+                height: 67px;
+                font-family: HYYaKuHeiW;
+                font-size: 46px;
+                color: #5E7396;
+                letter-spacing: 0;
+                margin: 0 auto;
+            }
+
+            p {
+                margin: 0 auto;
+                text-align: center;
+                width: 100%;
+                height: 22px;
+                font-family: PingFangSC-Regular;
+                font-weight: 400;
+                font-size: 16px;
+                color: #000000;
+                letter-spacing: 0;
+                
+                @{dark-selector} & {
+                    color: @c-text-dark;
+                  }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.demos-wui-layout {
+  .layout-triger .trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .layout-triger .trigger:hover {
+    color: #1890ff;
+  }
+
+  .layout-triger .logo {
+    height: 32px;
+    width: calc(100% - 32px);
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+  }
+
+  .layout-triger .site-layout {
+    background: #f0f2f5;
+
+    main {
+      margin: 24px 16px;
+      padding: 24px;
+    }
+  }
+
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+}

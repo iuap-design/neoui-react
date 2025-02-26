@@ -1,0 +1,30 @@
+.sidebar-demo-container {
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  [data-prefers-color='dark'] & {
+    background-color: unset;
+  }
+}
+
+.sidebar-demo-side {
+  flex: none;
+}
+
+.sidebar-demo-main {
+  flex: auto;
+}
+
+.sidebar-demo-content {
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.64rem;
+  color: #cccccc;
+  &.sidebar-demo-active {
+    display: flex;
+  }
+}

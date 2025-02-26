@@ -1,0 +1,80 @@
+@import (reference) '../../../theme/index.less';
+
+.@{result-prefix-cls} {
+  padding: 0.64rem 0.24rem;
+  background-color: var(--mui-color-background);
+
+  &-icon {
+    box-sizing: border-box;
+    width: 1.28rem;
+    height: 1.28rem;
+    margin: 0 auto 0.4rem auto;
+    padding: 0.12rem;
+  }
+
+  &-title {
+    color: var(--mui-color-text);
+    font-size: var(--mui-font-size-10);
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  &-description {
+    margin-top: 0.16rem;
+    color: #555555;
+    font-size: 0.3rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+}
+
+.@{result-prefix-cls}-success {
+  .@{result-prefix-cls}-icon {
+    &-success {
+      width: 1.04rem;
+      height: 1.04rem;
+      color: var(--mui-color-success);
+    }
+  }
+}
+
+.@{result-prefix-cls}-error {
+  .@{result-prefix-cls}-icon {
+    &-error {
+      width: 1.04rem;
+      height: 1.04rem;
+      color: var(--mui-color-danger);
+    }
+  }
+}
+
+.@{result-prefix-cls}-info {
+  .@{result-prefix-cls}-icon {
+    &-info {
+      width: 1.04rem;
+      height: 1.04rem;
+      color: var(--mui-color-info);
+    }
+  }
+}
+
+.@{result-prefix-cls}-waiting {
+  .@{result-prefix-cls}-icon {
+    &-waiting {
+      width: 1.04rem;
+      height: 1.04rem;
+      color: var(--mui-color-info);
+    }
+  }
+}
+
+.@{result-prefix-cls}-warning {
+  .@{result-prefix-cls}-icon {
+    &-warning {
+      width: 1.04rem;
+      height: 1.04rem;
+      color: var(--mui-color-warning);
+    }
+  }
+}

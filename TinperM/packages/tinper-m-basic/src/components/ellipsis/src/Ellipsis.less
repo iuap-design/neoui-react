@@ -1,0 +1,13 @@
+@import (reference) '../../../theme/index.less';
+.@{ellipsis-prefix-cls} {
+  --text-color-unfold: ~"var(--@{ellipsis-prefix-cls}-color-text-unfold)";
+  overflow: hidden;
+  line-height: 1.5;
+  a {
+    color: var(--text-color-unfold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}

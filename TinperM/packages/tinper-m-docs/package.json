@@ -1,0 +1,50 @@
+{
+  "name": "tinper-m-docs",
+  "version": "0.0.1",
+  "description": "A static site based on dumi",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp pack_docs_build && dumi build && unocss && gulp demo_api_build",
+    "dev": "dumi dev",
+    "packDocs": "gulp pack_docs",
+    "uno": "unocss  --watch",
+    "start": "cross-env NODE_ENV=production concurrently npm:dev npm:packDocs npm:uno"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "dumi-theme-mobile": "^2.1.2",
+    "qrcode.react": "^2.0.0",
+    "rc-util": "^5.39.3",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-virtualized": "^9.22.5",
+    "@tinper/m-pro": "snapshot",
+    "vconsole": "^3.15.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "babel-plugin-import": "^1.13.8",
+    "concurrently": "^8.2.2",
+    "cross-env": "latest",
+    "del": "^6.0.0",
+    "dumi": "2.2.13",
+    "gulp": "^4.0.2",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "lorem-ipsum": "2.0.8",
+    "marked": "^3.0.1",
+    "prettier": "^2.7.1",
+    "unocss": "^0.58.6"
+  },
+  "authors": []
+}

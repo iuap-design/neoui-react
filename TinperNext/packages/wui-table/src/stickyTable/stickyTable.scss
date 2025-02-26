@@ -1,0 +1,802 @@
+/*
+ * @Author: Mr.mjc
+ * @Date: 2022-09-13 10:10:49
+ * @LastEditors: MJC
+ * @LastEditTime: 2024-11-04 17:30:45
+ * @Description: 
+ * @FilePath: /next-ui/packages/wui-table/src/stickyTable/stickyTable.scss
+ */
+ @import "../Mixin.scss";
+
+/*!rtl:begin:ignore*/
+.#{$table-prefix-cls} .#{$table-prefix-cls}-table-rtl {
+  direction: rtl;
+}
+/*!rtl:end:ignore*/
+
+.#{$table-prefix-cls} {
+  // 新表格样式
+  &-sticky {
+    &.#{$table-prefix-cls}-select-cell {
+      user-select: none;
+    }
+    tbody {
+      tr {
+        height: 35px;
+        // position: relative;
+      }
+    }
+    thead {
+      tr {
+        height: 30px;
+      }
+    }
+    tfoot {
+      tr.sumrow, tr.totalrow {
+        height: 26px;
+      }
+    }    
+    td {
+      background: $table-bg;
+    }
+    &.#{$table-prefix-cls}-striped {
+      tr:not(.sumrow):nth-child(even) {
+        td {
+          background: $table-striped-color;
+          &.#{$table-prefix-cls}-row-hover {
+            background:$table-row-hover-bg-color;
+          }
+        }
+      }
+      tr {
+        td.#{$table-prefix-cls}-row-cell-hover {
+          background: $base-item-bg-color-hover;
+        }
+      }     
+      tr.selected {
+        td {
+          background: $table-row-selected-bg-color;
+        }
+      }
+      tr.find-selected {
+        td {
+          background: var(--#{$table-prefix-cls}-bg-find);
+        }
+      }
+      tr.find-selected.find-current-selected {
+        td {
+          background: var(--#{$table-prefix-cls}-bg-find-select);
+        }
+      }
+      tr.selected.find-selected {
+        td.#{$table-prefix-cls}-row-cell-hover {
+          background: var(--#{$table-prefix-cls}-bg-find);
+        }
+      }
+      tr.selected.find-selected.find-current-selected {
+        td.#{$table-prefix-cls}-row-cell-hover {
+          background: var(--#{$table-prefix-cls}-bg-find-select);
+        }
+      }
+    }
+    tr {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: $base-item-bg-color-hover;
+      }
+    }
+    tr.selected {
+      td {
+        background: $table-row-selected-bg-color;
+      }
+    }
+    tr.find-selected {
+      td {
+        background: var(--#{$table-prefix-cls}-bg-find);
+      }
+    }
+    tr.find-selected.find-current-selected {
+      td {
+        background: var(--#{$table-prefix-cls}-bg-find-select);
+      }
+    }
+    tr.selected {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: $base-item-bg-color-selected-hover;
+      }
+    }
+    tr.selected.find-selected {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: var(--#{$table-prefix-cls}-bg-find);
+      }
+    }
+    tr.selected.find-selected.find-current-selected {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: var(--#{$table-prefix-cls}-bg-find-select);
+      }
+    }
+    tr.#{$table-prefix-cls}-row-actived {
+      td {
+        background: $table-row-selected-bg-color;
+      }
+    }
+    tr.#{$table-prefix-cls}-row-actived {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: $base-item-bg-color-selected-hover;
+      }
+    }
+    tr.selec#{$table-prefix-cls}-row-activedted.find-selected.find-current-selected {
+      td.#{$table-prefix-cls}-row-cell-hover {
+        background: var(--#{$table-prefix-cls}-bg-find-select);
+      }
+    }
+    .#{$table-prefix-cls}-sum {
+      background: var(--#{$table-prefix-cls}-bg-total);
+      position: relative;
+      z-index: 3;
+      tr.sumrow {
+        td {
+          background: var(--#{$table-prefix-cls}-bg-total);
+          font-size: var(--#{$table-prefix-cls}-font-size-total);
+          font-weight: var(--#{$table-prefix-cls}-font-weight-total);
+        }
+        td:not(:first-child) {
+          font-size: 13px;
+          font-weight: 600;
+        }
+      }
+      tr.totalrow {
+        td {
+          background: #fdf2e1;
+          font-size: var(--#{$table-prefix-cls}-font-size-total);
+          font-weight: var(--#{$table-prefix-cls}-font-weight-total);
+        }
+        td:not(:first-child) {
+          font-size: 13px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .#{$table-prefix-cls}-hovercontent-selected{
+      background: $base-item-bg-color-selected-hover;
+    }
+    
+    tr.#{$table-prefix-cls}-expanded-row {
+      & > td {
+        overflow: visible;
+        .#{$table-prefix-cls}-expanded-row-content {
+          position: sticky;
+          left: 0;
+          margin: 0 (-$first-horizontal-padding);
+          padding: $first-horizontal-padding;
+          overflow: hidden;
+        }
+      }
+      & > td:first-child { // QDJCJS-15621 嵌套子表格宽度超出滚动条闪烁问题
+        padding-right: 10px;
+      }
+    }
+    .#{$table-prefix-cls}-header {
+      // position: relative;
+      tr {
+        th.#{$table-prefix-cls}-thead-th:first-child {
+          border-left: none;
+        }
+      }
+      tr:first-child {
+        th.#{$table-prefix-cls}-header-cell:last-child {
+          border-right: none;
+        }
+      }
+      tr.filterable {
+        th.#{$table-prefix-cls}-header-cell:last-child {
+          border-right: none;
+        }
+      }
+      .#{$table-prefix-cls}-thead {
+        .#{$table-prefix-cls}-header-cell-expand {
+          display: inline-block;
+        }
+      }
+    }
+    .#{$table-prefix-cls}-scroll-header {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: $table-head-background-color;
+      }
+    }
+    .#{$table-prefix-cls}-scroll-sum {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: var(--#{$table-prefix-cls}-bg-total);
+      }
+    }
+    &.#{$table-prefix-cls}-bordered {
+      // .#{$table-prefix-cls}-header-box {
+      //   background: $table-head-background-color;
+      // }
+      .#{$table-prefix-cls}-header {
+        border-left: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        border-right: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        tr {
+          th.#{$table-prefix-cls}-header-cell {
+            border-right: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+          }
+          th.#{$table-prefix-cls}-header-cell.#{$table-prefix-cls}-cell-fix-left-last {
+            &::before {
+              display: none;
+            }
+          }
+          th.#{$table-prefix-cls}-header-cell:not(.#{$table-prefix-cls}-cell-fix-left-last) {
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+      .#{$table-prefix-cls}-scroll-header {
+        &:after {
+          border-right: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        }
+      }
+      .#{$table-prefix-cls}-body {
+        border-bottom: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+      }
+    }
+    &.#{$table-prefix-cls}-bordered {
+      .has-scroll-x {
+        .#{$table-prefix-cls}-body {
+          border-bottom: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        }
+      }
+      & > .#{$table-prefix-cls}-content > .#{$table-prefix-cls}-content-inner > div > .#{$table-prefix-cls}-body {
+        border-left: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        border-right: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        // overscroll-behavior: none;
+        tr {
+          td:first-child {
+            border-left: none;
+          }
+          td:last-child {
+            border-right: none;
+          }
+        }
+      }
+      .#{$table-prefix-cls}-sum {
+        border-left: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        border-right: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+        tr {
+          td:first-child {
+            border-left: none;
+          }
+          td:last-child {
+            border-right: none;
+          }
+        }
+      }
+      .#{$table-prefix-cls}-scroll-sum {
+        &:after {
+          border-right: var(--#{$table-prefix-cls}-bg-total) solid $table-border-color;
+        }
+      }
+    }
+    tr {
+      @mixin table-border-style {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: var(--#{$table-prefix-cls}-border-width);
+        height: 100%;
+        background-color: $table-border-color;
+        transform: translateY(-50%);
+        transition: background-color 0.3s;
+        content: '';
+      }
+      th {
+        position: relative;
+      }
+      th.#{$table-prefix-cls}-header-fix-sticky {
+        position: sticky !important;
+        z-index: 2;
+      }
+      th.#{$table-prefix-cls}-header-cell {
+        border-right: none;
+        &:not(:last-child):not(.#{$table-prefix-cls}-cell-fix-left-last)::after, &.#{$table-prefix-cls}-cell-fix-left-last::before {
+          @include table-border-style()
+        }
+      }
+      &:not(:first-child) {
+        th.#{$table-prefix-cls}-header-cell {
+          &:not(.#{$table-prefix-cls}-cell-fix-left-last)::after{
+            @include table-border-style()
+          }
+        }
+      }
+    }
+    tr {
+      td[colspan='0'], td[rowspan='0'] {
+        display: none;
+      }
+      td {
+        position: relative;
+      }
+      td:not(:last-child).#{$table-prefix-cls}-cell-fix-left-last, th:not(:last-child).#{$table-prefix-cls}-cell-fix-left-last {
+        overflow: visible;
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: -1px;
+          width: 30px;
+          transform: translateX(29px);
+          transition: box-shadow 0.3s;
+          content: '';
+          pointer-events: none;
+        }
+        .#{$table-prefix-cls}-cell-content {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      td.#{$table-prefix-cls}-cell-fix-left-last.#{$table-prefix-cls}-cell-fix-left-all, 
+      th.#{$table-prefix-cls}-cell-fix-left-last.#{$table-prefix-cls}-cell-fix-left-all {
+        &::after {
+          display: none;
+        }
+      }
+      td.#{$table-prefix-cls}-cell-fix-sticky {
+        position: sticky !important;
+        z-index: 2;
+      }
+      td:not(:first-child).#{$table-prefix-cls}-cell-fix-right-first, th:not(:first-child).#{$table-prefix-cls}-cell-fix-right-first {
+        overflow: visible;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: -1px;
+          width: 30px;
+          // box-shadow: inset -15px 0 12px -8px rgb(0 0 0 / 15%);
+          transform: translateX(-29px);
+          transition: box-shadow 0.3s;
+          content: '';
+          pointer-events: none;
+        }
+        .#{$table-prefix-cls}-cell-content {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        
+      }
+      // 解决单选列icon在某种缩放下被遮挡一部分问题，多选列宽度某种情况异常的情况
+      td.#{$table-prefix-cls}-single-column.#{$table-prefix-cls}-cell-fix-left-last, th.#{$table-prefix-cls}-single-column.#{$table-prefix-cls}-cell-fix-left-last {
+        .#{$table-prefix-cls}-cell-content {
+          display: inline;
+        }
+      }
+      td.#{$table-prefix-cls}-single-column.#{$table-prefix-cls}-cell-fix-right-first, th.#{$table-prefix-cls}-single-column.#{$table-prefix-cls}-cell-fix-right-first {
+        .#{$table-prefix-cls}-cell-content {
+          display: inline;
+        }
+      }
+      td.#{$table-prefix-cls}-multiSelect-column.#{$table-prefix-cls}-cell-fix-left-last, th.#{$table-prefix-cls}-multiSelect-column.#{$table-prefix-cls}-cell-fix-left-last {
+        .#{$table-prefix-cls}-cell-content {
+          display: inline;
+        }
+      }
+      td.#{$table-prefix-cls}-multiSelect-column.#{$table-prefix-cls}-cell-fix-right-first, th.#{$table-prefix-cls}-multiSelect-column.#{$table-prefix-cls}-cell-fix-right-first {
+        .#{$table-prefix-cls}-cell-content {
+          display: inline;
+        }
+      }
+      td.#{$table-prefix-cls}-cell-selected {
+        background: var(--#{$table-prefix-cls}-select-background-color);
+        user-select: none;
+        &.#{$table-prefix-cls}-cell-selected-left-solid {
+          border-left: var(--#{$table-prefix-cls}-select-border-width) solid var(--#{$table-prefix-cls}-select-border-color);
+          // &::before {
+          //   position: absolute;
+          //   top: 0;
+          //   left: 0;
+          //   bottom: 0px;
+          //   width: 1px;
+          //   border: 1px solid #588ce9;
+          //   content: '';
+          //   pointer-events: none;
+          // }
+        
+        }
+        &.#{$table-prefix-cls}-cell-selected-right-solid {
+          border-right: var(--#{$table-prefix-cls}-select-border-width) solid var(--#{$table-prefix-cls}-select-border-color) !important;
+        }
+        &.#{$table-prefix-cls}-cell-selected-top-solid {
+          border-top: var(--#{$table-prefix-cls}-select-border-width) solid var(--#{$table-prefix-cls}-select-border-color);
+        }
+        &.#{$table-prefix-cls}-cell-selected-bottom-solid {
+          border-bottom:var(--#{$table-prefix-cls}-select-border-width) solid var(--#{$table-prefix-cls}-select-border-color);
+        }
+        &.#{$table-prefix-cls}-cell-selected-left-dashed{
+          border-left: var(--#{$table-prefix-cls}-select-border-width) dashed var(--#{$table-prefix-cls}-select-border-color);
+          // &::before {
+          //   position: absolute;
+          //   top: 0;
+          //   left: 0;
+          //   bottom: 0px;
+          //   width: 1px;
+          //   border: 1px solid #588ce9;
+          //   content: '';
+          //   pointer-events: none;
+          // }
+        
+        }
+        &.#{$table-prefix-cls}-cell-selected-right-dashed {
+          border-right: var(--#{$table-prefix-cls}-select-border-width) dashed var(--#{$table-prefix-cls}-select-border-color) !important;
+        }
+        &.#{$table-prefix-cls}-cell-selected-top-dashed {
+          border-top: var(--#{$table-prefix-cls}-select-border-width) dashed var(--#{$table-prefix-cls}-select-border-color);
+        }
+        &.#{$table-prefix-cls}-cell-selected-bottom-dashed {
+          border-bottom: var(--#{$table-prefix-cls}-select-border-width) dashed var(--#{$table-prefix-cls}-select-border-color);
+        }
+      }
+      // tip: 解决最后一列右固定左右滚动背景色透出非固定列文字的问题
+      th:is(:last-child).#{$table-prefix-cls}-cell-fix-right, td:is(:last-child).#{$table-prefix-cls}-cell-fix-right{
+        box-shadow: 1px 0 $table-head-background-color;
+      }
+    }
+    // &.#{$table-prefix-cls}-scroll-position-middle, &.#{$table-prefix-cls}-scroll-position-right {
+    //   tr {
+    //     td.#{$table-prefix-cls}-cell-fix-left-last, th.#{$table-prefix-cls}-cell-fix-left-last {
+    //       &:after {
+    //         box-shadow: inset 15px 0 12px -8px rgb(0 0 0 / 15%);
+    //         // transform: rotate(180deg);
+    //         // transform-origin: 35px 50%;
+    //       }
+    //     }
+    //     th.#{$table-prefix-cls}-cell-fix-left-last {
+    //       &::before {
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
+    // &.#{$table-prefix-cls}-scroll-position-middle, &.#{$table-prefix-cls}-scroll-position-left {
+    //   tr {
+    //     td.#{$table-prefix-cls}-cell-fix-right-first, th.#{$table-prefix-cls}-cell-fix-right-first {
+    //       &:before {
+    //         box-shadow: inset -15px 0 12px -8px rgb(0 0 0 / 15%);
+    //       }
+    //     }
+    //   }
+    // }
+    &.#{$table-prefix-cls}-scroll-position-left, &.#{$table-prefix-cls}-scroll-position-middle, &.#{$table-prefix-cls}-scroll-position-right {
+      tr {
+        td.#{$table-prefix-cls}-cell-fix-left-last, th.#{$table-prefix-cls}-cell-fix-left-last {
+          &:after {
+            box-shadow: inset 15px 0 12px -8px rgb(0 0 0 / 05%);
+          }
+        }
+        th.#{$table-prefix-cls}-cell-fix-left-last {
+          &::before {
+            display: none;
+          }
+        }
+      }
+      tr {
+        td.#{$table-prefix-cls}-cell-fix-right-first, th.#{$table-prefix-cls}-cell-fix-right-first {
+          &:before {
+            box-shadow: inset -15px 0 12px -8px rgb(0 0 0 / 05%);
+          }
+        }
+      }
+    }
+    &.#{$table-prefix-cls}-bordered .#{$table-prefix-cls}-content {
+      tr th:first-child {
+        border-left: none;
+      }
+    }
+    &.has-fixed-left .#{$table-prefix-cls}-content .#{$table-prefix-cls}-scroll {
+      tr td:first-child, tr th:first-child {
+        padding-left: 10px;
+      }
+    }
+    &.has-fixed-left .#{$table-prefix-cls}-content .#{$table-prefix-cls}-scroll {
+      tr td.#{$table-prefix-cls}-multiSelect-column, tr th.#{$table-prefix-cls}-multiSelect-column {
+        padding-left: 4px;
+      }
+      tr td.#{$table-prefix-cls}-single-column, tr th.#{$table-prefix-cls}-single-column {
+        padding-left: 4px;
+        .#{$prefix-cls}radio-group {
+          top: -4px;
+          .#{$prefix-cls}radio-no-content .#{$prefix-cls}radio-label {
+            display: inline-flex;
+          }
+        }
+      }
+    }
+  }
+  &-has-sum {
+    .#{$table-prefix-cls}-sum {
+      //https://blog.csdn.net/weixin_58032613/article/details/123710273
+      &::-webkit-scrollbar {
+        // 横向滚动条
+        // &:horizontal {
+          display: none;
+        // }s
+        //纵向滚动条
+        // &:vertical {
+        //   display: none;
+        // }
+      }
+      // 修改火狐滚动条样式的css属性只有 scrollbar-color 和 scrollbar-width。
+      scrollbar-width: none;
+      // -ms-overflow-style: none
+    }
+  }
+  &-single {
+    .#{$table-prefix-cls}-thead {
+      position: sticky !important;
+      top: 0;
+      z-index: 3;
+    }
+    .#{$table-prefix-cls}-body {
+      overflow-y: auto;
+    }
+  }
+  .#{$table-prefix-cls}-placeholder-cell {
+    overflow: visible;
+    padding: $vertical-padding 8px !important;
+    border-bottom: none;
+    .#{$table-prefix-cls}-placeholder {
+      position: sticky;
+      left: 0;
+      margin: -$vertical-padding -8px;
+      padding: $vertical-padding 8px;
+      background: $table-bg;
+      // border-bottom: var(--#{$table-prefix-cls}-border-width) solid $table-border-color;
+      text-align: center;
+      overflow: hidden;
+    }
+  }
+  .#{$table-prefix-cls}-row-hover-content-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    .#{$table-prefix-cls}-row-hover-content {
+      position: sticky;
+      left: 0;
+      height: 100%; 
+      z-index: 3;
+      .#{$table-prefix-cls}-row-hover-content-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .#{$table-prefix-cls}-row-hover-content-container-target {
+          height: 100%;
+          position: absolute;
+          right: 12px; 
+          z-index: 4; 
+          top: 0; 
+          pointer-events: all;
+          
+        }
+      }
+    }
+  }
+}
+
+// 过滤重构后的样式
+
+.#{$table-prefix-cls}-filter-box {
+  margin: -8px;
+  overflow: hidden;
+  display: flex;
+  max-width: 520px;
+  .#{$table-prefix-cls}-filter-box-left {
+    flex: 1;
+    max-width: 260px;
+    min-width: 260px;
+    padding: 12px 12px 8px 12px;
+    .#{$table-prefix-cls}-filter-box-left-header {
+      display: flex;
+      height: 30px;
+      margin-bottom: 8px;
+      .#{$table-prefix-cls}-filter-search {
+        flex: 1
+      }
+      .#{$table-prefix-cls}-filter-sort {
+        width: 24px;
+        margin-left: 2px;
+        line-height: 30px;
+      }
+    }
+    .#{$table-prefix-cls}-filter-box-left-body {
+      max-height: 300px;
+      max-width: 250px;
+      min-height: 80px;
+      overflow-x: hidden;
+      margin-bottom: 8px;
+      .#{$table-prefix-cls}-pop-check-wrap {
+        padding: 6px 0;
+        height: 34px;
+        &:hover {
+          background: $base-item-bg-color-hover;
+          cursor: pointer;
+          .#{$table-prefix-cls}-pop-check-wrap-item {
+            .#{$prefix-cls}checkbox{
+              max-width: 122px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              .#{$prefix-cls}checkbox-label {
+                display: inline-block;
+                max-width: 122px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .#{$prefix-cls}radio {
+              max-width: 122px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              vertical-align: middle;
+              .#{$prefix-cls}radio-label {
+                display: inline-block;
+                max-width: 122px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .#{$table-prefix-cls}-pop-check-wrap-item-check {
+              display: inline-block;
+              position: absolute;
+              right: 0;
+              top: 0;
+              // width: 100%;
+              height: 22px;
+              line-height: 22px;
+              text-align: right;
+            }
+          }
+        }
+        .#{$table-prefix-cls}-pop-check-wrap-item {
+          position: relative;
+          .#{$prefix-cls}checkbox {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            .#{$prefix-cls}checkbox-label {
+              display: inline-block;
+              max-width: 178px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              line-height: 14px;
+              span {
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+          }
+          .#{$prefix-cls}radio {
+            max-width: 122px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: middle;
+            .#{$prefix-cls}radio-label {
+              display: inline-block;
+              max-width: 100px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          .#{$table-prefix-cls}-pop-check-wrap-item-num {
+            // margin-left: 5px; 
+            color: #9CA3AF;
+            line-height: 14px;
+            display: inline-block;
+            height: 14px;
+            vertical-align: middle;
+          }
+          .#{$table-prefix-cls}-pop-check-wrap-item-check {
+            display: none;
+          }
+        }
+      }
+    }
+    .#{$table-prefix-cls}-filter-box-left-footer {
+      padding: 2px 0;
+      text-align: right;
+      .#{$prefix-cls}checkbox {
+        float: left;
+        margin-top: 4px;
+        .#{$table-prefix-cls}-filter-box-left-check-num {
+          display: inline-block;
+          max-width: 100px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          span:not(.#{$table-prefix-cls}-filter-box-left-checked-num) {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .#{$table-prefix-cls}-filter-box-left-checked-num:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .#{$prefix-cls}button {
+        margin-left: 5px;
+      }
+    }
+  }
+  .#{$table-prefix-cls}-filter-box-right {
+    flex: 1;
+    max-width: 260px;
+    min-width: 260px;
+    padding: 12px 12px 8px 12px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #d9d9d9;
+    .#{$table-prefix-cls}-filter-box-right-body {
+      @include set-scrollbar-style();
+      max-height: 338px;
+      flex: 1;
+      margin-bottom: 8px;
+      // background: #e3b11d33;
+      overflow: hidden auto;
+      .#{$table-prefix-cls}-filter-box-right-tag-box {
+        .#{$prefix-cls}tag {
+          margin-bottom: 10px !important;
+          .#{$table-prefix-cls}-filter-box-right-tag {
+            max-width: 198px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .#{$table-prefix-cls}-filter-box-right-footer {
+      padding: 2px 0;
+      text-align: right;
+    }
+  }
+}
+
+
+.#{$table-prefix-cls}-cell-selected-menu {
+  background: #fff;
+  border: 1px solid #D7D5D5;
+  box-shadow: 0 0 15px 0 #0000001a;
+}

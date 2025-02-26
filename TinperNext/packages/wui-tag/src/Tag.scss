@@ -1,0 +1,304 @@
+@import "../../wui-core/scss/minxin-mixins";
+
+//$tag-prefix-cls: $prefix-cls + 'tag';
+
+$tag-line-height-lg: 26px;
+$tag-padding-x-lg: 8px;
+$tag-line-height-md: 20px;
+$tag-padding-x-md: 8px;
+$tag-line-height-sm: 18px;
+$tag-padding-x-sm: 4px;
+
+$tag-font-size: 12px;
+$tag-border-radius: 4px;
+
+$tag-border-width: 1px;
+$tag-border-style: solid;
+$tag-border-color: #505766;
+
+
+// $tag-text-color:#FFFFFF;
+// $tag-dark-color: $brand-dark;
+// $tag-primary-color: $brand-primary;
+// $tag-success-color: $brand-success;
+// $tag-warning-color: $brand-warning;
+// $tag-danger-color: $brand-danger;
+// $tag-info-color: $brand-info;
+
+// $tag-dark-background-color:#DADEE4;;
+// $tag-primary-background-color:#f0c8c8;
+// $tag-success-background-color:$tag-success-color;
+// $tag-warning-background-color:$tag-warning-color;
+// $tag-danger-background-color:$tag-danger-color;
+// $tag-info-background-color:$tag-info-color;
+
+//标签颜色
+@mixin tag-styles-variant($text-color,$bg-color) {
+    color: $text-color;
+    background-color: $bg-color;
+    border: $tag-border-width $tag-border-style transparent;
+}
+
+@mixin border-tag-styles-variant($text-color,$bg-color, $border-color) {
+    color: $text-color;
+    background-color: $bg-color;
+    border: 1px $border-color solid;
+}
+
+.#{$tag-prefix-cls}{
+    position:relative;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor:default;
+    // text-align:center;
+    vertical-align: middle;
+    overflow: hidden;
+    outline: none;
+    cursor: default;
+    text-decoration: none;
+    padding-top:0;
+    border-radius: $tag-border-radius;
+    font-weight: 400;
+    font-size: var(--#{$tag-prefix-cls}-font-size);
+    margin-right: 10px;
+    &.#{$tag-prefix-cls}[disabled]{ // 禁用标签
+      cursor: not-allowed;
+      background-color: #EBECF0;
+      color: var(--#{$tag-prefix-cls}-color-text-disabled);
+    }
+    // 边框
+    &.#{$tag-prefix-cls}-border{
+        border: $tag-border-width $tag-border-style $tag-border-color;
+    }
+}
+
+.#{$tag-prefix-cls}-lg {
+    height: $tag-line-height-lg;
+    // line-height: $tag-line-height-lg;
+    padding-left: $tag-padding-x-lg;
+    padding-right: $tag-padding-x-lg;
+}
+// 默认大小
+.#{$tag-prefix-cls}-md {
+    height: $tag-line-height-md;
+    // line-height: $tag-line-height-md;
+    padding-left: $tag-padding-x-md;
+    padding-right: $tag-padding-x-md;
+}
+.#{$tag-prefix-cls}-sm {
+    height: $tag-line-height-sm;
+    // line-height: $tag-line-height-sm;
+    padding-left: $tag-padding-x-sm;
+    padding-right: $tag-padding-x-sm;
+    border-radius: 2px;
+}
+
+// 深色标签
+.#{$tag-prefix-cls}-dark {
+    @include border-tag-styles-variant($tag-dark-text,$tag-dark-bg, $tag-dark-border);
+    font-size: var(--#{$tag-prefix-cls}-font-size);
+}
+
+// 默认标签
+.#{$tag-prefix-cls}-light {
+    @include border-tag-styles-variant($tag-light-text,$tag-light-bg,$tag-light-border);
+}
+
+// 语义色标签
+// .#{$tag-prefix-cls}.#{$tag-prefix-cls}-success{
+//     @include tag-styles-variant($tag-text-color,$tag-success-color);
+// }
+// .#{$tag-prefix-cls}.#{$tag-prefix-cls}-warning{
+//     @include tag-styles-variant($tag-text-color,$tag-warning-color);
+// }
+// .#{$tag-prefix-cls}.#{$tag-prefix-cls}-danger{
+//     @include tag-styles-variant($tag-text-color,$tag-danger-color);
+// }
+// .#{$tag-prefix-cls}.#{$tag-prefix-cls}-info{
+//     @include tag-styles-variant($tag-text-color,$tag-info-color);
+// }
+// 预设颜色标签 half-
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-half-blue,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-half-blue{
+    @include tag-styles-variant(#333,rgba(88,140,233,0.25));
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-half-green,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-half-green{
+    @include tag-styles-variant(#333,rgba(24,182,129,0.25));
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-half-dark,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-half-dark{
+    @include tag-styles-variant(#333,rgba(102,102,102,0.25));
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-half-yellow,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-half-yellow{
+    @include tag-styles-variant(#333,rgba(255,166,0,0.25));
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-half-red,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-half-red{
+    @include tag-styles-variant(#333,rgba(238,34,35,0.25));
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-purple,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-purple{
+    @include border-tag-styles-variant(#6366F1,#EEF2FF,#E0E7FF);
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-orange,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-orange{
+    @include border-tag-styles-variant(#F97316,#FFEDD5,#FFF7ED);
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-pink,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-pink{
+    @include border-tag-styles-variant(#EC4899,#FCE7F3,#FDF2F8);
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-green,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-green{
+    @include border-tag-styles-variant(#84CC16,#ECFCCB,#F7FEE7);
+}
+// .#{$tag-prefix-cls}-disabled, .#{$tag-prefix-cls}[disabled]{
+//     cursor: not-allowed;
+//     background-color: #EBECF0;
+//     color: #909090;
+// }
+
+// 可删除标签
+.#{$tag-prefix-cls}-delete{
+    cursor:pointer;
+    display: inline-flex;
+    align-items: center;
+    //border: 1px solid #DBE0E5;
+    border: 1px solid $border-color-base;
+    &:hover{
+        //border-color: #505766;
+        border-color: $hover-color-base;
+    }
+    .uf{
+        //color: #cccccc;
+        color: $close-icon-base-color;
+        font-size: var(--#{$tag-prefix-cls}-font-size-icon);
+        padding-right:0;
+        padding-left: 6px;
+        margin-top: 1px;
+        display:inline-block;
+        transform: scale(0.8, 0.8);
+        &:hover {
+            //color: #EE2223;
+            color: $close-icon-hover-color;
+        }
+    }
+}
+
+
+// 可选标签
+.#{$tag-prefix-cls}-select{
+    background: #FFFFFF;
+    color:#212121;
+    cursor: pointer;
+    &:hover{
+        background: #EBECF0;
+    }
+}
+
+.#{$tag-prefix-cls}-selected{
+    background: #505F79;
+    color: var(--#{$tag-prefix-cls}-color-text-dark);
+    cursor: pointer;
+    &:hover{
+        background: #505F79;
+        color: var(--#{$tag-prefix-cls}-color-text-dark);
+    }
+}
+
+.#{$tag-prefix-cls}-icon{
+    .uf{
+        margin-right: 4px;
+        padding: 0;
+        // line-height: normal;
+        font-size: $tag-font-size;
+        // vertical-align: middle;
+    }
+}
+
+// 语意色标签
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-success,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-success{
+    @include border-tag-styles-variant($tag-success-text,$tag-success-bg,$tag-success-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-success-text, transparent, $tag-success-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-success-text, $tag-success-text);
+    }
+}
+
+
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-warning,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-warning{
+    @include border-tag-styles-variant($tag-warning-text,$tag-warning-bg,$tag-warning-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-warning-text, transparent, $tag-warning-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-warning-text, $tag-warning-text);
+    }
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-danger,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-danger{
+    @include border-tag-styles-variant($tag-danger-text,$tag-danger-bg,$tag-danger-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-danger-text, transparent, $tag-danger-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-danger-text, $tag-danger-text);
+    }
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-info,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-info{
+    @include border-tag-styles-variant($tag-info-text,$tag-info-bg,$tag-info-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-info-text, transparent, $tag-info-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-info-text, $tag-info-text);
+    }
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-invalid,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-invalid{
+    @include border-tag-styles-variant($tag-invalid-text,$tag-invalid-bg,$tag-invalid-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-invalid-text, transparent, $tag-invalid-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-invalid-text, $tag-invalid-text);
+    }
+}
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-selected.#{$tag-prefix-cls}-active-start,
+.#{$tag-prefix-cls}.#{$tag-prefix-cls}-start{
+    @include border-tag-styles-variant($tag-start-text,$tag-start-bg,$tag-start-border);
+    font-weight: $tag-font-weight;
+    &.#{$tag-prefix-cls}-border {
+        @include border-tag-styles-variant($tag-start-text, transparent, $tag-start-text);
+    }
+    &.#{$tag-prefix-cls}-filled {
+        @include border-tag-styles-variant($tag-dark-text, $tag-start-text, $tag-start-text);
+    }
+}
+
+// 多彩标签带边框
+// .#{$tag-prefix-cls}-border.#{$tag-prefix-cls}-success{
+//     @include border-tag-styles-variant($tag-success-color,$tag-success-bg);
+// }
+// .#{$tag-prefix-cls}-border.#{$tag-prefix-cls}-warning{
+//     @include border-tag-styles-variant($tag-warning-color,$tag-warning-background-color);
+// }
+// .#{$tag-prefix-cls}-border.#{$tag-prefix-cls}-danger{
+//     @include border-tag-styles-variant($tag-danger-color,$tag-danger-background-color);
+// }
+// .#{$tag-prefix-cls}-border.#{$tag-prefix-cls}-info{
+//     @include border-tag-styles-variant($tag-info-color,$tag-info-background-color);
+// }

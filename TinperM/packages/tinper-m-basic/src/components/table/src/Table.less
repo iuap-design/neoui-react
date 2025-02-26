@@ -1,0 +1,178 @@
+@import (reference) '../../../theme/index.less';
+
+/* 文本省略样式 */
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* 文本展示方式样式 */
+.text-display() {
+  &.text-horizontal-align {
+    &-left {
+      justify-content: flex-start;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+
+  &.text-vertical-align {
+    &-top {
+      align-items: flex-start;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+
+  &.text-ellipsis {
+    span {
+      .text-ellipsis()
+    }
+  }
+
+  &.text-wrap {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  &.text-scale {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: 'center'
+  }
+}
+
+/* table容器 */
+.@{table-prefix-cls}-basic-container {
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: fit-content;
+  position: relative;
+
+  .@{table-prefix-cls} {
+    height: 100%;
+    width: fit-content;
+
+    /* body容器 */
+    &-tbody-container {
+      position: relative;
+      max-height: 6rem;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    &-empty {
+      height: 2.88rem;
+      width: 100vw;
+    }
+
+    /* body和header的公共样式 */
+    .thead,
+    &-tbody {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .@{table-prefix-cls}-tr {
+        display: flex;
+
+        .cell {
+          display: flex;
+          box-sizing: border-box;
+          flex-shrink: 0;
+          flex-grow: 0;
+          min-height: 0.72rem;
+          padding: 0.16rem 0.18rem;
+
+          &:last-child {
+            flex-grow: 1;
+          }
+
+          &-flex-grow {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+
+    .thead .cell {
+      height: 0.72rem;
+      white-space: normal;
+      word-break: break-all;
+      background-color: #E5E5E5;
+      font-weight: 400;
+      font-size: 0.26rem;
+      color: #111111;
+      line-height: 1.5;
+      font-style: normal;
+      text-transform: none;
+      align-items: center;
+      justify-content: center;
+      .text-display()
+    }
+
+    &-tbody .cell {
+      white-space: normal;
+      word-break: break-all;
+      font-weight: 400;
+      font-size: 0.24rem;
+      color: #555555;
+      line-height: 1.5;
+      font-style: normal;
+      text-transform: none;
+      align-items: center;
+      justify-content: center;
+      .text-display()
+    }
+  }
+
+  // 边框样式
+  .@{table-prefix-cls} {
+    .@{table-prefix-cls}-tr {
+      display: flex;
+
+      .cell {
+        border-bottom: 1px solid #DCDCDC;
+      }
+    }
+
+    &-bordered {
+      border: 1px solid #DCDCDC;
+    }
+
+    &-vertical-splitline {
+      .@{table-prefix-cls}-tr {
+        display: flex;
+
+        .cell {
+          border-right: 1px solid #DCDCDC;
+        }
+      }
+    }
+  }
+
+  // 间隔换色
+  .@{table-prefix-cls}-spaced-row-color {
+    .@{table-prefix-cls}-tbody {
+      .@{table-prefix-cls}-tr-odd {
+        background-color: #FAFAFA;
+      }
+    }
+  }
+}

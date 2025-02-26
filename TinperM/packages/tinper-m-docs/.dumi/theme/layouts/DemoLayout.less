@@ -1,0 +1,51 @@
+@import (reference) '../styles/variables.less';
+
+html,
+body {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.@{prefix}-demo-layout {
+  padding: 16px 12px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: #f7f8fa;
+  h3 {
+    font-size: 0.28rem;
+    color: #000000;
+    font-weight: 400;
+    padding-left: 0.24rem;
+  }
+  div.demo-title{
+    font-size: 0.28rem;
+    color: #000000;
+    font-weight: 400;
+    padding-left: 0.24rem;
+  }
+  div.demo-block{
+    background: #FFF;
+  }
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+
+@{dark-selector} .@{prefix}-demo-layout {
+  background: #171717;
+  h3 {
+    color: #fafafa;
+  }
+  div.demo-title{
+    color: #fafafa;
+  }
+  div.demo-block{
+    background: #171717;
+  }
+}
+
+#__vconsole {
+  font-size: 13px !important;
+}

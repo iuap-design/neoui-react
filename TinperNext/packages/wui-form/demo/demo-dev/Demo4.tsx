@@ -1,0 +1,134 @@
+/**
+ *
+ * @title 多表单联动
+ * @description 通过 Form.Provider 在表单间处理数据。本例子中，Modal 的确认按钮在 Form 之外，通过 form.submit 方法调用表单提交功能。反之，则推荐使用 <Button htmlType="submit" /> 调用 web 原生提交逻辑。
+ */
+
+import React, { useEffect, useRef, useState } from 'react';
+import { Avatar, Button, Form, Input, InputNumber, Modal, Icon } from '@tinper/next-ui';
+
+const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+};
+
+const tailLayout = {
+    wrapperCol: { offset: 8, span: 16 },
+};
+
+interface UserType {
+  name: string;
+  age: string;
+}
+
+interface ModalFormProps {
+  open: boolean;
+  onCancel: () => void;
+}
+
+// reset form fields when modal is form, closed
+const useResetFormOnCloseModal = ({ form, open }: { form: any; open: boolean }) => {
+    const prevOpenRef = useRef<boolean>();
+    useEffect(() => {
+        prevOpenRef.current = open;
+    }, [open]);
+    const prevOpen = prevOpenRef.current;
+
+    useEffect(() => {
+        if (!open && prevOpen) {
+            form.resetFields();
+        }
+    }, [form, prevOpen, open]);
+};
+
+// eslint-disable-next-line react/prop-types
+const ModalForm: React.FC<ModalFormProps> = ({ open, onCancel }) => {
+    const [form] = Form.useForm();
+
+    useResetFormOnCloseModal({
+        form,
+        open,
+    });
+
+    const onOk = () => {
+        form.submit();
+    };
+
+    return (
+        <Modal title="Basic Drawer" show={open} onOk={onOk} onCancel={onCancel}>
+            <Form form={form} layout="vertical" name="userForm">
+                <Form.Item name="name" label="User Name" rules={[{ required: true }]}>
+                    <Input />
+                </Form.Item>
+                <Form.Item name="age" label="User Age" rules={[{ required: true }]}>
+                    <InputNumber />
+                </Form.Item>
+            </Form>
+        </Modal>
+    );
+};
+
+const App: React.FC = () => {
+    const [open, setOpen] = useState(false);
+
+    const showUserModal = () => {
+        setOpen(true);
+    };
+
+    const hideUserModal = () => {
+        setOpen(false);
+    };
+
+    const onFinish = (values: any) => {
+        console.log('Finish:', values);
+    };
+
+    return (
+        <Form.Provider
+            onFormFinish={(name, { values, forms }) => {
+                if (name === 'userForm') {
+                    const { basicForm } = forms;
+                    const users = basicForm.getFieldValue('users') || [];
+                    basicForm.setFieldsValue({ users: [...users, values] });
+                    setOpen(false);
+                }
+            }}
+        >
+            <Form {...layout} name="basicForm" onFinish={onFinish} style={{ maxWidth: 600 }}>
+                <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    label="User List"
+                    shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}
+                >
+                    {({ getFieldValue }: any) => {
+                        const users: UserType[] = getFieldValue('users') || [];
+                        return users.length ? (
+                            <ul>
+                                {users.map((user) => (
+                                    <li key={user.name} className="user">
+                                        <Avatar icon={<Icon type="uf-caven"/>} />
+                                        {user.name} - {user.age}
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : ('No user yet');
+                    }}
+                </Form.Item>
+                <Form.Item {...tailLayout}>
+                    <Button htmlType="submit" type="primary">
+                        Submit
+                    </Button>
+                    <Button htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
+                        Add User
+                    </Button>
+                </Form.Item>
+            </Form>
+
+            <ModalForm open={open} onCancel={hideUserModal} />
+        </Form.Provider>
+    );
+};
+
+export default App;

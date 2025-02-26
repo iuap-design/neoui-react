@@ -1,0 +1,1888 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckList Component  <test prop:: activeIcon> should render activeIcon 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: clsPrefix> should have clsPrefix  1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default test-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item test-check-list-item mui-plain-anchor test-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="test-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item test-check-list-item mui-plain-anchor test-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="test-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item test-check-list-item mui-plain-anchor test-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="test-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: defaultValue> should render default value 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  style="width: 0.44rem; height: 0.44rem;"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    style="width: 0.44rem; height: 0.44rem;"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: disabled> should render disabled all  1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-list-item-disabled mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-list-item-disabled mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-list-item-disabled mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: extra> <test prop:: children> should render extra 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: extra> <test prop:: children> should render extra 2`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle-Fill"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M512 93.090909a418.909091 418.909091 0 1 1 0 837.818182 418.909091 418.909091 0 0 1 0-837.818182z m159.744 281.6l-204.055273 204.055273-105.285818-105.332364a37.236364 37.236364 0 0 0-52.689454 52.642909l131.67709 131.723637a37.236364 37.236364 0 0 0 52.64291 0l230.4-230.4a37.236364 37.236364 0 0 0-52.689455-52.689455z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: extra> <test prop:: children> should render extra 3`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M940.3904 513.7152C940.3904 278.0672 749.35808 87.04 513.7152 87.04 278.0672 87.04 87.04 278.0672 87.04 513.7152c0 235.648 191.0272 426.6752 426.6752 426.6752 235.64288 0 426.6752-191.0272 426.6752-426.6752z m-789.3504 0c0-200.2944 162.37568-362.6752 362.6752-362.6752 200.29952 0 362.67008 162.37568 362.67008 362.6752 0 200.29952-162.37056 362.6752-362.67008 362.6752S151.04 714.01472 151.04 513.7152z m520.192-145.82784l-207.83616 207.83616-107.2384-107.28448a37.92896 37.92896 0 0 0-53.66784 53.62176l134.1184 134.1184a37.93408 37.93408 0 0 0 53.62176 0l234.67008-234.6752a37.9392 37.9392 0 0 0-26.8544-64.7424 37.90336 37.90336 0 0 0-26.81344 11.12576z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark-circle-Fill"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M512 93.090909a418.909091 418.909091 0 1 1 0 837.818182 418.909091 418.909091 0 0 1 0-837.818182z m159.744 281.6l-204.055273 204.055273-105.285818-105.332364a37.236364 37.236364 0 0 0-52.689454 52.642909l131.67709 131.723637a37.236364 37.236364 0 0 0 52.64291 0l230.4-230.4a37.236364 37.236364 0 0 0-52.689455-52.689455z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: extraAlign> should render align left 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-prefix"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-prefix"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-prefix"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should control by multiple selected value 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should control by multiple selected value 2`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should control by multiple selected value 3`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should control by multiple selected value 4`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should render multiple selected Value 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should render multiple selected Value 2`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: multiple> should render multiple selected Value 3`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra mui-check-list-item-extra-multiple mui-check-list-item-extra-active"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: readOnly> should render readOnly all  1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <div
+          class="mui-list-item mui-check-list-item mui-check-list-item-readonly mui-check-list-item mui-check-list-item-readonly"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mui-list-item mui-check-list-item mui-check-list-item-readonly mui-check-list-item mui-check-list-item-readonly"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mui-list-item mui-check-list-item mui-check-list-item-readonly mui-check-list-item mui-check-list-item-readonly"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: value> should control by value 1`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  style="width: 0.44rem; height: 0.44rem;"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    style="width: 0.44rem; height: 0.44rem;"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: value> should control by value 2`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  style="width: 0.44rem; height: 0.44rem;"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    style="width: 0.44rem; height: 0.44rem;"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList Component  <test prop:: value> should control by value 3`] = `
+<div>
+  <div
+    class="mui-list mui-list-default mui-check-list"
+  >
+    <div
+      class="mui-list-body"
+    >
+      <div
+        class="mui-list-body-inner"
+      >
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-check-list-item-active mui-plain-anchor mui-check-list-item mui-check-list-item-active"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              >
+                <svg
+                  fill="currentColor"
+                  height="0.32rem"
+                  id="arccheckmark"
+                  style="width: 0.44rem; height: 0.44rem;"
+                  viewBox="0 0 1024 1024"
+                  width="0.32rem"
+                >
+                  <path
+                    d="M175.616 474.282667a53.333333 53.333333 0 0 1 75.434667 0l165.12 165.12 349.44-349.482667a53.333333 53.333333 0 1 1 75.434666 75.434667l-387.2 387.157333a53.333333 53.333333 0 0 1-75.392 0l-202.837333-202.794667a53.333333 53.333333 0 0 1 0-75.434666z"
+                    fill="currentColor"
+                    height="0.32rem"
+                    style="width: 0.44rem; height: 0.44rem;"
+                    viewBox="0 0 48 48"
+                    width="0.32rem"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="mui-list-item mui-check-list-item mui-plain-anchor mui-check-list-item"
+        >
+          <div
+            class="mui-list-item-content"
+          >
+            <div
+              class="mui-list-item-content-main"
+            >
+              C
+            </div>
+            <div
+              class="mui-list-item-content-extra"
+            >
+              <div
+                class="mui-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

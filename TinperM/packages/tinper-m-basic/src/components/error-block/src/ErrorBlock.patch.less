@@ -1,0 +1,29 @@
+@import (reference) '../../../theme/index.less';
+
+.@{error-block-prefix-cls} {
+  &-image {
+    height: 2rem;
+    width: auto;
+  }
+
+  &-description {
+    font-size: var(--mui-font-size-4);
+    &-title {
+      font-size: var(--mui-font-size-7);
+    }
+  }
+
+  &-full-page {
+    padding-top: calc(50vh - 4rem);
+    .@{error-block-prefix-cls}-image {
+      height: 4rem;
+      width: auto;
+    }
+    .@{error-block-prefix-cls}-description {
+      font-size: var(--mui-font-size-main);
+      &-title {
+        color: #333333;
+      }
+    }
+  }
+}

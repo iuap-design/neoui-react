@@ -1,0 +1,34 @@
+@import '../../wui-core/scss/minxin-mixins';
+//$popconfirm-prefix-cls: $prefix-cls + 'popconfirm';
+
+.#{$popconfirm-prefix-cls} {
+    z-index: $zIndex-popconfirm;
+}
+
+.#{$popover-prefix-cls} {
+    &-message {
+        &-title {
+            color: var(--#{$popconfirm-prefix-cls}-color-text-title);
+            font-size: var(--#{$popconfirm-prefix-cls}-font-size-title);
+            font-weight: var(--#{$popconfirm-prefix-cls}-font-weight-title);
+        }
+        &-content {
+            margin-inline-start: 20px;
+            color: var(--#{$popconfirm-prefix-cls}-color-text-content);
+            font-size: var(--#{$popconfirm-prefix-cls}-font-size-content);
+            font-weight: var(--#{$popconfirm-prefix-cls}-font-weight-content);
+        }
+    }
+    &-dark {
+        .#{$popover-prefix-cls}-inner {
+            .#{$popover-prefix-cls}-message {
+                .#{$popover-prefix-cls}-message-content {
+                    color: var(--#{$popconfirm-prefix-cls}-inverse-title-text-color);
+                }
+                .uf-i-c {
+                    color: var(--#{$popconfirm-prefix-cls}-inverse-title-text-color);
+                }
+            }
+        }
+    }
+}

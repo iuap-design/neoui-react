@@ -1,0 +1,71 @@
+@import "../../wui-core/scss/minxin-variables";
+
+.#{$avatar-prefix-cls} {
+  @mixin avatar-size($size, $font-size) {
+    width: $size;
+    height: $size;
+    line-height: $size;
+    border-radius: 50%;
+
+    &-string {
+      position: absolute;
+      /*!rtl:ignore*/
+      left: 50%;
+      transform-origin: 0 center;
+      font-size: var(--#{$avatar-prefix-cls}-font-size);
+    }
+
+    &.#{$avatar-prefix-cls}-icon {
+      font-size: $font-size;
+
+      // > .#{$iconfont-css-prefix} {
+      //   margin: 0;
+      // }
+    }
+  }
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: var(--#{$avatar-prefix-cls}-color);
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background: var(--#{$avatar-prefix-cls}-bg-color);
+
+  &-image {
+    background: transparent;
+    color: unset;
+  }
+
+  & > .uf{
+    font-size: inherit;
+  }
+
+  .#{$prefix-cls}-image-img {
+    display: block;
+  }
+
+  @include avatar-size($avatar-size-base, $avatar-font-size-base);
+
+  &-lg {
+    @include avatar-size($avatar-size-lg, $avatar-font-size-lg);
+  }
+
+  &-sm {
+    @include avatar-size($avatar-size-sm, $avatar-font-size-sm);
+  }
+
+  &-square {
+    border-radius: $avatar-border-radius;
+  }
+
+  & > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@import './Group';

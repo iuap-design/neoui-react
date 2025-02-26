@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CascaderView Component should render correct 1`] = `
+<div
+  class="mui-cascader-view"
+  fieldid=":r0:"
+>
+  <div
+    class="mui-tabs mui-tabs-tabbar-position-h mui-tabs-tabbar-position-top mui-cascader-view-tabs"
+    style="direction: ltr;"
+  >
+    <div
+      class="mui-tabs-header-wrap"
+    >
+      <div
+        class="mui-tabs-header"
+      >
+        <div
+          class="mui-tabs-header-mask mui-tabs-header-mask-left"
+          style="opacity: 0;"
+        />
+        <div
+          class="mui-tabs-header-mask mui-tabs-header-mask-right"
+          style="opacity: 0;"
+        />
+        <div
+          class="mui-tabs-tab-list"
+          id="tabs-list"
+          role="tablist"
+        >
+          <div
+            class="mui-tabs-tab-line mui-tabs-tab-line-auto"
+            style="width: 0px; transform: translateX(0px);"
+          />
+          <div
+            class="mui-tabs-tab-wrapper"
+          >
+            <div
+              aria-selected="true"
+              class="mui-tabs-tab mui-tabs-tab-active"
+              role="tab"
+              style="max-width: unset; overflow: unset;"
+            >
+              <div
+                class="mui-cascader-view-header-title"
+              >
+                请选择
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mui-tabs-content mui-tabs-content-active"
+    >
+      <div
+        class="mui-cascader-view-content"
+      >
+        <div
+          class="mui-list mui-list-default mui-check-list"
+        >
+          <div
+            class="mui-list-body"
+          >
+            <div
+              class="mui-list-body-inner"
+            >
+              <a
+                class="mui-list-item mui-check-list-item mui-cascader-view-item mui-plain-anchor mui-check-list-item mui-cascader-view-item"
+              >
+                <div
+                  class="mui-list-item-content"
+                >
+                  <div
+                    class="mui-list-item-content-main"
+                  >
+                    浙江
+                  </div>
+                  <div
+                    class="mui-list-item-content-extra"
+                  >
+                    <div
+                      class="mui-check-list-item-extra"
+                    />
+                  </div>
+                </div>
+              </a>
+              <a
+                class="mui-list-item mui-check-list-item mui-cascader-view-item mui-plain-anchor mui-check-list-item mui-cascader-view-item"
+              >
+                <div
+                  class="mui-list-item-content"
+                >
+                  <div
+                    class="mui-list-item-content-main"
+                  >
+                    安徽
+                  </div>
+                  <div
+                    class="mui-list-item-content-extra"
+                  >
+                    <div
+                      class="mui-check-list-item-extra"
+                    />
+                  </div>
+                </div>
+              </a>
+              <a
+                class="mui-list-item mui-check-list-item mui-cascader-view-item mui-plain-anchor mui-check-list-item mui-cascader-view-item"
+              >
+                <div
+                  class="mui-list-item-content"
+                >
+                  <div
+                    class="mui-list-item-content-main"
+                  >
+                    江苏
+                  </div>
+                  <div
+                    class="mui-list-item-content-extra"
+                  >
+                    <div
+                      class="mui-check-list-item-extra"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,580 @@
+@use 'sass:math';
+@import './../../wui-core/scss/minxin-mixins';
+
+//$form-prefix-cls: $prefix-cls + 'form';
+$input-prefix-cls: $prefix-cls + 'input';
+$upload-prefix-cls: $prefix-cls + 'upload';
+$radio-prefix-cls: $prefix-cls + 'radio';
+$checkbox-prefix-cls: $prefix-cls + 'checkbox';
+$form-item-prefix-cls: $form-prefix-cls + '-item';
+$error-input-border-width: 1px;
+
+@mixin error-triangle() {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid $error-input-border;
+  border-right: 10px solid transparent;
+  z-index: 1;
+  content: "";
+}
+
+// size
+@mixin formSize($input-height) {
+  .#{$form-item-prefix-cls}-label {
+    line-height: $input-height;
+    // height: $input-height;  // 移除height，保持label传入空' '时样式不变，免受padding影响
+
+    // &>label {
+    //   display: inline-flex;  // 先处理size需求，暂不修复固有bug
+    // }
+  }
+
+  .#{$form-item-prefix-cls}-control-input {
+    min-height: $input-height;
+  }
+
+  // form校验错误时border变为2px, 部分输入框高度需要相应减小, 保证总高度不变
+  $error-input-height: calc($input-height - $error-input-border-width * 2);
+  
+  .error-input {
+    .#{$prefix-cls}select .#{$prefix-cls}select-selector {
+      min-height: $error-input-height;
+    }
+
+    .#{$input-prefix-cls}-affix-wrapper .#{$input-prefix-cls},
+    .#{$input-prefix-cls}-affix-wrapper .#{$input-prefix-cls}-suffix,
+    .#{$input-prefix-cls}-affix-wrapper .#{$input-prefix-cls}-simple-suffix,
+    .#{$input-prefix-cls}-number .#{$input-prefix-cls},
+    .#{$input-prefix-cls}-number .#{$input-prefix-cls}-group-btn,
+    .#{$prefix-cls}picker-input>input,
+    .#{$prefix-cls}picker-suffix,
+    .#{$prefix-cls}picker-clear,
+    .#{$prefix-cls}select .#{$prefix-cls}select-selector,
+    .#{$prefix-cls}cascader .#{$prefix-cls}cascader-selector,
+    .#{$prefix-cls}time-picker-input,
+    .#{$prefix-cls}time-picker-input-wrap,
+    .#{$prefix-cls}time-picker i.uf {
+      // transition: none; // 消除高度变化时的抖动
+      // height: $error-input-height; // bug 1、未适配size；2、缩放会导致输入框高度变化，表单布局崩；3、无法适配datepicker的input外加padding场景
+      // line-height: $error-input-height;
+      
+      &:focus, &:focus-within {
+        box-shadow: none;
+      }
+    }
+    .#{$prefix-cls}cascader-multiple div.#{$prefix-cls}cascader-selector {
+      height: auto; // 多选级联高度不能固定，可能很多tag会存在换行情况
+    }
+  }
+}
+.#{$form-prefix-cls} {
+  &-text {
+    display: inline-block;
+    padding-right: 8px;
+  }
+  .error-input,
+  &-item-custom-error {
+    //.#{$prefix-cls}select-selector,
+    .#{$prefix-cls}select,
+    .#{$prefix-cls}cascader,
+    .#{$prefix-cls}cascader-picker .#{$prefix-cls}cascader-picker-input,
+    .#{$input-prefix-cls}-affix-wrapper,
+    .#{$prefix-cls}datepicker-input-group.#{$input-prefix-cls}-group,
+    .#{$input-prefix-cls}-number,
+    .#{$input-prefix-cls}-number:focus-within, // 避免focus-within的蓝色权重高于校验错误的红色
+    .#{$upload-prefix-cls}.#{$upload-prefix-cls}-select,
+    .#{$upload-prefix-cls}.#{$upload-prefix-cls}-drag,
+    div.#{$prefix-cls}picker, /*div、span仅用户提升权重*/
+    span.#{$prefix-cls}time-picker,
+    :not(.#{$prefix-cls}picker-input, .#{$prefix-cls}checkbox, .#{$prefix-cls}datepicker-input-group, .#{$prefix-cls}select-selection-search, .#{$prefix-cls}cascader-selection-search, .#{$input-prefix-cls}-affix-wrapper, .#{$input-prefix-cls}-number)
+    > input:not(.#{$prefix-cls}time-picker-input, .#{$input-prefix-cls}-prefix-suffix),
+    textarea {
+      position: relative;
+      // transition: none; // 消除boder高度由1px变为2px时的抖动
+      border: $error-input-border-width var(--#{$wui-prefix}-base-input-border-style) $error-input-border;
+      box-shadow: 0 0 0px 1px rgba(#ff5735, 0.2); // rgba不支持嵌套的css变量
+
+      &:focus, &:focus-within {
+        box-shadow: none;
+      }
+
+      &:hover {
+        border: $error-input-border-width var(--#{$wui-prefix}-base-input-border-style) $error-input-border;
+      }
+
+      &:not(input, textarea, .#{$input-prefix-cls}-border-bottom)::after {
+        @include error-triangle();
+      }
+    }
+    .#{$prefix-cls}cascader-picker:not(.#{$input-prefix-cls}-border-bottom):after {
+      @include error-triangle();
+    }
+    .#{$input-prefix-cls}-affix-focus:hover {
+      border-color: $base-input-border-color-focus;
+    }
+    .#{$upload-prefix-cls}.#{$upload-prefix-cls}-select {
+      border-radius: 4px;
+    }
+    .#{$upload-prefix-cls}.#{$upload-prefix-cls}-select .#{$prefix-cls}button {
+      border: none;
+    }
+    .#{$input-prefix-cls}-affix-wrapper {
+      .#{$input-prefix-cls},
+      input,
+      textarea {
+        border: 0;
+      }
+    }
+
+    .#{$input-prefix-cls}-number .#{$input-prefix-cls}-affix-wrapper {
+      border: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+    .#{$input-prefix-cls}-number{
+      overflow: visible;
+    }
+    .#{$form-prefix-cls}-item-control-input-content.has-triangle {
+      line-height: normal;
+      font-size: unset;
+
+      &:after {
+        @include error-triangle();
+        top: 0px;
+        left: 0px;
+      }
+    }
+  }
+  // form input必填项样式
+  &-item-row-required,
+  &-item-custom-required {
+    .#{$input-prefix-cls},
+    .#{$input-prefix-cls}-number.#{$input-prefix-cls}-group .#{$input-prefix-cls},
+    .#{$prefix-cls}cascader-picker .#{$prefix-cls}cascader-input.#{$prefix-cls}input[readonly]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom),
+    .#{$prefix-cls}cascader-multiple .#{$prefix-cls}cascader-selector, // 修复cascader多选缺必填样式问题
+    .#{$prefix-cls}picker:not(.#{$prefix-cls}picker-border-bottom) input{
+      box-shadow:inset 0 0 0 1000px $base-input-bg-required;
+      background: $base-input-bg-required;
+      &:not(.#{$input-prefix-cls}-border-bottom)[disabled] {
+        background: $base-input-bg-disabled;
+        box-shadow:inset 0 0 0 1000px $base-input-bg-disabled;
+      }
+    }
+    .#{$input-prefix-cls}-border-bottom .#{$input-prefix-cls}.#{$prefix-cls}textarea-disabled {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .error-input .#{$prefix-cls}cascader-picker .#{$prefix-cls}cascader-input.#{$input-prefix-cls}[readonly]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+      box-shadow: 0 0 0px 1px rgba(#ff5735, 0.2); // rgba不支持嵌套的css变量
+    }
+    .#{$input-prefix-cls}-number.#{$input-prefix-cls}-group,
+    .#{$prefix-cls}picker,
+    .#{$prefix-cls}time-picker:not(.#{$prefix-cls}time-picker-disabled),
+    .#{$prefix-cls}time-picker input,
+    .#{$prefix-cls}select .#{$prefix-cls}select-selector,
+    .#{$input-prefix-cls}-affix-wrapper:not(.#{$input-prefix-cls}-border-bottom,.#{$input-prefix-cls}-affix-wrapper-disabled),
+    input{
+      background: $base-input-bg-required;
+    }
+
+    .#{$input-prefix-cls}-number input {
+      box-shadow:inset 0 0 0 1000px $base-input-bg-required;
+    }
+
+    // // 清除按钮样式 #QDJCJS-9446
+    // .#{$prefix-cls}picker-clear,
+    // .#{$prefix-cls}select-clear {
+    //   background-color: $base-input-bg-required;
+    // }
+  }
+  .#{$input-prefix-cls}[readonly]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+    border: transparent;
+    box-shadow:inset 0 0 0 1000px $base-input-bg;
+    background: $base-input-bg;
+    font-weight: bold;
+    cursor: default;
+  }
+  .#{$input-prefix-cls}[disabled]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+    background: $base-input-bg-disabled;
+    box-shadow:inset 0 0 0 1000px $base-input-bg-disabled;
+  }
+  .#{$input-prefix-cls}-border-bottom .#{$input-prefix-cls}[disabled] {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &-item-control-input:not(.error-input) {
+    .#{$prefix-cls}cascader-picker {
+      .#{$input-prefix-cls}[readonly]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+        border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+        font-weight: 400;
+      }
+      .#{$input-prefix-cls}[disabled]:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+        border-color: $base-input-border-color-disabled;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// base
+.#{$form-prefix-cls}-item {
+  display: flex;
+  margin-bottom: 16px;
+  &.flex {
+    display: flex;
+  }
+
+  &#{&}-xs {
+    @include formSize($form-control-xs-height);
+  }
+  &#{&}-sm {
+    @include formSize($form-control-sm-height);
+  }
+  &#{&}-md {
+    @include formSize($form-control-md-height);
+  }
+  &#{&}-nm {
+    @include formSize($form-control-nm-height);
+  }
+  &#{&}-lg {
+    @include formSize($form-control-lg-height);
+  }
+  &-label {
+    padding-left: 0;
+    padding-right: 8px;
+    color: $font-color-base;
+    font-size: var(--#{$form-prefix-cls}-label-font-size);
+    &.line-height-32 {
+      line-height: 32px;
+    }
+  }
+  .mast {
+    color: $base-label-color-required;
+    font-size: 12px;
+    padding: 0;
+  }
+  .error {
+    color: $base-label-color-required;
+    font-size: 12px;
+    padding-left: 12px;
+    &.line-height-32 {
+      line-height: 32px;
+    }
+    .uf {
+      font-size: 12px;
+      padding: 0;
+      margin-right: 4px;
+    }
+  }
+  .datepicker-container,
+  .calendar-picker {
+    display: inline-block;
+  }
+  textarea {
+    min-height: 80px;
+  }
+
+  &-hidden,
+  &-hidden.#{$prefix-cls}row {
+    display: none;
+  }
+  // ==============================================================
+  // =                            Label                           =
+  // ==============================================================
+  &-label {
+    display: inline-flex;
+    flex-grow: 0;
+    white-space: nowrap;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    // line-height: 28px;
+    &-left {
+      text-align: left;
+    }
+    .#{$form-prefix-cls}-item-required::before {
+      display: inline-block;
+      margin-right: 4px;
+      color: $base-label-color-required;
+      font-size: var(--#{$form-prefix-cls}-label-font-size);
+      line-height: 1;
+      content: '*';
+      .#{$form-prefix-cls}-hide-required-mark & {
+        display: none;
+      }
+    }
+    &-wrap {
+      overflow: unset;
+      line-height: calc(28px - 0.5 * var(--#{$form-prefix-cls}-label-font-size));
+      white-space: unset;
+    }
+    > label {
+      position: relative;
+      align-items: center;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $font-color-base;
+      font-size: var(--#{$form-prefix-cls}-label-font-size);
+      font-weight: var(--#{$form-prefix-cls}-label-font-weight);
+      &+.uf {
+        flex-shrink: 0;
+        font-size: 12px;
+        vertical-align: top;
+      }
+
+      &::after {
+        content: ':';
+      }
+      &.#{$form-prefix-cls}-item-no-colon {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+  // ==============================================================
+  // =                            Input                           =
+  // ==============================================================
+  &-control {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+  }
+
+  &-control-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &-content {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
+
+  &-explain,
+  &-extra {
+    clear: both;
+    color: $base-label-color-required;
+    font-size: var(--#{$form-prefix-cls}-extra-font-size);
+    line-height: 14px;
+    transition: color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); // sync input color transition
+  }
+  .#{$input-prefix-cls}-textarea-show-count {
+    &::after {
+      margin-bottom: -22px;
+    }
+  }
+}
+
+// component
+.#{$form-prefix-cls} {
+  .#{$prefix-cls}mentions,
+  textarea.#{$input-prefix-cls} {
+    height: auto;
+  }
+
+  // input[type=file]
+  .#{$upload-prefix-cls} {
+    background: transparent;
+  }
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    width: 14px;
+    height: 14px;
+  }
+
+  // Radios and checkboxes on same line
+  .#{$radio-prefix-cls}-inline,
+  .#{$checkbox-prefix-cls}-inline {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .#{$checkbox-prefix-cls}-vertical,
+  .#{$radio-prefix-cls}-vertical {
+    display: block;
+  }
+
+  .#{$checkbox-prefix-cls}-vertical + .#{$checkbox-prefix-cls}-vertical,
+  .#{$radio-prefix-cls}-vertical + .#{$radio-prefix-cls}-vertical {
+    margin-left: 0;
+  }
+
+  .#{$input-prefix-cls}-number {
+    + .#{form-prefix-cls}-text {
+      margin-left: 8px;
+    }
+    &-handler-wrap {
+      z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
+    }
+  }
+
+  .#{$prefix-cls}select,
+  .#{$prefix-cls}cascader-picker {
+    width: 100%;
+  }
+
+  // Don't impact select inside input group
+  .#{$input-prefix-cls}-group .#{$prefix-cls}select,
+  .#{$input-prefix-cls}-group .#{$prefix-cls}cascader-picker {
+    width: auto;
+  }
+}
+
+// direction
+.#{$form-prefix-cls}-horizontal {
+  .#{$form-prefix-cls}-item-label {
+    flex-grow: 0;
+  }
+  .#{$form-prefix-cls}-item-label-control {
+    flex: 1 1 0;
+  }
+}
+.#{$form-prefix-cls}-rtl.#{$form-prefix-cls}-vertical{
+  .#{$form-prefix-cls}-item {
+    &-control > label {
+      width: 100%;
+    }
+    &-control{
+      width: 100%;
+
+    }
+  }
+
+}
+.#{$form-prefix-cls}-vertical {
+  .#{$form-prefix-cls}-item-label {
+    text-align: left;
+    
+    > label {
+      flex: unset;
+    }
+  }
+  > label {
+    margin: 0;
+    &::after {
+      display: none;
+    }
+  }
+  .#{$form-prefix-cls}-item {
+    flex-direction: column;
+    align-items: flex-start;
+    &-label > label {
+      height: auto;
+    }
+  }
+}
+.#{$form-prefix-cls}-inline {
+  display: flex;
+  flex-wrap: wrap;
+
+  .#{$form-prefix-cls}-item {
+    flex: none;
+    flex-wrap: nowrap;
+    margin-right: 16px;
+    margin-bottom: 8px;
+
+    > .#{$form-prefix-cls}-item-label,
+    > .#{$form-prefix-cls}-item-control {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 8px;
+    }
+
+    > .#{$form-prefix-cls}-item-label {
+      flex: none;
+    }
+
+    .#{$form-prefix-cls}-text {
+      display: inline-block;
+    }
+
+    &-has-feedback {
+      display: inline-block;
+    }
+  }
+}
+
+.#{$form-prefix-cls}-item {
+  // key-value形式存储避免只加class未修改颜色
+  $valid_status_list: (
+          has-feedback: $error-input-border,
+          has-success: $success-input-border,
+          has-warning: $warning-input-border,
+          is-validating: $is-validating-input-border
+  );
+  @each $valid_status, $valid_color in $valid_status_list {
+    &-#{$valid_status} {
+      .#{$form-prefix-cls}-item-children-icon {
+        color: $valid_color;
+        height: 20px;
+        line-height: 20px;
+      }
+      :not(.error-input) > .#{$form-prefix-cls}-item-control-input-content {
+        .#{$prefix-cls}picker,
+        .#{$prefix-cls}time-picker,
+        .#{$input-prefix-cls}-number,
+        .#{$input-prefix-cls}-affix-wrapper:not(.#{$input-prefix-cls}-border-bottom, .#{$input-prefix-cls}-border-none),
+        :not(.#{$prefix-cls}picker-input, .#{$prefix-cls}datepicker-input-group, .#{$prefix-cls}select-selection-search, .#{$input-prefix-cls}-affix-wrapper, .#{$input-prefix-cls}-number)
+        > input:not(.#{$prefix-cls}time-picker-input, .#{$input-prefix-cls}-prefix-suffix),
+        & > input,
+        & > textarea {
+          border-color: $valid_color;
+        }
+      }
+    }
+  }
+  // #QDJCJS-9848 上传组件校验提示为居中上传组件
+  // .#{$form-prefix-cls}-item-control-input-content {
+  //   .#{$wui-prefix}-upload-wrapper {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
+  // }
+}
+
+.#{$input-prefix-cls} {
+  &::-webkit-input-placeholder {
+    font-size: 12px;
+  }
+  &:-moz-placeholder {
+    // firfox 4-18
+    font-size: 12px;
+  }
+  &::-moz-placeholder {
+    // firfox 19+
+    font-size: 12px;
+  }
+  &:-ms-input-placeholder {
+    // ie10+
+    font-size: 12px;
+  }
+  &-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &-content {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
+}
+.text-algin-center {
+  text-align: center;
+}

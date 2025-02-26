@@ -1,0 +1,128 @@
+@import (reference) '../../../theme/index.less';
+
+.@{index-bar-prefix-cls} {
+  --color-bg-indexbar-selected:~"var(--@{index-bar-prefix-cls}-color-bg-indexbar-selected)";
+
+  overflow: hidden;
+
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  --sticky-offset-top: var(--ynfm-sticky-offset-top-indexbar, 0);
+
+  &-body {
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    background-color: ~"var(--@{index-bar-prefix-cls}-color-bg-title-indexbar)";
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &-anchor {
+    &-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 400;
+      color: ~"var(--@{index-bar-prefix-cls}-color-title-indexbar)";
+      font-size: 0.26rem;
+      font-family: PingFang SC, PingFang SC;
+      text-transform: none;
+      background-color: ~"var(--@{index-bar-prefix-cls}-color-bg-title-indexbar)";;
+      padding: 0 0.32rem;
+      height: 0.4rem;
+      line-height: 0.4rem;
+
+    }
+  }
+
+  &-sidebar {
+    position: absolute;
+    top: 50%;
+    right: 0.1rem;
+    transform: translateY(-50%);
+    z-index: 910;
+    overflow: visible;
+    color: ~"var(--@{index-bar-prefix-cls}-color-text-indexbar)";
+    font-size: 0.22rem;
+    line-height: 0.28rem;
+    font-family: Arial, Arial;
+    user-select: none;
+    touch-action: none;
+
+    &-bubble {
+      position: absolute;
+      top: 50%;
+      right: 0.88rem;
+      width: 1.12rem;
+      height: 1.12rem;
+      color: ~"var(--@{index-bar-prefix-cls}-color-text-bubble-indexbar)";
+      font-size: 0.66rem;
+      line-height: 1.12rem;
+      text-align: center;
+      background: ~"var(--@{index-bar-prefix-cls}-color-bg-bubble-indexbar)";
+      border-radius: 50%;
+      transform: translateY(-50%);
+      border: 1px solid ~"var(--@{index-bar-prefix-cls}-color-border-bubble-indexbar)";
+      box-shadow: 0px 11px 8px 0px rgba(0, 0, 0, 0.04), 0px 4px 7px 0px rgba(0, 0, 0, 0.06);
+    }
+
+    &-bubble::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.2rem;
+      height: 0.2rem;
+      border: 1px solid ~"var(--@{index-bar-prefix-cls}-color-border-bubble-indexbar)";
+      border-color: ~"var(--@{index-bar-prefix-cls}-color-border-bubble-indexbar)" ~"var(--@{index-bar-prefix-cls}-color-border-bubble-indexbar)" transparent transparent;
+      background: ~"var(--@{index-bar-prefix-cls}-color-bg-bubble-indexbar)";
+      transform: rotate(45deg);
+      right: -0.096rem;
+      top: 0.41rem;
+    }
+
+    &-row {
+      cursor: pointer;
+      width: auto;
+      text-align: right;
+      position: relative;
+      margin: 0.03rem 0;
+
+      >* {
+        pointer-events: none;
+      }
+    }
+
+    &-item {
+      display: inline-flex;
+      width: 0.28rem;
+      height: 0.28rem;
+      // line-height: 0.32rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-item-active {
+      color: ~"var(--@{index-bar-prefix-cls}-color-text-indexbar-selected)";
+      background-color: var(--color-bg-indexbar-selected);
+      border-radius: 50%;
+    }
+
+    &-interacting {
+      width: 100%;
+    }
+  }
+
+  &-sticky {
+    .@{index-bar-prefix-cls}-anchor-title {
+      position: sticky;
+      z-index: 900;
+      top: 0;
+      top: var(--sticky-offset-top);
+      left: 0;
+    }
+  }
+}

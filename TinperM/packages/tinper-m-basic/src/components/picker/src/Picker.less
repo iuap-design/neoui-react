@@ -1,0 +1,80 @@
+@import  (reference)  '../../../theme/index.less';
+
+.@{picker-prefix-cls} {
+
+  --title-text-color: ~"var(--@{picker-prefix-cls}-color-text-title)";
+  --title-font-size: ~"var(--@{picker-prefix-cls}-font-size-title)";
+  --title-height: ~"var(--@{picker-prefix-cls}-size-height-title)";
+  --title-font-weight: ~"var(--@{picker-prefix-cls}-font-weight-title)";
+
+
+
+  width: 100%;
+  height: 8.26rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.@{picker-prefix-cls}-header {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.16rem 0.4rem;
+  height: var(--title-height);
+
+  &-title {
+    padding: 4px 4px;
+    font-size: var(--title-font-size);
+    color: var(--title-text-color);
+    font-weight: var(--title-font-weight);
+    text-align: center;
+    flex: 1;
+  }
+}
+
+.@{picker-prefix-cls}-footer{
+  --button-confirm-color-text: white;
+  flex: none;
+  border-bottom: solid 1px var(--mui-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0.32rem;
+  border-top: solid 1px var(--mui-border-color);
+  .clear-return-button {
+    padding: 0;
+    --mui-button-color-icon-textbtn: ~"var(--@{picker-prefix-cls}-color-text-clearback-picker)";
+  }
+  &-buttons {
+    margin-left: auto;
+    >*+* {
+      margin-left: 0.24rem;
+    }
+  }
+
+
+  &-title {
+    padding: 4px 4px;
+    font-size: var(--title-font-size);
+    color: var(--title-text-color);
+    font-weight: var(--title-font-weight);
+    text-align: center;
+    flex: 1;
+  }
+}
+
+.@{picker-prefix-cls}-body {
+  flex: auto;
+  height: 100%;
+  width: 100%;
+  > .mui-picker-view {
+    --height: 6.16rem;
+  }
+}
+
+

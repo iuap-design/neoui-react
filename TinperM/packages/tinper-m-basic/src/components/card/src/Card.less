@@ -1,0 +1,28 @@
+@import (reference) '../../../theme/index.less';
+
+.@{card-prefix-cls} {
+  background: ~"var(--@{card-prefix-cls}-color-bg-card)";
+  border-radius: 0.16rem;
+  padding: 0 0.24rem;
+  color: ~"var(--@{card-prefix-cls}-color-text-content-card)";
+  &-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.24rem 0;
+    font-weight: 500;
+    color: ~"var(--@{card-prefix-cls}-color-text-title-card)";
+    &:not(:last-child) {
+      border-bottom: solid 0.5px ~"var(--@{card-prefix-cls}-color-divider-title-card)";
+    }
+    &-title {
+      font-size: var(--mui-font-size-7);
+      line-height: 1.4;
+    }
+  }
+  &-body {
+    padding: 0.24rem 0;
+  }
+}

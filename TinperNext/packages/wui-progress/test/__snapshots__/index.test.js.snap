@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`代码覆盖率提高至100% component: Progress, <test prop:: gapPosition>, 1`] = `
+<div
+  class="contaiber"
+>
+  <div
+    class="wui-progress wui-progress-circle wui-progress-status-normal wui-progress-show-info wui-progress-default"
+  >
+    <div
+      class="wui-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="rc-progress-circle "
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="rc-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke="#f3f3f3"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+        <path
+          class="rc-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #4e97ff; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+      </svg>
+      <span
+        class="wui-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>
+  <div
+    class="wui-progress wui-progress-circle wui-progress-status-normal wui-progress-show-info wui-progress-default"
+  >
+    <div
+      class="wui-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="rc-progress-circle "
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="rc-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke="#f3f3f3"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+        <path
+          class="rc-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #4e97ff; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+      </svg>
+      <span
+        class="wui-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>
+  <div
+    class="wui-progress wui-progress-circle wui-progress-status-normal wui-progress-show-info wui-progress-default"
+  >
+    <div
+      class="wui-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="rc-progress-circle "
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="rc-progress-circle-trail"
+          d="M 50,50 m 47,0
+   a 47,47 0 1 1 -94,0
+   a 47,47 0 1 1 94,0"
+          fill-opacity="0"
+          stroke="#f3f3f3"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+        <path
+          class="rc-progress-circle-path"
+          d="M 50,50 m 47,0
+   a 47,47 0 1 1 -94,0
+   a 47,47 0 1 1 94,0"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #4e97ff; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+      </svg>
+      <span
+        class="wui-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>
+  <div
+    class="wui-progress wui-progress-circle wui-progress-status-normal wui-progress-show-info wui-progress-default"
+  >
+    <div
+      class="wui-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="rc-progress-circle "
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="rc-progress-circle-trail"
+          d="M 50,50 m -47,0
+   a 47,47 0 1 1 94,0
+   a 47,47 0 1 1 -94,0"
+          fill-opacity="0"
+          stroke="#f3f3f3"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+        <path
+          class="rc-progress-circle-path"
+          d="M 50,50 m -47,0
+   a 47,47 0 1 1 94,0
+   a 47,47 0 1 1 -94,0"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #4e97ff; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        />
+      </svg>
+      <span
+        class="wui-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>
+</div>
+`;

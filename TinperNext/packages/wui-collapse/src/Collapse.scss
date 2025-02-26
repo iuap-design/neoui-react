@@ -1,0 +1,513 @@
+@import "../../wui-core/scss/minxin-mixins";
+@import "../../wui-transition/src/Transition.scss";
+
+// list 变量
+$collapse-list-bg-color: var(--#{$collapse-prefix-cls}-list-bg-color); // list 背景色
+$collapse-list-title-height: var(--#{$collapse-prefix-cls}-list-title-height); // 标题高
+$collapse-list-divider-color: var(--#{$collapse-prefix-cls}-list-divider-color); // 虚线颜色
+$collapse-list-divider-width: var(--#{$collapse-prefix-cls}-list-divider-width); // 虚线宽
+$collapse-list-divider-style: var(--#{$collapse-prefix-cls}-list-divider-style); // 虚线类型
+$collapse-list-text-color: var(--#{$collapse-prefix-cls}-list-text-color); // 标题颜色
+$collapse-list-text-font-size: var(--#{$collapse-prefix-cls}-list-text-font-size); // 标题字号
+$collapse-list-text-font-weight: var(--#{$collapse-prefix-cls}-list-text-font-weight); // 标题字重
+$collapse-list-content-text-color: var(--#{$collapse-prefix-cls}-list-content-text-color); // 内容字体颜色
+$collapse-list-content-text-font-size: var(--#{$collapse-prefix-cls}-list-content-text-font-size); // 内容字体大小
+$collapse-list-content-font-weight: var(--#{$collapse-prefix-cls}-list-content-font-weight); // 内容字体字重
+
+$collapse-card-bg-color: var(--#{$collapse-prefix-cls}-card-bg-color); // card 背景色
+$collapse-card-title-height: var(--#{$collapse-prefix-cls}-card-title-height); // 标题高
+$collapse-card-icon-size: var(--#{$collapse-prefix-cls}-card-icon-size); // 头部图标大小
+$collapse-card-text-color: var(--#{$collapse-prefix-cls}-card-text-color); // 标题颜色
+$collapse-card-text-font-size: var(--#{$collapse-prefix-cls}-card-text-font-size); // 标题字号
+$collapse-card-text-font-weight: var(--#{$collapse-prefix-cls}-card-text-font-weight); // 标题字重
+$collapse-card-content-text-color: var(--#{$collapse-prefix-cls}-card-content-text-color); // 内容字体颜色
+$collapse-card-content-text-font-size: var(--#{$collapse-prefix-cls}-card-content-text-font-size); // 内容字体大小
+$collapse-card-content-font-weight: var(--#{$collapse-prefix-cls}-card-content-font-weight); // 内容字体字重
+
+$collapse-list2-color-border: var(--#{$collapse-prefix-cls}-list2-color-border);
+$collapse-card2-color-bg: var(--#{$collapse-prefix-cls}-card2-color-bg);
+$collapse-list2-color-bg: var(--#{$collapse-prefix-cls}-list2-color-bg);
+
+.#{$collapse-prefix-cls}{
+    line-height: 1.57142857;
+    color: $panel-font-color;
+    position: relative;
+    // margin-bottom: 20px;
+    // -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    // box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    background-color: var(--#{$collapse-prefix-cls}-color-bg-body);
+    // border: 1px solid transparent;
+    border-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    .#{$collapse-prefix-cls}-heading{
+        // border-top-left-radius: 3px;
+        // border-top-right-radius: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        position: relative;
+        padding: $panel-header-padding;
+        border-top: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-bottom: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        font-size: 12px;
+        .#{$collapse-prefix-cls}-extra {
+            // float: right;
+            position:absolute;
+            top: 0;
+            right: 12px;
+        }
+        &:hover {
+            cursor:pointer
+        }
+    }
+    h4,h3{
+        font-weight: 400;
+        line-height: 1.2;
+        color: #424242;
+        font-size: 18px;
+        text-shadow: rgba(0,0,0,.15) 0 0 1px;
+    }
+    .#{$collapse-prefix-cls}-footer{
+        padding: $panel-footer-padding;
+        background-color: $panel-bg-color;
+        // border-top: 1px solid $panel-inner-border-color;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 12px;
+        color: $panel-font-color;
+        border-bottom: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+    }
+    .#{$collapse-prefix-cls}-collapsible-header {
+        .#{$collapse-prefix-cls}-title {
+            display: inline-block;
+            max-width: 100%; //header标题超出一行时限制下宽度
+        }
+    }
+    .#{$collapse-prefix-cls}-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        display: block;
+        font-size: var(--#{$collapse-prefix-cls}-font-size-title);
+        font-weight: var(--#{$collapse-prefix-cls}-font-weight-title);
+        color: var(--#{$collapse-prefix-cls}-color-text-title);
+        line-height: var(--#{$collapse-prefix-cls}-size-height-header);
+        .small{
+          color:#757575;
+        }
+        a {
+            text-decoration: unset;
+            color: var(--wui-collapse-color-text-title);
+        }
+    }
+    .#{$collapse-prefix-cls}-body {
+        padding: $panel-body-padding;
+        position: relative;
+        border-bottom: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        font-size: var(--#{$collapse-prefix-cls}-font-size-content);
+        font-weight: var(--#{$collapse-prefix-cls}-font-weight-content);
+        color: var(--#{$collapse-prefix-cls}-color-text-content);
+        .#{$collapse-prefix-cls}-copy{
+            position: absolute;
+            right: 25px;
+            top: 30px;
+            // color: #fff;
+            font-size: 20px;
+            padding: 2px 8px;
+            margin: 8px;
+            border-radius: var(--#{$collapse-prefix-cls}-border-radius);
+            cursor: pointer;
+            &:hover{
+                // color: #a8a7a7;
+            }
+        }
+    }
+    div.#{$collapse-prefix-cls}-type-list {
+        border: none;
+        display: flex;
+        background: $collapse-list-bg-color;
+        .#{$collapse-prefix-cls}-title {
+            // display: inline-block;
+            color: $collapse-list-text-color;
+            font-size: $collapse-list-text-font-size;
+            font-weight: $collapse-list-text-font-weight;
+        }
+        .#{$collapse-prefix-cls}-header-list {
+            height: $collapse-list-divider-width;
+            border-bottom: $collapse-list-divider-width $collapse-list-divider-style $collapse-list-divider-color;
+            margin-top: 16px;
+            flex: 1;
+            // margin-left: 10px;
+        }
+        .#{$collapse-prefix-cls}-title {
+            line-height: $collapse-list-title-height;
+        }
+        .#{$collapse-prefix-cls}-extra {
+            background: $collapse-list-bg-color;
+        }
+        // .wui-icon {
+        //     // left: calc(36px - $collapse-list-text-font-size - 5px);
+        //     font-size: 14px;
+        // }
+        .#{$collapse-prefix-cls}-header-icon {
+            color: #9FABC5;
+            font-size: 14px;
+        }
+    }
+    div.#{$collapse-prefix-cls}-type-card {
+        border: none;
+        background-color: $collapse-card-bg-color;
+        .#{$collapse-prefix-cls}-title {
+            color: $collapse-card-text-color;
+            font-size: $collapse-card-text-font-size;
+            font-weight: $collapse-card-text-font-weight;
+        }
+        .#{$collapse-prefix-cls}-title {
+            line-height: $collapse-card-title-height;
+        }
+        .#{$collapse-prefix-cls}-header-icon {
+            font-size: $collapse-card-icon-size;
+            color: #9FABC5;
+        }
+        // .wui-icon {
+        //     left: calc(36px - $collapse-card-text-font-size - 8px);
+        // }
+    }
+    .#{$collapse-prefix-cls}-type-body-list {
+        border-bottom: none;
+        background: $collapse-list-bg-color;
+    }
+    .#{$collapse-prefix-cls}-type-body-card {
+        border-bottom: none;
+        background-color: $collapse-list-bg-color;
+    }
+    .#{$collapse-prefix-cls}-body {
+        &.#{$collapse-prefix-cls}-type-body-list {
+            color: $collapse-list-content-text-color;
+            font-size: $collapse-list-content-text-font-size;
+            font-weight: $collapse-list-content-font-weight;
+        }
+        &.#{$collapse-prefix-cls}-type-body-card {
+            color: $collapse-card-content-text-color;
+            font-size: $collapse-card-content-text-font-size;
+            font-weight: $collapse-card-content-font-weight;
+        }
+    }
+    div.#{$collapse-prefix-cls}-heading {
+        &.#{$collapse-prefix-cls}-type-lineFirstLevel {
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 0 0 20px;
+            position: relative;
+            height: 46px;
+            line-height: 46px;
+            box-shadow: inset 0 -1px 0 0 #DBEAFE;
+            border: none;
+            background: $collapse-card2-color-bg;
+            .#{$collapse-prefix-cls}-title {
+                color: $collapse-card-text-color;
+                font-size: $collapse-card-text-font-size;
+                font-weight: $collapse-card-text-font-weight;
+                line-height: 46px;
+            }
+            >.#{$prefix-cls}icon {
+                position: unset;
+                line-height: unset;
+                margin: unset;
+                padding: 0 8px 0 8px;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .#{$collapse-prefix-cls}-icon-down {
+                transform: rotate(-180deg);
+                margin-bottom: 1px;
+            }
+            .#{$collapse-prefix-cls}-icon-right {
+                transform: rotate(0);
+            }
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 15px;
+                width: 4px;
+                height: 16px;
+                background: $collapse-list2-color-border;
+                border-radius: 0 2px 2px 0;
+            }
+        }
+        &.#{$collapse-prefix-cls}-type-lineSecondLevel {
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 0 0 34px;
+            position: relative;
+            height: 32px;
+            line-height: 32px;
+            // box-shadow: inset 0 -1px 0 0 #DBEAFE;
+            border: none;
+            background: $collapse-list2-color-bg;
+            box-shadow: inset 0px 3px 3px #f0f8ff;
+            border-bottom: 1px solid #f3f4f6;
+            .#{$collapse-prefix-cls}-title {
+                color: $collapse-list-text-color;
+                font-size: $collapse-list-text-font-size;
+                font-weight: $collapse-list-text-font-weight;
+                line-height: 32px;
+            }
+            >.#{$prefix-cls}icon {
+                position: unset;
+                line-height: unset;
+                margin: unset;
+                padding: 0 8px 0 8px;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .#{$collapse-prefix-cls}-icon-down {
+                transform: rotate(-180deg);
+            }
+            .#{$collapse-prefix-cls}-icon-right {
+                transform: rotate(0);
+            }
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 20px;
+                top: 10px;
+                width: 2px;
+                height: 12px;
+                background: $collapse-list2-color-border;
+                border-radius: 0 2px 2px 0;
+            }
+        }
+    }
+    div.#{$collapse-prefix-cls}-type-body-lineFirstLevel, div.#{$collapse-prefix-cls}-type-body-lineSecondLevel {
+        border: none;
+    }
+}
+
+.#{$collapse-prefix-cls}-default{
+        // border-color:$panel-inner-border-color;
+    .#{$collapse-prefix-cls}-heading{
+        background-color: var(--#{$collapse-prefix-cls}-color-bg-header);
+        color: $panel-font-color;
+        // >.#{$collapse-prefix-cls}-header-only-icon {
+        //     position: absolute;
+        //     left: 16px;
+        //     margin: 0;
+        // }
+        >.#{$prefix-cls}icon {
+            color: inherit;
+            display: inline-block;
+            font-size: 12px;
+            font-style: normal;
+            left: 16px;
+            top: 50%;
+            // transform: translateY(-50%);
+            margin-top: -6px;
+            line-height: 0;
+            padding: 6px 0;
+            position: absolute;
+            text-align: center;
+        }
+    }
+    .#{$collapse-prefix-cls}-header-icon{
+        color: inherit;
+        display: inline-block;
+        font-size: 12px;
+        font-style: normal;
+        left: 16px;
+        top: 50%;
+        // transform: translateY(-50%);
+        margin-top: -6px;
+        line-height: 0;
+        padding: 6px 0;
+        position: absolute;
+        text-align: center;
+    }
+    .#{$collapse-prefix-cls}-icon-right {
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+    }
+    .#{$collapse-prefix-cls}-footer{
+        // border-top: 1px solid transparent;
+    }
+}
+.#{$collapse-prefix-cls}.#{$collapse-prefix-cls}-borderless {
+    .#{$collapse-prefix-cls}-heading {
+        border-left: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-right: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+    }
+    .#{$collapse-prefix-cls}-heading.#{$collapse-prefix-cls}-type-list, .#{$collapse-prefix-cls}-heading.#{$collapse-prefix-cls}-type-card {
+        border: none;
+    }
+    .#{$collapse-prefix-cls}-heading + .#{$collapse-prefix-cls}-collapse .#{$collapse-prefix-cls}-body {
+        border-top: none;
+        border-left: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-right: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-radius: 0;
+    }
+    .#{$collapse-prefix-cls}-heading + .#{$collapse-prefix-cls}-collapse .#{$collapse-prefix-cls}-type-body-list, .#{$collapse-prefix-cls}-heading + .#{$collapse-prefix-cls}-collapse .#{$collapse-prefix-cls}-type-body-card {
+        border: none;
+    }
+    // .#{$collapse-prefix-cls}-collapse .#{$collapse-prefix-cls}-body {
+        // border-top: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        // border-left: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        // border-right: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        // border-radius: 3px;
+    // }
+    .#{$collapse-prefix-cls}-heading + .#{$collapse-prefix-cls}-body {
+        border-top: none;
+        border-left: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-right: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+        border-radius: 0;
+    }
+}
+.#{$collapse-prefix-cls}.#{$collapse-prefix-cls}-borderless:first-child {
+    .#{$collapse-prefix-cls}-heading {
+        border-top-left-radius: var(--#{$collapse-prefix-cls}-border-radius);
+        border-top-right-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    }
+}
+.#{$collapse-prefix-cls}.#{$collapse-prefix-cls}-borderless:last-child.#{$prefix-cls}panel-hidden {
+    .#{$collapse-prefix-cls}-heading {
+        border-bottom-left-radius: var(--#{$collapse-prefix-cls}-border-radius);
+        border-bottom-right-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    }
+}
+.#{$collapse-prefix-cls}.#{$collapse-prefix-cls}-borderless:last-child.#{$prefix-cls}panel-show {
+    .#{$collapse-prefix-cls}-heading {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .#{$collapse-prefix-cls}-heading + .#{$collapse-prefix-cls}-collapse .#{$collapse-prefix-cls}-body {
+        border-bottom-left-radius: var(--#{$collapse-prefix-cls}-border-radius);
+        border-bottom-right-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    }
+}
+.#{$collapse-prefix-cls}-borderless .#{$collapse-prefix-cls}-footer {
+    border: var(--#{$collapse-prefix-cls}-border-width) var(--#{$collapse-prefix-cls}-border-style) var(--#{$collapse-prefix-cls}-color-border);
+    border-top: 0;
+    border-bottom-left-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    border-bottom-right-radius: var(--#{$collapse-prefix-cls}-border-radius);
+}
+.#{$collapse-prefix-cls}-ghost {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    // border-bottom: 1px solid #d9d9d9;
+    border-radius: 0;
+    &.#{$collapse-prefix-cls} {
+        .#{$collapse-prefix-cls}-type-list, .#{$collapse-prefix-cls}-type-body-list, .#{$collapse-prefix-cls}-type-card, .#{$collapse-prefix-cls}-type-body-card {
+            background: transparent;
+        }
+    }
+}
+.#{$collapse-prefix-cls}-ghost {
+    .#{$collapse-prefix-cls}-heading,.#{$collapse-prefix-cls}-footer{
+        background-color: transparent;
+    }
+    .#{$collapse-prefix-cls}-type-list{
+        background-color: $collapse-list-bg-color;
+    }
+    .#{$collapse-prefix-cls}-type-card{
+        background-color: $collapse-card-bg-color;
+    }
+}
+.#{$collapse-prefix-cls}-arrow.#{$collapse-prefix-cls}-icon-position-left {
+    .#{$collapse-prefix-cls}-heading{
+        padding: 0 16px 0 36px;
+        height: var(--#{$collapse-prefix-cls}-size-height-header);
+        line-height: var(--#{$collapse-prefix-cls}-size-height-header);
+    }
+    .#{$collapse-prefix-cls}-type-list{
+        height: $collapse-list-title-height;
+        line-height: $collapse-list-title-height;
+    }
+    .#{$collapse-prefix-cls}-type-card{
+        height: $collapse-card-title-height;
+        line-height: $collapse-card-title-height;
+    }
+}
+.#{$collapse-prefix-cls}-arrow.#{$collapse-prefix-cls}-icon-position-right {
+    .#{$collapse-prefix-cls}-header-icon {
+        right: 16px;
+        left: auto;
+    }
+    .#{$collapse-prefix-cls}-heading{
+        padding: 0 36px 0 16px;
+        line-height: var(--#{$collapse-prefix-cls}-size-height-header);
+    }
+    .#{$collapse-prefix-cls}-type-list{
+        height: $collapse-list-title-height;
+        line-height: $collapse-list-title-height;
+    }
+    .#{$collapse-prefix-cls}-type-card{
+        height: $collapse-card-title-height;
+        line-height: $collapse-card-title-height;
+    }
+    .#{$collapse-prefix-cls}-arrow.#{$collapse-prefix-cls}-icon-position-left {
+        .#{$collapse-prefix-cls}-heading {
+            padding: 0 16px 0 36px;
+        }
+        .#{$collapse-prefix-cls}-header-icon {
+            left: 16px;
+            right: unset;
+        }
+    }
+}
+
+.#{$collapse-prefix-cls}-heading+.#{$collapse-prefix-cls}-body{
+  //padding-top:0;
+}
+// .#{$collapse-prefix-cls}-bordered{
+//     border-color: $panel-inner-border-color;
+//     .#{$collapse-prefix-cls}-heading{
+//         border-bottom: 1px solid $panel-inner-border-color;
+//     }
+//     .#{$collapse-prefix-cls}-footer{
+//         border-top: 1px solid $panel-inner-border-color;
+//         background-color: #fff;
+//     }
+// }
+.#{$collapse-prefix-cls}>:not(.panel-loading):not(.#{$collapse-prefix-cls}-collapsing){
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s;
+}
+.#{$prefix-cls}button-group-vertical>.#{$prefix-cls}button-group:after, .#{$prefix-cls}button-group-vertical>.#{$prefix-cls}button-group:before, .#{$prefix-cls}button-toolbar:after, .#{$prefix-cls}button-toolbar:before, .clearfix:after, .clearfix:before, .#{$prefix-cls}container-fluid:after, .container-fluid:before, .#{$prefix-cls}container:after, .#{$prefix-cls}container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .#{$prefix-cls}modal-footer:after, .#{$prefix-cls}modal-footer:before, .#{$prefix-cls}modal-header:after, .#{$prefix-cls}modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .#{$collapse-prefix-cls}-body:after, .#{$collapse-prefix-cls}-body:before, .row:after, .row:before{
+    display: table;
+    content: " ";
+    clear: both;
+}
+.#{$collapse-prefix-cls}-body .h1:first-child, .#{$collapse-prefix-cls}-body .h2:first-child, .#{$collapse-prefix-cls}-body .h3:first-child, .#{$collapse-prefix-cls}-body .h4:first-child, .#{$collapse-prefix-cls}-body .h5:first-child, .#{$collapse-prefix-cls}-body .h6:first-child, .#{$collapse-prefix-cls}-body h1:first-child, .#{$collapse-prefix-cls}-body h2:first-child, .#{$collapse-prefix-cls}-body h3:first-child, .#{$collapse-prefix-cls}-body h4:first-child, .#{$collapse-prefix-cls}-body h5:first-child, .#{$collapse-prefix-cls}-body h6:first-child{
+    margin-top:0;
+}
+.#{$collapse-prefix-cls}-group {
+    // margin-bottom: 20px;
+    .#{$collapse-prefix-cls} {
+    margin-bottom: 0;
+    border-radius: var(--#{$collapse-prefix-cls}-border-radius);
+    }
+    // .#{$collapse-prefix-cls}+.#{$collapse-prefix-cls} {
+    // margin-top: 5px;
+    // }
+    .#{$collapse-prefix-cls}-heading {
+    // border-bottom: 0;
+    cursor: pointer;
+    }
+    .#{$collapse-prefix-cls}-heading+.#{$collapse-prefix-cls}-collapse>.list-group, .#{$collapse-prefix-cls}-group .#{$collapse-prefix-cls}-heading+.#{$collapse-prefix-cls}-collapse>.#{$collapse-prefix-cls}-body {
+    // border-top: 1px solid $panel-inner-border-color;
+    }
+    .#{$collapse-prefix-cls}:not(:first-child) .#{$collapse-prefix-cls}-heading {
+        border-top: 0;
+    }
+}
+.#{$collapse-prefix-cls}.#{$collapse-prefix-cls}-item-disabled {
+    .#{$collapse-prefix-cls}-heading {
+        color: #00000040;
+        cursor: not-allowed;
+        .#{$collapse-prefix-cls}-title {
+            color: #00000040;
+        }
+    }
+}

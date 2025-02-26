@@ -1,0 +1,64 @@
+.demos-wui-table {
+  .demo0503-m-b {
+
+    &.wui-modal .wui-modal-body {
+      padding: 16px 0;
+      background: #f7f9fb;
+    }
+
+    .wui-form-group {
+      overflow: hidden;
+    }
+
+    .wui-form-control {
+      font-size: 12px;
+    }
+
+    .editable-cell {
+      display: block;
+      float: left;
+      width: 265px;
+      padding-right: 25px;
+    }
+
+    .ref-input-wrap {
+      width: 240px !important;
+    }
+
+    .wui-label {
+      display: block;
+      float: left;
+      text-align: right;
+      width: 110px;
+      box-sizing: border-box;
+      padding-right: 10px;
+      font-size: 12px;
+      height: 32px;
+      line-height: 32px;
+
+      .mast {
+        padding: 0;
+        color: red;
+      }
+    }
+
+    .required-icon {
+      position: absolute;
+      top: 2px;
+      color: #F44336;
+      font-size: 20px;
+    }
+  }
+
+  .wui-editable-table-tp {
+    z-index: 9999 !important;
+
+    .tp-content {
+      color: #F44336;
+    }
+  }
+
+  .ref-core-button .wui-button:first-child {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,17 @@
+.demos-wui-layout {
+  .content-border-shadow {
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+  }
+
+  .site-layout-background {
+    background: #fff;
+
+    .wui-menu {
+      border: none;
+    }
+  }
+
+  .wui-layout-header .wui-menu-horizontal {
+    line-height: 64px;
+  }
+}

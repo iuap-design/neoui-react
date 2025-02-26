@@ -1,0 +1,24 @@
+// 核心文件
+
+// 导入css全局变量定义
+// @import './css-variable/prefix';
+@import './css-variable/base';
+@import './css-variable/component';
+@import './css-variable/size';
+
+// 导入参数/函数类文件,minxin有依赖关系，此部分请按照顺序加载
+@import "./minxin-mixins";
+@import "./motion";
+//@import "./minxin-palette";
+
+// 全局设置类文件
+@import "./set-normalize";
+@import "./set-global";
+
+// 工具类文件
+@import "./util-iconfont";
+@import "./util-shadow";
+@import "./util-keyframe";
+
+// RTL图标翻转
+@import "./iconfont-rtl.css";

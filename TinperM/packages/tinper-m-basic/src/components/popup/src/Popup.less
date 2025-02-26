@@ -1,0 +1,167 @@
+@import (reference) '../../../theme/index.less';
+
+.@{popup-prefix-cls} {
+  --z-index: 1000;
+
+  position: fixed;
+  box-sizing: border-box;
+  z-index: var(--z-index);
+}
+
+.@{popup-prefix-cls}-body {
+  box-sizing: border-box;
+  position: fixed;
+  background-color:~"var(--@{popup-prefix-cls}-color-bg-popup)";
+  z-index: calc(var(--z-index) + 10);
+
+  .@{popup-prefix-cls}-title {
+    height: 0.88rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.34rem;
+    color: var(--mui-color-title-text);
+    line-height: 1.5;
+    font-style: normal;
+    text-transform: none;
+  }
+
+  .@{popup-prefix-cls}-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .@{popup-prefix-cls}-button {
+      max-width: unset;
+      min-width: unset;
+      border-radius: unset;
+      border-right: unset;
+      border-bottom: unset;
+    }
+
+    .@{popup-prefix-cls}-button-bold {
+      font-weight: bold;
+    }
+
+    .@{popup-prefix-cls}-button-primary {
+      color:~"var(--@{dialog-prefix-cls}-color-text-secondarybtn-dialog)";
+    }
+
+    .@{popup-prefix-cls}-button-danger {
+      color: var(--mui-color-danger)
+    }
+
+    .@{popup-prefix-cls}-button-group-h {
+      display: flex;
+      align-items: stretch;
+
+      .@{popup-prefix-cls}-button {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .@{popup-prefix-cls}-close-icon {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    left: 0.32rem;
+    top: 0.22rem;
+    height: 0.44rem;
+  }
+
+  &-position-bottom {
+    border-top-left-radius:~"var(--@{popup-prefix-cls}-border-radius-bottom-popup)";
+    border-top-right-radius:~"var(--@{popup-prefix-cls}-border-radius-bottom-popup)";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  &-position-top {
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-bottom-left-radius:~"var(--@{popup-prefix-cls}-border-radius-top-popup)";
+    border-bottom-right-radius:~"var(--@{popup-prefix-cls}-border-radius-top-popup)";
+  }
+
+  &-position-left {
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &-position-right {
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    .@{popup-prefix-cls}-close-icon {
+      right: unset;
+      left: 0.16rem;
+    }
+  }
+}
+
+.@{popup-prefix-cls}-body div {
+
+  /* Webkit浏览器（Chrome、Safari） */
+  &::-webkit-scrollbar {
+    width: 0.08rem;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--mui-color-light);
+    border-radius: 0.04rem;
+  }
+
+  /* Firefox浏览器 */
+  &::-moz-scrollbar {
+    width: 0.08rem;
+    background-color: transparent;
+  }
+
+  &::-moz-scrollbar-thumb {
+    background-color: var(--mui-color-light);
+    border-radius: 0.04rem;
+  }
+
+  /* IE/Edge浏览器 */
+  &::-ms-scrollbar {
+    width: 0.08rem;
+    background-color: transparent;
+  }
+
+  &::-ms-scrollbar-thumb {
+    background-color: var(--mui-color-light);
+    border-radius: 0.04rem
+  }
+
+  /* 设置滚动条轨道的边距 */
+  &::-moz-scrollbar-track {
+    margin: 0.44rem 0 0.3rem 0;
+  }
+
+  /* 设置滚动条轨道的边距 */
+  &::-webkit-scrollbar-track {
+    margin: 0.44rem 0 0.3rem 0;
+  }
+
+  /* 设置滚动条轨道的边距 */
+  &::-ms-scrollbar-track {
+    margin: 0.44rem 0 0.3rem 0;
+  }
+}
+
+.@{popup-prefix-cls} {
+  --multiple: var(--mui-safe-area-multiple, 1);
+
+  &-body-safearea {
+    padding-bottom: calc(env(safe-area-inset-bottom) * var(--multiple));
+  }
+}

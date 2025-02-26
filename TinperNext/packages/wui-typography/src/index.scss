@@ -1,0 +1,67 @@
+@import "../../wui-core/scss/minxin-mixins";
+
+// $typography-prefix-cls: $prefix-cls + 'typography';
+
+$typography-color-expand-text: #0033CC;
+$typography-color-expand-disabled: rgb(201,205,212);
+
+.#{$typography-prefix-cls} {
+  // font-size: 14px;
+  color: var(--wui-base-text-color);
+  line-height: $line-height-base;
+  word-break: break-all;
+  white-space: normal;
+
+
+  &-disabled {
+    color: $typography-color-expand-disabled;
+    cursor: not-allowed;
+  }
+
+  // div,
+  // p {
+  //   margin-top: 0;
+  //   margin-bottom: 1em;
+  // }
+
+  &-simple-ellipsis {
+    display: flex;
+    align-items: flex-end;
+    white-space: nowrap;
+  }
+
+  ol,
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li,
+  ol li {
+    margin-left: 20px;
+  }
+
+  ul {
+    list-style: circle;
+  }
+
+  &-operation-expand {
+    color: $typography-color-expand-text;
+    margin: 0 4px;
+    cursor: pointer;
+    &[disabled] {
+      pointer-events: none;
+      color: $typography-color-expand-disabled;
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+    // &:focus-visible {
+    //   box-shadow: 0 0 0 2px @typography-color-box-shadow;
+    //   border-radius: @radius-small;
+    // }
+
+
+}

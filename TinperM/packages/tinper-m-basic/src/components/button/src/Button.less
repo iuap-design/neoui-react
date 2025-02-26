@@ -1,0 +1,274 @@
+@import (reference) '../../../theme/index.less';
+@import '../../icon/src/Icon.less';
+
+// 公共样式(文字颜色, 背景色, 边框色)
+.button-color(@color; @background; @border) {
+  color: @color;
+  background: @background;
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: @border;
+  border-radius: var(--border-radius);
+}
+
+.button-style(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &.@{button-prefix-cls}-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .5;
+
+    // &.@{button-prefix-cls}-default {
+    //   color: var(--color-text-stroke-disabled);
+    //   border-color: var(--color-border-stroke-disabled);
+    // }
+
+    // &.@{button-prefix-cls}-text {
+    //   color: var(--color-text-stroke-disabled);
+    // }
+  }
+}
+
+// css变量定义
+.@{button-prefix-cls} {
+  --text-color-default: ~"var(--@{button-prefix-cls}-color-text-stroke-btn)";
+  --text-color-primary: ~"var(--@{button-prefix-cls}-color-text-fill-btn)";
+  --border-color-replica: ~"var(--@{button-prefix-cls}-color-border-stroke-btn)";
+  --color-primary: ~"var(--@{button-prefix-cls}-color-bg-fill-btn-primary)";
+  --border-radius:~"var(--@{button-prefix-cls}-border-radius-stroke-btn)";
+  --border-style:~"var(--@{button-prefix-cls}-border-style-stroke-btn)";
+  --border-width:~"var(--@{button-prefix-cls}-border-width-stroke-btn)";
+
+  // --color-border-stroke-disabled:~"var(--@{button-prefix-cls}-color-border-stroke-btn-disabled)";
+  // --color-text-stroke-disabled:~"var(--@{button-prefix-cls}-color-text-stroke-btn-disabled)";
+  --mui-loading-color-fill-loading: var(--mui-color-white);
+
+  border-radius: var(--border-radius);
+  border-style: var(--border-style);
+  border-width: var(--border-width);
+}
+
+// 按钮按下样式
+.@{button-prefix-cls} {
+  position: relative;
+
+  &:active {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      background-color: #000;
+      opacity: 0.08;
+    }
+  }
+}
+
+// 按钮类型样式
+.@{button-prefix-cls} {
+  box-sizing: border-box;
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-default {
+    .button-style(var(--text-color-default); ~"var(--@{button-prefix-cls}-color-bg-stroke-btn)"; var(--border-color-replica));
+  }
+
+  &-primary {
+    .button-style(var(--text-color-primary); var(--color-primary); transparent; );
+  }
+
+  &-info {
+    .button-style(var(--text-color-primary); var(--mui-color-info); transparent; );
+  }
+
+  &-sucess {
+    .button-style(var(--text-color-primary); var(--mui-color-success); transparent; );
+  }
+
+  &-danger {
+    .button-style(var(--text-color-primary); var(--mui-color-danger); transparent; );
+  }
+
+  &-warning {
+    .button-style(var(--text-color-primary); var(--mui-color-warning); transparent);
+  }
+
+  &-ghost {
+    border-color: ~"var(--@{button-prefix-cls}-color-border-ghost-btn)";
+    color: ~"var(--@{button-prefix-cls}-color-text-ghost-btn)";
+    background-color: transparent;
+    svg {
+      color: ~"var(--@{button-prefix-cls}-color-icon-ghost-btn)";
+    }
+  }
+
+  &-text {
+    .button-style(~"var(--@{button-prefix-cls}-color-text-textbtn)"; transparent; transparent);
+  }
+
+  &-texticon {
+    line-height: 1;
+  }
+}
+
+// 按钮尺寸样式
+.@{button-prefix-cls} {
+  &-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size:~"var(--@{button-prefix-cls}-font-size-lg-fill-btn)";
+    // line-height: ~"var(--@{button-prefix-cls}-font-size-lg-fill-btn)";
+    line-height: 1;
+    font-weight:~"var(--@{button-prefix-cls}-font-weight-fill-btn)";
+    min-width: 3.8rem;
+    min-height: 0.8rem;
+    padding: 0.22rem;
+  }
+
+  &-middle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size:~"var(--@{button-prefix-cls}-font-size-m-fill-btn)";
+    // line-height: ~"var(--@{button-prefix-cls}-font-size-m-fill-btn)";
+    font-weight:~"var(--@{button-prefix-cls}-font-weight-fill-btn)";
+    line-height: 1;
+    min-width: 1.4rem;
+    max-width: 6.86rem;
+    min-height: 0.8rem;
+    padding: 0.22rem 0.22rem;
+  }
+
+  &-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size:~"var(--@{button-prefix-cls}-font-size-s-fill-btn)";
+    line-height: 1;
+    font-weight:~"var(--@{button-prefix-cls}-font-weight-fill-btn)";
+    min-height: 0.56rem;
+    min-width: 1.28rem;
+    max-width: 6.86rem;
+    padding: 0.1rem 0.22rem;
+  }
+
+  &-block {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+// 按钮尺寸样式
+.@{button-prefix-cls} {
+  &-default {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-stroke-btn)";
+    }
+  }
+
+  &-text {
+    color: ~"var(--@{button-prefix-cls}-color-icon-textbtn)";
+  }
+
+  &-primary {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-fill-btn)";
+    }
+  }
+
+  &-warning {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-fill-btn)";
+    }
+  }
+
+  &-info {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-fill-btn)";
+    }
+  }
+
+  &-success {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-fill-btn)";
+    }
+  }
+
+  &-danger {
+    svg {
+      color:~"var(--@{button-prefix-cls}-color-icon-fill-btn)";
+    }
+  }
+
+  &-with-icon {
+    &-left {
+      svg {
+        margin-right: 0.08rem;
+      }
+    }
+
+    &-right {
+      flex-direction: row-reverse;
+
+      svg {
+        margin-left: 0.08rem;
+      }
+    }
+
+    &-top {
+      flex-direction: column;
+
+      svg {
+        margin-bottom: 0.08rem;
+      }
+    }
+
+    &-bottom {
+      flex-direction: column-reverse;
+
+      svg {
+        margin-top: 0.08rem;
+      }
+    }
+  }
+
+  &-with-icon-only {
+    min-width: 0.8rem;
+
+    svg {
+      margin: 0;
+    }
+  }
+}
+
+// shape 样式
+.@{button-prefix-cls}-rounded {
+  border-radius: 999rem;
+
+  &:active {
+    &::before {
+      border-radius: 999rem;
+    }
+  }
+}
+
+.@{button-prefix-cls}-rectangular {
+  border-radius: 0rem;
+
+  &:active {
+    &::before {
+      border-radius: 0rem;
+    }
+  }
+}

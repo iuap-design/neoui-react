@@ -1,0 +1,408 @@
+.experience-page {
+    background: #DBEAFE;
+
+    &-content {
+        margin-top: 64px;
+        padding: 3%;
+    }
+
+    &-title {
+        position: relative;
+        z-index: 1;
+        max-height: 42px;
+        font-family: PingFangSC-SNaNpxibold;
+        font-weight: 600;
+        font-size: 30px;
+        color: #11316F;
+        letter-spacing: 0;
+        margin-left: 30px;
+        margin-bottom: 8px;
+        white-space: nowarp;
+
+        &-underline {
+            position: absolute;
+            bottom: 0px;
+            left: -7px;
+            z-index: -1;
+            width: 257px;
+            height: 12px;
+            background-image: linear-gradient(270deg, #9eb8f500 0%, #9EB8F5 100%);
+        }
+    }
+}
+
+.experience-card-row {
+    display: flex;
+
+    .card-type {
+        &-1 {
+            flex-grow: 1;
+            max-width: 24%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+            position: relative;
+
+            &-content {
+                height: 100%;
+                overflow: hidden;
+
+                .card-top-info {
+                    height: 40%;
+                    padding-top: 4%;
+
+                    >img {
+                        float: left;
+                        // width: 48px;
+                        // width: 48px;
+                        height: 6vh;
+                        margin: 0 12px 0 1.5vw;
+                    }
+
+                    >h4 {
+                        min-height: 20px;
+                        font-family: PingFangSC-Medium;
+                        font-size: 16px;
+                        color: #374151;
+                        display: inline-block;
+                        font-weight: 600;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        margin: 0px 10px 0px 0;
+                    }
+
+                    >p {
+                        height: 18px;
+                        font-family: PingFangSC-Regular;
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #6B7280;
+                        line-height: 18px;
+                        margin: 0 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .comp-data {
+                    height: 60%;
+                    margin-left: 1.5vw;
+                    margin-top: 4vh;
+                    display: grid;
+                    grid-template-columns: repeat(2, 10vw);
+                    grid-template-rows: 6vh 1vh;
+
+                    .comp-data-count {
+                        color: #111827;
+                        font-size: 30px;
+                        font-face: DINAlternate;
+                        font-weight: 700;
+                        line-height: 30px;
+                        letter-spacing: 0;
+                        paragraph-spacing: 0;
+                        text-align: left;
+
+                        &-increase {
+                            color: #EE2233;
+
+                            >img {
+                                width: 24px;
+                                height: 24px;
+                                margin-bottom: 4px;
+                            }
+                        }
+                    }
+
+                    .comp-data-name {
+                        height: 18px;
+                        font-family: PingFangSC-Regular;
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #6B7280;
+                        line-height: 18px;
+                    }
+
+                }
+            }
+
+        }
+
+        &-2 {
+            width: 24.4%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+
+            &-content {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .icon-before {
+                    width: 4px;
+                    height: 19px;
+                    background: #EE2233;
+                    border-radius: 0 4px 4px 0;
+                    position: absolute;
+                    top: 7%;
+                }
+                
+                >img{
+                    position: absolute;
+                    right: 5%;
+                    top: 8%;
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                }
+
+                .row-2-card-title {
+                    // height: 16px;
+                    font-family: PingFangSC-Medium;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #333333;
+                    line-height: 16px;
+
+                    padding: 4.4% 0 0 8%;
+
+                }
+
+                .code-coverage-info {
+                    flex: 1;
+                    overflow: hidden;
+                    display: grid;
+                    grid-template-columns: repeat(2, 50%);
+                    grid-template-rows: 50% 50%;
+                    padding-top: 4.4%;
+
+                    &-content {
+                        position: relative;
+                    }
+
+                    &-data {
+                        height: 30px;
+                        font-family: DINAlternate;
+                        font-weight: 700;
+                        font-size: 26px;
+                        color: #111827;
+                        letter-spacing: 0;
+                        position: absolute;
+                        top: 20%;
+                        left: 16%;
+                    }
+
+                    &-description {
+                        font-family: PingFangSC-Regular;
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #6B7280;
+                        position: absolute;
+                        top: 60%;
+                        left: 16%;
+                    }
+                }
+
+                .property-coverage-info {
+                    flex: 1;
+                    overflow: hidden;
+                    position: relative;
+
+                    &-des {
+                        position: absolute;
+                        left: 9.9vw;
+                        bottom: 20%;
+                        font-family: PingFangSC-Regular;
+                        font-weight: 400;
+                        font-size: 12px;
+                        color: #6B7280;
+                    }
+
+                    .echarts-card-1 {
+                        position: absolute !important;
+                    }
+                }
+            }
+        }
+
+        &-3 {
+            width: 50%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .icon-before {
+                width: 4px;
+                height: 19px;
+                background: #EE2233;
+                border-radius: 0 4px 4px 0;
+                position: absolute;
+                top: 7%;
+            }
+
+            .row-2-card-title {
+                // height: 16px;
+                font-family: PingFangSC-Medium;
+                font-weight: 600;
+                font-size: 16px;
+                color: #333333;
+                line-height: 16px;
+
+                padding: 2.2% 0 3% 4%;
+            }
+
+            .test-report-info {
+                flex: 1;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+                grid-template-rows: repeat(2, 50%);
+
+                &-content {
+                    position: relative;
+                    background-image: linear-gradient(270deg, #f3f4f680 0%, #F3F4F6 100%);
+                    margin: 0 6% 5% 6%;
+                    border-radius: 12px;
+                }
+
+                &-img {
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    top: 22%;
+                    left: 8%;
+                }
+
+                &-title {
+                    font-family: PingFangSC-Regular;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #374151;
+                    position: absolute;
+                    top: 20%;
+                    left: 14%;
+                }
+
+                &-description {
+                    font-family: PingFangSC-Regular;
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #6B7280;
+                    position: absolute;
+                    top: 60%;
+                    left: 14%;
+                }
+            }
+        }
+
+        &-4 {
+            width: 75%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .icon-before {
+                width: 4px;
+                height: 19px;
+                background: #EE2233;
+                border-radius: 0 4px 4px 0;
+                position: absolute;
+                top: 6%;
+            }
+
+            &-title {
+                font-family: PingFangSC-Medium;
+                font-weight: 600;
+                font-size: 16px;
+                color: #333333;
+                line-height: 16px;
+                padding: 2% 0 3% 2.6%;
+            }
+
+            .echarts-card-content {
+                flex: 1;
+                overflow: hidden;
+                margin-top: -5%;
+                margin-left: -3%;
+            }
+        }
+
+        &-5 {
+            width: 24%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+            position: relative;
+
+            .icon-before {
+                width: 4px;
+                height: 19px;
+                background: #EE2233;
+                border-radius: 0 4px 4px 0;
+                position: absolute;
+                top: 5%;
+            }
+
+            &-title {
+                font-family: PingFangSC-Medium;
+                font-weight: 600;
+                font-size: 16px;
+                color: #333333;
+                line-height: 16px;
+                padding: 5.5% 0 3% 8%;
+            }
+        }
+
+        &-6 {
+            width: 100%;
+            margin: 0.5%;
+            background: #FFFFFF;
+            border-radius: 12px;
+            position: relative;
+
+            .icon-before {
+                width: 4px;
+                height: 19px;
+                background: #EE2233;
+                border-radius: 0 4px 4px 0;
+                position: absolute;
+                top: 5%;
+            }
+
+            .card-detail {
+                position: absolute;
+                right: 3%;
+                top: 5%;
+                font-family: PingFangSC-Regular;
+                font-weight: 400;
+                font-size: 14px;
+                color: #9CA3AF;
+                cursor: pointer;
+
+                >img{
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            &-title {
+                font-family: PingFangSC-Medium;
+                font-weight: 600;
+                font-size: 16px;
+                color: #333333;
+                line-height: 16px;
+                padding: 1.2% 0 3% 1.8%;
+            }
+        }
+    }
+
+}

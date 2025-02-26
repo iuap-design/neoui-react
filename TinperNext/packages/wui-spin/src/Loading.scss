@@ -1,0 +1,444 @@
+@use "sass:math";
+@import "../../wui-core/scss/minxin-mixins";
+
+//$loading-prefix-cls: $prefix-cls + 'spin';
+
+$loading-icon-color: #0084ff;
+$loading-default-center-lg:-25px ;
+$loading-default-center:-17px;
+$loading-default-center-sm: -13px ;
+
+$loading-default-with-lg: 47px;
+$loading-default-with: 32px;
+$loading-default-with-sm: 21px;
+
+$loading-default-dot-with-lg: 20px;
+$loading-default-dot-with: 14px;
+$loading-default-dot-with-sm: 9px;
+
+/**
+  * 文字
+  */
+.#{$loading-prefix-cls}-desc {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  padding-top: 32px;
+  font-size: $font-size-base;
+  color: $font-color-base;
+  text-align: center;
+  line-height: 22px;
+}
+
+.#{$loading-prefix-cls}-container {
+  position: relative;
+}
+
+/**
+  * default样式 单个圆圈加载
+  */
+
+.#{$loading-prefix-cls} {
+  &.#{$loading-prefix-cls}-rotate, &.#{$loading-prefix-cls}-default, &.#{$loading-prefix-cls}-antd {
+    & > div {
+      position: absolute;
+      margin: 2px;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      border: none !important; //兼容老版本，避免因引入组件的 js 和 css 版本不一致，导致样式混乱的问题
+      width: $loading-rotate-size;
+      height: $loading-rotate-size;
+      top: $loading-center-top;
+      left: $loading-center-left;
+      margin-left: $loading-rotate-center;
+      margin-top: $loading-rotate-center;
+      background: transparent !important;
+      display: inline-block;
+      //-webkit-animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+      //animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+      text-align: center;
+      line-height: $loading-rotate-size;
+      & > img{
+        width: $loading-rotate-size;
+        -webkit-animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+        animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+      }
+      & > .uf{
+        color: $loading-icon-color;
+        font-size: 40px;
+        padding: 0;
+      }
+    }
+    &.#{$loading-prefix-cls}-rotate-lg {
+      & > div {
+        margin-left: $loading-rotate-center-lg;
+        margin-top: $loading-rotate-center-lg;
+        width: $loading-rotate-lg-size;
+        height: $loading-rotate-lg-size;
+        line-height: $loading-rotate-lg-size;
+        & > img{
+          width: $loading-rotate-lg-size;
+        }
+        & > .uf{
+          font-size: 60px;
+        }
+      }
+      & > .#{$loading-prefix-cls}-desc {
+        padding-top: 38px;
+      }
+    }
+    &.#{$loading-prefix-cls}-rotate-sm {
+      & > div {
+        margin-left:$loading-rotate-center-sm;
+        margin-top: $loading-rotate-center-sm;
+        width: $loading-rotate-sm-size;
+        height:$loading-rotate-sm-size;
+        line-height: $loading-rotate-sm-size;
+        & > img{
+          width: $loading-rotate-sm-size;
+        }
+        & > .uf{
+          font-size: 25px;
+        }
+      }
+      & > .#{$loading-prefix-cls}-desc {
+        padding-top: 25px;
+      }
+    }
+    &.#{$loading-prefix-cls}-default, &.#{$loading-prefix-cls}-antd{
+      &  > div {
+        margin-top: $loading-rotate-center + 5px;
+      }
+      & + .#{$loading-prefix-cls}-desc {
+        padding-top: 30px;
+        color: var(--#{$loading-prefix-cls}-color-text);
+      }
+    }
+    &.#{$loading-prefix-cls}-default-lg, &.#{$loading-prefix-cls}-antd-lg {
+      & > div {
+        margin-left: $loading-default-center-lg;
+        margin-top: $loading-default-center-lg;
+        width: $loading-default-with-lg;
+        height: $loading-default-with-lg;
+        line-height: $loading-default-with-lg;
+        & > i {
+          width: $loading-default-dot-with-lg;
+          height: $loading-default-dot-with-lg;
+        }
+      }
+      & + .#{$loading-prefix-cls}-desc {
+        padding-top: 38px;
+      }
+    }
+    &.#{$loading-prefix-cls}-default-sm, &.#{$loading-prefix-cls}-antd-sm {
+      & > div {
+        margin-left: $loading-default-center-sm;
+        margin-top: $loading-default-center-sm;
+        width: $loading-default-with-sm;
+        height: $loading-default-with-sm;
+        line-height: $loading-default-with-sm;
+        & > i {
+          width: $loading-default-dot-with-sm;
+          height: $loading-default-dot-with-sm;
+        }
+      }
+      & + .#{$loading-prefix-cls}-desc {
+        padding-top: 20px;
+      }
+    }
+    &.#{$loading-prefix-cls}-rotate-primary {
+      .#{$loading-prefix-cls}-desc{
+        color: $loading-loadprimary;
+      }
+    }
+    &.#{$loading-prefix-cls}-rotate-success {
+      .#{$loading-prefix-cls}-desc{
+        color: $loading-loadsuccess;
+      }
+    }
+    &.#{$loading-prefix-cls}-rotate-warning {
+      .#{$loading-prefix-cls}-desc{
+        color: $loading-loadwarn;
+      }
+    }
+  }
+}
+.#{$loading-prefix-cls}-default-container{
+  .#{$loading-prefix-cls}-desc{
+    margin-top: -12px;
+    color: $button-primary-color;
+    font-size: var(--#{$loading-prefix-cls}-font-size);
+  }
+}
+
+
+.#{$loading-prefix-cls}-backdrop{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zIndex-spin;
+  background-color:var(--#{$loading-prefix-cls}-backdrop-bg-color);
+  &.#{$loading-prefix-cls}-full-screen{
+    position: fixed;
+  }
+}
+
+@keyframes rotate1 {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg) scale(1);
+    transform: rotate(180deg) scale(1);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes rotate1Rtl {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    -webkit-transform: rotate(-180deg) scale(1);
+    transform: rotate(-180deg) scale(1);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg) scale(1);
+    transform: rotate(-360deg) scale(1);
+  }
+}
+
+.#{$loading-prefix-cls} {
+  &.#{$loading-prefix-cls}-line {
+    position: absolute;
+    top:$loading-center-top;
+    left: $loading-center-left;
+    margin-top: $loading-line-center-top;
+    margin-left: $loading-line-center-left;
+    & > div {
+      background-color: #C2C3C5;
+      width: $loading-line-width;
+      height: $loading-line-height;
+      border-radius: 2px;
+      margin: 2px;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      display: inline-block;
+    }
+    &.#{$loading-prefix-cls}-line-lg {
+      margin-top: $loading-line-center-lg-top;
+      margin-left: $loading-line-center-lg-left;
+      & > div {
+        width: $loading-line-lg-width;
+        height: $loading-line-lg-height;
+      }
+    }
+    &.#{$loading-prefix-cls}-line-sm {
+      margin-top: $loading-line-center-sm-top;
+      margin-left: $loading-line-center-sm-left;
+      & > div {
+        width:$loading-line-sm-width;
+        height: $loading-line-sm-height;
+      }
+    }
+    @each $index, $anima in $loading-lineanimating {
+      div:nth-child( #{$index}  ) {
+        -webkit-animation: $anima;
+        animation: $anima;
+        background-color: map_get($loading-linebackcolor, $index);
+      }
+    }
+
+    &.#{$loading-prefix-cls}-line-primary {
+      & > div {
+        background-color: $loading-loadprimary;
+      }
+    }
+    &.#{$loading-prefix-cls}-line-success {
+      & > div {
+        background-color: $loading-loadsuccess;
+      }
+    }
+    &.#{$loading-prefix-cls}-line-warning {
+      & > div {
+        background-color: $loading-loadwarn;
+      }
+    }
+  }
+}
+.#{$loading-prefix-cls} {
+  &.#{$loading-prefix-cls}-custom {
+    & > div {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+    }
+  }
+}
+.#{$loading-prefix-cls}-nested-loading{
+  position: relative;
+}
+.#{$loading-prefix-cls}-blur {
+  clear: both;
+  overflow: hidden;
+  opacity: 0.5;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes line-scale {
+  0% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1);
+
+  }
+}
+
+/**加载中的动画效果-四个点旋转的动画**/
+@keyframes antSpinMove {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes antRotate {
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+.#{$loading-prefix-cls} .#{$loading-prefix-cls}-spin {
+  //动画的四个点
+  &.#{$loading-prefix-cls}-dot {
+    width: var(--#{$loading-prefix-cls}-size-width);
+    height: var(--#{$loading-prefix-cls}-size-height);
+    margin-left: -(math.div($loading-default-with, 2));
+    //position: relative;
+    //display: inline-block;
+    transform: rotate(45deg);
+    animation: antRotate 1.2s infinite linear;
+
+    > i {
+      width: $loading-default-dot-with;
+      height: $loading-default-dot-with;
+      background-color: var(--#{$loading-prefix-cls}-icon-color);
+      border-radius: 100%;
+      transform: scale(.75);
+      display: block;
+      position: absolute;
+      opacity: .3;
+      animation: antSpinMove 1s infinite linear alternate;
+      transform-origin: 50% 50%;
+
+      &:first-child {
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        top: 0;
+        animation-delay: .4s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: .8s;
+      }
+
+      &:nth-child(4) {
+        left: 0;
+        bottom: 0;
+        animation-delay: 1.2s;
+      }
+    }
+  }
+}
+.#{$loading-prefix-cls}.#{$loading-prefix-cls}-default.#{$loading-prefix-cls}-default-success, 
+.#{$loading-prefix-cls}.#{$loading-prefix-cls}-antd.#{$loading-prefix-cls}-antd-success {
+  .#{$loading-prefix-cls}-spin.#{$loading-prefix-cls}-dot {
+    > i {
+      background-color: $loading-loadsuccess;
+    }
+  }
+  & + .#{$loading-prefix-cls}-desc {
+    color: $loading-loadsuccess;
+  }
+}
+.#{$loading-prefix-cls}.#{$loading-prefix-cls}-default.#{$loading-prefix-cls}-default-warning, 
+.#{$loading-prefix-cls}.#{$loading-prefix-cls}-antd.#{$loading-prefix-cls}-antd-warning {
+  .#{$loading-prefix-cls}-spin.#{$loading-prefix-cls}-dot {
+    > i {
+      background-color: $loading-loadwarn;
+    }
+  }
+  & + .#{$loading-prefix-cls}-desc {
+    color: $loading-loadwarn;
+  }
+}
+
+.#{$loading-prefix-cls}-cricle-rtl{
+  background-image: linear-gradient(to bottom, transparent 60%, #fff 60%, #fff 100%), linear-gradient(to right, transparent 0px, #e23 100%);
+  animation: rotate1RTL 1s 0s linear infinite;
+}
+
+.#{$loading-prefix-cls}-cricle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  padding: 2px;
+  left: 50%;
+  top: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  background-image: linear-gradient(to bottom, transparent 60%, #fff 60%, #fff 100%), linear-gradient(to right, transparent 0px, #e23 100%);
+  animation: rotate1 1s 0s linear infinite;
+  
+  &::before{
+    display: block;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+.#{$loading-prefix-cls}-cricle-sm {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+.#{$loading-prefix-cls}-cricle-lg {
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+}

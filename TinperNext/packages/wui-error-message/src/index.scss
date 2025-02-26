@@ -1,0 +1,124 @@
+@import "../../wui-core/scss/minxin-mixins";
+
+
+.#{$error-message-prefix-cls} {
+    .#{$message-prefix-cls}-notice-description-content {
+        box-sizing: border-box;
+        padding: 0px 0px 0px 4px;
+        margin: 0 33px;
+    }
+    &-content{
+        min-width: 334px;
+        max-width: 734px;
+        &-errorcode {
+            font-size: 14px;
+            line-height: 42px;
+            button.wui-button {
+                font-size: 14px;
+                padding: 0;
+            }
+        }
+        pre {
+            margin: 0;
+        }
+        // &-errorcode.as-message-content-errorcode-no-href {
+        //     .wui-button-text-wrap {
+        //         text-decoration: none;
+        //         color: ;
+        //     }
+        // }
+        &-title {
+            line-height: 22px;
+            font-weight: 600;
+            color: #111827;
+            padding-bottom: 14px;
+        }
+        &-description {
+            font-weight: 400;
+            font-size: 12px;
+            color: #6B7280;
+            letter-spacing: 0;
+            line-height: 18px;
+            // max-height: 60%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 0;
+            transition: max-height 0.2s linear;
+            @include set-scrollbar-style(5px, 5px);
+        }
+        &-title, &-description {
+            > pre {
+                margin: 0;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        }
+        &-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 44px;
+            border-top: 1px solid #D2D6DC;
+            margin-top: 14px;
+            &-traceid {
+                font-size: 12px;
+                font-weight: 600;
+                color: #111827;
+            }
+            &-operate {
+                display: inline-flex;
+                gap: 16px;
+                .#{$error-message-prefix-cls}-btn-copy, .#{$error-message-prefix-cls}-btn-show, .#{$error-message-prefix-cls}-btn-report{
+                    min-width: unset;
+                    padding: 0;
+                    .#{$button-prefix-cls}-text-wrap {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        &-footer-traceid {
+            .wui-clipboard > i.uf-copy{
+                color: #C5C4C8;
+                font-weight: 400;
+            }
+        }
+        &-footer-no-traceid {
+            justify-content: flex-end;
+        }
+        &-no-description {
+            margin-top: 0;
+            transition-property: margin-top;
+            transition-delay: 0.18s;
+        }
+        .successCopy, .successReport, .errorReport {
+            position: absolute;
+            display: flex;
+            top: calc(50% - 15px);
+            left: calc(50% - 44px);
+            // width: 88px;
+            height: 30px;
+            padding: 0 8px;
+            font-size: 14px;
+            color: #FFFFFF;
+            background: #505766;
+            border-radius: 4px;
+            line-height: 30px;
+          }
+        .errorReport {
+            background: #EF4344;
+            padding: 0 16px 0 10px;
+        }
+        .successReport {
+            padding: 0 16px 0 10px;
+        }
+    }
+
+    &-content-no-error{
+        .#{$error-message-prefix-cls}-content-title{
+            line-height: 42px;
+            padding: 0;
+        }
+    }
+   
+}

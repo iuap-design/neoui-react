@@ -1,0 +1,43 @@
+@import (reference) '../../../theme/index.less';
+
+.@{form-prefix-cls} {
+  --border-inner: ~"var(--@{form-prefix-cls}-border-style-divider-form)" ~"var(--@{form-prefix-cls}-border-width-divider-form)" ~"var(--@{form-prefix-cls}-color-border-divider-form)";
+  --border-top: ~"var(--@{form-prefix-cls}-border-style-top-form)" ~"var(--@{form-prefix-cls}-border-width-top-form)" ~"var(--@{form-prefix-cls}-color-border-top-form)";
+  --border-bottom: ~"var(--@{form-prefix-cls}-border-style-bottom-form)" ~"var(--@{form-prefix-cls}-border-width-bottom-form)" ~"var(--@{form-prefix-cls}-color-border-bottom-form)";
+  --prefix-width: ~"var(--@{form-prefix-cls}-size-width-title-horizontal-form)";
+
+  ---border-inner: var(--border-inner);
+  ---border-top: var(--border-top);
+  ---border-bottom: var(--border-bottom);
+  ---prefix-width: var(--prefix-width);
+  box-sizing: border-box;
+  height: fit-content;
+  .mui-list.mui-list {
+    --padding-left: 0.32rem;
+    --padding-right: 0.4rem;
+    --prefix-padding-right: 0;
+    --prefix-width: 1.86rem;
+    --border-inner: var(---border-inner);
+    --border-top: var(---border-top);
+    --border-bottom: var(---border-bottom);
+    .mui-list-body {
+      background-color: ~"var(--@{form-prefix-cls}-color-bg-form)";
+    }
+    .mui-list-item-disabled {
+      background-color: ~"var(--@{form-prefix-cls}-color-bg-form-disabled)";
+    }
+  }
+  .@{form-prefix-cls}-footer {
+    padding: 0.22rem 0.32rem;
+  }
+  .@{form-prefix-cls}-item-horizontal {
+    &.mui-list-item {
+      --prefix-width: var(---prefix-width);
+    }
+  }
+}
+
+.mui-form-list-operation {
+  text-align: center;
+  color: var(--mui-color-primary);
+}

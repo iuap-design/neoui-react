@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件测试/demo</title>
+    <script src='//static-aio.yonyoucloud.com/??babel-polyfill/7.8.7/polyfill.min.js'></script>	
+    <link rel="stylesheet" href="//design.yonyoucloud.com/static/highlight/9.15.6/default.min.css">
+    <% if(htmlWebpackPlugin.options.env === "production"){ %>
+        <link href="//design.yonyoucloud.com/static/tinper-next/4.6.5-rtl.202408061115921/tinper-next.css" type="text/css" rel="stylesheet" />
+        <script src="//static-aio.yonyoucloud.com/??react/16.14.0/umd/react.production.min.js,react-dom/16.14.0/umd/react-dom.production.min.js"></script>
+    <% } %>
+</head>
+<body>
+<div id='tinperDemo'></div>
+<script src='//static-aio.yonyoucloud.com/prop-types/15.6.0/prop-types.min.js'></script>
+<% if(htmlWebpackPlugin.options.env === "production"){ %>
+    <script src="//design.yonyoucloud.com/static/tinper-next/4.6.5-rtl.202408061115921/tinper-next.min.js"></script>
+    <script src="//design.yonyoucloud.com/static/axios/0.9.1/axios.min.js"></script>
+<% } %>
+</body>
+<script src="//design.yonyoucloud.com/static/highlight/9.15.6/highlight.min.js"></script>
+<script src="//design.yonyoucloud.com/static/analytics/yiguan/latest/AnalysysAgent_JSSDK_INIT.dev.js"></script>
+<script>
+	var globalProperties = {
+		product_id: 'TinperNext',
+		product_name: 'TinperNext',
+		terminal: 'TinperNext_web',
+	}
+	AnalysysAgent.registerSuperProperty(globalProperties);
+</script>
+</html>

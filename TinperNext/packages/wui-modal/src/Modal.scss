@@ -1,0 +1,442 @@
+@import '../../wui-core/scss/minxin-mixins';
+
+$modal-header-padding: 6px;
+$modal-body-padding: 16px;
+$modal-footer-padding: 10px 24px;
+
+.#{$modal-prefix-cls} {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $zindex-modal;
+  pointer-events: none;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  overflow: hidden;
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $modal-backdrop-bg;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: all;
+    animation: wuiModalIn 0.3s cubic-bezier(0.7, 0.01, 0.3, 0.98);
+  }
+  &-draggable {
+    //可拖拽移动的标识
+    .#{$modal-prefix-cls}-header.#{$modal-prefix-cls}-header-dnd-handle:hover {
+      cursor: all-scroll;
+    }
+  }
+  .#{$modal-prefix-cls}-draggable.#{$modal-prefix-cls}-maximize {
+    .#{$modal-prefix-cls}-header.#{$modal-prefix-cls}-header-dnd-handle:hover {
+      cursor: default;
+    }
+  }
+  &-centered {
+    //垂直距中的标识
+    text-align: center;
+    .#{$modal-prefix-cls}-dialog {
+      top: 0;
+      display: inline-block;
+      text-align: left;
+      vertical-align: middle;
+    }
+  }
+
+  &-open {
+    //打开的状态
+    overflow: hidden;
+  }
+  &-resizbox {
+    //调整尺寸的box
+    border-radius: var(--wui-modal-border-radius); // 修复modal上弹出带container的小modal时背景的圆角漏出问题
+    pointer-events: all;
+    &::before {
+      cursor: se-resize;
+      content: '';
+      width: 16px;
+      height: 1px;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      pointer-events: none;
+      right: 0;
+      bottom: 7px;
+      z-index: 1;
+      transform: rotate(-45deg);
+      border-top: 1px solid $border-color-dark;
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+    }
+    &::after {
+      cursor: se-resize;
+      content: '';
+      width: 8px;
+      height: 1px;
+      border: none;
+      background-color: transparent;
+      pointer-events: none;
+      position: absolute;
+      right: 1px;
+      bottom: 4px;
+      z-index: 1;
+      transform: rotate(-45deg);
+      border-top: 1px solid $border-color-dark;
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+    }
+  }
+  &-maximize {
+    .#{$modal-prefix-cls}-resizbox {
+      pointer-events: all;
+      &::before,&::after {
+        border: none;
+        cursor: default;
+      }
+    }
+  }
+  &-body-overflow {
+      overflow: hidden;
+  }
+  // resize 中
+  &-resize-right-trim {
+    div:nth-child(5), div:nth-child(6) {
+        right: 0px !important;
+        width: 10px !important;
+    }
+    div:nth-child(2) {
+        width: 5px !important;
+        right: 0px !important;
+
+      }
+      
+  }
+  &-resize-bottom-trim {
+    div:nth-child(6), div:nth-child(7) {
+        bottom: 0px !important;
+        height: 10px !important;
+    }
+    div:nth-child(3) {
+        height: 5px !important;
+        bottom: 0px !important;
+
+    }
+  }
+
+  .#{$modal-prefix-cls}-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+    border: 0;
+    border-radius: var(--#{$modal-prefix-cls}-border-radius);
+    box-shadow: var(--#{$modal-prefix-cls}-box-shadow);
+    background-color: var(--#{$modal-prefix-cls}-color-bg);
+    background-clip: padding-box;
+    outline: 0;
+    pointer-events: all;
+    animation: wuiModalIn 0.3s cubic-bezier(0.7, 0.01, 0.3, 0.98);
+  }
+
+  @keyframes wuiModalIn {
+    // 此处不能对尺寸、位置相关属性做动画，因为modal涉及了大量位置、尺寸的计算
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .#{$modal-prefix-cls}-dialog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    //确保content内容高度超过可视区域时显示滚动条
+    overflow: auto;
+    @include set-scrollbar-style();
+    pointer-events: none;
+
+    &-optimize {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .#{$modal-prefix-cls}-header {
+    padding: $modal-header-padding;
+    border-bottom: var(--#{$modal-prefix-cls}-border-width) var(--#{$modal-prefix-cls}-border-style) var(--#{$modal-prefix-cls}-color-border);
+    background-color: var(--#{$modal-prefix-cls}-color-bg);
+    border-radius: var(--#{$modal-prefix-cls}-border-radius) var(--#{$modal-prefix-cls}-border-radius) 0 0;
+    color: $font-color-base;
+    .close,
+    .maximize {
+      margin-right: 6px;
+      float: right;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      outline: none;
+      background: transparent;
+      border: 0;
+      -webkit-appearance: none;
+      .uf-close,
+      .maximize-icon {
+        font-size: var(--#{$wui-prefix}-font-size-feedback);
+        transform: scale(0.8);
+        color: var(--#{$wui-prefix}-color-icon-close-feedback);
+        &:hover {
+          color: var(--#{$wui-prefix}-color-icon-close-feedback-hover);
+        }
+        &::before {
+          font-size: 16px;
+        }
+      }
+    }
+    .maximize {
+      margin-right: 8px;
+    }
+  }
+
+  .#{$modal-prefix-cls}-title {
+    padding-left: 7px;
+    margin: 0;
+    font-weight: var(--#{$modal-prefix-cls}-font-weight-title);
+    font-size: var(--#{$modal-prefix-cls}-font-size-title);
+    height: 28px;
+    line-height: 28px;
+    color: var(--#{$modal-prefix-cls}-color-text-title);
+  }
+  .#{$modal-prefix-cls}-body {
+    overflow-y: auto;
+    position: relative;
+    padding: $modal-body-padding;
+    font-size: var(--#{$modal-prefix-cls}-font-size-content);
+    font-weight: var(--#{$modal-prefix-cls}-font-weight-content);
+    color: var(--#{$modal-prefix-cls}-color-text-content);
+    flex: 1;
+    outline: 0;
+    -ms-flex: auto;
+    // @include set-scrollbar-style();
+  }
+  .#{$modal-prefix-cls}-footer {
+    padding: $modal-footer-padding;
+    text-align: right;
+    border-top: var(--#{$modal-prefix-cls}-border-width) var(--#{$modal-prefix-cls}-border-style) var(--#{$modal-prefix-cls}-color-border);
+
+    button {
+      &:not(:last-child) {
+        margin-right: 8px; // 操作按钮的间距是8px
+      }
+    }
+  }
+  &-confirm.#{$modal-prefix-cls} {
+    .#{$modal-prefix-cls}-title > .uf {
+      font-size: 32px;
+      line-height: 32px;
+      padding: 0;
+      margin-right: 16px;
+      float: left;
+      font-weight: 500;
+    }
+    .#{$modal-prefix-cls}-header {
+      padding-bottom: 4px;
+    }
+    .#{$modal-prefix-cls}-body {
+      padding-top: 4px;
+      @include set-scrollbar-style();
+      .#{$modal-prefix-cls}-confirm-content {
+        padding-left: 48px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  &-confirm-info .#{$modal-prefix-cls}-title > .uf {
+    color: var(--#{$wui-prefix}-color-info);
+  }
+  &-confirm-success .#{$modal-prefix-cls}-title > .uf {
+    color: var(--#{$wui-prefix}-color-success);
+  }
+  &-confirm-warning .#{$modal-prefix-cls}-title > .uf {
+    color: var(--#{$wui-prefix}-color-warning);
+  }
+  &-confirm-error .#{$modal-prefix-cls}-title > .uf {
+    color: var(--#{$wui-prefix}-color-danger);
+  }
+  &-confirm-confirm .#{$modal-prefix-cls}-title > .uf {
+    color: var(--#{$wui-prefix}-color-warning);
+  }
+
+  @media (min-width: 768px) {
+    .#{$modal-prefix-cls}-content {
+      width: $modal-width-default;
+      margin: 0;
+      padding: 0;
+      box-shadow: var(--#{$modal-prefix-cls}-box-shadow);
+    }
+    .#{$modal-prefix-cls}-sm {
+      .#{$modal-prefix-cls}-content {
+        width: $modal-width-sm;
+        height: $modal-max-height-sm;
+      }
+    }
+    .#{$modal-prefix-cls}-md {
+      .#{$modal-prefix-cls}-content {
+        width: $modal-width-default;
+        height: $modal-height-default;
+      }
+    }
+    .#{$modal-prefix-cls}-lg {
+      .#{$modal-prefix-cls}-content {
+        width: $modal-width-lg;
+        height: $modal-height-lg;
+      }
+    }
+    .#{$modal-prefix-cls}-xlg {
+      .#{$modal-prefix-cls}-content {
+        width: $modal-width-xlg;
+        height: $modal-height-xlg;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .#{$modal-prefix-cls}-xlg {
+      .#{$modal-prefix-cls}-content {
+        width: $modal-width-xlg;
+      }
+    }
+  }
+}
+.#{$modal-prefix-cls} {
+    .#{$modal-prefix-cls}-maximize {
+        .#{$modal-prefix-cls}-content {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}
+.ac-confirm {
+  .#{$modal-prefix-cls}-dialog {
+    .ac-confirm-footer {
+      height: 52px;
+      padding: 12px 32px 12px 0;
+      border-top: none;
+
+      &:has(:nth-child(3)) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+        height: unset;
+        padding: 12px 32px;
+      }
+
+      .#{$prefix-cls}button {
+        min-width: 60px;
+        min-height: 28px;
+        line-height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+      .#{$prefix-cls}button.#{$prefix-cls}button-secondary {
+        border: none;
+      }
+      .#{$prefix-cls}button.#{$prefix-cls}button-primary {
+        color: $modal-content-bg-color;
+        border: none;
+        box-shadow: none;
+      }
+      .#{$prefix-cls}button.#{$prefix-cls}button-primary:hover {
+        color: $modal-content-bg-color;
+      }
+    }
+  }
+  .ac-confirm-body.#{$modal-prefix-cls}-body {
+    padding: 32px 32px 16px 32px;
+    min-height: 0;
+    @include set-scrollbar-style();
+    .ac-confirm-body-title {
+      display: flex;
+      align-items: center;
+
+      .ac-confirm-body-title-icon {
+        color: rgba(255, 191, 0, 1);
+        font-size: var(--#{$modal-prefix-cls}-font-size-icon-info);
+        line-height: 18px;
+        vertical-align: sub;
+        display: inline-block;
+
+        &.uf-xingzhuangbeifen {
+          color: var(--#{$wui-prefix}-color-info);
+        }
+
+        &.uf-chenggongtishi {
+          color: var(--#{$wui-prefix}-color-success);
+        }
+
+        &.uf-exc-t,
+        &.confirm-type {
+          color: var(--#{$wui-prefix}-color-warning);
+        }
+
+        &.uf-exc-c-2 {
+          color: var(--#{$wui-prefix}-color-danger);
+        }
+      }
+      i.uf {
+        padding: 0;
+      }
+      .ac-confirm-body-title-keyword {
+        margin-left: 9px;
+        min-height: 21px;
+        font-size: 16px;
+        font-weight: 800;
+        color: $modal-content-text-color;
+        line-height: 21px;
+      }
+    }
+    .ac-confirm-body-content {
+      display: block;
+      font-size: 14px;
+      color: #666;
+      margin: 8px 27px;
+      word-break: break-word;
+      white-space: pre-line; // 支持content字符串用\n等换行
+    }
+  }
+}

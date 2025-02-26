@@ -1,0 +1,569 @@
+@use 'sass:math';
+
+@import "./../../wui-core/scss/minxin-mixins";
+@import "./../../wui-tooltip/src/Tooltip";
+@import "./../../wui-core/scss/motion";
+
+$tooltip-border-color-feedback: var(--#{$popover-prefix-cls}-custom-color, --#{$tooltip-prefix-cls}-border-color-feedback);
+$tooltip-border-width-feedback: var(--#{$tooltip-prefix-cls}-border-width-feedback);
+$tooltip-border-style-feedback: var(--#{$tooltip-prefix-cls}-border-style-feedback);
+$popover-arrow-width: 7px;
+// Popover distance with trigger
+$popover-distance: $popover-arrow-width;
+$popover-padding-horizontal: 8px;
+$popover-arrow-offset: 4px;
+
+@mixin resizeFlag {
+  cursor: se-resize;
+  content: '';
+  height: 1px;
+  border: none;
+  background-color: transparent;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  border-top: 1px solid $border-color-dark;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+.#{$popover-prefix-cls} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $zIndex-popover;
+    font-weight: normal;
+    white-space: normal;
+    text-align: left;
+    cursor: auto;
+    user-select: text;
+    line-height: $line-height-computed;
+    pointer-events: all;//确保在弹窗下事件正常响应
+    &::after {
+      position: absolute;
+      background: rgba(#fff, 1%);
+      content: '';
+    }
+
+    &-hidden {
+      display: none;
+    }
+
+    // Offset the popover to account for the popover arrow
+    &-placement-top {
+      padding-bottom: calc($popover-distance / 2);
+    }
+    &-placement-topLeft,
+    &-placement-topRight {
+      padding-bottom: $popover-distance;
+      // .#{$popover-prefix-cls}-arrow {
+      //   bottom: $popover-arrow-offset !important;
+      // }
+    }
+
+    &-placement-right {
+      padding-left: calc($popover-distance / 2);
+    }
+    &-rtl &-placement-right{
+      padding-right: calc($popover-distance / 2);
+
+    }
+    &-placement-rightTop,
+    &-placement-rightBottom {
+      padding-left: $popover-distance;
+      // .#{$popover-prefix-cls}-arrow {
+      //   /*!rtl:ignore*/
+      //   left: $popover-arrow-offset !important;
+      // }
+    }
+
+    &-rtl &-placement-rightTop,
+    &-rtl &-placement-rightBottom
+    {
+      padding-left: calc($popover-distance / 2);
+
+    }
+
+    &-placement-bottom {
+      padding-top: calc($popover-distance / 2);
+    }
+    &-placement-bottomLeft,
+    &-placement-bottomRight {
+      padding-top: $popover-distance;
+      // .#{$popover-prefix-cls}-arrow {
+      //   top: $popover-arrow-offset !important;
+      // }
+    }
+
+    &-placement-left {
+      padding-right: calc($popover-distance / 2);
+    }
+    &-rtl &-placement-left {
+      padding-right: calc($popover-distance / 2);
+    }
+    &-placement-leftTop,
+    &-placement-leftBottom {
+      padding-right: $popover-distance;
+      // .#{$popover-prefix-cls}-arrow {
+      //   right: $popover-arrow-offset !important;
+      // }
+    }
+
+    &-inner {
+      padding: 8px;
+      background-color: var(--#{$popover-prefix-cls}-color-bg);
+      background-clip: padding-box;
+      border-radius: var(--#{$popover-prefix-cls}-border-radius);
+      box-shadow: var(--#{$popover-prefix-cls}-box-shadow);
+      border: $tooltip-border-width-feedback $tooltip-border-style-feedback $tooltip-border-color-feedback;
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* IE10+ */
+        box-shadow: var(--#{$popover-prefix-cls}-box-shadow);
+      }
+
+      @include set-scrollbar-style(0, 5px);
+    }
+
+    &-title {
+      min-width: 177px;
+      min-height: 32px;
+      margin: 0; // reset heading margin
+      padding: 5px $popover-padding-horizontal 4px;
+      color: rgba(#000, 85%);
+      border-bottom: 1px solid hsv(0, 0, 94%);
+      font-size: var(--#{$popover-prefix-cls}-font-size-title);
+      font-weight: var(--#{$popover-prefix-cls}-font-weight-title);
+      color: var(--#{$popover-prefix-cls}-color-text-title);
+    }
+
+    &-inner-content {
+      padding: 0;
+      font-size: var(--#{$popover-prefix-cls}-font-size-content);
+      font-weight: var(--#{$popover-prefix-cls}-font-weight-content);
+      color: var(--#{$popover-prefix-cls}-color-text-content);
+    }
+    &-rtl &-message &-title{
+      padding-right: $font-size-base + 8px;
+      padding-left:0;
+    }
+
+    &-message {
+      position: relative;
+      padding: 4px 0 12px;
+      color: $popover-color;
+      font-size: $font-size-base;
+      > .uf {
+        position: absolute;
+        padding: 0;
+        top: 3px;
+        color: var(--#{$wui-prefix}-color-warning);
+        font-size: var(--#{$popconfirm-prefix-cls}-font-size-icon-info);
+      }
+      &-title {
+        padding-left: $font-size-base + 8px;
+      }
+    }
+
+    &-buttons {
+      margin-bottom: 4px;
+      text-align: center;
+
+      button {
+        margin-left: 8px;
+        min-width: 48px;
+      }
+    }
+
+    // Arrows
+    // .popover-arrow is outer, .popover-arrow:after is inner
+    &-hide-arrow {
+      .#{$popover-prefix-cls}-arrow {
+        display: none;
+      }
+    }
+    &-arrow {
+      position: absolute;
+      display: block;
+      width: $tooltip-arrow-width;
+      height: $tooltip-arrow-width;
+      border: none;
+      margin: auto;
+      background: transparent;
+
+      // transform: rotate(45deg);
+      // background-color: var(--#{$popover-prefix-cls}-color-bg);
+      // pointer-events: auto;
+      &-content {
+        position: absolute;
+        display: block;
+        width: $tooltip-arrow-width;
+        height: $tooltip-arrow-width;
+        margin: auto;
+        background-color: var(--#{$popover-prefix-cls}-color-bg);
+        content: '';
+        pointer-events: auto;
+      }
+    }
+
+    &-placement-top> &-content > &-arrow,
+    &-placement-topLeft > &-content> &-arrow,
+    &-placement-topRight > &-content> &-arrow {
+      // width: 100%;
+      bottom: 0;
+      .#{$popover-prefix-cls}-arrow-content{
+        top: 0;
+        bottom: 0;
+        // box-shadow: 3px 3px 7px rgba(#000, 7%);
+        box-shadow: inset -1px 0 0 $tooltip-border-color-feedback, inset 0 -1px 0 $tooltip-border-color-feedback;
+      }
+    }
+    &-placement-top > &-content > &-arrow {
+      left: 50%;
+      transform: translate(-50%, 50%); // 应把容器偏移暴露出来，否则箭头rotate后会偏移，导致漏出显示部分较小
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 50%;
+        margin-right: calc($tooltip-arrow-width / 2 * -1);
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+
+    &-placement-topLeft > &-content > &-arrow {
+      left: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        transform: translate(50%, -50%) rotate(45deg);
+      }
+    }
+    &-placement-topRight > &-content > &-arrow {
+      right: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    &-placement-right > &-content> &-arrow,
+    &-placement-rightTop > &-content> &-arrow,
+    &-placement-rightBottom  > &-content> &-arrow {
+      height: 100%;
+      left: 0;
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 0;
+        left: 0;
+        // box-shadow: -3px 3px 7px rgba(#000, 7%);
+        box-shadow: inset 1px 0 0 $tooltip-border-color-feedback, inset 0 -1px 0 $tooltip-border-color-feedback;
+      }
+    }
+
+    &-placement-right > &-content > &-arrow {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      .#{$popover-prefix-cls}-arrow-content{
+        bottom: 50%;
+        margin-bottom: calc($tooltip-arrow-width / 2 * -1);
+        transform: translateX(50%) rotate(45deg);
+      }
+    }
+    &-placement-rightTop > &-content > &-arrow {
+      top: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        transform: translate(50%, 50%) rotate(45deg);
+      }
+    }
+    &-placement-rightBottom > &-content > &-arrow {
+      bottom: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        bottom: 0;
+        transform: translate(50%, -50%) rotate(45deg);
+      }
+    }
+
+    &-placement-bottom > &-content> &-arrow,
+    &-placement-bottomLeft > &-content> &-arrow,
+    &-placement-bottomRight> &-content > &-arrow {
+      // width: 100%;
+      top: 0;
+      .#{$popover-prefix-cls}-arrow-content{
+        top: 0;
+        bottom: 0;
+        // box-shadow: -2px -2px 5px rgba(#000, 7%);
+        box-shadow: inset 1px 0 0 $tooltip-border-color-feedback, inset 0 1px 0 $tooltip-border-color-feedback;
+      }
+    }
+
+    &-placement-bottom > &-content > &-arrow {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 50%;
+        margin-right: calc($tooltip-arrow-width / 2 * -1);
+        transform: translateY(50%) rotate(45deg);
+      }
+    }
+    &-placement-bottomLeft > &-content > &-arrow {
+      left: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        transform: translate(50%, 50%) rotate(45deg);
+      }
+    }
+    &-placement-bottomRight > &-content > &-arrow {
+      right: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 0;
+        transform: translate(-50%, 50%) rotate(45deg);
+      }
+    }
+
+    &-placement-left > &-content > &-arrow,
+    &-placement-leftTop > &-content > &-arrow,
+    &-placement-leftBottom > &-content > &-arrow {
+      height: 100%;
+      right: 0;
+      .#{$popover-prefix-cls}-arrow-content{
+        right: 0;
+        left: 0;
+        // box-shadow: 3px -3px 7px rgba(#000, 7%);
+        box-shadow: inset -1px 0 0 $tooltip-border-color-feedback, inset 0 1px 0 $tooltip-border-color-feedback;
+      }
+    }
+    &-placement-left > &-content > &-arrow {
+      top: 50%;
+      transform: translate(50%, -50%);
+      .#{$popover-prefix-cls}-arrow-content{        
+        bottom: 50%;
+        margin-bottom: calc($tooltip-arrow-width / 2 * -1);
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+    &-placement-leftTop > &-content > &-arrow {
+      top: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        transform: translate(-50%, 50%) rotate(45deg);
+      }
+    }
+    &-placement-leftBottom > &-content > &-arrow {
+      bottom: $popover-arrow-offset;
+      .#{$popover-prefix-cls}-arrow-content{
+        bottom: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    // direction
+    /*!rtl:begin:ignore*/
+    &-rtl {
+      direction: rtl;
+      text-align: right;
+    }
+    // &-rtl &-placement-topLeft > &-arrow {
+    //   right: $popover-arrow-offset;
+    // }
+    // &-rtl &-placement-rightBottom > &-arrow {
+    //   left: $popover-arrow-offset;
+    // }
+
+    &-message {
+      &-title {
+        .#{$popover-prefix-cls}-rtl & {
+          padding-right: $font-size-base + 8px;
+          padding-left: $popover-arrow-offset;
+        }
+      }
+    }
+
+    &-buttons {
+      // .#{$popover-prefix-cls}-rtl & {
+      //   text-align: left;
+      // }
+
+      button {
+        .#{$popover-prefix-cls}-rtl & {
+          margin-right: 8px;
+          margin-left: 0;
+        }
+      }
+    }
+    /*!rtl:end:ignore*/
+
+    &-dark {
+      color: #fff;
+      .#{$popover-prefix-cls}-arrow-content {
+        background-color: $gray-darkest;
+      }
+      .#{$popover-prefix-cls}-inner {
+        background-color: $brand-dark-active;
+      }
+      .#{$popover-prefix-cls}-message {
+        position: relative;
+        padding: 4px 0 12px;
+        color: #fff;
+        font-size: $font-size-base;
+        > .uf {
+          position: absolute;
+          padding: 0;
+          top: 3px;
+          color: var(--#{$wui-prefix}-color-warning);
+          font-size: var(--#{$popconfirm-prefix-cls}-font-size-icon-info);
+        }
+        &-title {
+          padding-left: $font-size-base + 8px;
+        }
+      }
+    }
+
+    // TOOD: .popover-customize-bg(@popover-prefix-cls, @popover-background);
+    &.#{$popover-prefix-cls}-type-resizable {
+      .#{$popover-prefix-cls}-inner {
+        padding: 0;
+        .#{$popover-prefix-cls}-resize {
+          // padding: 8px;
+          >div {
+            width: 100%;
+            height: 100%;
+            .#{$popover-prefix-cls}-inner-content {
+              padding: 8px;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              @include set-scrollbar-style();
+            }
+          }
+        }
+        .resizable-bottomRight {
+          &::before {
+            @include resizeFlag();
+            width: 16px;
+            left: 0;
+            bottom: 8px;
+            transform: rotate(45deg);
+          }
+      
+          &::after {
+            @include resizeFlag();
+            width: 8px;
+            left: 0;
+            bottom: 4px;
+            transform: rotate(45deg);
+          }
+        }
+        .resizable-bottomLeft {
+          &::before {
+            @include resizeFlag();
+            width: 16px;
+            right: 0;
+            bottom: 8px;
+            transform: rotate(-45deg);
+          }
+      
+          &::after {
+            @include resizeFlag();
+            width: 8px;
+            right: 0px;
+            bottom: 4px;
+            transform: rotate(-45deg);
+          }
+        }
+        .resizable-topLeft {
+          &::before {
+            @include resizeFlag();
+            width: 16px;
+            right: 0;
+            top: 8px;
+            transform: rotate(45deg);
+          }
+      
+          &::after {
+            @include resizeFlag();
+            width: 8px;
+            right: 0;
+            top: 4px;
+            transform: rotate(45deg);
+          }
+        }
+      
+        .resizable-topRight {
+          &::before {
+            @include resizeFlag();
+            width: 16px;
+            left: 0;
+            top: 8px;
+            transform: rotate(-45deg);
+          }
+      
+          &::after {
+            @include resizeFlag();
+            width: 8px;
+            left: 0;
+            top: 4px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+/*!rtl:begin:ignore*/
+.#{$popover-prefix-cls}.#{$popover-prefix-cls}-rtl {
+  &.#{$popover-prefix-cls}-placement-bottomLeft .#{$popover-prefix-cls}-arrow {
+    left: calc($popover-arrow-offset - $popover-arrow-width);
+    right: auto;
+    box-shadow: inset -1px 0 0 $tooltip-border-color-feedback, inset 0 1px 0 $tooltip-border-color-feedback;
+    transform: translateX(50%) rotate(-45deg);
+  }
+}
+[dir="rtl"] .#{$popover-prefix-cls} {
+  right: unset;
+}
+[dir="rtl"] .#{$popover-prefix-cls}-placement-left > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow,
+[dir="rtl"] .#{$popover-prefix-cls}-placement-leftTop > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow,
+[dir="rtl"] .#{$popover-prefix-cls}-placement-leftBottom > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow {
+  right: 0;
+  left: unset;
+}
+[dir="rtl"] .#{$popover-prefix-cls}-placement-left > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow {
+  .#{$popover-prefix-cls}-arrow-content{
+    transform: translateX(50%) rotate(135deg);
+  }
+}
+[dir="rtl"] .#{$popover-prefix-cls}-placement-leftTop > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow {
+  .#{$popover-prefix-cls}-arrow-content{
+    transform: translate(50%, 50%) rotate(135deg);
+  }
+}
+[dir="rtl"] .#{$popover-prefix-cls}-placement-leftBottom > .#{$popover-prefix-cls}-content > .#{$popover-prefix-cls}-arrow {
+  .#{$popover-prefix-cls}-arrow-content{
+    transform: translate(50%, -50%) rotate(135deg);
+  }
+}
+/*!rtl:end:ignore*/
+.#{$popover-prefix-cls}.#{$popover-prefix-cls}-tooltip{
+    max-width: initial;
+    &.#{$prefix-cls}tooltip .tooltip-inner{
+        padding: 8px;
+        max-width: initial;
+    }
+}
+// fix: 覆盖老版本 tinper-bee 中 popover 的 css 样式
+.#{$popover-prefix-cls} {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.#{$popover-prefix-cls}-inverse {
+  .#{$popover-prefix-cls}-inner {
+    background-color: var(--#{$tooltip-prefix-cls}-color-bg);
+    color: var(--#{$popover-prefix-cls}-inverse-content-text-color);
+    .#{$popover-prefix-cls}-inner-content, .#{$popover-prefix-cls}-message, .#{$popover-prefix-cls}-message-title, .#{$popover-prefix-cls}-message-content {
+      color: var(--#{$popover-prefix-cls}-inverse-content-text-color);
+    }
+  }
+
+  .#{$popover-prefix-cls}-arrow {
+    &-content {
+      color: $tooltip-arrow-color;
+      background-color: var(--#{$tooltip-prefix-cls}-color-bg);
+      box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    }
+  }
+}

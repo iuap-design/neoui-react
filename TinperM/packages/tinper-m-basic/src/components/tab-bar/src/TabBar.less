@@ -1,0 +1,93 @@
+@import (reference) '../../../theme/index.less';
+@import '../../icon/src/Icon.less';
+
+
+.@{tab-bar-prefix-cls} {
+  --tabbar-font-size: .2rem;
+  --tabbar-icon-font-size: .56rem;
+  --tabbar-icon-color: ~"var(--@{tab-bar-prefix-cls}-color-icon-item-tabbar)";
+  --tabbar-icon-active-color: ~"var(--@{tab-bar-prefix-cls}-color-icon-item-tabbar-selected)";
+  --tabbar-text-color: ~"var(--@{tab-bar-prefix-cls}-color-text-item-tabbar)";
+  --tabbar-text-active-color: ~"var(--@{tab-bar-prefix-cls}-color-text-item-tabbar-selected)";
+  &-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+    min-height: .96rem;
+    .@{tab-bar-prefix-cls}-icon-badge {
+      --top: .12rem;
+      min-width: 0.24rem;
+      border-radius: 0.16rem;
+    }
+  }
+
+  &-item {
+    flex: 1;
+    white-space: nowrap;
+    //padding-top: 7px;
+    padding: .08rem .16rem;
+    width: min-content;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden; /* 超出部分隐藏 */
+  }
+
+  &-item-icon {
+    font-size: var(--tabbar-icon-font-size);
+    height: var(--tabbar-icon-font-size);
+    line-height: 1;
+    color: var(--tabbar-icon-color);
+
+    .@{icon-prefix-cls} {
+      width: var(--tabbar-icon-font-size);
+      height: var(--tabbar-icon-font-size);
+    }
+  }
+
+  &-item-title {
+    font-size: var(--tabbar-font-size);
+    color: var(--tabbar-text-color);
+    line-height: 1.5;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 溢出部分显示省略号 */
+
+    &-with-icon {
+      margin-top: 2px;
+    }
+  }
+
+  &-item-active {
+    .@{tab-bar-prefix-cls}-item-icon {
+      color: var(--tabbar-icon-active-color);
+    }
+
+    .@{tab-bar-prefix-cls}-item-title {
+      color: var(--tabbar-text-active-color);
+    }
+  }
+
+  &-title-badge {
+    --right: -2px;
+    --top: -2px;
+  }
+
+  .@{badge-prefix-cls}-dot {
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    min-width: 0.1rem;
+  }
+
+  .@{badge-prefix-cls}-content {
+    font-size: 0.2rem;
+  }
+}

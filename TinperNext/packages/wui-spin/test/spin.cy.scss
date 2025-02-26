@@ -1,0 +1,48 @@
+.wui-spin .wui-spin-spin.wui-spin-dot,
+.wui-spin .wui-spin-spin.wui-spin-dot > i,
+.wui-spin.wui-spin-antd>div>img, 
+.wui-spin.wui-spin-default>div>img, 
+.wui-spin.wui-spin-rotate>div>img,
+.wui-spin.wui-spin-line div {
+  animation: none !important;
+}
+
+.demo5 {
+  height: 100px;
+  width: 500px;
+  overflow: hidden;
+  font-size: 14px;
+
+  .wui-spin-backdrop {
+    z-index: 1029;
+    background: rgba(255, 255, 255, 0);
+  }
+  .wui-spin.wui-spin-default.wui-spin-default-sm > div,
+  .wui-spin.wui-spin-antd.wui-spin-antd-sm > div,
+  .wui-spin.wui-spin-custom.wui-spin-custom-sm > div,
+  .wui-spin.wui-spin-line.wui-spin-line-sm,
+  .wui-spin.wui-spin-rotate.wui-spin-rotate-sm > div {
+    left: 20%;
+  }
+
+  .wui-spin.wui-spin-default > div,
+  .wui-spin.wui-spin-antd > div,
+  .wui-spin.wui-spin-custom > div,
+  .wui-spin.wui-spin-line,
+  .wui-spin.wui-spin-rotate > div {
+    left: 40%;
+  }
+
+  .wui-spin.wui-spin-default.wui-spin-default-lg > div,
+  .wui-spin.wui-spin-antd.wui-spin-antd-lg > div,
+  .wui-spin.wui-spin-custom.wui-spin-custom-lg > div,
+  .wui-spin.wui-spin-line.wui-spin-line-lg,
+  .wui-spin.wui-spin-rotate.wui-spin-rotate-lg > div {
+    left: 65%;
+  }
+}
+
+.demo6 {
+  width: 200px;
+  height: 100px;
+}

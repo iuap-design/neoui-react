@@ -1,0 +1,51 @@
+export default {
+    'lang': 'zh-cn',
+    'zh-cn': {
+        'noFound': '404',
+        'noVisualizeDataImg': '暂时没有数据哦~',
+        'noCollectImg': '暂时没有收藏哦~',
+        'noDataImg': '暂时没有数据哦~',
+        'noSearchImg': '暂时没有搜索哦~',
+        'noNetworkImg': '暂时没有网络哦~',
+    },
+    'en-us': {
+        'noFound': '404',
+        'noVisualizeDataImg': 'No data for now',
+        'noCollectImg': 'No collection for now',
+        'noDataImg': 'No data for now',
+        'noSearchImg': 'No search for now',
+        'noNetworkImg': 'No network for now',
+    },
+    'zh-tw': {
+        'noFound': '404',
+        'noVisualizeDataImg': '暫時沒有數據哦~',
+        'noCollectImg': '暫時沒有收藏哦~',
+        'noDataImg': '暫時沒有數據哦~',
+        'noSearchImg': '暫時沒有蒐索哦~',
+        'noNetworkImg': '暫時沒有網絡哦~',
+    },
+    'vi-vn': {
+        'noFound': '404',
+        'noVisualizeDataImg': 'Không có dữ liệu',
+        'noCollectImg': 'Không có bộ sưu tập',
+        'noDataImg': 'Không có dữ liệu',
+        'noSearchImg': 'Không có tìm kiếm',
+        'noNetworkImg': 'Không có mạng',
+    },
+    'id-id': {
+        'noFound': '404',
+        'noVisualizeDataImg': 'Saat ini tidak ada data~',
+        'noCollectImg': 'Saat ini tidak ada koleksi~',
+        'noDataImg': 'Saat ini tidak ada data~',
+        'noSearchImg': 'Saat ini tidak ada pencarian~',
+        'noNetworkImg': 'Saat ini tidak ada jaringan~',
+    },
+    'ar-sa': {
+        'noFound': '404',
+        'noVisualizeDataImg': 'لا توجد بيانات حالياً ~',
+        'noCollectImg': 'لا توجد مجموعات حالياً ~',
+        'noDataImg': 'لا توجد بيانات حالياً ~',
+        'noSearchImg': 'لم تقم بأي بحث حتى الآن ~',
+        'noNetworkImg': 'لا يوجد اتصال بالإنترنت حالياً ~',
+    }
+}

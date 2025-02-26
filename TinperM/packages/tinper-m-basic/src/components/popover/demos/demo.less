@@ -1,0 +1,36 @@
+.popover-demo {
+  button {
+    border-radius: 0.08rem;
+    font-size: 0.3rem;
+    padding: 0.20rem 0.40rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    text-wrap: nowrap;
+  }
+
+  .placementList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  &.singleLineContent,
+  &.multiLineContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .closeIcon {
+    font-size: 18px;
+    color: #ffffff;
+    opacity: 0.6;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+
+  .imageContainer {
+    margin-right: 12px;
+  }
+
+}
+

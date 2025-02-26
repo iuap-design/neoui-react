@@ -1,0 +1,3 @@
+<module name="iuap-tinper.next-fe" description="TinperNext基础组件库">
+    <nginx_mode>ucf</nginx_mode>
+</module>

@@ -1,0 +1,114 @@
+@import (reference) '../../styles/variables.less';
+
+.@{prefix}-hero {
+  position: relative;
+  // margin: -@s-header-height - 20 auto -160px auto;
+  // max-width: @s-content-width;
+  // height: 932px;
+  padding-top: 180px;
+  padding-left: 18%;
+  padding-bottom: 200px;
+  // text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background: no-repeat center/cover;
+  background-image: url('../../../../public/background.png');
+
+  @media @mobile {
+    margin-top: -@s-header-height-m - 20;
+    padding-top: 160px;
+    height: 660px;
+  }
+
+  + * {
+    position: relative;
+  }
+
+
+
+  /* > p {
+    // margin: 32px;
+    color: @c-text-secondary;
+    font-size: 20px;
+    line-height: 1.6;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    @media @mobile {
+      font-size: 16px;
+    }
+  } */
+
+  &-description{
+    font-family: PingFangSC-SNaNpxibold;
+    font-weight: 600;
+    font-size: 40px;
+    color: #111827;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  &-sub-description{
+    font-family: AlibabaPuHuiTiR;
+    font-size: 16px;
+    color: #9CA3AF;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin: 16px 0 0;
+  }
+
+  &-actions {
+    margin-top: 48px;
+    display: flex;
+    justify-content: left;
+
+    > a {
+      display: inline-block;
+      text-align: center;
+      font-size: 18px;
+      line-height: 44px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: opacity 0.2s;
+      width: 132px;
+      height: 44px;
+      border-radius: 8px;
+
+      @media @mobile {
+        font-size: 16px;
+        height: 42px;
+        line-height: 40px;
+        min-width: 128px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:not(:first-child) {
+        margin-inline-start: 24px;
+        color: #374151;
+        background-color: #fff;
+        // border: 1px solid @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+          // border-color: @c-primary-dark;
+        }
+      }
+
+      &:first-child {
+        color: #fff;
+        background-color: @btn-background;
+
+        @{dark-selector} & {
+          background-color: @btn-background-dark;
+        }
+      }
+    }
+  }
+}

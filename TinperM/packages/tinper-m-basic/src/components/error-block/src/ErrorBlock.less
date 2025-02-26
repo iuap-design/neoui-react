@@ -1,0 +1,57 @@
+@import (reference) '../../../theme/index.less';
+
+.@{error-block-prefix-cls} {
+  --color: var(--mui-color-text);
+  --image-height: ~'var(--@{error-block-prefix-cls}-size-height-image)';
+  --image-height-full-page: ~'var(--@{error-block-prefix-cls}-size-height-image-fullpage)';
+  --image-width: ~'var(--@{error-block-prefix-cls}-size-width-image)';
+  --image-width-full-page: ~'var(--@{error-block-prefix-cls}-size-width-image-fullpage)';
+
+  box-sizing: border-box;
+  text-align: center;
+
+  &-image {
+    height: var(--image-height);
+    width: var(--image-width);
+    max-width: 100%;
+
+    & svg,
+    img {
+      height: 100%;
+    }
+  }
+
+  &-description {
+    font-size: var(--mui-font-size-4);
+    color: var(--mui-color-text-secondary);
+    line-height: 1.4;
+    margin-top: 0.24rem;
+    &-title {
+      font-size: var(--mui-font-size-7);
+      color: var(--mui-color-text);
+    }
+    &-subtitle {
+      margin-top: 0.16rem;
+    }
+  }
+
+  &-content {
+    margin-top: 0.24rem;
+  }
+
+  &-full-page {
+    padding-top: calc(50vh - var(--image-height-full-page));
+    .@{error-block-prefix-cls}-image {
+      height: var(--image-height-full-page);
+      width: var(--image-width-full-page);
+    }
+    .@{error-block-prefix-cls}-description {
+      margin-top: 0.4rem;
+      font-size: var(--mui-font-size-main);
+      &-title {
+        font-size: 0.4rem;
+        color: var(--mui-color-text);
+      }
+    }
+  }
+}

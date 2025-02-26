@@ -1,0 +1,30 @@
+@import (reference) '../../../theme/index.less';
+
+.@{avatar-prefix-cls}{
+  --size: ~'var(--@{avatar-prefix-cls}-font-size-avatar)';
+  --border-radius: ~'var(--@{avatar-prefix-cls}-border-radius-avatar)';
+  border-radius: var(--border-radius);
+  width: var(--size);
+  height: var(--size);
+
+  &.mui-image {
+    --width: var(--size);
+    --height: var(--size);
+  }
+
+  &-fallback {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+  &-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ~"var(--@{avatar-prefix-cls}-color-text-avatar)";
+    background: ~"var(--@{avatar-prefix-cls}-color-bg-avatar)";
+    font-size: 0.4rem;
+    border: ~"var(--@{avatar-prefix-cls}-color-border-avatar)" 0.5px solid;
+    font-weight: 500;
+  }
+}

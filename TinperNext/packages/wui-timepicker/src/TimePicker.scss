@@ -1,0 +1,355 @@
+@import '../../wui-core/scss/minxin-mixins';
+
+//$time-picker-prefix-cls: $prefix-cls + 'time-picker';
+
+$border: calc(var(--#{$wui-prefix}-base-input-border-width) * 2);
+
+@mixin size($height, $border: $border) {
+  // height: $height;
+  // line-height: $height;
+
+  .#{$time-picker-prefix-cls}-input,
+  .#{$time-picker-prefix-cls}-input-wrap,
+  i.uf {
+    height: calc($height - $border);
+    line-height: calc($height - $border);
+  }
+}
+
+.#{$time-picker-prefix-cls} {
+  display: inline-flex;
+  position: relative;
+  padding: 0 8px;
+  width: 100%;
+  line-height: 26px;
+  background-color: $timepicker-input-bg-color;
+  background-image: none;
+  border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+  border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+  transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  @include required-style();
+
+  i.uf {
+    padding: 0;
+    font-size: $suffix-icon-font-size;
+    color: $suffix-icon-base-color;
+    &:active {
+      color: var(--#{$wui-prefix}-input-suffix-icon-color-active);
+    }
+    &:hover {
+        color: $base-input-suffix-icon-color-hover;
+        background-color: var(--#{$wui-prefix}-input-suffix-icon-background-color-hover);
+    }
+    &.uf-close-c {
+      display: block;
+      height: 16px;
+      line-height: 16px;
+      margin: auto 4px auto 0;
+      border-radius: 50%;
+      opacity: 0;
+      background: #fff;
+      cursor: pointer;
+      color: $clear-icon-base-color;
+      font-size: $clear-icon-font-size;
+
+      &:hover {
+        transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        color: $clear-icon-hover-color;
+      }
+    }
+  }
+
+  &:hover {
+    i.uf.uf-close-c {
+      opacity: 1;
+      }
+  }
+
+  &-disabled i.uf:nth-of-type(1):hover {
+    color: $base-input-color-disabled;
+    cursor: not-allowed;
+  }
+
+  &-xs {
+    $height: $form-control-xs-height;
+    @include size($height);
+  }
+
+  &-sm {
+    $height: $form-control-sm-height;
+    @include size($height);
+  }
+
+  &-md {
+    $height: $form-control-md-height;
+    @include size($height);
+  }
+
+  &-nm {
+    $height: $form-control-nm-height;
+    @include size($height);
+  }
+
+  &-lg {
+    $height: $form-control-lg-height;
+    @include size($height);
+  }
+
+  .#{$time-picker-prefix-cls}-input {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    // height: 26px;
+    // padding: 4px 0;
+    border: none;
+    border-radius: $select-border-radius;
+    font-size: var(--#{$time-picker-prefix-cls}-font-size);
+    outline: none;
+    color: var(--#{$time-picker-prefix-cls}-color-text);
+    background: transparent;
+    cursor: text;
+    caret-color: var(--#{$wui-prefix}-base-input-caret-color);
+    font-weight: var(--#{$time-picker-prefix-cls}-font-weight);
+
+    &[disabled] {
+      background: $base-input-bg-disabled;
+      color: var(--#{$time-picker-prefix-cls}-color-text-disabled);
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: var(--#{$time-picker-prefix-cls}-color-text-disabled)
+      }
+    }
+
+    // placeholder色值
+    &::placeholder {
+      color: $timepicker-placeholder-color;
+      font-size: var(--#{$wui-prefix}-input-placeholder-font-size);
+    }
+
+    &::-ms-clear {
+      display: none; // QDJCJS-9663，兼容IE11下input多余清除×问题
+    }
+
+    &:not([disabled]):hover {
+      border-color: $base-input-border-color-hover;
+    }
+
+    &:not([disabled]):active {
+      border-color: $base-input-border-color-focus;
+    }
+
+    &-wrap {
+      flex: 1;
+      // height: 26px; // QDJCJS-11338，处理不同系统height计算不一致问题
+      overflow: hidden; // QDJCJS-11338，兼容windows个别场景下border被遮挡问题
+    }
+  }
+
+  &-disabled {
+    border-color: $base-input-border-color-disabled;
+    background: $base-input-bg-disabled;
+    cursor: not-allowed;
+
+    i.uf:nth-of-type(1) {
+      color: $base-input-suffix-icon-color-disabled;
+      &:hover {
+        color: $base-input-suffix-icon-color-disabled;
+      }
+    }
+  }
+
+  &:hover:not(&-disabled, &-border-none) {
+    border-color: $base-input-border-color-hover;
+  }
+
+  // 处理focus与hover权重
+  #{&}#{&}-focused:not(&-disabled, &-border-none) {
+    border-color: $base-input-border-color-focus;
+    &:not(.#{$time-picker-prefix-cls}-border-bottom) {
+      box-shadow: 0 0 0 2px rgba(#0091ff,0.2);
+    }
+  }
+
+  &-border-bottom {
+    @include borderTransparent();
+    border-radius: 0;
+
+    &.#{$time-picker-prefix-cls} {
+      background-color: transparent;
+
+      &-disabled .#{$time-picker-prefix-cls}-input {
+        background-color: transparent;
+      }
+
+      &:hover,
+      &.#{$time-picker-prefix-cls}-focused {
+        @include borderTransparent();
+        border-radius: 0;
+      }
+    }
+  }
+
+  &#{&}-border-none {
+    @include borderTransparent(true, true, true, true);
+    border-radius: 0;
+
+    &.#{$picker-prefix} {
+
+      &:hover,
+      &.#{$picker-prefix}-focused {
+        @include borderTransparent(true, true, true, true);
+        border-radius: 0;
+      }
+    }
+  }
+
+  @each $align in $align-arr {
+    &-align-#{$align} input {
+      text-align: $align;
+    }
+  }
+
+}
+
+.#{$time-picker-prefix-cls}-panel {
+  z-index: $zindex-picker;
+  position: absolute;
+  font-size: var(--#{$picker-prefix}-font-size-content);
+
+  &-combobox {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: row;
+    /*!rtl:ignore*/
+    direction: ltr;
+    gap: 8px;
+    &-rtl{
+      .#{$time-picker-prefix-cls}-panel-select{
+      /*!rtl:ignore*/
+        direction: rtl;
+
+      }
+
+    }
+  }
+
+  &-footer {
+    border-top: 1px solid #ccc;
+    padding: 4px 12px;
+    line-height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  &-now {
+    font-size: 14px;
+    line-height: 28px;
+    color: var(--wui-info-color);
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-ok {
+    min-width: 48px;
+  }
+
+  &-inner {
+    display: inline-block;
+    position: relative;
+    outline: none;
+    list-style: none;
+    text-align: left;
+    border-radius: var(--#{$picker-prefix}-border-radius-panel);
+    box-shadow: var(--#{$picker-prefix}-box-shadow-panel);
+    background-color: var(--#{$picker-prefix}-color-bg-cell);
+    background-clip: padding-box;
+    border: var(--#{$picker-prefix}-border-width-panel) var(--#{$picker-prefix}-border-style-panel) var(--#{$picker-prefix}-color-border-panel);
+    line-height: 1.5;
+  }
+
+  &-select {
+    box-sizing: border-box;
+    border-right-width: var(--#{$time-picker-prefix-cls}-border-width-rightborder-panel);
+    height: 216px;
+    overflow: hidden;
+    position: relative;
+    @include set-scrollbar-style(5px, 0);
+
+    &-active {
+      overflow-y: auto;
+    }
+    
+
+    &:first-child {
+      border-left: 0;
+      margin-left: 0;
+      border-top-left-radius: $select-border-radius;
+      border-bottom-left-radius: $select-border-radius;
+    }
+
+    &:last-child {
+      border-right: 0;
+      border-top-right-radius: $select-border-radius;
+      border-bottom-right-radius: $select-border-radius;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-height: 144px;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    li {
+      width: var(--#{$time-picker-prefix-cls}-size-width-cell);
+      $cell-height: var(--#{$time-picker-prefix-cls}-size-height-cell);
+      box-sizing: content-box;
+      height: $cell-height;
+      line-height: $cell-height;
+      border-radius: var(--#{$time-picker-prefix-cls}-border-radius-cell);
+      list-style: none;
+      text-align: center;
+      cursor: pointer;
+      color: $font-color-base;
+      user-select: none;
+
+      &:hover {
+        color: var(--#{$picker-prefix}-color-text-content-hover);
+        background-color: var(--#{$time-picker-prefix-cls}-color-bg-cell-hover);
+      }
+    }
+  }
+
+  li.#{$time-picker-prefix-cls}-panel-select-option {
+    &-selected {
+      color: $base-item-text-color-active;
+      background: var(--#{$time-picker-prefix-cls}-color-bg-cell-selected);
+
+      &:hover {
+        background: $picker-cell-bg-color-hover;
+      }
+    }
+
+    &-disabled {
+      color: #909090;
+
+      &:hover {
+        background: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

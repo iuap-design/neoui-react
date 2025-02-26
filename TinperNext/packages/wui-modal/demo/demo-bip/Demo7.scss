@@ -1,0 +1,37 @@
+.demo7-modal {
+  font-size: 14px;
+  // .wui-label {
+  //     display: inline-block;
+  //     min-width: 100px;
+  //     text-align: right;
+  //     padding-right: 12px;
+  // }
+  .submit {
+    padding-left: 110px;
+  }
+
+  .submit .login {
+    margin-left: 10px;
+  }
+
+  .wui-form-item .wui-select {
+    min-width: 310px;
+  }
+
+  .wui-form-item .datepicker-container {
+    width: 100%;
+  }
+
+  .wui-city-select .province,
+  .wui-city-select .city,
+  .wui-city-select .area {
+    width: 120px;
+  }
+
+}
+
+#demo7 {
+  .rc-calendar-picker {
+    z-index: 1800;
+  }
+}

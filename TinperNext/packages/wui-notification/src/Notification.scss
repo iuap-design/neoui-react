@@ -1,0 +1,201 @@
+@import "../../wui-core/scss/minxin-mixins";
+
+//$notification-prefix-cls: $prefix-cls + 'notification';
+
+.#{$notification-prefix-cls}{
+  position: fixed;
+  z-index: $zIndex-notification;
+  width: $notification-width;
+  margin-right: $notification-text-margin-right;
+
+  &-topRight{
+    top: $notification-top;
+    right: $notification-right;
+  }
+  &-bottomRight{
+    bottom: $notification-bottom;
+    right: $notification-right;
+  }
+
+  &-notice {
+    position: relative;
+    padding: $notice-padding;
+    border-radius: var(--#{$notification-prefix-cls}-border-radius);
+    @include shadow-3dp();
+    background: $notice-background;
+    line-height: 1.5;
+    margin-bottom: $notice-bottom;
+    overflow: hidden;
+    color: $inverse;
+    &-title {
+      font-size: var(--#{$notification-prefix-cls}-font-size-title);
+      font-weight: var(--#{$notification-prefix-cls}-font-weight-title);
+      margin-bottom: 6px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      color: var(--#{$notification-prefix-cls}-color-text-title);
+      .uf {
+        font-size: var(--#{$modal-prefix-cls}-font-size-icon-info);
+        padding: 0 8px 0 0;
+        font-weight: 400;
+      }
+      & + div{
+        padding-left: 26px;
+      }
+    }
+    &-description {
+      word-wrap: break-word;
+      font-size: var(--#{$notification-prefix-cls}-font-size-content);
+      font-weight: var(--#{$notification-prefix-cls}-font-weight-content);
+      line-height: 22px;
+      color: var(--#{$notification-prefix-cls}-color-text-content);
+    }
+    &-btn {
+      float: right;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    &-closable {
+      padding-right: 20px;
+      padding-top: 14px;
+      /*!rtl:raw:
+      padding-right: 16px;
+      */
+    }
+
+    &-close {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      cursor: pointer;
+      outline: none;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 0 $inverse;
+      filter: alpha(opacity=80);
+      opacity: .8;
+      text-decoration: none;
+
+      &-x .uf {
+        font-size: var(--#{$wui-prefix}-font-size-feedback);
+        padding: 0;
+        color: var(--#{$wui-prefix}-color-icon-close-feedback);
+      }
+      &-x .uf:hover {
+        color: var(--#{$wui-prefix}-color-icon-close-feedback-hover);
+      }
+      &:hover {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+  &-notice-dark &-notice-title {
+    color: var(--#{$notification-prefix-cls}-color-text-inverse-title);
+  }
+  &-notice-dark &-notice-description {
+    color: var(--#{$notification-prefix-cls}-color-text-inverse-content);
+  }
+
+  &-notice-light, &-notice-successlight,&-notice-dangerlight,&-notice-warninglight,&-notice-infolight {
+    background-color: var(--#{$notification-prefix-cls}-color-bg);
+    color: $gray-darkest;
+  }
+  // 默认情况 无图标颜色
+  //  &-notice-light {
+  //   .#{$notification-prefix-cls}-notice-title {
+  //     .uf {
+  //       color: $brand-primary;
+  //     }
+  //   }
+  //  }
+  &-notice-successlight {
+    .#{$notification-prefix-cls}-notice-title {
+      .uf {
+        color: var(--#{$wui-prefix}-color-success);
+      }
+    }
+  }
+  &-notice-dangerlight {
+    .#{$notification-prefix-cls}-notice-title {
+      .uf {
+        color: var(--#{$wui-prefix}-color-danger);
+      }
+    }
+  }
+  &-notice-warninglight {
+    .#{$notification-prefix-cls}-notice-title {
+      .uf {
+        color: var(--#{$wui-prefix}-color-warning);
+      }
+    }
+  }
+  &-notice-infolight {
+    .#{$notification-prefix-cls}-notice-title {
+      .uf {
+        color: var(--#{$wui-prefix}-color-info);
+      }
+    }
+  }
+}
+.notification-fade-effect {
+  animation-duration: 0.24s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-play-state: paused;
+}
+
+.#{$notification-prefix-cls}-fade-enter,
+.#{$notification-prefix-cls}-fade-appear {
+  opacity: 0;
+  @extend .notification-fade-effect;
+}
+
+.#{$notification-prefix-cls}-fade-leave {
+  @extend .notification-fade-effect;
+}
+
+.#{$notification-prefix-cls}-fade-enter.#{$notification-prefix-cls}-fade-enter-active,
+.#{$notification-prefix-cls}-fade-appear.#{$notification-prefix-cls}-fade-appear-active {
+  animation-name: uNotificationFadeIn;
+  animation-play-state: running;
+}
+
+.#{$notification-prefix-cls}-fade-leave.#{$notification-prefix-cls}-fade-leave-active {
+  animation-name: uNotificationFadeOut;
+  animation-play-state: running;
+}
+@keyframes uNotificationFadeIn {
+  0% {
+    opacity: 0;
+    left: $notification-width;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes uNotificationFadeOut {
+  0% {
+    opacity: 1;
+    margin-bottom: $notice-bottom;
+    padding-top: $notice-padding;
+    padding-bottom: $notice-padding;
+    max-height: 150px;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
+  }
+}

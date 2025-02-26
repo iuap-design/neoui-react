@@ -1,0 +1,32 @@
+.code-tabs{
+    display: flex;
+    align-content: center;
+    margin-bottom: 14px;
+    height: 30px;
+    background: transparent;
+    box-sizing: content-box;
+    width: 100%;
+    border-bottom: 1px solid #ffffff30;
+    .detail-tabs-item{
+        font-size: 14px;
+        color: #FFF;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        margin-right: 32px;
+        cursor: pointer;
+        position: relative;
+    }
+    .active{
+        color: #F53729;
+        i {
+            width: 35px;
+            height: 3px;
+            background: #F53729;
+            border-radius: 3px 3px 0px 0px;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.demos-wui-anchor {
+  .demo1 {
+    .content {
+      .demo-con {
+        height: 500px;
+      }
+
+      display: inline-block
+    }
+
+    .wui-anchor {
+      display: inline-block;
+    }
+
+    #my-awesome-nav {
+      position: fixed;
+      top: 200px;
+      right: 300px;
+
+      li {
+        padding: 0 10px 0 18px;
+        font-size: 12px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        // line-height: 30px;
+        // height: 30px;
+        // background: #FFF;
+        a {
+          color: #666;
+        }
+
+        a:hover {
+          color: #333;
+        }
+      }
+    }
+
+    #my-awesome-nav li.active {
+      border-left: 2px solid #E14C46;
+      // padding: 0 10px;
+    }
+    >div:first-child {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      width: 100%;
+    }
+  }
+}

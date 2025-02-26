@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`open submenu when click submenu title all types must be available in the "items" syntax， <test prop:: items> 1`] = `"<ul class=\\"wui-menu wui-menu-root wui-menu-inline wui-menu-light\\" role=\\"menu\\" tabindex=\\"-1\\" data-menu-list=\\"true\\"><li class=\\"wui-menu-submenu wui-menu-submenu-inline wui-menu-submenu-open\\" role=\\"none\\"><div role=\\"menuitem\\" style=\\"padding-left: 24px;\\" class=\\"wui-menu-submenu-title\\" tabindex=\\"-1\\" title=\\"Submenu\\" aria-expanded=\\"true\\" aria-haspopup=\\"true\\" aria-disabled=\\"false\\" data-menu-id=\\"rc-menu-uuid-test-submenu\\" aria-controls=\\"rc-menu-uuid-test-submenu-popup\\">Submenu<i class=\\"wui-menu-submenu-arrow\\"></i></div><ul class=\\"wui-menu wui-menu-sub wui-menu-inline\\" role=\\"menu\\" data-menu-list=\\"true\\" id=\\"rc-menu-uuid-test-submenu-popup\\"><li role=\\"menuitem\\" tabindex=\\"-1\\" date-for-wui-tooltip=123></div>"`;
+
+exports[`open submenu when click submenu title component: Menu, <test prop:: forceSubMenuRender> component: Menu, <test prop:: forceSubMenuRender> it should have length 1 1`] = `
+Object {
+  "childAt": [Function],
+  "debug": [Function],
+  "exists": [Function],
+  "find": [Function],
+  "getDOMNode": [Function],
+  "hasClass": [Function],
+  "html": [Function],
+  "instance": [Function],
+  "length": 1,
+  "name": [Function],
+  "prop": [Function],
+  "props": [Function],
+  "setProps": [Function],
+  "simulate": [Function],
+  "text": [Function],
+  "unmount": [Function],
+  "update": [Function],
+}
+`;
+
+exports[`open submenu when click submenu title component: Menu, <test prop:: forceSubMenuRender> component: Menu, <test prop:: forceSubMenuRender> it should have length 2 1`] = `
+Object {
+  "childAt": [Function],
+  "debug": [Function],
+  "exists": [Function],
+  "find": [Function],
+  "getDOMNode": [Function],
+  "hasClass": [Function],
+  "html": [Function],
+  "instance": [Function],
+  "length": 1,
+  "name": [Function],
+  "prop": [Function],
+  "props": [Function],
+  "setProps": [Function],
+  "simulate": [Function],
+  "text": [Function],
+  "unmount": [Function],
+  "update": [Function],
+}
+`;

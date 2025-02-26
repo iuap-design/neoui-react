@@ -1,0 +1,9 @@
+.wui-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.react-draggable-transparent-selection iframe {
+    pointer-events: none !important;
+}

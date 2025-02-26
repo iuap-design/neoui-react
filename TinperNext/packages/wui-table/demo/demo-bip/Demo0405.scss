@@ -1,0 +1,13 @@
+.foot_table {
+    height: 26px;
+    background: #fdf2e1;
+    line-height: 6px;
+    div{
+        font-size: 13px;
+        font-weight: 400;
+    }
+    div:not(:first-child) {
+        font-size: 13px;
+        font-weight: 600;
+    }
+}

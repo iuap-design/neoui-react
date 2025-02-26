@@ -1,0 +1,1828 @@
+@use 'sass:math';
+
+@import './css-variable/prefix';
+@import "minxin-themeColors";
+
+
+@function strip-units($number) {
+  @return math.div($number, ($number * 0 + 1));
+}
+$unit: 10px !default;
+//  IMAGES
+$image_path: '/images' !default;
+
+//默认颜色
+$trim-color-classes: false !default;
+
+//对比色
+$color-primary-contrast: $color-dark-contrast !default;
+$color-accent-contrast: $color-dark-contrast !default;
+//字体颜色
+$color-text: $palette-grey-900 !default;
+
+//不明所以 $primary-color: unquote("rgba(#{$palette-grey-500}, 0.20)") !default;
+
+// -- Fonts 字体大小权重预定义
+// $preferred-font: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei',sans-serif !default;
+$font-size: 1.6 * $unit !default;
+$font-size-tiny: 1.2 * $unit !default;
+$font-size-small: 1.4 * $unit !default;
+$font-size-normal: $font-size !default;
+$font-size-big: 1.8 * $unit !default;
+$font-size-base: 12px !default;
+$font-weight-thin: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-semi-bold: 500 !default;
+$font-weight-bold: 700 !default;
+$font-color:unquote("rgb(#{$palette-u-gray-800})") !default;
+// 白色背景下的文字颜色
+$font-color-base: var(--#{$wui-prefix}-base-text-color) !default;
+// 基础背景色
+$base-bg-color: var(--#{$wui-prefix}-base-bg-color) !default;
+// 基础面板背景色（暗黑模式下背景色与主背景色不一致）
+$base-panel-bg-color: var(--#{$wui-prefix}-base-panel-bg-color) !default;
+
+$font-weight-override:    false;
+$font-weight-light:       300;
+$font-weight-normal:      400;
+$font-weight-medium:      500;
+$font-weight-bold:        700;
+$font-weight-base:        $font-weight-normal;
+
+
+
+
+$gray-base:   unquote("rgb(#{$palette-grey-900})") !default;
+$gray-darkest: unquote("rgb(#{$palette-grey-800})") !default;
+$gray-darker:  unquote("rgb(#{$palette-grey-700})") !default;
+$gray-dark:    unquote("rgb(#{$palette-grey-600})") !default;
+$gray:        unquote("rgb(#{$palette-grey-500})") !default;
+$gray-light:   unquote("rgb(#{$palette-grey-400})") !default;
+$gray-lighter:  unquote("rgb(#{$palette-grey-300})") !default;
+$gray-lightest:unquote("rgb(#{$palette-grey-200})") !default;
+$inverse: unquote("rgb(#{$color-white})") !default;
+
+
+// border
+$border-color: var(--#{$wui-prefix}-base-border-color);
+// color, bgcolor
+$background-color: "";
+$border-color-base: $border-color !default; // 目前框架所有border-color的默认样式
+$border-color-dark: #ccc; // 某些组件的border是更深一些的ccc
+$line-height-base:        1.57142857;
+
+// 边框圆角
+$border-radius-base:        $border-radius;
+
+// 阴影
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
+$shadow-base: 0 1px 5px $gray-lighter;
+
+
+
+//-- Indexes
+$z-index-highest: 300;
+$z-index-higher: 200;
+$z-index-high: 100;
+$z-index-normal: 1;
+$z-index-low: -100;
+$z-index-lower: -200;
+
+$zIndex-spin:             1900;
+$zindex-modal:            1700;
+$zindex-modal-background: 1600;
+$zIndex-notification:     1560;
+$zIndex-message:          2000;
+$zIndex-popconfirm:       1540;
+$zIndex-popover:          1540;
+$zIndex-tooltip:          1530;
+$zIndex-alert:            1510;
+$zindex-navbar-fixed:     1500;
+$zindex-menubar:          1400;
+$zindex-overlay:          1300;
+$zindex-dropdown:         1200;
+$zindex-navbar:           1200;
+$zindex-header:           1100;
+$zindex-footer:           1000;
+$zindex-backtop:          2000;
+$zindex-picker:           1800; // 低于spin，高于modal
+
+// 文本字体
+
+//todo
+$text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
+$text-link-color: unquote("rgb(#{$color-accent})") !default;
+
+$target-elements-directly: true !default;
+
+
+$global-selected-color:  unquote("rgb(#{$palette-blue-100})") !default;
+
+
+// 控件
+$cursor-disabled:   not-allowed;
+$scrollbar-bg: var(--#{$wui-prefix}-scrollbar-color);
+
+
+$title-color:           $gray-darkest;
+//todo
+$subtitle-color:        $gray-darker;
+$text-color:            $gray-dark;
+
+$prompt-color:          $gray;
+//全局不同状态颜色
+//todo
+$active-color-base:  unquote("rgb(#{$palette-blue-800})") !default;
+$normal-color-base:  unquote("rgb(#{$palette-blue-600})") !default;
+$hover-color-base: var(--#{$wui-prefix}-dark-color);
+
+$bg-color-base:       $gray-lightest;
+
+//disable颜色
+$disabled-color-base: var(--#{$wui-prefix}-base-text-color-disabled); // 禁用全局字体颜色 #F7F7F7
+$disabled-border-color: var(--#{$wui-prefix}-base-border-color-disabled);
+$disabled-bg-color: var(--#{$wui-prefix}-base-bg-color-disabled);
+
+// 全局链接颜色
+$link-color:            $normal-color-base;
+$link-hover-color:      $hover-color-base;
+$link-active-color:     $active-color-base;
+
+// 品牌色
+$brand-default: var(--#{$wui-prefix}-dark-color); // 新品牌色
+$brand-default-hover: $gray-lightest;
+$brand-default-active:  $gray-light;
+// $brand-default: unquote("rgb(#{$color-primary})");
+// $brand-default-hover: unquote("rgb(#{$color-primary-light})");
+// $brand-default-active: unquote("rgb(#{$color-primary-dark})");
+
+//$brand-primary : unquote("rgb(#{$primary-color})") !default;
+//$brand-primary-hover: unquote("rgb(#{$primary-color-light})") !default;
+//$brand-primary-active: unquote("rgb(#{$primary-color-dark})") !default;
+
+$brand-primary: var(--#{$wui-prefix}-primary-color) !default;
+$brand-primary-hover: var(--#{$wui-prefix}-primary-color-hover) !default;
+$brand-primary-active: var(--#{$wui-prefix}-primary-color-active) !default;
+
+//$brand-primary-gradient: linear-gradient(45deg, #FC4C2F 0%, #EE2223 100%);
+//$brand-primary-active-gradient: linear-gradient(45deg, #D20E0F 0%, #EF2524 100%);
+//$brand-primary-hover-gradient: linear-gradient(45deg, #EE2223 0%, #FC4C2F 100%); // 品牌渐变色的三种状态
+
+//$brand-primary-gradient: #ee2233;
+//$brand-primary-active-gradient: #be1b28;
+//$brand-primary-hover-gradient: #be1b28; // 品牌渐变色的三种状态
+
+//$brand-secondary : unquote("rgb(#{$secondary-color})") !default;
+//$brand-secondary-hover: unquote("rgb(#{$secondary-color-light})") !default;
+//$brand-secondary-active: unquote("rgb(#{$secondary-color-dark})") !default;
+
+$brand-secondary : var(--#{$wui-prefix}-secondary-color) !default;
+$brand-secondary-hover: var(--#{$wui-prefix}-secondary-color-hover) !default;
+$brand-secondary-active: var(--#{$wui-prefix}-secondary-color-active) !default;
+
+//$brand-success: unquote("rgb(#{$palette-green-500})") !default;
+//$brand-success: #18b681;
+//$brand-success-hover: unquote("rgb(#{$palette-green-300})") !default;
+//$brand-success-active: unquote("rgb(#{$palette-green-700})") !default;
+
+$brand-success: var(--#{$wui-prefix}-success-color) !default;
+$brand-success-hover: var(--#{$wui-prefix}-success-color-hover) !default;
+$brand-success-active: var(--#{$wui-prefix}-success-color-active) !default;
+
+//$brand-info: unquote("rgb(#{$palette-cyan-500})") !default;
+//$brand-info: #4E97FF;
+//$brand-info-hover: unquote("rgb(#{$palette-cyan-300})") !default;
+//$brand-info-active: unquote("rgb(#{$palette-cyan-700})") !default;
+
+$brand-info: var(--#{$wui-prefix}-info-color) !default;
+$brand-info-hover: var(--#{$wui-prefix}-info-color-hover) !default;
+$brand-info-active: var(--#{$wui-prefix}-info-color-active) !default;
+
+//$brand-warning: unquote("rgb(#{$palette-orange-500})") !default;
+//$brand-warning: #FFA600;
+//$brand-warning-hover: unquote("rgb(#{$palette-orange-300})") !default;
+//$brand-warning-active: unquote("rgb(#{$palette-orange-700})") !default;
+
+$brand-warning: var(--#{$wui-prefix}-warning-color) !default;
+$brand-warning-hover: var(--#{$wui-prefix}-warning-color-hover) !default;
+$brand-warning-active: var(--#{$wui-prefix}-warning-color-active) !default;
+
+
+$brand-news: unquote("rgb(#{$palette-blue-500})") !default;
+$brand-news-hover: unquote("rgb(#{$palette-blue-300})") !default;
+$brand-news-active: unquote("rgb(#{$palette-blue-700})") !default;
+
+//$brand-danger:  unquote("rgb(#{$palette-red-500})") !default;
+//$brand-danger:  #FF5735;
+//$brand-danger-hover: unquote("rgb(#{$palette-red-300})") !default;
+//$brand-danger-active: unquote("rgb(#{$palette-red-700})") !default;
+
+$brand-danger:  var(--#{$wui-prefix}-danger-color) !default;
+$brand-danger-hover: var(--#{$wui-prefix}-danger-color-hover) !default;
+$brand-danger-active: var(--#{$wui-prefix}-danger-color-active) !default;
+
+//$brand-dark:  $gray-darker;
+//$brand-dark-hover: $gray-dark;
+//$brand-dark-active: $gray-darkest;
+
+$brand-dark:  var(--#{$wui-prefix}-dark-color) !default;
+$brand-dark-hover: var(--#{$wui-prefix}-dark-color-hover) !default;
+$brand-dark-active: var(--#{$wui-prefix}-dark-color-active) !default;
+
+$brand-light : unquote("rgb(#{$color-dark-contrast})") !default;
+$brand-light-hover: unquote("rgb(#{$palette-grey-200})") !default;
+$brand-light-active: unquote("rgb(#{$palette-grey-400})") !default;
+
+$brand-light-primary : unquote("rgb(#{$palette-blue-50})") !default;
+//$brand-light-success: unquote("rgb(#{$palette-green-50})") !default;
+//$brand-light-info: unquote("rgb(#{$palette-cyan-50})") !default;
+//$brand-light-warning: unquote("rgb(#{$palette-orange-50})") !default;
+//$brand-light-danger:  unquote("rgb(#{$palette-red-50})") !default;
+$brand-light-success: #EEF9F5;
+$brand-light-info: #EDF4FF;
+$brand-light-warning: #FFF7E8;
+$brand-light-danger: #FFF4F2;
+$brand-light-news: unquote("rgb(#{$palette-blue-50})") !default;
+
+//不同背景下对应的文字颜色
+
+$color-news: unquote("rgb(#{$palette-blue-500})") !default;
+$color-success: unquote("rgb(#{$palette-green-500})") !default;
+$color-info: unquote("rgb(#{$palette-cyan-500})") !default;
+$color-warning: unquote("rgb(#{$palette-orange-500})") !default;
+$color-danger: unquote("rgb(#{$palette-red-500})") !default;
+$color-light: $gray-darker !default;
+
+//redius
+
+$default-border-radius: $border-radius;
+
+// item条目样式
+// hover时的背景色，包括select、dropdown、table、datepicker、tree、menu等组件
+//$hover-bg-color-base: #EDF1F7 !default;
+$hover-bg-color-base: var(--#{$wui-prefix}-color-bg-option-hover) !default;
+// selected背景色，包括：select、menu等
+$selected-bg-color-base: var(--#{$wui-prefix}-color-bg-option-selected) !default;
+
+// item项
+$base-item-text-color: var(--#{$wui-prefix}-base-item-color) !default;
+$base-item-text-color-disabled: var(--#{$wui-prefix}-base-item-color-disabled) !default;
+$base-item-text-color-active: var(--#{$wui-prefix}-base-item-color-active) !default;
+// $base-item-text-color-active: var(--#{$wui-prefix}-primary-color) !default;
+$base-item-bg-color-hover: $hover-bg-color-base !default;
+$base-item-bg-color-selected: $selected-bg-color-base !default;
+$base-item-bg-color-selected-hover: var(--#{$wui-prefix}-color-bg-option-selected-hover) !default;
+
+// 输入框交互颜色,包括input select等
+$base-input-color: var(--#{$wui-prefix}-input-color);
+$base-input-color-disabled: var(--#{$wui-prefix}-input-color-disabled);
+$base-input-bg: var(--#{$wui-prefix}-input-bg);
+$base-input-bg-required: var(--#{$wui-prefix}-input-bg-color-required);
+$base-input-bg-disabled: var(--#{$wui-prefix}-input-bg-disabled);
+$base-input-border-bottom-color: var(--#{$wui-prefix}-input-border-bottom-color);
+$base-input-border-color: var(--#{$wui-prefix}-input-border-color);
+$base-input-border-color-hover: var(--#{$wui-prefix}-input-border-color-hover);
+$base-input-border-color-focus: var(--#{$wui-prefix}-input-border-color-focus);
+$base-input-border-color-disabled: var(--#{$wui-prefix}-input-border-color-disabled);
+$base-input-placeholder-color: var(--#{$wui-prefix}-input-placeholder-color);
+$base-input-suffix-icon-color: var(--#{$wui-prefix}-input-suffix-icon-color);
+$base-input-suffix-icon-color-hover: var(--#{$wui-prefix}-input-suffix-icon-color-hover);
+$base-input-suffix-icon-color-disabled: var(--#{$wui-prefix}-input-suffix-icon-color-disabled);
+// UButton
+
+// Button 基础背景色.
+// 默认按钮(<Button></Button>)
+//$button-default-color: unquote("rgb(#{$default-color})");
+$button-default-color: #FFFFFF;
+$button-default-color-IE8: unquote("rgb(#{$default-color})");
+
+// 边框按钮(shape:'border')
+$button-border-bg-color: unquote("rgb(#{$color-dark-contrast})");
+
+
+$button-disabled-bg-color: var(--#{$wui-prefix}-base-bg-color-disabled);
+$button-disabled-color: var(--#{$wui-prefix}-base-text-color-disabled);
+
+// Button 不同状态下的背景色 ：hover、active、focus状态.
+$button-hover-color: unquote("rgb(#{$default-color-light})");
+$button-active-color: unquote("rgb(#{$default-color-dark})");
+$button-focus-color: unquote("rgb(#{$default-color-light})");
+
+// Button 配置不同colors属性时的背景色.
+$button-primary-color: $brand-primary;
+$button-primary-active-color: $brand-primary-active;
+$button-primary-hover-color: $brand-primary-hover;
+$button-secondary-color:  $brand-secondary;
+$button-secondary-active-color:  $brand-secondary-active;
+$button-secondary-hover-color:  $brand-secondary-hover;
+//$button-secondary-color:  #dbe0e5;
+//$button-secondary-active-color:  #c6cacf;
+//$button-secondary-hover-color:  #c6cacf;
+$button-success-color:  $brand-success;
+$button-success-active-color:  $brand-success-active;
+$button-success-hover-color:  $brand-success-hover;
+//$button-success-color:  #18B681;
+//$button-success-active-color:  #20A86F;
+//$button-success-hover-color:  #6ED0A7;
+$button-info-color:  $brand-info;
+$button-info-active-color:  $brand-info-active;
+$button-info-hover-color:  $brand-info-hover;
+//$button-info-color:  #4e97ff;
+//$button-info-hover-color:  #8fb8ff;
+//$button-info-active-color:  #5288e6;
+$button-warning-color: $brand-warning;
+$button-warning-active-color:  $brand-warning-active;
+$button-warning-hover-color:  $brand-warning-hover;
+//$button-warning-color: #ffa600;
+//$button-warning-hover-color: #ffd379 ;
+//$button-warning-active-color: #f2a407;
+$button-danger-color: $brand-danger;
+$button-danger-hover-color:  $brand-danger-hover;
+$button-danger-active-color:  $brand-danger-active;
+//$button-danger-color: #ff5735;
+//$button-danger-hover-color:  #ff7d5f;
+//$button-danger-active-color:  #e95d3d;
+$button-dark-color:  $brand-default;
+$button-dark-active-color:  $brand-dark-active;
+$button-dark-hover-color:  $brand-dark-hover;
+//$button-dark-color: #505766;
+//$button-dark-hover-color:  #373c47;
+//$button-dark-active-color: #373c47;
+$button-light-color:  $brand-light;
+$button-light-active-color:  $brand-light-active;
+$button-light-hover-color:  $brand-light-hover;
+
+// Button 文字颜色.
+// 主按钮(colors:'primary')
+$button-primary-text-color: $color-primary-contrast !default;
+$button-text-color: $button-primary-text-color;
+//$button-text-color-blue: #0033cc;
+//$button-text-color-blue-light: #0066ff;
+//$button-text-color-blue-dark: #0066ff;
+// 次按钮(colors:'secondary')
+//$button-second-text-color: unquote("rgb(#{$button-secondary-text-color})") !default;
+// 默认按钮(<Button></Button>)
+//$button-default-text-color: unquote("rgb(#{$palette-grey-900})") !default;
+//$button-default-text-color: #505766 !default;
+// 边框按钮(shape:'border')
+// $button-border-text-color: unquote("rgb(#{$primary-color})") !default;
+
+// Button 边框样式及颜色.
+$button-border-style: unquote("solid") !default;
+//$button-border-color: $border-color !default;
+//$button-border-color: #bbb;
+//$button-default-border-color: $button-default-color !default;
+
+// Button 不同状态下的边框颜色 ：hover、active、focus状态.
+$button-hover-border-color: $brand-default-hover;
+$button-active-border-color: $brand-default-active;
+$button-focus-border-color: $brand-default-active;
+
+// FAB colors and sizes.
+$button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-hover-color-alt: unquote("rgb(#{$color-accent-light})") !default;
+$button-fab-active-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-text-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
+$button-fab-ripple-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
+
+// Icon button colors and sizes.
+$button-icon-color: unquote("rgb(#{$palette-grey-700})") !default;
+$button-icon-focus-color: $button-focus-color !default;
+$button-icon-hover-bg-color: #F1F1F1;
+$button-icon-active-bg-color: #E4E4E4;
+
+// Button 最小宽度、高度、内边距、外边距、行高、边框粗细、圆角.
+$button-min-width: 60px !default;
+$button-max-width: 150px !default;
+$button-min-height: 2.2 * $unit !default;
+$button-height: 3.6 * $unit !default;
+$button-padding: 0.4 * $unit  1.2 * $unit !default;
+$button-padding-IE8: 4px 12px !default;
+$button-top-padding: 1.3 * $unit !default;
+$button-left-padding: 0.6* $unit !default;
+$button-line-height:1.5;
+$button-margin: 0.4 * $unit !default;
+$button-border-radius: 0.3 * $unit !default;
+$button-border-width: 0.1 * $unit !default;
+
+$button-fab-size: 3.8 * $unit !default;
+$button-fab-size-mini: 3 * $unit !default;
+$button-fab-font-size: 1.6 * $unit !default;
+
+$button-icon-size: 2.8 * $unit !default;
+$button-icon-size-mini: 1.3 * $unit !default;
+
+$button-raised-font-size: 1.4 * $unit !default;
+
+// Button 特大型按钮
+$button-padding-y-xg:10.5px;
+$button-padding-x-xg:18px;
+$button-height-xg:28px;
+$font-size-xg:1.6 * $unit;
+
+// Button 大按钮
+$button-padding-y-lg:5px;
+$button-padding-x-lg:12px;
+$button-height-lg: var(--#{$button-prefix-cls}-default-height);
+$font-size-lg:1.2 * $unit; // 按钮字体暂时只有12px，所以除了特大型按钮之外，都用12px
+$button-icon-size-lg:1.6 * $unit;
+
+// Button 中按钮
+$button-padding-y-md: 4px;
+$button-padding-x-md: 11px;
+$button-height-md:26px;
+$font-size-md: 1.2 * $unit;
+$button-icon-size-md:1.4 * $unit;
+
+// Button 小型按钮
+$button-padding-y-sm:2px;
+$button-padding-x-sm:9px;
+$button-height-sm:22px;
+$font-size-sm:1.2 * $unit;
+$button-icon-size-sm:1.2 * $unit;
+
+
+
+// UText
+
+// 圆角
+$form-control-border-radius: $border-radius-base;
+// 字体大小
+$form-control-xs-font-size: var(--#{$wui-prefix}-base-input-font-size);
+$form-control-sm-font-size: var(--#{$wui-prefix}-base-input-font-size);
+$form-control-default-font-size: var(--#{$wui-prefix}-base-input-font-size);
+$form-control-nm-font-size: var(--#{$wui-prefix}-base-input-font-size);
+$form-control-lg-font-size: var(--#{$wui-prefix}-base-input-font-size);
+// 高度相关
+$form-control-xs-height: var(--#{$wui-prefix}-base-input-xs-height);
+$form-control-sm-height: var(--#{$wui-prefix}-base-input-sm-height);
+$form-control-md-height: var(--#{$wui-prefix}-base-input-md-height);
+$form-control-default-height: var(--#{$wui-prefix}-base-input-md-height);
+$form-control-nm-height: var(--#{$wui-prefix}-base-input-nm-height);
+$form-control-lg-height: var(--#{$wui-prefix}-base-input-lg-height);
+// 颜色
+$form-control-color: #424242;
+$form-control-bg-color: #fff;
+$form-control-border-color: $border-color-base;
+$form-control-disable-bg-color: #F7F7F7;
+$form-control-disable-color: $disabled-color-base;
+$form-control-disable-border-color: #EEEEEE;
+
+$input-text-background-color: transparent !default;
+$input-text-label-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$input-text-bottom-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$input-text-bottom-border-color-IE8: unquote("rgb(#{$color-black})") !default;
+$input-text-highlight-color: unquote("rgb(#{$primary-color})") !default;
+$input-text-disabled-color: $input-text-bottom-border-color !default;
+$input-text-disabled-text-color: $input-text-label-color !default;
+$input-text-error-color: unquote("rgb(222, 50, 38)") !default;
+$input-text-must-color:unquote("rgb(#{$palette-red-A700})") !default;
+
+
+$input-text-font-size: 14px !default;
+$input-text-width: 100% !default;
+$input-text-padding: 4px !default;
+$input-text-vertical-spacing: 20px !default;
+
+$input-text-button-size: 32px !default;
+$input-text-floating-label-fontsize: 12px !default;
+$input-text-expandable-icon-top: 16px !default;
+$input-text-height:36px !default;
+$input-text-normal-width:360px !default;
+$input-text-short-width:180px !default;
+$input-text-normal-border-color:unquote("rgb(#{$palette-u-gray-400})") !default;
+$input-text-color:unquote("rgb(#{$palette-u-gray-A200})") !default;
+$input-text-focus-border-color:unquote("rgb(#{$palette-u-blue-400})") !default;
+$input-lable-color:unquote("rgb(#{$palette-u-gray-900})") !default;
+
+
+/* FormGroup */
+
+$error-input-border:$brand-danger;
+$warning-input-border:$brand-warning;
+$is-validating-input-border:$brand-info;
+$success-input-border:$brand-success;
+$success-addon-bg: $brand-light-success;
+$warning-addon-bg: $brand-light-warning;
+$error-addon-bg: $brand-light-danger;
+$form-group-margin-top: 15px;
+$form-group-margin-bottom: 15px;
+
+/*  Navlayout  */
+
+$layout-nav-color: unquote("rgb(#{$palette-grey-100})") !default;
+
+// Drawer
+$layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
+$layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
+$layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
+$layout-drawer-navigation-color: #757575 !default;
+$layout-drawer-navigation-link-active-background: unquote("rgb(#{$palette-grey-200})") !default;
+$layout-drawer-navigation-link-active-color: $layout-text-color !default;
+
+// Header
+$layout-header-bg-color: unquote("rgb(#{$primary-color})") !default;
+$layout-header-text-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$layout-header-nav-hover-color: unquote("rgba(#{$palette-grey-700}, 0.6)") !default;
+$layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)") !default;
+
+// Tabs
+$layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
+
+$layout-nav-link-font-size: 13px !default;
+
+$layout-drawer-narrow: 240px !default;
+$layout-drawer-wide: 456px !default;
+$layout-drawer-width: $layout-drawer-narrow !default;
+
+$layout-header-icon-size: 32px !default;
+$layout-screen-size-threshold: 1024px !default;
+$layout-header-icon-margin: 24px !default;
+$layout-drawer-button-mobile-size: 44px !default;
+$layout-drawer-button-desktop-size: 34px !default;
+$layout-drawer-button-desktop-margin-top: 5px !default;
+$layout-drawer-button-mobile-margin-top: 10px !default;
+
+$layout-header-mobile-row-height: 56px !default;
+$layout-mobile-header-height: $layout-header-mobile-row-height;
+$layout-header-desktop-row-height: 44px !default;
+$layout-desktop-header-height: $layout-header-desktop-row-height;
+
+$layout-header-desktop-baseline: 80px !default;
+$layout-header-mobile-baseline: 72px !default;
+$layout-header-mobile-indent: 16px !default;
+$layout-header-desktop-indent: 40px !default;
+
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;
+
+// gridlayout
+
+// Extra small screen / phone
+//$screen-xs:                  480px;
+
+$screen-xs-min:              480px;
+// Deprecated `@screen-phone` as of v3.0.1
+//@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+// Deprecated `@screen-sm` as of v3.0.1
+//@screen-sm:                  768px;
+$screen-sm-min:              768px;
+// Deprecated `@screen-tablet` as of v3.0.1
+//@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+// Deprecated `@screen-md` as of v3.0.1
+//@screen-md:                  992px;
+$screen-md-min:              992px;
+// Deprecated `@screen-desktop` as of v3.0.1
+//@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+// Deprecated `@screen-lg` as of v3.0.1
+//@screen-lg:                  1200px;
+$screen-lg-min:              1200px;
+// Deprecated `@screen-lg-desktop` as of v3.0.1
+//@screen-lg-desktop:          @screen-lg-min;
+$screen-xs-max: ($screen-sm-min - 1 );
+
+$screen-sm-max: ($screen-sm-min -  1 );
+
+$screen-md-max: ($screen-lg-min - 1 );
+
+
+
+
+// Number of columns in the grid.
+$grid-columns:              24;  // 目前先改成24，3->4 再统一处理12等分
+// $grid-columns:              12;
+// Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         8px;
+// Navbar collapse
+// Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     768px;
+// Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
+
+
+// Small screen / tablet
+$container-tablet:             (720px + $grid-gutter-width);
+// For `@screen-sm-min` and up.
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            (940px + $grid-gutter-width);
+// For `@screen-md-min` and up.
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1140px + $grid-gutter-width);
+// For `@screen-lg-min` and up.
+$container-lg:                 $container-large-desktop;
+
+
+
+// menu
+
+$default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;
+
+// Default Item Colors
+$default-item-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
+$default-item-text-color-IE8: unquote("rgb(#{$color-black})") !default;
+$default-item-outline-color: unquote("rgb(#{$palette-u-blue-400})") !default;
+$default-item-hover-bg-color: unquote("rgb(#{$palette-u-blue-100})") !default;
+$default-item-focus-bg-color: unquote("rgb(#{$palette-u-blue-200})") !default;
+$default-item-active-bg-color: unquote("rgb(#{$palette-u-blue-200})") !default;
+$default-item-divider-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+
+// Disabled Button Colors
+$disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
+
+// Tile
+$tile-width: 100%;
+
+$tile-default-border-color: #e9e9e9;
+$tile-default-hover-shadow-color: rgba(0, 0, 0, 0.2);
+
+$tile-primary-border-color: $button-primary-color;
+$tile-primary-hover-shadow-color: $button-primary-hover-color;
+
+$tile-danger-border-color: $button-danger-color;
+$tile-danger-hover-shadow-color: $button-danger-hover-color;
+
+$tile-warning-border-color: $button-warning-color;
+$tile-warning-hover-shadow-color: $button-warning-hover-color;
+
+$tile-success-border-color: $button-success-color;
+$tile-success-hover-shadow-color: $button-success-hover-color;
+
+$tile-info-border-color: $button-info-color;
+$tile-info-hover-shadow-color: $button-info-hover-color;
+
+// Alert
+$alert-news-bg:  $brand-light-news;
+$alert-success-bg:  $brand-light-success;
+$alert-info-bg:  $brand-light-info;
+$alert-warning-bg: $brand-light-warning;
+$alert-danger-bg: $brand-light-danger;
+
+
+$alert-dark-news-bg:  $brand-news;
+$alert-dark-success-bg:  $brand-success;
+$alert-dark-info-bg:  $brand-info;
+$alert-dark-warning-bg: $brand-warning;
+$alert-dark-danger-bg: $brand-danger;
+
+$alert-news-color: $color-news;
+$alert-success-color: $color-success;
+$alert-info-color: $color-info;
+$alert-warning-color: $color-warning;
+$alert-danger-color: $color-danger;
+
+$alert-news-border: $brand-news;
+$alert-success-border: $brand-success;
+$alert-info-border: $brand-info;
+$alert-warning-border: $brand-warning;
+$alert-danger-border: $brand-danger;
+
+// $timeline-primary-color: $brand-primary;
+// $timeline-news-color: $color-news;
+// $timeline-success-color: $color-success;
+// $timeline-info-color: $color-info;
+// $timeline-warning-color: $color-warning;
+// $timeline-danger-color: $color-danger;
+$timeline-primary-color: var(--#{$wui-prefix}-primary-color);
+$timeline-news-color: $color-news;
+$timeline-success-color: var(--#{$wui-prefix}-success-color);
+$timeline-info-color: var(--#{$wui-prefix}-info-color);
+$timeline-warning-color: var(--#{$wui-prefix}-warning-color);
+$timeline-danger-color: var(--#{$wui-prefix}-danger-color);
+// $timeline-custom-bg-color: var(--#{$timeline-prefix-cls}-custom-bg-color);
+$timeline-custom-bg-color: $base-bg-color;
+
+$alert-padding:12px;
+$alert-border-radius: $border-radius;
+$alert-text-padding-left: 15px;
+$alert-text-padding-right: 15px;
+$alert-close-opacity: .2;
+$alert-close-font-weight: 700;
+
+//Checkbox
+$checkbox-color: $brand-primary !default;
+$checkbox-primary-bg-hover: $brand-primary-hover;
+// $checkbox-bg-color: var(--#{$checkbox-prefix-cls}-bg-color);
+$checkbox-bg-color: $base-bg-color;
+$checkbox-off-color: unquote("rgb(#{$palette-u-gray-600})") !default;
+$checkbox-off-color-IE8: unquote("rgb(#{$palette-u-gray-600})") !default;
+// $checkbox-disabled-color: unquote("rgb(#{$palette-u-gray-600})") !default;
+$checkbox-disabled-bg-color: $disabled-bg-color;
+$checkbox-disabled-border-color: $disabled-border-color;
+$checkbox-text-color: $font-color-base;
+$checkbox-disabled-color: $disabled-color-base;
+$checkbox-disabled-checked-color: var(--#{$checkbox-prefix-cls}-color-bg-mark-selected-disabled);; // 选中之后的对号√ 色值
+$checkbox-focus-color: unquote("rgba(#{$palette-u-blue-500}, 0.26)") !default;
+$checkbox-image-path: $image_path;
+
+$checkbox-label-font-size: 13px !default;
+$checkbox-label-height: 24px !default;
+$checkbox-button-size: 16px !default;
+$checkbox-inner-margin: 2px !default;
+$checkbox-padding: 8px !default;
+$checkbox-top-offset: math.div(($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) , 2);
+$checkbox-ripple-size: $checkbox-label-height * 1.5;
+
+$checkbox-primary-bg:  $brand-primary;
+$checkbox-success-bg:  $brand-success;
+$checkbox-info-bg:  $brand-info;
+$checkbox-warning-bg: $brand-warning;
+$checkbox-danger-bg: $brand-danger;
+$checkbox-dark-bg:  $brand-dark;
+
+$progress-primary-bg:  $brand-primary;
+$progress-success-bg:  $brand-success;
+$progress-info-bg:  var(--#{$progress-prefix-cls}-finished-bg-color);
+$progress-warning-bg: $brand-warning;
+$progress-danger-bg: $brand-danger;
+$progress-dark-bg:  $brand-dark;
+
+$primary-color-opacity:unquote("rgba(#{$primary-color}, 0.7)") !default;
+$color-success-opacity:unquote("rgba(#{$palette-green-500}, 0.7)") !default;
+$color-info-opacity:unquote("rgba(#{$palette-cyan-500}, 0.7)") !default;
+$color-warning-opacity:unquote("rgba(#{$palette-orange-500}, 0.7)") !default;
+$color-danger-opacity:unquote("rgba(#{$palette-red-500}, 0.7)") !default;
+$color-dark-opacity:unquote("rgba(#{$palette-grey-700}, 0.7)") !default;
+
+
+$progress-sm-height: 10px;
+$progress-xs-height: 5px;
+$progress-xs-width: 170px;
+$progress-default-height: 20px;
+$progress-sm-lable-font-size: 10px;
+$progress-sm-lable-line-height: 10px;
+$progress-xs-lable-line-height: 8px;
+$progress-xs-lable-margin-left: 140px;
+$progress-xs-lable-font-size: 10px;
+$progress-xs-lable-color: #000;
+
+// Radio
+
+$radio-color: unquote("rgb(#{$primary-color})") !default;
+$radio-primary-bg-hover: $brand-primary-hover; 
+$radio-off-color: unquote("rgb(#{$palette-u-gray-600})") !default;
+$radio-off-color-IE8: unquote("rgb(#{$palette-u-gray-600})") !default;
+$radio-disabled-color: $disabled-color-base !default;
+$radio-button-color: $brand-default;
+
+$radio-label-font-size: 13px !default;
+$radio-label-height: 32px !default;
+$radio-button-size: 16px !default;
+$radio-inner-margin: math.div($radio-button-size, 4);
+$radio-padding: 8px !default;
+$radio-top-offset: math.div(($radio-label-height - $radio-button-size),2);
+$radio-ripple-size: 42px !default;
+
+$radio-primary-bg:            $brand-primary;
+$radio-success-bg:            $brand-success;
+$radio-info-bg:               $brand-info;
+$radio-warning-bg:            $brand-warning;
+$radio-danger-bg:             $brand-danger;
+$radio-dark-bg:               $brand-dark;
+
+$radio-disabled-bg: $disabled-bg-color;
+$radio-disabled-border-color: $disabled-border-color;
+$radio-disabled-color: $disabled-color-base;
+
+$radio-border-color: #d9d9d9;
+// $radio-bg-color: var(--#{$radio-prefix-cls}-bg-color);
+$radio-bg-color: $base-bg-color;
+$radio-color:$font-color-base;
+
+$radio-checked-bg-color: #fff;
+$radio-checked-color: $brand-primary;
+$radio-checked-border-color: $radio-checked-color;
+
+$radio-icon-height: 18px;
+$radio-icon-width: 18px;
+$radio-icon-checked-height: 8px;
+$radio-icon-checked-width: 8px;
+
+$radio-button-lg-height:32px;
+$radio-button-lg-line-height:32px;
+
+$radio-button-md-height:28px;
+$radio-button-md-line-height:28px;
+
+$radio-button-sm-height:20px;
+$radio-button-sm-line-height:20px;
+
+$radio-button-height: 28px;
+$radio-button-line-height: 26px;
+
+
+
+$checkbox-button-lg-height:32px;
+$checkbox-button-lg-line-height:32px;
+
+$checkbox-button-md-height:28px;
+$checkbox-button-md-line-height:28px;
+
+$checkbox-button-sm-height:20px;
+$checkbox-button-sm-line-height:20px;
+
+
+
+
+
+//loading
+
+$loading-color-1: unquote("rgb(#{$palette-blue-400})") !default;
+$loading-color-2: unquote("rgb(#{$palette-red-500})") !default;
+$loading-color-3: unquote("rgb(#{$palette-yellow-600})") !default;
+$loading-color-4: unquote("rgb(#{$palette-green-500})") !default;
+
+$loading-single-color: unquote("rgb(#{$primary-color})") !default;
+
+$loading-size: 28px !default;
+$loading-stroke-width: 3px !default;
+
+// Amount of circle the arc takes up.
+$loading-arc-size: 270deg !default;
+// Time it takes to expand and contract arc.
+$loading-arc-time: 1333ms !default;
+// How much the start location of the arc should rotate each time.
+$loading-arc-start-rot: 216deg !default;
+
+$loading-duration: math.div(360 * $loading-arc-time, strip-units($loading-arc-start-rot + (360deg - $loading-arc-size)));
+
+$date-bg-color: unquote("rgb(#{$primary-color})") !default;
+
+// message
+$snackbar-color: unquote("rgb(#{$color-white})") !default;
+$snackbar-background-color: unquote("rgb(#{$primary-color})") !default;
+$snackbar-color-cancel: unquote("rgb(#{$palette-red-500})") !default;
+$snackbar-color-accept: unquote("rgb(#{$palette-green-500})") !default;
+$snackbar-color-warning: unquote("rgb(#{$palette-lime-200})") !default;
+
+// DATA TABLE
+
+$data-table-font-size: 13px !default;
+$data-table-header-font-size: 12px !default;
+$data-table-header-sort-icon-size: 16px !default;
+
+$data-table-header-color: rgba(#000, 0.54) !default;
+$data-table-header-sorted-color: rgba(#000, 0.87) !default;
+$data-table-divider-color: rgba(#000, 0.12) !default;
+$data-table-divider-color-IE8: rgb(0,0,0) !default;
+
+//$data-table-hover-color: #eeeeee !default;
+$data-table-hover-color: #E9F7FC !default;
+$data-table-selection-color: #C4EAF6 !default;
+
+$data-table-dividers: 1px solid $data-table-divider-color !default;
+$data-table-dividers-IE8: 1px solid $data-table-divider-color-IE8 !default;
+
+$data-table-row-height: 48px !default;
+$data-table-last-row-height: 56px !default;
+$data-table-header-height: 56px !default;
+
+$data-table-column-spacing: 36px !default;
+$data-table-column-padding: math.div($data-table-column-spacing, 2);
+
+$data-table-card-header-height: 64px !default;
+$data-table-card-title-top: 20px !default;
+$data-table-card-padding: 24px !default;
+$data-table-button-padding-right: 16px !default;
+$data-table-cell-top: math.div($data-table-card-padding, 2);
+
+$line-height-computed:    round((14px * $line-height-base));
+
+// table
+$table-cell-padding:      8px;
+//$table-border-color:      $border-color-base;
+//$table-row-striped-color: #f7f7f7;
+//$table-bg-hover:          $bg-color-base;
+$table-bg:                $base-bg-color;
+$table-bg-hover:          $base-item-bg-color-hover;
+
+// bee-table
+//$table-head-background-color: unquote("rgb(#{$table-header-background-color})") !default;
+$table-head-text-color: $font-color-base;
+
+// popover
+$popover-bg: $base-panel-bg-color !default;
+$popover-color: $font-color-base;
+
+
+// tooltip
+$tooltip-max-width: 200px;
+$tooltip-color: unquote("rgb(#{$color-white})") !default;
+$tooltip-bg: var(--#{$wui-prefix}-dark-color);
+$tooltip-inverse-border-color: $border-color-base;
+$tooltip-inverse-color: var(--#{$wui-prefix}-base-text-color);
+$tooltip-arrow-color: $tooltip-bg;
+$tooltip-opacity: 1;
+// Tooltip arrow width
+$tooltip-arrow-width: 7px;
+$tooltip-arrow-width-num: 5;
+// Tooltip distance with trigger
+$tooltip-distance: 3px;
+
+
+// Tabs
+$layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
+
+
+
+$tab-highlight-color: unquote("rgb(#{$primary-color})") !default;
+$tab-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$tab-active-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
+$tab-border-color: unquote("rgb(#{$palette-grey-300})") !default;
+
+
+
+//CARD
+
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: 13px !default;
+$card-title-font-size: 24px !default;
+$card-subtitle-font-size: 10px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 16px !default;
+
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
+
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
+
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
+
+$card-supporting-text-font-size: 1.4 * $unit !default;
+$card-supporting-text-line-height: 18px !default;
+
+$card-actions-font-size: 13px !default;
+
+$card-title-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
+
+// Cover image
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;
+
+
+
+$card-background-color: unquote("rgb(#{$color-white})") !default;
+$card-text-color: unquote("rgb(#{$color-black})") !default;
+$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
+$card-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+
+
+$input-border:unquote("rgb(#{$palette-u-gray-500})");
+$input-border-focus:unquote("rgb(#{$primary-color})");
+$input-border-disabled:unquote("rgb(#{$palette-u-gray-100})");
+$input-bg-disabled:unquote("rgb(#{$palette-u-gray-100})");
+$input-color:unquote("rgb(#{$palette-u-gray-A100})");
+$form-input-height:36px;
+$form-input-height-sm:28px;
+$form-input-padding-left:12px;
+$form-label-color:unquote("rgb(#{$palette-u-gray-900})");
+$form-control-feedback-color:unquote("rgb(#{$palette-u-gray-700})");
+$form-validate-error-color:unquote("rgb(#{$palette-u-red-600})");
+
+
+// BADGE
+$badge-font-size: 12px !default;
+$badge-color: unquote("rgb(#{$color-accent-contrast})") !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
+$badge-background-inverse: unquote("rgba(#{$color-accent-contrast},0.2)") !default;
+$badge-size : 22px !default;
+$badge-padding: 2px !default;
+$badge-overlap: 12px !default;
+
+$badge-primary-color:#FFFFFF;
+$badge-primary-bg:$brand-primary;
+
+$badge-success-color:#FFFFFF;
+$badge-success-bg: $brand-success;
+
+$badge-info-color:#FFFFFF;
+$badge-info-bg:$brand-info;
+
+$badge-warning-color:#FFFFFF;
+$badge-warning-bg:$brand-warning;
+
+$badge-danger-color:#FFFFFF;
+$badge-danger-bg:$brand-danger;
+
+$badge-dark-color:#FFFFFF;
+$badge-dark-bg:$brand-dark;
+
+$badge-font-size: 12px;
+$badge-font-dataicon-size: 10px;
+$badge-default-dataicon-fontcolor: #757575;
+$badge-default-dataicon-bgcolor: var(--#{$badge-prefix-cls}-bg-color); // #fff;
+$badge-default-dataicon-bordercolor: $border-color-base;
+
+// tags
+$tag-border-radius:  0.3em;
+$tag-success-bg:var(--#{$wui-prefix}-tag-success-bg);
+$tag-info-bg: var(--#{$wui-prefix}-tag-info-bg);
+$tag-warning-bg: var(--#{$wui-prefix}-tag-warning-bg);
+$tag-danger-bg: var(--#{$wui-prefix}-tag-danger-bg);
+$tag-invalid-bg: var(--#{$wui-prefix}-tag-invalid-bg);
+$tag-start-bg: var(--#{$wui-prefix}-tag-start-bg);
+$tag-light-bg: var(--#{$wui-prefix}-tag-light-bg);
+$tag-dark-bg: var(--#{$wui-prefix}-tag-dark-bg);
+
+$tag-success-border: var(--#{$wui-prefix}-tag-success-border);
+$tag-info-border: var(--#{$wui-prefix}-tag-info-border);
+$tag-warning-border: var(--#{$wui-prefix}-tag-warning-border);
+$tag-danger-border: var(--#{$wui-prefix}-tag-danger-border);
+$tag-invalid-border: var(--#{$wui-prefix}-tag-invalid-border);
+$tag-start-border: var(--#{$wui-prefix}-tag-start-border);
+$tag-light-border: var(--#{$wui-prefix}-tag-light-border);
+$tag-dark-border: var(--#{$wui-prefix}-tag-dark-border);
+
+$tag-success-text: var(--#{$wui-prefix}-tag-success-text);
+$tag-info-text: var(--#{$wui-prefix}-tag-info-text);
+$tag-warning-text: var(--#{$wui-prefix}-tag-warning-text);
+$tag-danger-text: var(--#{$wui-prefix}-tag-danger-text);
+$tag-invalid-text: var(--#{$wui-prefix}-tag-invalid-text);
+$tag-start-text: var(--#{$wui-prefix}-tag-start-text);
+$tag-dark-text: var(--#{$wui-prefix}-tag-dark-text);
+$tag-light-text: var(--#{$tag-prefix-cls}-color-text); // component.scss 变量
+
+$tag-font-weight: var(--#{$wui-prefix}-tag-font-weight);
+
+// pagination
+
+$pagination-link-padding:                   7px 13px;
+$pagination-lg-font-size:                   16px;
+$pagination-lg-padding-vertical:            0px;
+$pagination-lg-padding-horizontal:          15.5px;
+
+$pagination-small-font-size:                var(--#{$pagination-prefix-cls}-font-size);
+$pagination-small-padding-vertical:         0px;
+$pagination-small-padding-horizontal:       5.5px;
+
+//$pagination-gap-hover-border:#7A869A;
+//$pag-color: #666666;
+//$pag-bg-color: #fff;
+//$pag-border-color:#d7d7d7;
+//$pag-hover-color: #666;
+//$pag-hover-bg-color:$hover-bg-color-base;
+//$pag-hover-border-color:#d7d7d7;
+//$pag-active-color: #fff;
+//$pag-active-bg-color:#7A869A;
+//$pag-active-border-color:#7A869A;
+//$pag-disabled-color: #777;
+//$pag-disabled-bg-color:#fff;
+//$pag-disabled-border-color:#ddd;
+
+$border-radius-base:        $border-radius;
+$border-radius-large:       4px;
+$border-radius-small:       2px;
+
+$line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5;
+// widget
+
+$widget-padding-left:30px;
+$widget-padding-top:10px;
+
+//tooltips
+
+$tooltip-default-bg: $brand-default;
+$tooltip-primary-bg: $brand-primary;
+$tooltip-success-bg: $brand-success;
+$tooltip-info-bg: $brand-info;
+$tooltip-warning-bg: $brand-warning;
+$tooltip-danger-bg: $brand-danger;
+$tooltip-dark-bg: $brand-dark;
+
+//menu Button
+
+$menu-default-bg: $brand-default;
+$menu-primary-bg: $brand-primary;
+$menu-success-bg: $brand-success;
+$menu-info-bg: $brand-info;
+$menu-warning-bg: $brand-warning;
+$menu-danger-bg: $brand-danger;
+$menu-dark-bg: $brand-dark;
+$menu-default-bg-hover: $brand-default-hover;
+$menu-primary-bg-hover: $brand-primary-hover;
+$menu-success-bg-hover: $brand-success-hover;
+$menu-info-bg-hover: $brand-info-hover;
+$menu-warning-bg-hover: $brand-warning-hover;
+$menu-danger-bg-hover: $brand-danger-hover;
+$menu-dark-bg-hover: $brand-dark-hover;
+
+
+// breadcrumbs
+
+$breadcrumb-padding-vertical:   8px;
+$breadcrumb-padding-horizontal: 10px;
+$breadcrumb-separator:          "/\00a0";
+$breadcrumb-bg:                 transparent;
+$breadcrumb-margin-bottom:            10px;
+
+// $breadcrumb-color:              $brand-primary;
+// $breadcrumb-active-color:       $text-color;
+
+$breadcrumb-icon-margin-right:        10px;
+$breadcrumb-arrow-separator:          "\00bb\00a0";
+
+$breadcrumb-bg-color: var(--#{$breadcrumb-prefix-cls}-bg-color); // #f5f5f5;
+$breadcrumb-color: #999;
+$breadcrumb-active-color: #333;
+$breadcrumb-separate-color: #ccc;
+
+// list-group
+$list-group-media-heading-font-size      : $font-size-small;//14px
+$list-group-link-disabled-color          : $disabled-color-base;
+
+$list-group-link-disabled-bg             : $gray-lightest;
+
+$list-group-active-color                 : $brand-primary;
+$list-group-link-active-color            : unquote("rgb(#{$color-white})") !default;
+$list-group-link-active-bg               : $brand-primary;
+
+
+$list-group-item-icon-margin-right       : 10px;
+
+$list-group-bg-inherit-item-border       : rgba(0, 0, 0, 0.075);
+$list-group-bg-inherit-item-hover-bg     : rgba(0, 0, 0, 0.075);
+
+
+$list-group-border-radius:      $border-radius-base;
+
+
+
+$list-group-link-color:          $text-color;
+$list-group-link-hover-color:    $text-color;
+$list-group-link-heading-color:  $title-color;
+
+$list-group-hover-bg:           $bg-color-base;
+
+$list-group-disabled-bg:         transparent;
+
+$list-group-disabled-color:      $disabled-color-base;
+
+
+$list-group-disabled-text-color: $list-group-disabled-color;
+$list-group-active-bg:          transparent;
+$list-group-active-border:      $list-group-active-bg;
+// $list-group-active-text-color:  lighten($list-group-active-color, 40%);
+$list-group-active-text-color:  $list-group-active-color;
+
+$list-group-bg:                 #fff;
+$list-group-border:             transparent;
+// $list-group-bordered-border              : $border-color-base;
+// $list-group-bordered-active-color        : $component-active-color;
+// $list-group-bordered-active-bg           : $component-active-bg;
+// $list-group-bordered-active-border       : $list-group-bordered-active-bg;
+
+// $list-group-gap-item-margin-bottom       : 2px;
+
+//step
+$steps-margin-bottom: $line-height-computed;
+$step-padding-horizontal:20px;
+$step-padding-vertical: 12px;
+
+$step-vertical-padding-horizontal: 20px;
+$step-vertical-padding-vertical:18px;
+
+$step-color: $gray;
+$step-bg: $bg-color-base;
+$step-number-bg: $gray-lighter;
+$step-number-color: $inverse;
+
+$step-current-color: $inverse;
+$step-current-bg: $brand-info;
+
+$step-done-color: $inverse;
+$step-done-bg:$brand-success;
+
+$step-error-color: $inverse;
+$step-error-bg: $brand-danger;
+
+$step-disabled-color:$gray-light;
+
+$step-font-size: inherit;
+$step-title-font-size: 20px;
+$step-icon-font-size:27px;
+$step-number-font-size:24px;
+$step-number-size: 40px;
+
+$step-lg-padding-horizontal:20px;
+$step-lg-padding-vertical:20px;
+$step-lg-font-size: 16px;
+$step-lg-title-font-size:22px;
+$step-lg-icon-font-size: 32px;
+$step-lg-number-font-size:28px;
+$step-lg-number-size:46px;
+
+$step-sm-font-size: 12px;
+$step-sm-title-font-size: 18px;
+$step-sm-icon-font-size: 24px;
+$step-sm-number-font-size: 24px;
+$step-sm-number-size: 30px;
+
+$step-xs-font-size: 10px;
+$step-xs-title-font-size: 16px;
+$step-xs-icon-font-size: 22px;
+$step-xs-number-font-size: 20px;
+$step-xs-number-size: 24px;
+
+// blog nav
+$blognav-active-color:unquote("rgb(#{$primary-color})");
+// widget
+$widget-padding-left:30px;
+$widget-padding-top:10px;
+
+
+// couter 数据统计
+
+$counter-number-color:        $gray-darkest;
+$counter-number-font-size:    20px;
+$counter-icon-font-size:      $counter-number-font-size;
+
+$counter-lg-number-font-size: 40px;
+$counter-md-number-font-size: 30px;
+$counter-sm-number-font-size: 14px;
+
+$counter-lg-icon-font-size:   $counter-lg-number-font-size;
+$counter-md-icon-font-size:   $counter-md-number-font-size;
+$counter-sm-icon-font-size:   $counter-sm-number-font-size;
+
+$counter-inverse-color:       $inverse;
+
+
+// navbar
+
+
+$menu-active-color: #108ee9;
+$menu-border-active-color: #108ee9;
+$menu-selected-bg-color: #eaf8fe;
+$menu-group-titil-color: #999;
+$menu-group-title-padding-left: 32px;
+$menu-color: #666;
+$menu-border-color: #d9d9d9;
+
+$navbar-default-bg-color: #f8f8f8;
+$navbar-default-border-color: #e7e7e7;
+$navbar-default-color: #777;
+$navbar-default-hover-color: #333;
+$navbar-inverse-hover-color: #fff;
+$navbar-inverse-color: #9d9d9d;
+$navbar-inverse-bg-color: #222;
+$navbar-inverse-border-color: #080808;
+$navbar-border-radius: 4px;
+
+$navbar-side-container-border-color: #d9d9d9;
+$navbar-side-container-width: 242px;
+$navbar-side-container-border-shadow: #d9d9d9;
+
+// Basics of a navbar
+$navbar-height:                    50px;
+$navbar-margin-bottom:             $line-height-computed;
+$navbar-border-radius:             $border-radius-base;
+$navbar-padding-horizontal:        math.floor(math.div($grid-gutter-width,2));
+$navbar-padding-vertical:          math.div($navbar-height - $line-height-computed, 2);
+$navbar-collapse-max-height:       340px;
+
+$navbar-avatar-margin-horizontal:  math.div(($navbar-height - 32px), 2);
+
+$navbar-brand-padding-horizontal:  20px;
+$navbar-brand-logo-height:         32px;
+
+$navbar-default-color:                    $text-color;
+$navbar-default-bg:                       $inverse;
+$navbar-default-border:                   $border-color-base;
+
+// Navbar links
+$navbar-default-link-color:               $text-color;
+$navbar-default-link-hover-color:         $gray-darker;
+$navbar-default-link-hover-bg:            rgba(238,238,238, 30%);
+$navbar-default-link-active-color:        $navbar-default-link-hover-color;
+$navbar-default-link-active-bg:           rgba(238,238,238, 60%);
+$navbar-default-link-disabled-color:      $disabled-color-base;
+$navbar-default-link-disabled-bg:         transparent;
+
+// Navbar brand label
+$navbar-default-brand-color:              $title-color;
+$navbar-default-brand-hover-color:        $navbar-default-brand-color;
+$navbar-default-brand-hover-bg:           none;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:          $navbar-default-link-hover-bg;
+$navbar-default-toggle-icon-bar-bg:       $navbar-default-color;
+$navbar-default-toggle-border-color:      transparent;
+
+
+// Inverted navbar
+// Reset inverted navbar basics
+$navbar-inverse-bg:                        $brand-primary;
+$navbar-inverse-border:                    rgba(0, 0, 0, .1);
+
+// Inverted navbar links
+$navbar-inverse-link-color:                $inverse;
+$navbar-inverse-link-hover-color:          $inverse;
+$navbar-inverse-link-hover-bg:             rgba(0, 0, 0, .1);
+$navbar-inverse-link-active-color:         $navbar-inverse-link-hover-color;
+$navbar-inverse-link-active-bg:            $navbar-inverse-link-hover-bg;
+$navbar-inverse-link-disabled-color:       $inverse;
+$navbar-inverse-link-disabled-bg:          transparent;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-color:               $navbar-inverse-link-color;
+$navbar-inverse-brand-hover-color:         $inverse;
+$navbar-inverse-brand-hover-bg:            none;
+
+// Inverted navbar toggle
+$navbar-inverse-toggle-hover-bg:           $navbar-inverse-link-hover-bg;
+$navbar-inverse-toggle-icon-bar-bg:        $inverse;
+$navbar-inverse-toggle-border-color:       transparent;
+
+//hamburger
+$hamburger-size: 17px;
+
+
+//panel
+$panel-header-padding : 12px 15px;
+$panel-footer-padding : 10px 15px;
+$panel-body-padding : 16px 16px;
+$panel-header-bg-color : #f5f5f5;
+$panel-footer-bg-color : #f5f5f5;
+$panel-bg-color : $base-bg-color;
+$panel-default-color : #757575;
+$panel-inner-border-color: #ddd;
+//$panel-font-color: #333;
+$panel-font-color: $font-color-base;
+
+//modal
+$modal-header-padding : 15px;
+$modal-body-padding : 15px;
+$modal-footer-padding : 15px;
+$modal-content-text-color: var(--#{$wui-prefix}-base-text-color);
+$modal-content-bg-color: $base-panel-bg-color;
+$modal-backdrop-bg: rgba(0,0,0,0.3);
+$modal-backdrop-opacity: .6;
+$modal-border-color: var(--#{$wui-prefix}-base-border-color);
+$modal-width-xlg: 1100px;
+$modal-width-lg: 800px;
+$modal-width-sm: 400px;
+$modal-width-default: 600px;
+$modal-height-lg: 560px;
+$modal-height-xlg: $modal-height-lg;
+$modal-min-height-sm: 180px;
+$modal-max-height-sm: 254px;
+$modal-height-default: 450px;
+$modal-border-radius: $border-radius-base;
+
+//notification
+
+$zIndex-notification: $zIndex-notification;
+$notification-top: 30px;
+$notification-bottom: 30px;
+$notification-right: 30px;
+$notification-width: 300px;
+$notification-text-margin-right: 15px;
+$notice-padding: 16px;
+$notice-background: $gray-darkest;
+$notice-bottom: 15px;
+
+//message
+
+$message-font-size: 12px;
+
+$message-right: 30px;
+$message-width: 300px;
+$message-text-margin-right: 15px;
+$message-padding: 0;
+$message-content-padding: 15px;
+$message-background: $gray-darkest;
+
+//popconfirm
+
+$popconfirm-max-width: 320px;
+
+$popconfirm-dark-bg: $gray-darkest;
+$popconfirm-fallback-dark-border-color: $gray-darkest;
+$popconfirm-margin: 8px;
+$popconfirm-title-bg: #fff;
+$popconfirm-border-color:$border-color-base;
+$popconfirm-arrow-width: 5px;
+$popconfirm-arrow-color: $border-color-base;
+$popconfirm-arrow-outer-width: 0;
+$popconfirm-arrow-outer-color: $border-color-base;
+$popconfirm-border-right-color: $border-color-base;
+$popconfirm-fallback-border-color: #fff;
+
+//select
+$select-primary-color: $brand-primary;
+$select-bg-color: #fff;
+$select-border-color: $border-color-base;
+$select-border-radius: $border-radius-large;
+$select-color: $base-input-color;
+$select-font-size: 12px;
+$select-dropdown-color: #666;
+$select-dropdown-bg-color: #fff;
+//$select-dropdown-hover-bg: $hover-bg-color-base;
+$select-dropdown-hover-bg: #FFF7E7;
+$select-dropdown-selected-bg: $selected-bg-color-base;
+$select-dropdown-selected-color: rgb(134, 119, 119);
+$select-dropwdown-item-padding: 7px 16px;
+$select-disabled-color: $disabled-color-base;
+// $select-disabled-bg: #f7f7f7;
+$select-disabled-bg: $base-input-bg-disabled;
+$select-disabled-border-color: #d9d9d9;
+//dropdown
+
+$dropdown-item-hover-bg-color:  unquote("rgb(#{$palette-grey-100})");
+$dropdown-item-divier-bg-color: $gray-lighter;
+$dropdown-border-color: #f1f1f1;
+$dropdown-border-radius:4px;
+$dropdown-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.16);
+$dropdown-margin: 5px 0 0 0;
+$dropdown-menu-item-padding: 0px 20px 0 12px;
+$dropdown-menu-font-size: 12px;
+$dropdown-menu-item-height: 32px;
+$dropdown-menu-item-light-height: 32px;
+$dropdown-menu-title-font-size: 12px;
+$dropdown-menu-title-color: $disabled-color-base;
+$dropdown-menu-title-padding:8px 16px;
+$dropdown-menu-title-padding:4px 12px;
+$dropdown-menu-title-line-height: 1;
+$dropdown-menu-max-height: 272px;
+
+
+//upload
+
+//$upload-list-color: #108ee9;
+$upload-list-color: $brand-info;
+$upload-list-bg : #fff;
+$upload-list-hover-bg: #e7f4fd;
+$upload-list-error-color: #f50;
+$upload-thumbnail-height: 48px;
+$upload-thumbnail-width: 48px;
+$upload-thumbnail-img-height: 48px;
+$upload-thumbnail-img-width: 48px;
+$upload-text-color: #999;
+
+//loading
+
+$spin-primary-color: var(--#{$wui-prefix}-primary-color);
+$spin-primary-text-color: var(--#{$wui-prefix}-primary-color);
+// $loading-loadprimary: rgb(63, 81, 181);
+// $loading-loadsuccess: #4caf50;
+// $loading-loadwarn: rgb(255, 152, 0);
+$loading-loadprimary: var(--#{$wui-prefix}-primary-color);
+$loading-loadsuccess: var(--#{$wui-prefix}-success-color);
+$loading-loadwarn: var(--#{$wui-prefix}-warning-color);
+$loading-lineanimating: (
+        1:line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08),
+        2:line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08),
+        3:line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08),
+        4:line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08),
+        5:line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08)
+);
+$loading-linebackcolor: (
+        1: #F44336,
+        2: #7ED321,
+        3: #0084FF,
+        4: #FF9800,
+        5: #D0021B
+);
+$loading-back-width: 120px;
+$loading-back-height:110px;
+$loading-desc-font-size: 16px;
+$loading-desc-color: #cecece;
+$loading-rotate-bor:#c2c3c5;
+
+//两种加载的尺寸 width height
+$loading-rotate-sm-size: 25px;
+$loading-rotate-size:40px;
+$loading-rotate-lg-size:60px;
+
+$loading-line-sm-width: 4px;
+$loading-line-sm-height:35px;
+$loading-line-width:6px;
+$loading-line-height:50px;
+$loading-line-lg-width:8px;
+$loading-line-lg-height:90px ;
+
+//居中位置top left
+$loading-center-top:50%;
+$loading-center-left:50%;
+
+$loading-rotate-center-sm: -15px ;
+$loading-rotate-center:-22px;
+$loading-rotate-center-lg:-35px ;
+
+$loading-line-center-sm-top: -22px;
+$loading-line-center-sm-left:-20px;
+$loading-line-center-top:-30px;
+$loading-line-center-left:-25px;
+$loading-line-center-lg-top:-50px;
+$loading-line-center-lg-left:-30px;
+
+
+//switch
+
+
+//color
+//$switch-border-color: $gray-lighter;
+//$switch-back-color: linear-gradient(90deg, #858A94 0%, #B9BCC2 100%);
+//$switch-checked-borColor: $brand-primary;
+//$switch-checked-backColor: linear-gradient(270deg, #A4C0F3 0%, #6A98EB 100%);
+
+// border-radius of different state switch
+$switch-border-radius: var(--#{$switch-prefix-cls}-border-radius); // 30px;
+$switch-border-radius-after: 18px;
+
+// width height line-height  of the three switches
+$switch-width: (default:26px, small: var(--#{$switch-prefix-cls}-size-width), large:40px);
+$switch-height: (default:10px, small: var(--#{$switch-prefix-cls}-size-height), large:20px);
+$switch-lineHeight: (default:12px, small:12px, large:12px);
+
+// style of u-switch-inner
+$switch-inner-fontSize: (default:12px, small:12px, large:14px);
+$switch-inner-left: (default:14px, small:14px, large:18px);
+$switch-inner-right: (default:12px, small:12px, large:14px);
+$switch-inner-largeTop: 3px;
+$switch-inner-smallTop: 0px;
+$switch-inner-defaultTop: -6px;
+
+// style of u-switch:active:after
+$switch-active-width: (default:14px, small:16px, large:18px);
+
+// style of u-switch:after
+$switch-after-widthHeight: 14px; // 14px;
+$switch-after-widthHeight-sm: var(--#{$switch-prefix-cls}-handle-height); // 14px;
+$switch-after-widthHeight-lg: 16px;
+$switch-after-top: -2px;
+$switch-after-top-sm: calc((map-get($switch-height, small) - $switch-after-widthHeight-sm) / 2);
+$switch-after-top-lg: 2px;
+$switch-after-left: 0;
+$switch-after-left-sm: calc((map-get($switch-height, small) - $switch-after-widthHeight-sm) / 2);
+$switch-checked-after-left-sm: calc(100% - $switch-after-widthHeight-sm - $switch-after-left-sm);
+$switch-after-left-lg: 1px;
+
+//style of u-switch:before
+$switch-before-widthHeight: 12px;
+$switch-before-widthHeight-sm: 12px;
+$switch-before-widthHeight-lg: 16px;
+$switch-before-left: 0;
+$switch-before-left-sm: calc((map-get($switch-height, small) - $switch-before-widthHeight-sm) / 2);
+$switch-checked-before-left-sm: calc(100% - $switch-before-widthHeight-sm - $switch-before-left-sm);
+$switch-before-left-lg: 1px;
+
+// style of u-switch.is-checked
+//$switch-checked-innerLeft: (default:1px, small:4px, large:2px);
+//$switch-checked-afterLeft: (default:15px, small:15px, large:17px);
+//$switch-checked-activeLeft: (default:13px, small:16px, large:21px);
+
+//style of u-switch.is-checked before
+//$switch-checked-beforeLeft: (default:14px, small:19px, large:23px);
+
+$switch-primary-bg: var(--#{$switch-prefix-cls}-actived-bg-color, $brand-primary);
+$switch-dark-bg: $brand-dark;
+$switch-success-bg: $brand-success;
+$switch-warning-bg: $brand-warning;
+$switch-danger-bg: $brand-danger;
+$switch-info-bg: $brand-info;
+
+//tabs
+
+$tabs-basic-back: #f5f5f5;
+$tabs-cls-color: #666;
+$tabs-cls-width: 900px;
+$tabs-simple-conHeight: 120px;
+$tabs-simple-conPad: 16px;
+$tabs-simple-conWidth: 100%;
+
+$tabs-fontSize: (simple:14px, fill:14px, turn:14px, slide:14px, fade:14px, fadeup:14px);
+$tabs-lineHeight: (simple:2.3, fill:2.3, turn:2.3, slide:2.3, fade:2.3, fadeup:2.3);
+$tabs-marginBottom: -1px;
+
+$tabs-simple-tab: (padding:0 16px, margin:5px 0 5px 5px, radius:0 0 0 0, back:#fff);
+$tabs-simple-tabBorder: 1px solid #fff;
+$tabs-simple-activeBorder: 1px solid $brand-primary;
+$tabs-simple-activeColor: #fff;
+$tabs-simple-activeBorBottom: 1px solid $brand-primary;
+$tabs-simple-activeTopRadius: 5px;
+$tabs-simple-fontWeight: bold;
+
+$tabs-fill-tab: (padding: 0 16px, color: var(--#{$tabs-prefix-cls}-color-text-fill), back:#fff, afterBack:#d2d8d6, activeBack:$brand-primary);
+$tabs-fill-tab-maright: 5px;
+$tabs-fill-after-top: 0;
+$tabs-fill-after-left: 0;
+$tabs-fill-after-width: 100%;
+$tabs-fill-after-height: 100%;
+$tabs-fill-fontWeight: bold;
+
+$tabs-turn-tab: (padding: 0 16px, color:#fff, back:#f5f5f5, afterBack:$brand-primary, activeBack:$brand-primary);
+$tabs-turn-after-top: 0;
+$tabs-turn-after-left: 0;
+$tabs-turn-after-width: 100%;
+$tabs-turn-after-height: 100%;
+$tabs-turn-beforeBot: 32px;
+$tabs-turn-beforeRight: 15px;
+$tabs-turn-fontWeight: bold;
+$tabs-moveleft-conHeight: 120px;
+$tabs-moveleft-conPad: 16px;
+
+$tabs-slide-tabs: (width:25%, padding: 0 16px, back:#f5f5f5);
+$tabs-slide-child-bottom: 0;
+$tabs-slide-child-left: 0;
+$tabs-slide-child-height: 4px;
+$tabs-slide-child-back: $brand-primary;
+$tabs-slide-fontWeight: bold;
+
+$tabs-fade-tab: (marLeft:5px, marTop:5px, color:#666, padding:0 16px, radius:0 0 0 0);
+$tabs-fade-conPad: 16px;
+$tabs-fade-conBor: 5px;
+
+$tabs-fadeup-tab: (marTop:5px, color:#666, padding:0 16px, radius:0 0 0 0);
+$tabs-fadeup-top: -5px;
+$tabs-fadeup-left: 0;
+$tabs-fadeup-width: 100%;
+$tabs-fadeup-height: 100%;
+$tabs-fadeup-color: #666;
+$tabs-fadeup-conHeight: 120px;
+$tabs-fadeup-conPad: 16px;
+
+//rate
+//$rate-star-default-color:$gray-lightest;
+// $rate-star-active-color:$brand-primary;
+//$rate-star-active-color:#FFD400;
+$rate-star-marginRight:8px;
+//backtop
+$back-top-padding:5px;
+$backtop-background:unquote("rgb(#{$palette-u-gray-600})") !default;
+$backtop-color:unquote("rgb(#{$color-white})") !default;
+$backtop-right:10px;
+$backtop-bottom:10px;
+$backtop-dom-right:40px;
+
+// bee-tree
+//$tree-checkbox-color: unquote("rgb(#{$primary-color})") !default;
+$tree-checkbox-color: $brand-primary !default;
+$tree-node-bg-color: $hover-bg-color-base !default;
+$tree-content-text-color: var(--#{$wui-prefix}-base-text-color);
+
+// bee-transfer
+$transfer-border-gap-color:#d9d9d9;
+$transfer-button-bg-color: #edf1f7;
+$transfer-button-bg-hover-color: #dbe0e5;
+$transfer-button-bg-disabled-color: #f7f7f7;
+$transfer-button-border-radius: 4px;
+$transfer-font-color: #ccc;
+$transfer-item-hover-color: unquote("rgb(#{$item-hover-bg-color-base})") !default;
+
+// bee-transfer
+$cascader-border-gap-color:#ccc;
+
+//bee-slider
+//$slider-bg-color:#588CE9;
+$slider-bg-color:$brand-info;
+
+// calendar
+$calendar-text-color: var(--#{$wui-prefix}-base-text-color);
+// $calendar-text-color-selected: var(--#{$wui-prefix}-base-bg-color);
+$calendar-text-color-selected: var(--#{$calendar-prefix-cls}-color-text-content-selected); // #fff;
+$calendar-text-color-disabled: var(--#{$calendar-prefix-cls}-color-text-content-disabled);
+$calendar-bg-color: $base-bg-color;
+$calendar-bg-color-hover: var(--#{$wui-prefix}-base-item-bg-hover);
+$calendar-bg-color-selected: $brand-primary;
+$calendar-bg-color-disabled: #f3f3f3 !default;
+$calendar-border-color: $border-color-base;
+$calendar-border-color-selected: $brand-primary;
+$calendar-bg-color-selected-month: var(
+    --#{$wui-prefix}-primary-color-light,
+    rgba(238, 34, 51, 0.1)
+);
+$calendar-bg-mark: #F5F5F5;
+$calendar-header-switcher-focus-border-color: var(--#{$wui-prefix}-dark-color);
+$calendar-header-switcher-focus-bg-color: var(--#{$button-prefix-cls}-default-bg-color-hover);
+
+//datepicker
+$picker-input-bg-color: var(--#{$wui-prefix}-input-bg);
+$picker-bg-color: var(--#{$picker-prefix}-color-bg-panel);
+$picker-border-color: $border-color;
+$picker-input-bg-disabled: var(--#{$wui-prefix}-input-bg-disabled);
+// $picker-button-text-color: var(--#{$wui-prefix}-base-bg-color);
+$picker-button-text-color: #fff;
+$picker-button-bg-color: $brand-primary;
+
+// timepicker
+$timepicker-input-bg-color: var(--#{$wui-prefix}-input-bg);
+
+$timepicker-border-gap-color: $border-color-dark;
+$timepicker-placeholder-color: $base-input-placeholder-color;
+
+// datepicker timepicker
+$picker-cell-bg-color-hover: var(--#{$picker-prefix}-cell-bg-color-hover);
+$picker-cell-bg-color-selected: var(--#{$picker-prefix}-cell-bg-color-selected);
+$picker-cell-size: var(--#{$picker-prefix}-cell-size);
+
+// avatar
+$avatar-size-base: 32px;
+$avatar-size-lg: 40px;
+$avatar-size-sm: 24px;
+$avatar-font-size-base: 18px;
+$avatar-font-size-lg: 24px;
+$avatar-font-size-sm: 14px;
+//$avatar-bg: #ccc;
+//$avatar-color: #fff;
+//$avatar-group-border-color: #fff;
+$avatar-border-radius: 2px;
+$avatar-group-overlapping: -8px;
+$avatar-group-space: 3px;
+
+// Card
+// ---
+$card-head-color: $font-color-base;
+$card-head-background: transparent;
+$card-head-font-size: 16px;
+$card-head-font-size-sm: 14px;
+$card-head-padding: 16px;
+$card-head-padding-sm: 8px;
+$card-head-height: 48px;
+$card-head-height-sm: 36px;
+$card-inner-head-padding: 12px;
+$card-padding-base: 24px;
+$card-padding-base-sm: 8px;
+$card-actions-background: #fff;
+$card-actions-li-margin: 12px 0;
+$card-skeleton-bg: #cfd8dc;
+$card-background: #fff;
+$card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
+  0 5px 12px 4px rgba(0, 0, 0, 0.09);
+$card-radius: 2px;
+$card-head-extra-color: #333;
+
+
+// Skeleton
+// ---
+//$skeleton-color: rgba(190, 190, 190, 0.2);
+//$skeleton-to-color: rgba(129,129,129,0.24);
+$skeleton-block-radius: 4px;
+$skeleton-image-size-base: 48px;
+
+// Animation
+$animation-duration-slow: 0.3s; // Modal
+$animation-duration-base: 0.2s;
+$animation-duration-fast: 0.1s; // Tooltip
+$ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
+$ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+$ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+$ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+$ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+// empty
+$empty-no-data: var(--#{$wui-prefix}-base-close-icon-color);
+
+// 清除按钮图标
+$clear-icon-base-color: var(--#{$wui-prefix}-base-clear-icon-color);
+$clear-icon-hover-color: var(--#{$wui-prefix}-base-clear-icon-color-hover);
+$clear-icon-font-size: var(--#{$wui-prefix}-base-clear-icon-font-size);
+
+// 关闭按钮
+$close-icon-base-color: var(--#{$wui-prefix}-base-close-icon-color);
+$close-icon-hover-color: var(--#{$wui-prefix}-base-close-icon-color-hover);
+
+// suffix 后缀图标
+$suffix-icon-base-color: $base-input-suffix-icon-color;
+$suffix-icon-hover-color: $base-input-suffix-icon-color-hover;
+$suffix-icon-font-size: var(--#{$wui-prefix}-input-suffix-icon-font-size);
+
+// 必填 * 颜色
+$base-label-color-required: $brand-danger !default;
+
+// 输入类组件对齐方式
+$align-arr: left, center, right;

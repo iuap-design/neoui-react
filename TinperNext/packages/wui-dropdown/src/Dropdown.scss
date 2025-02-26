@@ -1,0 +1,241 @@
+@import "../../wui-core/scss/minxin-mixins";
+@import "../../wui-button/src/Button.scss";
+
+// @import "../node_modules/bee-animate/src/Animate.scss";
+
+//$dropdown-prefix-cls: $prefix-cls + 'dropdown';
+//$button-prefix-cls: $prefix-cls + 'button';
+$-scrollbar-color: var(--#{$wui-prefix}-scrollbar-color);
+$-scrollbar-bg-color: var(--#{$wui-prefix}-scrollbar-bg-color);
+$-scrollbar-border-color: var(--#{$wui-prefix}-scrollbar-border-color);
+$-scrollbar-hover-color: var(--#{$wui-prefix}-scrollbar-hover-color);
+
+.#{$dropdown-prefix-cls}{
+  position: absolute;
+  /*!rtl:ignore*/
+  left: -9999px;
+  /*!rtl:ignore*/
+  top: -9999px;
+  z-index: $zindex-dropdown;
+  display: block;
+  font-size: $dropdown-menu-font-size;
+  font-weight: normal;
+  line-height: 1.5;
+  box-shadow: var(--#{$wui-prefix}-box-shadow-option-panel);
+  border: var(--#{$wui-prefix}-border-width-option-panel) solid var(--#{$wui-prefix}-color-border-option-panel);
+  border-radius: var(--#{$wui-prefix}-border-radius-option-panel);
+
+  &-hidden {
+    display: none;
+  }
+
+  // chrome 修复宽度变化bug,先出透明滚动条，悬停时变为有颜色
+	@include set-scrollbar-style();
+
+  // firefox
+  @-moz-document url-prefix() {
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    &:hover {
+      scrollbar-color: $-scrollbar-color $-scrollbar-bg-color;
+    }
+  }
+
+  // 用户自定义的button trigger 使用场景，对button 内部的&-text-wrap设置最大宽度
+  &-trigger.#{$button-prefix-cls}-has-max-width{
+    overflow: visible;
+    >.#{$button-prefix-cls}-text-wrap {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+// dropdown.button 样式 ===============
+.#{$dropdown-prefix-cls}-button {
+
+  .#{$button-prefix-cls}-icon-cls-wrapper{
+    line-height: 26px;
+    display: inline-block;
+  }
+
+  // 兼容独立下拉bip风格=====
+  &:hover {
+    .#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-right:not[disabled],
+    .#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-left:not[disabled]{
+      border-color: var(--#{$button-prefix-cls}-default-color);
+    }
+  }
+  .#{$button-prefix-cls}{
+    &.#{$button-prefix-cls}-default[disabled].#{$dropdown-prefix-cls}-button-right,
+    &.#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-right{
+      /*!rtl:ignore*/
+      border-left: 0;
+    }
+
+    [dir=rtl] &.#{$button-prefix-cls}-default[disabled].#{$dropdown-prefix-cls}-button-right,
+    [dir=rtl] &.#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-right{
+      /*!rtl:ignore*/
+      border-right: 0;
+      /*!rtl:ignore*/
+      border-left: var(--#{$wui-prefix}-border-width-option-panel) solid var(--#{$wui-prefix}-color-border-option-panel);
+    }
+    &.#{$button-prefix-cls}-default[disabled].#{$dropdown-prefix-cls}-button-left,
+    &.#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-left {
+      /*!rtl:ignore*/
+      border-right: 0;
+    }
+    [dir=rtl] &.#{$button-prefix-cls}-default[disabled].#{$dropdown-prefix-cls}-button-left,
+    [dir=rtl] &.#{$button-prefix-cls}-default.#{$dropdown-prefix-cls}-button-left {
+      /*!rtl:ignore*/
+      border-left: 0;
+      /*!rtl:ignore*/
+      border-right: var(--#{$wui-prefix}-border-width-option-panel) solid var(--#{$wui-prefix}-color-border-option-panel);
+
+    }
+    &.#{$dropdown-prefix-cls}-button-right {
+      margin-left: 0px;
+      &:after{
+        content: "";
+        width: 1px;
+        height: 26px;
+        // opacity: .5; // QDJCJS-10899 ue需求，要求透明度为1
+        position: absolute;
+        top: 0px;
+        left: -1px;
+        z-index: 9;
+      }
+      &.#{$button-prefix-cls}-default:after {
+        background: linear-gradient(180deg,transparent,#888,transparent);
+      }
+      &.#{$button-prefix-cls}-primary:after {
+        background: linear-gradient(180deg,transparent,#fff,transparent);
+      }
+    }
+    &.#{$dropdown-prefix-cls}-button-left {
+      padding-left: 12px;
+      padding-right: 10px;
+      min-width: unset;
+    }
+
+  }
+}
+
+.#{$dropdown-prefix-cls}-button.#{$dropdown-prefix-cls}-button-no-line{
+  position: relative;
+  padding-right: 28px;
+  .#{$button-prefix-cls}-icon-cls-wrapper{
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+// dropdown.button 样式 ==============
+@mixin effect() {
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+  transform-origin: 0 0;
+  display: block;
+}
+
+.slide-up-enter,.slide-up-appear {
+  @include effect();
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+  animation-play-state: paused;
+}
+
+.slide-up-leave {
+  @include effect();
+  opacity: 1;
+  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+  animation-play-state: paused;
+}
+
+.slide-up-enter.slide-up-enter-active,
+.slide-up-appear.slide-up-appear-active {
+    &.#{$dropdown-prefix-cls}-placement-bottomLeft, &.#{$dropdown-prefix-cls}-placement-bottomCenter, &.#{$dropdown-prefix-cls}-placement-bottomRight{
+        animation-name: uDropdownSlideUpIn;
+        animation-play-state: running;
+    }
+}
+
+.slide-up-enter.slide-up-enter-active,
+.slide-up-appear.slide-up-appear-active{
+    &.#{$dropdown-prefix-cls}-placement-topLeft, &.#{$dropdown-prefix-cls}-placement-topCenter, &.#{$dropdown-prefix-cls}-placement-topRight{
+        animation-name: uDropdownSlideDownIn;
+        animation-play-state: running;
+    }
+}
+
+.slide-up-leave.slide-up-leave-active{
+    &.#{$dropdown-prefix-cls}-placement-bottomLeft,
+    &.#{$dropdown-prefix-cls}-placement-bottomCenter,
+    &.#{$dropdown-prefix-cls}-placement-bottomRight {
+        animation-name: uDropdownSlideUpOut;
+        animation-play-state: running;
+    }
+}
+
+.slide-up-leave.slide-up-leave-active{
+    &.#{$dropdown-prefix-cls}-placement-topLeft,
+    &.#{$dropdown-prefix-cls}-placement-topCenter,
+    &.#{$dropdown-prefix-cls}-placement-topRight {
+        animation-name: uDropdownSlideDownOut;
+        animation-play-state: running;
+    }
+
+}
+
+@keyframes uDropdownSlideUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+}
+@keyframes uDropdownSlideUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes uDropdownSlideDownIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 100%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 100%;
+    transform: scaleY(1);
+  }
+}
+@keyframes uDropdownSlideDownOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 100%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 100%;
+    transform: scaleY(0);
+  }
+}

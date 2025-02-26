@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="26px" viewBox="0 0 28 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>sketch</title>
+    <g id="后台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Yondesign-资源" transform="translate(-770.000000, -351.000000)" fill-rule="nonzero">
+            <g id="sketch" transform="translate(770.000000, 350.000000)">
+                <polygon id="路径" fill="#FFAE00" points="14 26.5 0 10.4661215 6.05084746 2.34696262 14 1.5 21.9491525 2.34696262 28 10.4661215"></polygon>
+                <polygon id="路径" fill="#EC6C00" points="14 26.4999995 0 10.466121 28 10.466121"></polygon>
+                <polygon id="路径" fill="#FFAE00" points="14 26.4999995 5.66525424 10.466121 22.3347458 10.466121"></polygon>
+                <polygon id="路径" fill="#FFEFB4" points="14 1.5 5.66525424 10.4661215 22.3347458 10.4661215"></polygon>
+                <path d="M6.05084746,2.346963 L2.93644068,6.43574805 L0,10.4661219 L5.72457627,10.4661219 L6.05084746,2.346963 Z M21.9491525,2.346963 L25.0635593,6.43574805 L28,10.4661219 L22.2754237,10.4661219 L21.9491525,2.346963 Z" id="形状" fill="#FFAE00"></path>
+                <path d="M6.05084746,2.34696262 L5.66525424,10.4661215 L14,1.5 L6.05084746,2.34696262 Z M21.9491525,2.34696262 L22.3347458,10.4661215 L14,1.5 L21.9491525,2.34696262 Z" id="形状" fill="#FED305"></path>
+            </g>
+        </g>
+    </g>
+</svg>

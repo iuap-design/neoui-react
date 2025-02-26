@@ -1,0 +1,2323 @@
+@import './prefix';
+
+:root {
+  // 按钮 Button
+  // 填充按钮 fill
+  /**
+  * @desc 填充按钮-边线-圆角；
+  */
+  --@{button-prefix-cls}-border-radius-fill-btn: var(--ynfm-border-radius-fill-btn, 0.08rem);
+  /**
+  * @desc 填充按钮-大按钮-文字-字号；
+  */
+  --@{button-prefix-cls}-font-size-lg-fill-btn: var(--ynfm-font-size-lg-fill-btn, 0.3rem); // 15px
+  /**
+  * @desc 填充按钮-中按钮-文字-字号；
+  */
+  --@{button-prefix-cls}-font-size-m-fill-btn: var(--ynfm-font-size-m-fill-btn, 0.3rem); // 15px
+  /**
+  * @desc 填充按钮-小按钮-文字-字号；
+  */
+  --@{button-prefix-cls}-font-size-s-fill-btn: var(--ynfm-font-size-s-fill-btn, 0.24rem); // 12px
+  /**
+  * @desc 填充按钮-文字-字重；
+  */
+  --@{button-prefix-cls}-font-weight-fill-btn: var(--ynfm-font-weight-fill-btn, 400);
+  /**
+  * @desc 填充按钮-颜色-背景-默认；
+  */
+  --@{button-prefix-cls}-color-bg-fill-btn-primary: var(--ynfm-color-bg-fill-btn-primary, #ee2233);
+  /**
+  * @desc 填充按钮-颜色-背景-禁用；
+  */
+  --@{button-prefix-cls}-color-bg-fill-btn-disabled: var(--ynfm-color-bg-fill-btn-disabled, #F99699);
+  /**
+  * @desc 填充按钮-颜色-背景-按下；
+  */
+  --@{button-prefix-cls}-color-bg-fill-btn-pressed: var(--ynfm-color-bg-fill-btn-pressed, #DE262F);
+  /**
+  * @desc 填充按钮-颜色-图标；
+  */
+  --@{button-prefix-cls}-color-icon-fill-btn: var(--ynfm-color-icon-fill-btn, #FFFFFF);
+  /**
+  * @desc 填充按钮-颜色-图标-禁用；
+  */
+  --@{button-prefix-cls}-color-icon-fill-btn-disabled: var(--ynfm-color-icon-fill-btn-disabled, #FFFFFF);
+  /**
+  * @desc 填充按钮-颜色-图标-按下；
+  */
+  --@{button-prefix-cls}-color-icon-fill-btn-pressed: var(--ynfm-color-icon-fill-btn-pressed, #FFFFFF);
+  /**
+  * @desc 填充按钮-颜色-文本；
+  */
+  --@{button-prefix-cls}-color-text-fill-btn: var(--ynfm-color-text-fill-btn, #FFFFFF);
+  /**
+  * @desc 填充按钮-颜色-文本-禁用；
+  */
+  --@{button-prefix-cls}-text-fill-btn-disabled: var(--ynfm-color-text-fill-btn-disabled, #F0F0F0);
+  /**
+  * @desc 填充按钮-颜色-文本-按下；
+  */
+  --@{button-prefix-cls}-color-text-fill-btn-pressed: var(--ynfm-color-text-fill-btn-pressed, #FFFFFF);
+
+  // 线性按钮 stroke
+  /**
+  * @desc 边线按钮-边线-圆角；
+  */
+  --@{button-prefix-cls}-border-radius-stroke-btn: var(--ynfm-border-radius-stroke-btn, 0.08rem);
+  /**
+  * @desc 边线按钮-边线-样式；
+  */
+  --@{button-prefix-cls}-border-style-stroke-btn: var(--ynfm-border-style-stroke-btn, solid);
+  /**
+  * @desc 边线按钮-边线-粗细；
+  */
+  --@{button-prefix-cls}-border-width-stroke-btn: var(--ynfm-border-width-stroke-btn, 1px);
+  /**
+  * @desc 边线按钮-颜色-背景-默认；
+  */
+  --@{button-prefix-cls}-color-bg-stroke-btn: var(--ynfm-color-bg-stroke-btn, #FFFFFF);
+  /**
+  * @desc 边线按钮-颜色-背景-禁用；
+  */
+  --@{button-prefix-cls}-color-bg-stroke-btn-disabled: var(--ynfm-color-bg-stroke-btn-disabled, #FFFFFF);
+  /**
+  * @desc 边线按钮-颜色-背景-按下；
+  */
+  --@{button-prefix-cls}-color-bg-stroke-btn-pressed: var(--ynfm-color-bg-stroke-btn-pressed, #F9F9F9);
+  /**
+  * @desc 边线按钮-颜色-边线-默认；
+  */
+  --@{button-prefix-cls}-color-border-stroke-btn: var(--ynfm-color-border-stroke-btn, #E5E5E5);
+  /**
+  * @desc 边线按钮-颜色-边线-禁用；
+  */
+  --@{button-prefix-cls}-color-border-stroke-btn-disabled: var(--ynfm-color-border-stroke-btn-disabled, #F0F0F0);
+  /**
+  * @desc 边线按钮-颜色-边线-按下；
+  */
+  --@{button-prefix-cls}-color-border-stroke-btn-pressed: var(--ynfm-color-border-stroke-btn-pressed, #D0D0D0);
+  /**
+  * @desc 边线按钮-颜色-图标；
+  */
+  --@{button-prefix-cls}-color-icon-stroke-btn: var(--ynfm-color-icon-stroke-btn, #171717);
+  --@{button-prefix-cls}-color-icon-textbtn: var(--ynfm-color-icon-textbtn, #171717);
+  /**
+  * @desc 边线按钮-颜色-图标-禁用；
+  */
+  --@{button-prefix-cls}-color-icon-stroke-btn-disabled: var(--ynfm-color-icon-stroke-btn-disabled, #888888);
+  /**
+  * @desc 边线按钮-颜色-图标-按下；
+  */
+  --@{button-prefix-cls}-color-icon-stroke-btn-pressed: var(--ynfm-color-icon-stroke-btn-pressed, #111111);
+  /**
+  * @desc 边线按钮-颜色-文字-反色；
+  */
+  --@{button-prefix-cls}-color-text-inverse-stroke-btn: var(--ynfm-color-text-inverse-stroke-btn, #FFFFFF);
+  /**
+  * @desc 边线按钮-颜色-文本；
+  */
+  --@{button-prefix-cls}-color-text-stroke-btn: var(--ynfm-color-text-stroke-btn, #171717);
+  /**
+  * @desc 边线按钮-颜色-文本-禁用；
+  */
+  --@{button-prefix-cls}-color-text-stroke-btn-disabled: var(--ynfm-color-text-stroke-btn-disabled, #888888);
+  /**
+  * @desc 边线按钮-颜色-文本-按下；
+  */
+  --@{button-prefix-cls}-color-text-stroke-btn-pressed: var(--ynfm-color-text-stroke-btn-pressed, #111111);
+  /**
+  * @desc 边线按钮-文字-字号-大按钮；
+  */
+  --@{button-prefix-cls}-font-size-lg-stroke-btn: var(--ynfm-font-size-lg-stroke-btn, 0.3rem); // 15px
+  /**
+  * @desc 边线按钮-文字-字号-中按钮；
+  */
+  --@{button-prefix-cls}-font-size-m-stroke-btn: var(--ynfm-font-size-m-stroke-btn, 0.3rem); // 15px
+  /**
+  * @desc 边线按钮-文字-字号-小按钮；
+  */
+  --@{button-prefix-cls}-font-size-s-stroke-btn: var(--ynfm-font-size-s-stroke-btn, 0.26rem); // 13px
+  /**
+  * @desc 边线按钮-文字-字重；
+  */
+  --@{button-prefix-cls}-font-weight-stroke-btn: var(--ynfm-font-weight-stroke-btn, 400);
+
+  // 文字按钮 textbtn
+  /**
+  * @desc 文字按钮-颜色-文本-默认；
+  */
+  --@{button-prefix-cls}-color-text-textbtn: var(--ynfm-color-text-textbtn, #171717);
+  /**
+  * @desc 文字按钮-颜色-文本-禁用；
+  */
+  --@{button-prefix-cls}-color-text-textbtn-disabled: var(--ynfm-color-text-textbtn-disabled, #AAAAAA);
+  /**
+  * @desc 文字按钮-颜色-文本-按下；
+  */
+  --@{button-prefix-cls}-color-text-textbtn-pressed: var(--ynfm-color-text-textbtn-pressed, #555555);
+
+  // 图标按钮 iconbtn
+  /**
+  * @desc 图标按钮-边线-圆角；
+  */
+  --@{button-prefix-cls}-border-radius-iconbtn: var(--ynfm-border-radius-iconbtn, 4px);
+  /**
+  * @desc 图标按钮-边线-样式；
+  */
+  --@{button-prefix-cls}-border-style-iconbtn: var(--ynfm-border-style-iconbtn, solid);
+  /**
+  * @desc 图标按钮-边线-粗细；
+  */
+  --@{button-prefix-cls}-border-width-iconbtn: var(--ynfm-border-width-iconbtn, 1px);
+  /**
+  * @desc 图标按钮-颜色-背景-默认；
+  */
+  --@{button-prefix-cls}-color-bg-iconbtn: var(--ynfm-color-bg-iconbtn, #FFFFFF);
+  /**
+  * @desc 图标按钮-颜色-背景-禁用；
+  */
+  --@{button-prefix-cls}-color-bg-iconbtn-disabled: var(--ynfm-color-bg-iconbtn-disabled, #FFFFFF);
+  /**
+  * @desc 图标按钮-颜色-背景-按下；
+  */
+  --@{button-prefix-cls}-color-bg-iconbtn-pressed: var(--ynfm-color-bg-iconbtn-pressed, #F9F9F9);
+  /**
+  * @desc 图标按钮-颜色-图标-默认；
+  */
+  --@{button-prefix-cls}-color-icon-iconbtn: var(--ynfm-color-icon-iconbtn, #111111);
+  /**
+  * @desc 图标按钮-颜色-图标-禁用；
+  */
+  --@{button-prefix-cls}-color-icon-iconbtn-disabled: var(--ynfm-color-icon-iconbtn-disabled, #AAAAAA);
+  /**
+  * @desc 图标按钮-颜色-图标-按下；
+  */
+  --@{button-prefix-cls}-color-icon-iconbtn-pressed: var(--ynfm-color-icon-iconbtn-pressed, #555555);
+  /**
+  * @desc 图标按钮-颜色-图标-反色；
+  */
+  --@{button-prefix-cls}-color-icon-inverse-iconbtn: var(--ynfm-color-icon-inverse-iconbtn, #FFFFFF);
+
+  // 悬浮按钮 fixedbtn
+  /**
+  * @desc 悬浮按钮-边线-圆角；
+  */
+  --@{button-prefix-cls}-border-radius-fixedbtn: var(--ynfm-border-radius-fixedbtn, 100%);
+  /**
+  * @desc 悬浮按钮-阴影；
+  */
+  --@{button-prefix-cls}-box-shadow-fixedbtn: var(--ynfm-box-shadow-fixedbtn, (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)%));
+  /**
+  * @desc 悬浮按钮-颜色-背景-默认；
+  */
+  --@{button-prefix-cls}-color-bg-fixedbtn: var(--ynfm-color-bg-fixedbtn, #EE2233);
+  /**
+  * @desc 悬浮按钮-颜色-背景-禁用；
+  */
+  --@{button-prefix-cls}-color-bg-fixedbtn-disabled: var(--ynfm-color-bg-fixedbtn-disabled, #F99699);
+  /**
+  * @desc 悬浮按钮-颜色-背景-按下；
+  */
+  --@{button-prefix-cls}-color-bg-fixedbtn-pressed: var(--ynfm-color-bg-fixedbtn-pressed, #DE262F);
+  /**
+  * @desc 悬浮按钮-颜色-图标-默认；
+  */
+  --@{button-prefix-cls}-color-icon-fixedbtn: var(--ynfm-color-icon-fixedbtn, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-图标-禁用；
+  */
+  --@{button-prefix-cls}-color-icon-fixedbtn-disabled: var(--ynfm-color-icon-fixedbtn-disabled, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-图标-按下；
+  */
+  --@{button-prefix-cls}-color-icon-fixedbtn-pressed: var(--ynfm-color-icon-fixedbtn-pressed, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-文本-默认；
+  */
+  --@{button-prefix-cls}-color-text-fixedbtn: var(--ynfm-color-text-fixedbtn, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-文本-禁用；
+  */
+  --@{button-prefix-cls}-color-text-fixedbtn-disabled: var(--ynfm-color-text-fixedbtn-disabled, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-文本-按下；
+  */
+  --@{button-prefix-cls}-color-text-fixedbtn-pressed: var(--ynfm-color-text-fixedbtn-pressed, #FFFFFF);
+  /**
+  * @desc 悬浮按钮-颜色-文本-反色；
+  */
+  --@{button-prefix-cls}-color-text-inverse-fixedbtn: var(--ynfm-color-text-inverse-fixedbtn, #EE2233);
+  /**
+  * @desc 悬浮按钮-文字-字号；
+  */
+  --@{button-prefix-cls}-font-size-fixedbtn: var(--ynfm-font-size-fixedbtn, 0.3rem); // 15px
+  /**
+  * @desc 悬浮按钮-文字-字重；
+  */
+  --@{button-prefix-cls}-font-weight-fixedbtn: var(--ynfm-font-weight-fixedbtn, 400);
+  --@{button-prefix-cls}-color-border-ghost-btn: var(--ynfm-color-border-ghost-btn, #EE2233);
+  --@{button-prefix-cls}-color-icon-ghost-btn: var(--ynfm-color-icon-ghost-btn, #EE2233);
+  --@{button-prefix-cls}-color-text-ghost-btn: var(--ynfm-color-text-ghost-btn, #EE2233);
+
+  // 数字文本框 InputNumber
+  --@{input-number-prefix-cls}-color-text-magnitude-inputnumber: var(--ynfm-color-text-magnitude-inputnumber, #475569);
+  --@{input-number-prefix-cls}-color-bg-magnitude-inputnumber: var(--ynfm-color-bg-magnitude-inputnumber, #e5e5e5);
+
+  // 文本框 Input
+  /**
+  * @desc 文本框-边线-圆角；
+  */
+  --@{input-prefix-cls}-border-radius-input: var(--ynfm-border-radius-input, 0.08rem);
+  /**
+  * @desc 文本框-边线-样式；
+  */
+  --@{input-prefix-cls}-border-style-input: var(--ynfm-border-style-input, solid);
+  /**
+  * @desc 文本框-颜色-背景；
+  */
+  --@{input-prefix-cls}-color-bg-input: var(--ynfm-color-bg-input, #FFFFFF);
+  /**
+  * @desc 文本框-颜色-边线；
+  */
+  --@{input-prefix-cls}-color-border-input: var(--ynfm-color-border-input, #F4F4F4);
+  /**
+  * @desc 文本框-颜色-光标；
+  */
+  --@{input-prefix-cls}-color-cursor-input: var(--ynfm-color-cursor-input, #006FE6);
+  /**
+  * @desc 文本框-颜色-文本-默认；
+  */
+  --@{input-prefix-cls}-color-text-input: var(--ynfm-color-text-input, #171717);
+  /**
+  * @desc 文本框-颜色-文本-禁用；
+  */
+  --@{input-prefix-cls}-color-text-input-disabled: var(--ynfm-color-text-input-disabled, #737373);
+  /**
+  * @desc 文本框-颜色-文本-暗文字；
+  */
+  --@{input-prefix-cls}-color-text-placeholder-input: var(--ynfm-color-text-placeholder-input, #BFBFBF);
+  /**
+  * @desc 文本框-颜色-文本-校验说明-错误；
+  */
+  --@{input-prefix-cls}-color-text-verification-input-danger: var(--ynfm-color-text-verification-input-danger, #EE2233);
+  /**
+  * @desc 文本框-内容-文字-字号；
+  */
+  --@{input-prefix-cls}-font-size-content-input: var(--ynfm-font-size-content-input, 0.3rem); // 15px
+  /**
+  * @desc 文本框-暗文字-文字-字号；
+  */
+  --@{input-prefix-cls}-font-size-placeholder-input: var(--ynfm-font-size-placeholder-input, 0.3rem); // 15px
+  /**
+  * @desc 文本框-校验说明-文字-字号；
+  */
+  --@{input-prefix-cls}-font-size-verification-input: var(--ynfm-font-size-verification-input, 0.26rem); // 13px
+  /**
+  * @desc 文本框-内容-文字-字重；
+  */
+  --@{input-prefix-cls}-font-weight-content-input: var(--ynfm-font-weight-content-input, 400);
+  /**
+  * @desc 文本框-暗文字-文字-字重；
+  */
+  --@{input-prefix-cls}-font-weight-placeholder-input: var(--ynfm-font-weight-placeholder-input, 400);
+  /**
+  * @desc 文本框-校验说明-文字-字重；
+  */
+  --@{input-prefix-cls}-font-weight-verification-input: var(--ynfm-font-weight-verification-input, 400);
+  /**
+  * @desc 文本框-尺寸-高度；
+  */
+  --@{input-prefix-cls}-size-height-input: var(--ynfm-size-height-input, 0.64rem); // 32px
+  /**
+  * @desc 文本框-颜色-文本-只读；
+  */
+  --@{input-prefix-cls}-color-text-input-readonly: var(--ynfm-color-text-input-readonly, #171717);
+  /**
+  * @desc 文本框-颜色-背景-只读；
+  */
+  --@{input-prefix-cls}-color-bg-input-readonly: var(--ynfm-color-bg-input-readonly, #FFFFFF);
+  /**
+  * @desc 文本框-颜色-背景-禁用
+  */
+  --@{input-prefix-cls}-color-bg-input-disabled: var(--ynfm-color-bg-input-disabled, #FFFFFF);
+
+  --@{input-prefix-cls}-color-border-input: var(--ynfm-color-border-input, transparent);
+  --@{input-prefix-cls}-color-icon-clear-input: var(--ynfm-color-icon-clear-input, #BFBFBF);
+  --@{input-prefix-cls}-color-icon-input: var(--ynfm-color-icon-input, #BFBFBF);
+  --@{input-prefix-cls}-border-style-input: var(--ynfm-border-radius-input, solid);
+  --@{input-prefix-cls}-border-width-input: var(--ynfm-color-border-input, 0);
+  --@{input-prefix-cls}-color-text-describe-input: var(--ynfm-color-text-describe-input, #737373);
+
+  // Picker
+  /**
+  * @desc 选择器-尺寸-高度-标题
+  */
+  --@{picker-prefix-cls}-size-height-title: var(--ynfm-size-height-title-picker, 0.88rem);
+  /**
+ * @desc 选择器-颜色-文本-清空返回
+ */
+  --@{picker-prefix-cls}-color-text-clearback: var(--ynfm-color-text-clearback-picker, #ed0c0c);
+
+  /**
+  * @desc 选择器-文字-字重-标题
+  */
+  --@{picker-prefix-cls}-font-weight-title: var(--ynfm-font-weight-title-picker, 400);
+
+  /**
+    * @desc 选择器-文字-字号-标题
+    */
+  --@{picker-prefix-cls}-font-size-title: var(--ynfm-font-size-title-picker, 0.34rem);
+    /**
+    * @desc 选择器-颜色-文本-标题
+    */
+  --@{picker-prefix-cls}-color-text-title: var(--ynfm-color-text-title-picker, #171717);
+  --@{picker-prefix-cls}-color-text-clearback-picker: var(--ynfm-color-text-clearback-picker, #F50C00);
+
+
+  //PickerView
+
+  /**
+* @desc 选择器视图-边线-样式-单元格
+*/
+  --@{picker-view-prefix-cls}-border-style-cell: var(--ynfm-border-style-cell-pickerview, solid);
+
+  /**
+  * @desc 选择器视图-边线-粗细-单元格
+  */
+  --@{picker-view-prefix-cls}-border-width-cell: var(--ynfm-border-width-cell-pickerview, 1px);
+
+  /**
+  * @desc 选择器视图-颜色-背景-单元格-选中
+  */
+  --@{picker-view-prefix-cls}-color-bg-cell-selected: var(--ynfm-color-bg-cell-pickerview-selected, #FFFFFF);
+
+  /**
+  * @desc 选择器视图-颜色-边线-单元格
+  */
+  --@{picker-view-prefix-cls}-color-border-cell: var(--ynfm-color-border-cell-pickerview, #F5F5F5);
+
+  /**
+  * @desc 选择器视图-颜色-文本-单元格-选中
+  */
+  --@{picker-view-prefix-cls}-color-text-cell-selected: var(--ynfm-color-text-cell-pickerview-selected, #171717);
+/**
+  * @desc 选择器视图-颜色-文本-单元格
+  */
+  --@{picker-view-prefix-cls}-color-text-cell: var(--ynfm-color-text-cell-pickerview, #171717);
+
+  /**
+  * @desc 选择器视图-文字-字号-单元格
+  */
+  --@{picker-view-prefix-cls}-font-size-cell: var(--ynfm-font-size-cell-pickerview, 0.3rem);
+
+  /**
+  * @desc 选择器视图-文字-字号-单元格-选中
+  */
+  --@{picker-view-prefix-cls}-font-size-cell-selected: var(--ynfm-font-size-cell-pickerview-selected, 0.32rem);
+
+  /**
+  * @desc 选择器视图-文字-字重-单元格
+  */
+  --@{picker-view-prefix-cls}-font-weight-cell: var(--ynfm-font-weight-cell-pickerview, 400);
+
+  /**
+  * @desc 选择器视图-文字-字重-单元格-选中
+  */
+  --@{picker-view-prefix-cls}-font-weight-cell-selected: var(--ynfm-font-weight-cell-pickerview-selected, 400);
+
+  /**
+  * @desc 选择器视图-尺寸-高度-单元格
+  */
+  --@{picker-view-prefix-cls}-size-height-cell: var(--ynfm-size-height-cell-pickerview, 1rem);
+
+  /**
+  * @desc 选择器视图-尺寸-高度
+  */
+  --@{picker-view-prefix-cls}-size-height: var(--ynfm-size-height-pickerview, 4.8rem);
+
+/**
+* @desc 选择器视图-颜色-背景
+ */
+  --@{picker-view-prefix-cls}-bg-color: var(--ynfm-color-bg-pickerview, #FFFFFF);
+  --@{picker-view-prefix-cls}-color-loading-pickerview: var(--ynfm-color-loading-pickerview, #EE2233);
+/**
+* @desc 选择器视图-颜色-背景-蒙层-上
+ */
+  --@{picker-view-prefix-cls}-color-bg-mask-top: var(--ynfm-color-bg-mask-top-pickerview, linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.8)
+  ));
+  /**
+* @desc 选择器视图-颜色-背景-蒙层-下
+ */
+  --@{picker-view-prefix-cls}-color-bg-mask-bottom: var(--ynfm-color-bg-mask-bottom-pickerview, linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.8)
+  ));
+
+  --@{time-range-picker-picker-prefix-cls}-color-bg-input-timerangepicker: var(--ynfm-color-bg-input-timerangepicker, #F5F5F5);
+  --@{time-range-picker-picker-prefix-cls}-color-bg-input-timerangepicker-selected: var(--ynfm-color-bg-input-timerangepicker-selected, #FFE7E8);
+  --@{time-range-picker-picker-prefix-cls}-color-border-input-timerangepicker: var(--ynfm-color-border-input-timerangepicker, transparent);
+  --@{time-range-picker-picker-prefix-cls}-color-border-input-timerangepicker-selected: var(--ynfm-color-border-input-timerangepicker-selected, #EE2233);
+  --@{time-range-picker-picker-prefix-cls}-color-text-input-timerangepicker: var(--ynfm-color-text-input-timerangepicker, #171717);
+  --@{time-range-picker-picker-prefix-cls}-color-text-input-timerangepicker-selected: var(--ynfm-color-text-input-timerangepicker-selected, #EE2233);
+
+  // 标签 Tag
+  // 填充标签 fill
+  /**
+  * @desc 填充标签-边线-圆角；
+  */
+  --@{tag-prefix-cls}-border-radius-fill-tag: var(--ynfm-border-radius-fill-tag, 0.04rem); // 4px
+  /**
+  * @desc 填充标签-颜色-背景；
+  */
+  --@{tag-prefix-cls}-color-bg-fill-tag: var(--ynfm-color-bg-fill-tag, #1717171A);
+  /**
+  * @desc 填充标签-颜色-清空图标；
+  */
+  --@{tag-prefix-cls}-color-icon-clear-fill-tag: var(--ynfm-color-icon-clear-fill-tag, #171717);
+  /**
+  * @desc 填充标签-颜色-图标；
+  */
+  --@{tag-prefix-cls}-color-icon-fill-tag: var(--ynfm-color-icon-fill-tag, #171717);
+  /**
+  * @desc 填充标签-颜色-文本；
+  */
+  --@{tag-prefix-cls}-color-text-fill-tag: var(--ynfm-color-text-fill-tag, #171717);
+  /**
+  * @desc 填充标签-中标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-m-fill-tag: var(--ynfm-font-size-fill-tag, 0.24rem); // 12px
+  /**
+  * @desc 填充标签-小标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-s-fill-tag: var(--ynfm-font-size-s-fill-tag, 0.2rem); // 10px
+  /**
+  * @desc 填充标签-文字-字重；
+  */
+  --@{tag-prefix-cls}-font-weight-fill-tag: var(--ynfm-font-weight-fill-tag, 400);
+
+  --@{tag-prefix-cls}-color-bg-danger-tag: var(--ynfm-color-bg-danger-tag, #F50C001A);
+  --@{tag-prefix-cls}-color-bg-invalid-tag: var(--ynfm-color-bg-invalid-tag, #4755691A);
+  --@{tag-prefix-cls}-color-bg-info-tag: var(--ynfm-color-bg-info-tag, #006FE61A);
+  --@{tag-prefix-cls}-color-bg-start-tag: var(--ynfm-color-bg-start-tag, #0EA5E91A);
+  --@{tag-prefix-cls}-color-bg-success-tag: var(--ynfm-color-bg-success-tag, #299E461A);
+  --@{tag-prefix-cls}-color-bg-warning-tag: var(--ynfm-color-bg-warning-tag, #E686001A);
+  --@{tag-prefix-cls}-color-text-danger-tag: var(--ynfm-color-text-danger-tag, #F50C00);
+  --@{tag-prefix-cls}-color-text-invalid-tag: var(--ynfm-color-text-invalid-tag, #475569);
+  --@{tag-prefix-cls}-color-text-message-tag: var(--ynfm-color-text-info-tag, #006FE6);
+  --@{tag-prefix-cls}-color-text-start-tag: var(--ynfm-color-text-start-tag, #0EA5E9);
+  --@{tag-prefix-cls}-color-text-success-tag: var(--ynfm-color-text-success-tag, #299E46);
+  --@{tag-prefix-cls}-color-text-warning-tag: var(--ynfm-color-text-warning-tag, #E68600);
+  --@{tag-prefix-cls}-color-bg-primary-tag: var(--ynfm-color-bg-primary-tag, #FFE7E8);
+  --@{tag-prefix-cls}-color-border-primary-tag: var(--ynfm-color-border-primary-tag, #EE2233);
+  --@{tag-prefix-cls}-color-text-primary-tag: var(--ynfm-color-text-primary-tag, #EE2233);
+
+  // 文字标签 testtag
+  /**
+  * @desc 文字标签-颜色-文本；
+  */
+  --@{tag-prefix-cls}-color-text-texttag: var(--ynfm-color-text-texttag, #171717);
+  /**
+  * @desc 文字标签-中标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-m-texttag: var(--ynfm-font-size-texttag, 0.26rem); // 13px
+  /**
+  * @desc 文字标签-小标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-s-texttag: var(--ynfm-font-size-s-texttag, 0.2rem); // 10px
+  /**
+  * @desc 文字标签-文字-字重；
+  */
+  --@{tag-prefix-cls}-font-weight-texttag: var(--ynfm-font-weight-texttag, 500);
+
+  // 线性标签 stroke
+  /**
+  * @desc 线框标签-边线-圆角；
+  */
+  --@{tag-prefix-cls}-border-radius-stroke-tag: var(--ynfm-border-radius-stroke-tag, 0.04rem);
+  /**
+  * @desc 线性标签-颜色-边线；
+  */
+  --@{tag-prefix-cls}-color-border-stroke-tag: var(--ynfm-color-border-stroke-tag, #171717);
+  /**
+  * @desc 线性标签-颜色-清空图标；
+  */
+  --@{tag-prefix-cls}-color-icon-clear-stroke-tag: var(--ynfm-color-icon-clear-stroke-tag, #171717);
+  /**
+  * @desc 线性标签-颜色-图标；
+  */
+  --@{tag-prefix-cls}-color-icon-stroke-tag: var(--ynfm-color-icon-stroke-tag, #171717);
+  /**
+  * @desc 线性标签-颜色-文本；
+  */
+  --@{tag-prefix-cls}-color-text-stroke-tag: var(--ynfm-color-text-stroke-tag, #171717);
+  /**
+  * @desc 线框标签-中标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-m-stroke-tag: var(--ynfm-font-size-stroke-tag, 0.24rem); // 12px
+  /**
+  * @desc 线框标签-小标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-s-stroke-tag: var(--ynfm-font-size-s-stroke-tag, 0.2rem); // 10px
+  /**
+  * @desc 线框标签-文字-字重；
+  */
+  --@{tag-prefix-cls}-font-weight-stroke-tag: var(--ynfm-font-weight-stroke-tag, 400);
+  --@{tag-prefix-cls}-color-bg-stroke-tag: var(--ynfm-color-bg-stroke-tag, transparent);
+
+  // 印章标签 stamp
+  /**
+* @desc 印章标签-颜色-文本；
+*/
+  --@{tag-prefix-cls}-color-text-stamp-tag: var(--ynfm-color-text-stamp-tag, #171717);
+  /**
+  * @desc 印章标签-文字-字号；
+  */
+  --@{tag-prefix-cls}-font-size-stamp-tag: var(--ynfm-font-size-stamp-tag, 0.26rem); // 13px
+  /**
+  * @desc 印章标签-文字-字重；
+  */
+  --@{tag-prefix-cls}-font-weight-stamp-tag: var(--ynfm-font-weight-stamp-tag, 400);
+  --@{tag-prefix-cls}-color-icon-stamp-tag: var(--ynfm-color-icon-stamp-tag, #171717);
+
+  // calendar
+
+  /**
+ * @desc 日历-边线-圆角-日期-选中
+ */
+  --@{calendar-prefix-cls}-border-radius-cell-calendar-selected: var(--ynfm-border-radius-cell-calendar-selected, 0.5rem);
+
+  /**
+   * @desc 日历-样式-下边线-星期标识
+   */
+  --@{calendar-prefix-cls}-border-style-weekmark-calendar: var(--ynfm-border-style-weekmark-calendar, solid);
+
+  /**
+   * @desc 日历-粗细-下边线-星期标识
+   */
+  --@{calendar-prefix-cls}-border-width-weekmark-calendar: var(--ynfm-border-width-weekmark-calendar, 1px);
+
+  /**
+   * @desc 日历-颜色-背景-日期-选中
+   */
+  --@{calendar-prefix-cls}-color-bg-cell-calendar-selected: var(--ynfm-color-bg-cell-calendar-selected, #EE2233);
+
+  /**
+   * @desc 日历-颜色-背景-面板
+   */
+  --@{calendar-prefix-cls}-color-bg-panel-calendar: var(--ynfm-color-bg-panel-calendar, #FFFFFF);
+
+  /**
+   * @desc 日历-颜色-背景-日期-范围-选中
+   */
+  --@{calendar-prefix-cls}-color-bg-range-cells-calendar-selected: var(--ynfm-color-bg-range-cells-calendar-selected, #EE2233);
+
+  /**
+   * @desc 日历-颜色-下边线-星期标识
+   */
+  --@{calendar-prefix-cls}-color-border-weekmark-calendar: var(--ynfm-color-border-weekmark-calendar, #F5F5F5);
+
+  /**
+   * @desc 日历-图标-颜色-头部-图标（上下左右箭头）
+   */
+  --@{calendar-prefix-cls}-color-icon-arrow-header-calendar: var(--ynfm-color-icon-arrow-header-calendar, #EE2233);
+
+  /**
+   * @desc 日历-颜色-文本-日期
+   */
+  --@{calendar-prefix-cls}-color-text-cell-calendar: var(--ynfm-color-text-cell-calendar, #171717);
+
+  /**
+   * @desc 日历-颜色-文本-日期-禁用
+   */
+  --@{calendar-prefix-cls}-color-text-cell-calendar-disabled: var(--ynfm-color-text-cell-calendar-disabled, #BFBFBF);
+
+  /**
+   * @desc 日历-颜色-文本-内容-选中
+   */
+  --@{calendar-prefix-cls}-color-text-cell-calendar-selected: var(--ynfm-color-text-cell-calendar-selected, #FFFFFF);
+
+  /**
+   * @desc 日历-颜色-文本-内容-今日
+   */
+  --@{calendar-prefix-cls}-color-text-cell-calendar-today: var(--ynfm-color-text-cell-calendar-today, #EE2233);
+
+  /**
+   * @desc 日历-颜色-文本-辅助文字
+   */
+  --@{calendar-prefix-cls}-color-text-hint-cell-calendar: var(--ynfm-color-text-hint-cell-calendar, #888888);
+
+  /**
+  * @desc 日历-颜色-文本-辅助文字-选中
+  */
+  --@{calendar-prefix-cls}-color-text-hint-cell-calendar-selected: var(--ynfm-color-text-hint-cell-calendar-selected, #FFFFFF);
+
+  /**
+  * @desc 日历-颜色-背景-日期-辅助文字-范围
+  */
+  --@{calendar-prefix-cls}-color-text-hint-range-cells-calendar: var(--ynfm-color-text-hint-range-cells-calendar, #FFFFFF);
+
+  /**
+   * @desc 日历-颜色-文本-标题
+   */
+  --@{calendar-prefix-cls}-color-text-title-calendar: var(--ynfm-color-text-title-calendar, #171717);
+
+  /**
+   * @desc 日历-颜色-文本-星期标识
+   */
+  --@{calendar-prefix-cls}-color-text-weekmark-cell-calendar: var(--ynfm-color-text-weekmark-cell-calendar, #BFBFBF);
+
+  /**
+   * @desc 日历-文字-字号-日期
+   */
+  --@{calendar-prefix-cls}-font-size-cell-calendar: var(--ynfm-font-size-cell-calendar, 0.34rem);
+
+  /**
+   * @desc 日历-文字-字号-辅助文字
+   */
+  --@{calendar-prefix-cls}-font-size-hint-cell-calendar: var(--ynfm-font-size-hint-cell-calendar, 0.2rem);
+
+  /**
+   * @desc 日历-文字-字号-标题
+   */
+  --@{calendar-prefix-cls}-font-size-title-calendar: var(--ynfm-font-size-title-calendar, 0.34rem);
+
+  /**
+   * @desc 日历-文字-字号-星期标识
+   */
+  --@{calendar-prefix-cls}-font-size-weekmark-cell-calendar: var(--ynfm-font-size-weekmark-cell-calendar, 0.26rem);
+
+  /**
+   * @desc 日历-文字-字重-日期
+   */
+  --@{calendar-prefix-cls}-font-weight-cell-calendar: var(--ynfm-font-weight-cell-calendar, 500);
+
+  /**
+   * @desc 日历-文字-字重-辅助文字
+   */
+  --@{calendar-prefix-cls}-font-weight-hint-cell-calendar: var(--ynfm-font-weight-hint-cell-calendar, 400);
+
+  /**
+   * @desc 日历-文字-字重-标题
+   */
+  --@{calendar-prefix-cls}-font-weight-title-calendar: var(--ynfm-font-weight-title-calendar, 500);
+
+  /**
+   * @desc 日历-文字-字重-星期标识
+   */
+  --@{calendar-prefix-cls}-font-weight-weekmark-cell-calendar: var(--ynfm-font-weight-weekmark-cell-calendar, 400);
+  // 空状态 Empty
+  /**
+  * @desc 空状态-颜色-图标；
+  */
+  --@{empty-prefix-cls}-color-icon-empty: var(--ynfm-color-icon-empty, #555555);
+  /**
+  * @desc 空状态-颜色-文本-描述文字；
+  */
+  --@{empty-prefix-cls}-color-text-content-empty: var(--ynfm-color-text-content-empty, #404040);
+  /**
+  * @desc 空状态-文字-字号-描述文字；
+  */
+  --@{empty-prefix-cls}-font-size-content-empty: var(--ynfm-font-size-content-empty, 0.3rem);
+  /**
+  * @desc 空状态-文字-字重-描述文字；
+  */
+  --@{empty-prefix-cls}-font-weight-content-empty: var(--ynfm-font-weight-content-empty, 400);
+
+  --@{calendar-picker-view-prefix-cls}-color-bg-title-calendarpickerview: var(--ynfm-color-bg-title-calendarpickerview, #F5F5F5);
+  --@{calendar-picker-view-prefix-cls}-color-text-title-calendarpickerview: var(--ynfm-color-text-title-calendarpickerview, #171717);
+
+  // 按钮 NavBar
+  // dark
+  /**
+  * @desc 导航栏-深色模式-颜色-文本-标题；
+  */
+  --@{navbar-prefix-cls}-color-text-title-dark-navbar: var(--ynfm-color-text-title-dark-navbar, #FFFFFF);
+  /**
+  * @desc 导航栏-深色模式-颜色-文字-文本按钮；
+  */
+  --@{navbar-prefix-cls}-color-text-textbtn-dark-navbar: var(--ynfm-color-text-textbtn-dark-navbar, #FFFFFF);
+  /**
+  * @desc 导航栏-深色模式-颜色-图标按钮；
+  */
+  --@{navbar-prefix-cls}-color-icon-iconbtn-dark-navbar: var(--ynfm-color-icon-iconbtn-dark-navbar, #FFFFFF);
+  /**
+  * @desc 导航栏-深色模式-颜色-文本-副标题；
+  */
+  --@{navbar-prefix-cls}-color-text-subtitle-dark-navbar: var(--ynfm-color-text-subtitle-dark-navbar, #FFFFFF);
+  /**
+  * @desc 导航栏-颜色-背景-深色；
+  */
+  --@{navbar-prefix-cls}-color-bg-dark-navbar: var(--ynfm-color-bg-dark-navbar, #EE2233);
+  --@{navbar-prefix-cls}-size-height-navbar: var(--ynfm-size-height-navbar, 0.88rem);
+
+  --@{navbar-prefix-cls}-color-border-bottom-navbar: var(--ynfm-color-border-bottom-navbar, transparent);
+  --@{navbar-prefix-cls}-border-width-bottom-navbar: var(--ynfm-border-width-bottom-navbar, 0.01rem);
+  --@{navbar-prefix-cls}-border-style-bottom-navbar: var(--ynfm-border-style-bottom-navbar, solid);
+
+
+  // light
+  /**
+  * @desc 导航栏-颜色-文本-文本按钮；
+  */
+  --@{navbar-prefix-cls}-color-text-textbtn-navbar: var(--ynfm-color-text-textbtn-navbar, #171717);
+  /**
+  * @desc 导航栏-颜色-文本-标题；
+  */
+  --@{navbar-prefix-cls}-color-text-title-navbar: var(--ynfm-color-text-title-navbar, #171717);
+  /**
+  * @desc 导航栏-颜色-文本-副标题；
+  */
+  --@{navbar-prefix-cls}-color-text-subtitle-navbar: var(--ynfm-color-text-subtitle-navbar, #404040);
+  /**
+  * @desc 导航栏-颜色-图标-按钮按钮；
+  */
+  --@{navbar-prefix-cls}-color-icon-iconbtn-navbar: var(--ynfm-color-icon-iconbtn-navbar, #171717);
+  /**
+  * @desc 导航栏-颜色-背景；
+  */
+  --@{navbar-prefix-cls}-color-bg-navbar: var(--ynfm-color-bg-navbar, #FFFFFF);
+
+  // common
+  /**
+  * @desc 导航栏-文字-字重-副标题；
+  */
+  --@{navbar-prefix-cls}-font-weight-subtitle-navbar: var(--ynfm-font-weight-subtitle-navbar, 400);
+  /**
+  * @desc 导航栏-文字-字重-标题；
+  */
+  --@{navbar-prefix-cls}-font-weight-title-navbar: var(--ynfm-font-weight-title-navbar, 500);
+  /**
+  * @desc 导航栏-文字-字号-文字按钮；
+  */
+  --@{navbar-prefix-cls}-font-size-textbtn-navbar: var(--ynfm-font-size-textbtn-navbar, 0.3rem);
+  /**
+  * @desc 导航栏-文字-字号-标题；
+  */
+  --@{navbar-prefix-cls}-font-size-title-navbar: var(--ynfm-font-size-title-navbar, 0.34rem);
+  /**
+  * @desc 导航栏-文字-字号-副标题；
+  */
+  --@{navbar-prefix-cls}-font-size-subtitle-navbar: var(--ynfm-font-size-subtitle-navbar, 0.2rem);
+
+  // 弹窗 Modal
+  /**
+  * @desc 弹窗-边线-圆角-按钮；
+  */
+  // --@{modal-prefix-cls}-border-radius-button-modal: var(--ynfm-border-radius-button-modal, 0.08rem);
+  /**
+  * @desc 弹窗-边线-圆角-背景；
+  */
+  --@{modal-prefix-cls}-border-radius-modal: var(--ynfm-border-radius-modal, 0.16rem);
+  /**
+  * @desc 弹窗-颜色-背景；
+  */
+  --@{modal-prefix-cls}-color-bg-modal: var(--ynfm-color-bg-modal, #FFFFFF);
+  /**
+  * @desc 弹窗-颜色-背景-主按钮；
+  */
+  --@{modal-prefix-cls}-color-bg-primary-btn-modal: var(--ynfm-color-bg-primary-btn-modal, #EE2233);
+  /**
+  * @desc 弹窗-颜色-背景-次按钮；
+  */
+  --@{modal-prefix-cls}-color-bg-second-btn-modal: var(--ynfm-color-bg-second-btn-modal, #FFFFFF);
+    /**
+  * @desc 弹窗-颜色-边线-主按钮；
+  */
+  --@{modal-prefix-cls}-color-border-primary-btn-modal: var(--ynfm-color-border-primary-btn-modal, transparent);
+  /**
+  * @desc 弹窗-颜色-边线-次按钮；
+  */
+  --@{modal-prefix-cls}-color-border-second-btn-modal: var(--ynfm-color-border-second-btn-modal, #E5E5E5);
+  /**
+  * @desc 弹窗-颜色-图标-关闭；
+  */
+  --@{modal-prefix-cls}-color-icon-closed-panel-modal: var(--ynfm-color-icon-closed-panel-modal, #475569);
+  /**
+  * @desc 弹窗-颜色-文本-内容；
+  */
+  --@{modal-prefix-cls}-color-text-content-modal: var(--ynfm-color-text-content-modal, #171717);
+  /**
+  * @desc 弹窗-颜色-文本-主按钮；
+  */
+  --@{modal-prefix-cls}-color-text-primary-btn-modal: var(--ynfm-color-text-primary-btn-modal, #FFFFFF);
+  /**
+  * @desc 弹窗-颜色-文本-次按钮；
+  */
+  --@{modal-prefix-cls}-color-text-second-btn-modal: var(--ynfm-color-text-second-btn-modal, #171717);
+  /**
+  * @desc 弹窗-颜色-文本-标题；
+  */
+  --@{modal-prefix-cls}-color-text-title-modal: var(--ynfm-color-text-title-modal, #171717);
+  /**
+  * @desc 弹窗-文字-字号-按钮；
+  */
+  // --@{modal-prefix-cls}-font-size-button-modal: var(--ynfm-font-size-button-modal, 0.3rem);
+  /**
+  * @desc 弹窗-文字-字号-内容；
+  */
+  --@{modal-prefix-cls}-font-size-content-modal: var(--ynfm-font-size-content-modal, 0.32rem);
+  /**
+  * @desc 弹窗-文字-字号-标题；
+  */
+  --@{modal-prefix-cls}-font-size-title-modal: var(--ynfm-font-size-title-modal, 0.34rem);
+  /**
+  * @desc 弹窗-文字-字重-按钮；
+  */
+  // --@{modal-prefix-cls}-font-weight-button-modal: var(--ynfm-font-weight-button-modal, 400);
+  /**
+  * @desc 弹窗-文字-字重-内容；
+  */
+  --@{modal-prefix-cls}-font-weight-content-modal: var(--ynfm-font-weight-content-modal, 400);
+  /**
+  * @desc 弹窗-文字-字重-标题；
+  */
+  --@{modal-prefix-cls}-font-weight-title-modal: var(--ynfm-font-weight-title-modal, 600);
+
+  // 图片视图 ImageViewer
+  /**
+  * @desc 图片预览-颜色-图标;
+  */
+  --@{image-viewer-prefix-cls}-color-icon-imageviewer: var(--ynfm-color-icon-imageviewer, #FFFFFF);
+  /**
+  * @desc 图片预览-颜色-文本-指示器;
+  */
+  --@{image-viewer-prefix-cls}-color-text-indicator-imageviewer: var(--ynfm-color-text-indicator-imageviewer, #FFFFFF);
+  /**
+  * @desc 图片预览-文字-字号;
+  */
+  --@{image-viewer-prefix-cls}-font-size-imageviewer: var(--ynfm-font-size-imageviewer, 0.3rem); // 15px
+  /**
+  * @desc 图片预览-文字-字重;
+  */
+  --@{image-viewer-prefix-cls}-font-weight-imageviewer: var(--ynfm-font-weight-imageviewer, 500);
+
+  // Image
+  --@{image-prefix-cls}-size-height-image: var(--ynfm-size-height-image, auto);
+  --@{image-prefix-cls}-size-width-image: var(--ynfm-size-width-image, auto);
+
+
+  // 对话框 Dialog
+  /**
+  * @desc 对话框-颜色-背景-按钮；
+  */
+  --@{dialog-prefix-cls}-color-bg-btn-dialog: var(--ynfm-color-bg-btn-dialog, #FFFFFF);
+  /**
+  * @desc 对话框-边线-圆角；
+  */
+  --@{dialog-prefix-cls}-border-radius-dialog: var(--ynfm-border-radius-dialog, 0.16rem);
+  /**
+  * @desc 对话框-颜色-背景；
+  */
+  --@{dialog-prefix-cls}-color-bg-dialog: var(--ynfm-color-bg-dialog, #FFFFFF);
+  /**
+  * @desc 对话框-颜色-边线；
+  */
+  --@{dialog-prefix-cls}-color-border-content-dialog: var(--ynfm-color-border-content-dialog, #F5F5F5);
+  /**
+  * @desc 对话框-颜色-文本-内容；
+  */
+  --@{dialog-prefix-cls}-color-text-content-dialog: var(--ynfm-color-text-content-dialog, #171717);
+  /**
+  * @desc 对话框-颜色-文本-次按钮；
+  */
+  --@{dialog-prefix-cls}-color-text-primarybtn-dialog: var(--ynfm-color-text-primarybtn-dialog, #404040);
+  /**
+  * @desc 对话框-颜色-文本-主按钮；
+  */
+  --@{dialog-prefix-cls}-color-text-secondarybtn-dialog: var(--ynfm-color-text-secondarybtn-dialog, #EE2233);
+  /**
+  * @desc 对话框-颜色-文本-标题；
+  */
+  --@{dialog-prefix-cls}-color-text-title-dialog: var(--ynfm-color-text-title-dialog, #171717);
+  /**
+  * @desc 对话框-文字-字号-按钮；
+  */
+  --@{dialog-prefix-cls}-font-size-btn-dialog: var(--ynfm-font-size-btn-dialog, 0.34rem);
+  /**
+  * @desc 对话框-文字-字号-内容；
+  */
+  --@{dialog-prefix-cls}-font-size-content-dialog: var(--ynfm-font-size-content-dialog, 0.32rem);
+  /**
+  * @desc 对话框-文字-字号-标题；
+  */
+  --@{dialog-prefix-cls}-font-size-title-dialog: var(--ynfm-font-size-title-dialog, 0.34rem);
+  /**
+  * @desc 对话框-文字-字重-按钮；
+  */
+  --@{dialog-prefix-cls}-font-weight-btn-dialog: var(--ynfm-font-weight-btn-dialog, 400);
+  /**
+  * @desc 对话框-文字-字重-内容；
+  */
+  --@{dialog-prefix-cls}-font-weight-content-dialog: var(--ynfm-font-weight-content-dialog, 400);
+  /**
+  * @desc 对话框-文字-字重-标题；
+  */
+  --@{dialog-prefix-cls}-font-weight-title-dialog: var(--ynfm-font-weight-title-dialog, 600);
+  --@{dialog-prefix-cls}-color-text-dangerbtn-dialog: var(--ynfm-color-text-dangerbtn-dialog, #F50C00);
+
+  // 滑块 Slider
+  /**
+ * @desc 滚动输入条-阴影-手柄；
+ */
+  --@{slider-prefix-cls}-box-shadow-handle-slider: var(--ynfm-box-shadow-handle-slider, 0 2px 8px 0 rgb(0 0 0 / 0.2), 0 4px 16px -1px rgb(0 0 0 / 0.16));
+  /**
+   * @desc 滚动输入条-颜色-背景色-刻度(点)；
+   */
+  --@{slider-prefix-cls}-color-bg-dot-slider: var(--ynfm-color-bg-dot-slider, #FFFFFF);
+  /**
+   * @desc 滚动输入条-颜色-背景-手柄；
+   */
+  --@{slider-prefix-cls}-color-bg-handle-slider: var(--ynfm-color-bg-handle-slider, #FFFFFF);
+  /**
+   * @desc 滚动输入条-颜色-背景色-滑动条；
+   */
+  --@{slider-prefix-cls}-color-bg-line-slider: var(--ynfm-color-bg-line-slider, #E5E5E5);
+  /**
+   * @desc滚动输入条-颜色-背景色-滑动条-填充后(已选)；
+   */
+  --@{slider-prefix-cls}-color-bg-line-slider-finished: var(--ynfm-color-bg-line-slider-finished, #EE2233);
+  /**
+   * @desc 滚动输入条-颜色-边线-刻度(点)；
+   */
+  --@{slider-prefix-cls}-color-border-dot-slider: var(--ynfm-color-border-dot-slider, #E5E5E5);
+  /**
+   * @desc 滚动输入条-颜色-边线-刻度(点)-填充后(已选)；
+   */
+  --@{slider-prefix-cls}-color-border-dot-slider-finished: var(--ynfm-color-border-dot-slider-finished, #EE2233);
+  /**
+   * @desc 滚动输入条-颜色-图标-手柄；
+   */
+  --@{slider-prefix-cls}-color-icon-handle-slider: var(--ynfm-color-icon-handle-slider, #EE2233);
+  /**
+   * @desc 滚动输入条-颜色-文本-刻度文字；
+   */
+  --@{slider-prefix-cls}-color-text-marktext-slider: var(--ynfm-color-text-marktext-slider, #404040);
+  /**
+   * @desc 滚动输入条-文字-字号-刻度文字；
+   */
+  --@{slider-prefix-cls}-font-size-marktext-slider: var(--ynfm-font-size-marktext-slider, 0.3rem); // 15px
+  /**
+   * @desc 滚动输入条-文字-字重-刻度文字；
+   */
+  --@{slider-prefix-cls}-font-weight-marktext-slider: var(--ynfm-font-weight-marktext-slider, 400);
+  /**
+   * @desc 滚动输入条-尺寸-高度-手柄；
+   */
+  --@{slider-prefix-cls}-size-height-handle-slider: var(--ynfm-size-height-handle-slider, 0.48rem); // 24px
+  /**
+   * @desc 滚动输入条-尺寸-宽度-手柄；
+   */
+  --@{slider-prefix-cls}-size-width-handle-slider: var(--ynfm-size-width-handle-slider, 0.48rem); // 24px
+
+  // cascade-view
+
+
+  /**
+   * @desc 级联选择视图-颜色-边线-页签
+   */
+  --@{cascade-view-prefix-cls}-color-border-tab-cascaderview: var(--ynfm-color-border-tab-cascaderview, #F5F5F5);
+  /**
+   * @desc 级联选择视图-颜色-图标-列表
+   */
+  --@{cascade-view-prefix-cls}-color-icon-list-cascaderview: var(--ynfm-color-icon-list-cascaderview, #EE2233);
+
+  /**
+   * @desc 级联选择视图-颜色-图标-页签
+   */
+  --@{cascade-view-prefix-cls}-color-icon-tab-cascaderview: var(--ynfm-color-icon-tab-cascaderview, #EE2233);
+
+  /**
+   * @desc 级联选择视图-颜色-文本-列表
+   */
+  --@{cascade-view-prefix-cls}-color-text-list-cascaderview: var(--ynfm-color-text-list-cascaderview, #171717);
+
+  /**
+   * @desc 级联选择视图-颜色-文本-列表-禁用
+   */
+  --@{cascade-view-prefix-cls}-color-text-list-cascaderview-disabled: var(--ynfm-color-text-list-cascaderview-disabled, #737373);
+
+  /**
+   * @desc 级联选择视图-颜色-文本-列表-选中
+   */
+  --@{cascade-view-prefix-cls}-color-text-list-cascaderview-selected: var(--ynfm-color-text-list-cascaderview-selected, #EE2233);
+
+  /**
+   * @desc 级联选择视图-颜色-文本-标签
+   */
+  --@{cascade-view-prefix-cls}-color-text-tab-cascaderview: var(--ynfm-color-text-tab-cascaderview, #171717);
+
+  /**
+   * @desc 级联选择视图-颜色-文本-标签-选中
+   */
+  --@{cascade-view-prefix-cls}-color-text-tab-cascaderview-selected: var(--ynfm-color-text-tab-cascaderview-selected, #171717);
+
+  /**
+   * @desc 级联选择视图-文字-字号-列表
+   */
+  --@{cascade-view-prefix-cls}-font-size-list-cascaderview: var(--ynfm-font-size-list-cascaderview, 0.28rem);
+
+  /**
+   * @desc 级联选择视图-文字-字号-列表-选中
+   */
+  --@{cascade-view-prefix-cls}-font-size-list-cascaderview-selected: var(--ynfm-font-size-list-cascaderview-selected, 0.28rem);
+
+  /**
+   * @desc 级联选择视图-文字-字号-页签
+   */
+  --@{cascade-view-prefix-cls}-font-size-tab-cascaderview: var(--ynfm-font-size-tab-cascaderview, 0.28rem);
+
+  /**
+   * @desc 级联选择视图-文字-字号-页签-选中
+   */
+  --@{cascade-view-prefix-cls}-font-size-tab-cascaderview-selected: var(--ynfm-font-size-tab-cascaderview-selected, 0.28rem);
+
+  /**
+   * @desc 级联选择视图-文字-字重-列表
+   */
+  --@{cascade-view-prefix-cls}-font-weight-list-cascaderview: var(--ynfm-font-weight-list-cascaderview, 400);
+
+  /**
+   * @desc 级联选择视图-文字-字重-列表-选中
+   */
+  --@{cascade-view-prefix-cls}-font-weight-list-cascaderview-selected: var(--ynfm-font-weight-list-cascaderview-selected, 400);
+
+  /**
+   * @desc 级联选择视图-文字-字重-页签
+   */
+  --@{cascade-view-prefix-cls}-font-weight-tab-cascaderview: var(--ynfm-font-weight-tab-cascaderview, 400);
+
+  /**
+   * @desc 级联选择视图-文字-字重-页签-选中
+   */
+  --@{cascade-view-prefix-cls}-font-weight-tab-cascaderview-selected: var(--ynfm-font-weight-tab-cascaderview-selected, 500);
+  --@{cascade-view-prefix-cls}-color-bg-line-tab-cascaderview-selected: var(--ynfm-color-bg-line-tab-cascaderview-selected, #EE2233);
+
+
+  // 搜索 Search
+  /**
+  * @desc 搜索框-边线-圆角；
+  */
+  --@{search-bar-prefix-cls}-border-radius-searchbar: var(--ynfm-border-radius-searchbar, 0.08rem);
+  /**
+  * @desc 搜索框-颜色-背景-按钮；
+  */
+  --@{search-bar-prefix-cls}-color-bg-btn-searchbar: var(--ynfm-color-bg-btn-searchbar, transparent);
+  /**
+  * @desc 搜索框-颜色-背景；
+  */
+  --@{search-bar-prefix-cls}-color-bg-searchbar: var(--ynfm-color-bg-searchbar, #FFF);
+  /**
+  * @desc 搜索框-颜色-边线-按钮；
+  */
+  --@{search-bar-prefix-cls}-color-border-btn-searchbar: var(--ynfm-color-border-btn-searchbar, transparent);
+  /**
+  * @desc 搜索框-颜色-光标；
+  */
+  --@{search-bar-prefix-cls}-color-cursor-searchbar: var(--ynfm-color-cursor-searchbar, #588CE9);
+  /**
+  * @desc 搜索框-颜色-图标-清空；
+  */
+  --@{search-bar-prefix-cls}-color-icon-clear-searchbar: var(--ynfm-color-icon-clear-searchbar, #B0B0B0);
+  /**
+  * @desc 搜索框-颜色-图标-前缀图标；
+  */
+  --@{search-bar-prefix-cls}-color-icon-prefixicon-searchbar: var(--ynfm-color-icon-prefixicon-searchbar, #BFBFBF);
+  /**
+  * @desc 搜索框-颜色-图标-后缀图标；
+  */
+  --@{search-bar-prefix-cls}-color-icon-suffixicon-searchbar: var(--ynfm-color-icon-suffixicon-searchbar, #475569);
+  /**
+  * @desc 搜索框-颜色-文本-暗文字；
+  */
+  --@{search-bar-prefix-cls}-color-text-placeholder-searchbar: var(--ynfm-color-text-placeholder-searchbar, #BFBFBF);
+  /**
+  * @desc 搜索框-文字-字号-按钮；
+  */
+  --@{search-bar-prefix-cls}-font-size-btn-searchbar: var(--ynfm-font-size-btn-searchbar, 0.34rem);
+  /**
+  * @desc 搜索框-文字-字号-输入内容；
+  */
+  --@{search-bar-prefix-cls}-font-size-content-searchbar: var(--ynfm-font-size-content-searchbar, 0.26rem);
+  /**
+  * @desc 搜索框-文字-字号-暗文字；
+  */
+  --@{search-bar-prefix-cls}-font-size-placeholder-searchbar: var(--ynfm-font-size-placeholder-searchbar, 0.26rem);
+  /**
+  * @desc 搜索框-文字-字重-按钮；
+  */
+  --@{search-bar-prefix-cls}-font-weight-btn-searchbar: var(--ynfm-font-weight-btn-searchbar, 400);
+  /**
+  * @desc 搜索框-文字-字重-输入内容；
+  */
+  --@{search-bar-prefix-cls}-font-weight-btn-searchbar: var(--ynfm-font-weight-btn-searchbar, 400);
+  /**
+  * @desc 搜索框-文字-字重-暗文字；
+  */
+  --@{search-bar-prefix-cls}-font-weight-btn-searchbar: var(--ynfm-font-weight-placeholder-searchbar, 400);
+  /**
+  * @desc 搜索框-颜色-背景-输入框；
+  */
+  --@{search-bar-prefix-cls}-color-bg-input-searchbar: var(--ynfm-color-bg-input-searchbar, #F5F5F5);
+
+  --@{search-bar-prefix-cls}-color-bg-input-searchbar-focused: var(--ynfm-color-bg-input-searchbar-focused, #F5F5F5);
+  --@{search-bar-prefix-cls}-color-border-input-searchbar-focused: var(--ynfm-color-border-input-searchbar-focused, transparent);
+  --@{search-bar-prefix-cls}-color-text-btn-searchbar: var(--ynfm-color-text-btn-searchbar, #171717);
+  --@{search-bar-prefix-cls}-color-text-content-searchbar: var(--ynfm-color-text-content-searchbar, #171717);
+  --@{search-bar-prefix-cls}-color-border-input-searchbar: var(--ynfm-color-border-input-searchbar, transparent);
+
+  // 加载中 Loading
+  /**
+  * @desc 加载中-颜色-线条颜色-填充；
+  */
+  --@{loading-prefix-cls}-color-fill-loading: var(--ynfm-color-icon-loading, #EE2233);
+  --@{loading-prefix-cls}-color-text-loading: var(--ynfm-color-text-loading, #404040);
+
+  /**
+  * @desc 加载中-图标-大小；
+  */
+  --@{loading-prefix-cls}-size-loading: var(--ynfm-font-size-icon-loading, 0.48rem);
+
+  // 通告栏 Notice
+  /**
+  * @desc 通告栏-颜色-背景色；
+  */
+  --@{notice-prefix-cls}-color-background-notice: var(--ynfm-color-bg-notice, #ffffff);
+  /**
+  * @desc 通告栏-颜色-边框；
+  */
+  --@{notice-prefix-cls}-color-border-notice: var(--ynfm-color-border-notice, #ffffff);
+  /**
+  * @desc 通告栏-颜色-文字；
+  */
+  --@{notice-prefix-cls}-color-text-notice: var(--ynfm-color-text-notice, #475569);
+  /**
+  * @desc 通告栏-字号-文字；
+  */
+  --@{notice-prefix-cls}-font-size-notice: var(--ynfm-font-size-text-notice, 0.28rem);
+  /**
+  * @desc 通告栏-大小-图标；
+  */
+  --@{notice-prefix-cls}-font-size-icon-notice: var(--ynfm-font-size-icon-notice, 0.4rem);
+  /**
+  * @desc 通告栏-整体高度；
+  */
+  --@{notice-prefix-cls}-height-notice: var(--ynfm-size-height-notice, 0.8rem);
+
+  --@{notice-prefix-cls}-color-bg-notice-alert: var(--ynfm-color-bg-notice-alert, #FFF0DB);
+  --@{notice-prefix-cls}-color-bg-notice-error: var(--ynfm-color-bg-notice-error, #FFE7E5);
+  --@{notice-prefix-cls}-color-bg-notice-info: var(--ynfm-color-bg-notice-info, #E0EFFF);
+  --@{notice-prefix-cls}-color-bg-notice-success: var(--ynfm-color-bg-notice-success, #DFF7E5);
+
+  --@{notice-prefix-cls}-color-border-notice-alert: var(--ynfm-color-border-notice-alert, #FFF0DB);
+  --@{notice-prefix-cls}-color-border-notice-error: var(--ynfm-color-border-notice-error, #FFE7E5);
+  --@{notice-prefix-cls}-color-border-notice-info: var(--ynfm-color-border-notice-info, #E0EFFF);
+  --@{notice-prefix-cls}-color-border-notice-success: var(--ynfm-color-border-notice-success, #DFF7E5);
+
+  --@{notice-prefix-cls}-color-icon-notice: var(--ynfm-color-icon-notice, #475569);
+  --@{notice-prefix-cls}-color-icon-notice-alert: var(--ynfm-color-icon-notice-alert, #E68600);
+  --@{notice-prefix-cls}-color-icon-notice-error: var(--ynfm-color-icon-notice-error, #F50C00);
+  --@{notice-prefix-cls}-color-icon-notice-info: var(--ynfm-color-icon-notice-info, #006FE6);
+  --@{notice-prefix-cls}-color-icon-notice-success: var(--ynfm-color-icon-notice-success, #299E46);
+
+  --@{notice-prefix-cls}-color-text-notice-alert: var(--ynfm-color-text-notice-alert, #E68600);
+  --@{notice-prefix-cls}-color-text-notice-error: var(--ynfm-color-text-notice-error, #F50C00);
+  --@{notice-prefix-cls}-color-text-notice-info: var(--ynfm-color-text-notice-info, #006FE6);
+  --@{notice-prefix-cls}-color-text-notice-success: var(--ynfm-color-text-notice-success, #299E46);
+
+  // 开关 switch
+  /**
+  * @desc 开关-边线-圆角-背景；
+  */
+  --@{switch-prefix-cls}-border-radius-switch: var(--ynfm-border-radius-switch, 999px);
+  /**
+  * @desc 开关-阴影-手柄；
+  */
+  --@{switch-prefix-cls}-box-shadow-handle-switch: var(--ynfm-box-shadow-handle-switch, 0 4px 16px 0 rgba(17, 17, 17, .12));
+  /**
+  * @desc 开关-颜色-背景-手柄；
+  */
+  --@{switch-prefix-cls}-color-bg-handle-switch: var(--ynfm-color-bg-handle-switch, #FFFFFF);
+  /**
+  * @desc 开关-颜色-背景-关；
+  */
+  --@{switch-prefix-cls}-color-bg-switch-closed: var(--ynfm-color-bg-switch-closed, #E5E5E5);
+  /**
+   * @desc 开关-颜色-背景-关-禁用；
+   */
+  --@{switch-prefix-cls}-color-bg-switch-closed-disabled: var(--ynfm-color-bg-switch-closed-disabled, #F5F5F5);
+  /**
+    * @desc 开关-颜色-背景-开；
+    */
+  --@{switch-prefix-cls}-color-bg-switch-opened: var(--ynfm-color-bg-switch-opened, #EE2233);
+  /**
+   * @desc 开关-颜色-背景-开-禁用；
+   */
+  --@{switch-prefix-cls}-color-bg-switch-opened-disabled: var(--ynfm-color-bg-switch-opened-disabled, #F69099);
+  /**
+   * @desc 开关-颜色-图标-手柄-开；
+   */
+  --@{switch-prefix-cls}-color-icon-handle-switch-opened: var(--ynfm-color-icon-handle-switch-opened, #EE2233);
+  /**
+   * @desc 开关-颜色-图标-手柄-开-禁用；
+   */
+  --@{switch-prefix-cls}-color-icon-handle-switch-opened-disabled: var(--ynfm-color-icon-handle-switch-opened-disabled, #F69099);
+  /**
+   * @desc 开关-文字-字号；
+   */
+  --@{switch-prefix-cls}-font-size-switch: var(--ynfm-font-size-switch, 0.2rem); // 10px
+  /**
+   * @desc 开关-尺寸-高；
+   */
+  --@{switch-prefix-cls}-size-height-switch: var(--ynfm-size-height-switch, .4rem); // 12px
+  /**
+   * @desc 开关-尺寸-宽；
+   */
+  --@{switch-prefix-cls}-size-width-switch: var(--ynfm-size-width-switch, .72rem); // 36px
+    /**
+     * @desc 开关-背景-边线-粗细；
+     */
+  --@{switch-prefix-cls}-border-width-bg-switch: var(--ynfm-border-width-bg-switch, .04rem); // 2px
+  --@{switch-prefix-cls}-color-icon-bg-switch-closed: var(--ynfm-color-icon-bg-switch-closed, #737373);
+  --@{switch-prefix-cls}-color-icon-bg-switch-opened: var(--ynfm-color-icon-bg-switch-opened, #FFFFFF);
+  --@{switch-prefix-cls}-color-text-inner-switch-closed: var(--ynfm-color-text-inner-switch-closed, #737373);
+  --@{switch-prefix-cls}-color-text-inner-switch-opened: var(--ynfm-color-text-inner-switch-opened, #FFFFFF);
+
+  // 单选框 radio
+  /**
+  * @desc 圆形单选框-颜色-背景-选中；
+  */
+  --@{radio-prefix-cls}-color-bg-selector-selected: var(--ynfm-color-bg-selector-selected, #EE2233);
+  /**
+ * @desc 圆形单选框-颜色-背景-选中-禁用；
+ */
+  --@{radio-prefix-cls}-color-bg-selector-selected-disabled: var(--ynfm-color-bg-selector-selected-disabled, #F5F5F5);
+  /**
+ * @desc 圆形单选框-颜色-边线；
+ */
+  --@{radio-prefix-cls}-color-border-selector: var(--ynfm-color-border-selector, #E5E5E5);
+  /**
+ * @desc 圆形单选框-颜色-边线-禁用；
+ */
+  --@{radio-prefix-cls}-color-border-selector-disabled: var(--ynfm-color-border-selector-disabled, #E5E5E5);
+  /**
+* @desc 圆形单选框-颜色-图标-禁用；
+*/
+  --@{radio-prefix-cls}-color-icon-selector-disabled: var(--ynfm-color-icon-selector-disabled, #FFFFFF);
+  /**
+* @desc 圆形单选框-颜色-文字；
+*/
+  --@{radio-prefix-cls}-color-text-selector: var(--ynfm-color-text-selector, #171717);
+  /**
+* @desc 圆形单选框-颜色-文字-禁用；
+*/
+  --@{radio-prefix-cls}-color-text-selector-disabled: var(--ynfm-color-text-selector-disabled, #737373);
+  /**
+* @desc 圆形单选框-文字-字号；
+*/
+  --@{radio-prefix-cls}-font-size-text-selector: var(--ynfm-font-size-text-selector, 0.3rem); // 15px 0.3rem
+  /**
+    * @desc 复选框-空间-间距；
+    */
+  --@{radio-prefix-cls}-spacing-gap-x-selector: var(--ynfm-spacing-gap-x-selector, 0.16rem); // 8px
+  /**
+    * @desc 复选框-尺寸-高-图标；
+    */
+  --@{radio-prefix-cls}-size-height-selector: var(--ynfm-size-height-selector, 0.36rem); // 18px
+  /**
+   * @desc 复选框-尺寸-宽-图标；
+   */
+  --@{radio-prefix-cls}-size-width-selector: var(--ynfm-size-width-selector, 0.36rem); // 18px
+  /**
+    * @desc 单选框-边线-圆角；
+    */
+  --@{radio-prefix-cls}-border-radius-radio: var(--ynfm-border-radius-radio, 100%);
+ // todo satrt
+  /**
+   * @desc 标签选框-颜色-背景-选中-禁用；
+   */
+  --@{radio-prefix-cls}-color-bg-tag-selector-selected-disabled: var(--ynfm-color-bg-tag-selector-selected-disabled, #FDEEED);
+  /**
+     * @desc 标签选框-尺寸-宽；
+     */
+  --@{radio-prefix-cls}-size-width-tag-selector: var(--ynfm-size-width-tag-selector, 1.44rem);
+  /**
+   * @desc 标签选框-内边距-底部；
+   */
+   --@{radio-prefix-cls}-spacing-padding-bottom-tag-selector: var(--ynfm-spacing-padding-bottom-tag-selector, 0.07rem);
+  /**
+   * @desc 标签选框-内边距-顶部；
+   */
+  --@{radio-prefix-cls}-spacing-padding-top-tag-selector: var(--ynfm-spacing-padding-top-tag-selector, 0.07rem);
+  /**
+   * @desc 标签选框-边线-圆角-选中；
+   */
+  --@{radio-prefix-cls}-border-radius-tag-selector-selected: var(--ynfm-border-radius-tag-selector, 0.08rem);
+  /**
+     * @desc 标签选框-边线-样式-选中；
+     */
+  --@{radio-prefix-cls}-border-style-tag-selector-selected: var(--ynfm-border-style-tag-selector-selected, solid);
+  /**
+     * @desc 标签选框-边线-粗细-选中；
+     */
+  --@{radio-prefix-cls}-border-width-tag-selector-selected: var(--ynfm-border-width-tag-selector-selected, 0.01rem);
+  /**
+    * @desc 标签选框-颜色-背景；
+    */
+  --@{radio-prefix-cls}-color-bg-tag-selector: var(--ynfm-color-bg-tag-selector, #F5F5F5);
+  /**
+    * @desc 标签选框-颜色-背景-选中；
+    */
+  --@{radio-prefix-cls}-color-bg-tag-selector-selected: var(--ynfm-color-bg-tag-selector-selected, #FFE7E8);
+  /**
+      * @desc 标签选框-颜色-边线-选中；
+      */
+  --@{radio-prefix-cls}-color-border-tag-selector-selected: var(--ynfm-color-border-tag-selector-selected, #EE2233);
+  /**
+   * @desc 标签选框-颜色-边线-选中-禁用；
+   */
+  --@{radio-prefix-cls}-color-border-tag-selector-selected-disabled: var(--ynfm-color-border-tag-selector-selected-disabled, #F69099);
+  /**
+     * @desc 标签选框-颜色-文字；
+     */
+  --@{radio-prefix-cls}-color-text-tag-selector: var(--ynfm-color-text-tag-selector, #171717);
+  /**
+     * @desc 标签选框-颜色-文字-禁用；
+     */
+  --@{radio-prefix-cls}-color-text-tag-selector-disabled: var(--ynfm-color-text-tag-selector-disabled, #868686);
+  /**
+   * @desc 标签选框-颜色-文字-选中；
+   */
+  --@{radio-prefix-cls}-color-text-tag-selector-selected: var(--ynfm-color-text-tag-selector-selected, #EE2233);
+  /**
+     * @desc 标签选框-颜色-文字-选中-禁用；
+     */
+  --@{radio-prefix-cls}-color-text-tag-selector-selected-disabled: var(--ynfm-color-text-tag-selector-selected-disabled, #F68C94);
+  /**
+     * @desc 标签选框-文字-字号；
+     */
+  --@{radio-prefix-cls}-font-size-text-tag-selector: var(--ynfm-font-size-text-tag-selector, 0.24rem); // 12px
+
+  // todo end
+  // 复选框 checkbox
+  /**
+  * @desc 复选框-颜色-背景-选中；
+  */
+  --@{checkbox-prefix-cls}-color-bg-selector-selected: var(--ynfm-color-bg-selector-selected, #EE2233);
+  /**
+  * @desc 复选框-颜色-背景-选中-禁用；
+  */
+  --@{checkbox-prefix-cls}-color-bg-selector-selected-disabled: var(--ynfm-color-bg-selector-selected-disabled, #F5F5F5);
+  /**
+  * @desc 复选框-颜色-边线；
+  */
+  --@{checkbox-prefix-cls}-color-border-selector: var(--ynfm-color-border-selector, #E5E5E5);
+  /**
+  * @desc 复选框-颜色-边线-禁用；
+  */
+  --@{checkbox-prefix-cls}-color-border-selector-disabled: var(--ynfm-color-border-selector-disabled, #E5E5E5);
+  /**
+    * @desc 复选框-颜色-图标-禁用；
+    */
+  --@{checkbox-prefix-cls}-color-icon-selector-disabled: var(--ynfm-color-icon-selector-disabled, #FFFFFF);
+  /**
+    * @desc 复选框-颜色-文字；
+    */
+  --@{checkbox-prefix-cls}-color-text-selector: var(--ynfm-color-text-selector, #171717);
+  /**
+    * @desc 复选框-颜色-文字-禁用；
+    */
+  --@{checkbox-prefix-cls}-color-text-selector-disabled: var(--ynfm-color-text-selector-disabled, #737373);
+  /**
+    * @desc 复选框-文字-字号；
+    */
+  --@{checkbox-prefix-cls}-font-size-text-selector: var(--ynfm-font-size-text-selector, 0.3rem); // 15px
+  /**
+    * @desc 复选框-空间-间距；
+    */
+  --@{checkbox-prefix-cls}-spacing-gap-x-selector: var(--ynfm-spacing-gap-x-selector, 0.16rem); // 8px
+  /**
+    * @desc 复选框-尺寸-高-图标；
+    */
+  --@{checkbox-prefix-cls}-size-height-selector: var(--ynfm-size-height-selector, 0.36rem); // 18px
+  /**
+     * @desc 复选框-尺寸-宽-图标；
+     */
+  --@{checkbox-prefix-cls}-size-width-selector: var(--ynfm-size-width-selector, 0.36rem); // 18px
+  /**
+    * @desc 圆形复选框-边线-圆角；
+    */
+  --@{checkbox-prefix-cls}-border-radius-circle-checkbox: var(--ynfm-border-radius-circle-checkbox, 100%);
+  /**
+    * @desc 方形复选框-边线-圆角；
+    */
+  --@{checkbox-prefix-cls}-border-radius-square-checkbox: var(--ynfm-border-radius-square-checkbox, 0.06rem); // 3px
+
+  // 浮框 Popup
+  /**
+  * @desc 浮框-边线-圆角-底部；
+  */
+  --@{popup-prefix-cls}-border-radius-bottom-popup: var(--ynfm-border-radius-bottom-popup, 0.24rem);
+  /**
+  * @desc 浮框-边线-圆角-顶部；
+  */
+  --@{popup-prefix-cls}-border-radius-top-popup: var(--ynfm-border-radius-top-popup, 0.24rem);
+  --@{popup-prefix-cls}-color-bg-popup: var(--ynfm-color-bg-popup, #FFFFFF);
+
+  // 中间浮框 CenterPopup
+  /**
+  * @desc 中间浮窗-边线-圆角；
+  */
+  --@{center-popup-prefix-cls}-border-radius-center-popup: var(--ynfm-border-radius-center-popup, 0.16rem);
+  /**
+  * @desc 中间浮窗-背景色；
+  */
+  --@{center-popup-prefix-cls}-color-bg-center-popup: var(--ynfm-color-bg-center-popup, #FFFFFF);
+  /**
+  * @desc 中间浮窗-尺寸最大宽度；
+  */
+  --@{center-popup-prefix-cls}-size-max-width-center-popup: var(--ynfm-size-max-width-center-popup, 75vw);
+  /**
+  * @desc 中间浮窗-尺寸最小宽度；
+  */
+  --@{center-popup-prefix-cls}-size-min-width-center-popup: var(--ynfm-size-min-width-center-popup, 5.32rem);
+
+  // 中间浮框 ToolBar
+  /**
+  * @desc 工具栏-颜色-背景；
+  */
+  --@{toolbar-prefix-cls}-color-bg-toolbar: var(--ynfm-color-bg-toolbar, #FFFFFF);
+  --@{toolbar-prefix-cls}-spacing-padding-left-item-toolbar: var(--ynfm-spacing-padding-left-item-toolbar, 0.12rem);
+  --@{toolbar-prefix-cls}-spacing-padding-right-item-toolbar: var(--ynfm-spacing-padding-right-item-toolbar, 0.12rem);
+
+  // 多行文本框 TextArea
+  /**
+  * @desc 文本域-颜色-光标；
+  */
+  --@{textarea-prefix-cls}-color-bg-textarea: var(--ynfm-color-bg-textarea, #FFFFFF);
+  /**
+  * @desc 文本域-颜色-光标；
+  */
+  --@{textarea-prefix-cls}-color-cursor-textarea: var(--ynfm-color-cursor-textarea, #006FE6);
+  /**
+  * @desc 文本域-颜色-文本-字数统计；
+  */
+  --@{textarea-prefix-cls}-color-text-count-textarea: var(--ynfm-color-text-count-textarea, #737373);
+  /**
+  * @desc 文本域-颜色-文本-暗文字；
+  */
+  --@{textarea-prefix-cls}-color-text-placeholder-textarea: var(--ynfm-color-text-placeholder-textarea, #BFBFBF);
+  /**
+  * @desc 文本域-颜色-文本-默认；
+  */
+  --@{textarea-prefix-cls}-color-text-textarea: var(--ynfm-color-text-textarea, #171717);
+  /**
+  * @desc 文本域-颜色-文本-禁用；
+  */
+  --@{textarea-prefix-cls}-color-text-textarea-disabled: var(--ynfm-color-text-textarea-disabled, #737373);
+  /**
+  * @desc 文本域-颜色-文本-只读；
+  */
+  --@{textarea-prefix-cls}-color-text-textarea-readonly: var(--ynfm-color-text-textarea-readonly, #171717);
+  /**
+  * @desc 文本域-文字-字号-暗文字；
+  */
+  --@{textarea-prefix-cls}-font-size-placeholder-textarea: var(--ynfm-font-size-placeholder-textarea, 0.3rem);
+  /**
+  * @desc 文本域-文字-字号；
+  */
+  --@{textarea-prefix-cls}-font-size-textarea: var(--ynfm-font-size-textarea, 0.3rem);
+  --@{textarea-prefix-cls}-color-icon-clear-textarea: var(--ynfm-color-icon-clear-textarea, #BFBFBF);
+
+  // PopOver
+  --@{popover-prefix-cls}-size-arrow-panel-popover: var(--ynfm-size-arrow-panel-popover, 0.16rem);
+  --@{popover-prefix-cls}-color-bg-panel-popover: var(--ynfm-color-bg-panel-popover, #ffffff);
+  --@{popover-prefix-cls}-font-weight-text-menu-popover: var(--ynfm-font-weight-text-menu-popover, 400);
+  --@{popover-prefix-cls}-border-radius-panel-popover: var(--ynfm-border-radius-panel-popover, 0.08rem);
+  --@{popover-prefix-cls}-font-size-text-menu-popover: var(--ynfm-font-size-text-menu-popover, 0.26rem);
+  --@{popover-prefix-cls}-box-shadow: var(--ynfm-box-shadow-popover, 0px 0px 10px 0px rgba(51, 51, 51, 0.2));
+  --@{popover-prefix-cls}-color-text: var(--ynfm-color-text-popover, var(--mui-color-title-text));
+  --@{popover-prefix-cls}-vertical-padding: var(--ynfm-space-padding-vertical-popover, 0.12rem);
+  --@{popover-prefix-cls}-horizontal-padding: var(--ynfm-space-padding-horizontal-popover, 0.24rem);
+  --@{popover-prefix-cls}-color-bg-panel-dark-popover: var(--ynfm-color-bg-panel-dark-popover, #475569);
+  --@{popover-prefix-cls}-color-border-menu-popover: var(--ynfm-color-border-menu-popover, #E5E5E5);
+  --@{popover-prefix-cls}-color-text-menu-popover: var(--ynfm-color-text-menu-popover, #171717);
+  --@{popover-prefix-cls}-color-border-menu-dark-popover: var(--ynfm-color-border-menu-dark-popover, #737373);
+  --@{popover-prefix-cls}-color-text-menu-dark-popover: var(--ynfm-color-text-menu-dark-popover, #E5E5E5);
+
+  // 表单标题 FormItemWrapper
+  /**
+  * @desc 表单标题-颜色-边框-间隔线；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-border-divider-formitemwrapper: var(--ynfm-color-divider-formitemwrapper, #F5F5F5);
+  /**
+  * @desc 表单标题-颜色-背景-标题；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-bg-title: var(--ynfm-color-bg-formitemwrapper, #FFFFFF);
+  /**
+  * @desc 表单标题-颜色-背景-标题-禁用；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-bg-title-disabled: var(--ynfm-color-bg-title-formitemwrapper-disabled, #FBFBFB);
+  /**
+  * @desc 表单标题-颜色-背景-校验说明；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-bg-verification :var(--ynfm-color-bg-verification-formitemwrapper, #F50C001A);
+  /**
+  * @desc 表单标题-颜色-图标-必填；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-icon-compulsory :var(--ynfm-color-text-compulsory-formitemwrapper, #F50C00);
+  /**
+  * @desc 表单标题-颜色-图标；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-icon :var(--ynfm-color-icon-formitemwrapper, #BFBFBF);
+  /**
+  * @desc 表单标题-颜色-文本-标题；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-text-title :var(--ynfm-color-text-title-formitemwrapper, #404040);
+  /**
+  * @desc 表单标题-颜色-文本-标题-禁用；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-text-title-disabled :var(--ynfm-color-text-title-formitemwrapper-disabled, #737373);
+  /**
+  * @desc 表单标题-颜色-文字-校验说明；
+  */
+  --@{form-item-wrapper-prefix-cls}-color-text-verification :var(--ynfm-color-text-verification-formitemwrapper, #F50C00);
+  /**
+  * @desc 表单标题-文字-字号-图标；
+  */
+  --@{form-item-wrapper-prefix-cls}-font-size-icon :var(--ynfm-font-size-icon-formitemwrapper, 0.48rem);
+  /**
+  * @desc 表单标题-文字-字号-标题；
+  */
+  --@{form-item-wrapper-prefix-cls}-font-size-title :var(--ynfm-font-size-title-formitemwrapper, 0.3rem);
+  /**
+  * @desc 表单标题-文字-字号-校验说明；
+  */
+  --@{form-item-wrapper-prefix-cls}-font-size-verification :var(--ynfm-font-size-verification-formitemwrapper, 0.22rem);
+  /**
+  * @desc 表单标题-文字-字重-标题；
+  */
+  --@{form-item-wrapper-prefix-cls}-font-weight-title :var(--ynfm-font-weight-title-formitemwrapper, 400);
+  /**
+  * @desc 表单标题-文字-字重-校验说明；
+  */
+  --@{form-item-wrapper-prefix-cls}-font-weight-verification :var(--ynfm-font-weight-verification-formitemwrapper, 400);
+  --@{form-item-wrapper-prefix-cls}-color-text-title-formitemwrapper-readonly: var(--ynfm-color-text-title-formitemwrapper-readonly, #404040);
+  --@{form-item-wrapper-prefix-cls}-color-bg-formitemwrapper-disabled: var(--ynfm-color-bg-formitemwrapper-disabled, #FFFFFF);
+
+  // 头像 Avatar
+  /**
+  * @desc 头像-大小；
+  */
+  --@{avatar-prefix-cls}-font-size-avatar :var(--ynfm-font-size-avatar, 0.88rem);
+  /**
+  * @desc 头像-圆角；
+  */
+  --@{avatar-prefix-cls}-border-radius-avatar :var(--ynfm-border-radius-avatar, 100%);
+
+  --@{avatar-prefix-cls}-color-bg-avatar: var(--ynfm-color-bg-avatar, #FFE7E8);
+  --@{avatar-prefix-cls}-color-border-avatar: var(--ynfm-color-border-avatar, transparent);
+  --@{avatar-prefix-cls}-color-text-avatar: var(--ynfm-color-text-avatar, #EE2233);
+
+  // 徽标 Badge
+  /**
+  * @desc 徽标-颜色-背景；
+  */
+  --@{badge-prefix-cls}-color-bg-badge :var(--ynfm-color-bg-badge, #EE2233);
+  --@{badge-prefix-cls}-color-border-badge :var(--ynfm-color-border-badge, #FFFFFF);
+  --@{badge-prefix-cls}-color-text-badge :var(--ynfm-color-text-badge, #FFFFFF);
+
+  // Tabs 多页签
+  /**
+  * @desc 多页签-边线-圆角-下划线-选中；
+  */
+  --@{tabs-prefix-cls}-border-radius-line-tab-selected: var(--ynfm-border-radius-line-tab-selected, 999px);
+  /**
+  * @desc 多页签-颜色-下划线-选中；
+  */
+  --@{tabs-prefix-cls}-color-bg-line-tab-selected: var(--ynfm-color-bg-line-tab-selected, #EE2233);
+  /**
+  * @desc 多页签-颜色-文字-选中；
+  */
+  --@{tabs-prefix-cls}-color-text-tab-selected: var(--ynfm-color-text-tab-selected, #171717);
+  /**
+  * @desc 多页签-文字-字号-选中；
+  */
+  --@{tabs-prefix-cls}-font-size-text-tab-selected: var(--ynfm-font-size-text-tab-selected, 0.3rem);
+  /**
+  * @desc 多页签-尺寸-高度-下划线-选中；
+  */
+  --@{tabs-prefix-cls}-size-height-line-tab-selected: var(--ynfm-size-height-line-tab-selected, 0.06rem);
+  /**
+  * @desc 多页签-尺寸-宽度-下划线-选中；
+  */
+  --@{tabs-prefix-cls}-size-width-line-tab-selected: var(--ynfm-size-width-line-tab-selected, 0.32rem);
+  /**
+  * @desc 多页签-空间-内边距-内容区；
+  */
+  --@{tabs-prefix-cls}-spacing-padding-content-tab: var(--ynfm-spacing-padding-content-tab, 0);
+  --@{tabs-prefix-cls}-color-bg-tab: var(--ynfm-color-bg-tab, transparent);
+  --@{tabs-prefix-cls}-color-text-disabled: var(--ynfm-color-text-tab-disabled, #737373);
+  --@{tabs-prefix-cls}-color-text-tab: var(--ynfm-color-text-tab, #404040);
+
+  // Steps 步骤条
+  /**
+  * @desc 步骤条-文字-字号-描述；
+  */
+  --@{steps-prefix-cls}-font-size-describe-steps: var(--ynfm-font-size-describe-steps, 0.24rem); // 12px
+  /**
+  * @desc 步骤条-文字-字号-图标；
+  */
+  --@{steps-prefix-cls}-font-size-icon-steps: var(--ynfm-font-size-icon-steps, 0.4rem); // 20px 0.4rem
+  --@{steps-prefix-cls}-font-size-icon-steps-vertical: var(--ynfm-font-size-icon-steps-vertical, 0.28rem);
+  /**
+* @desc 步骤条-文字-字号-标题；
+*/
+  --@{steps-prefix-cls}-font-size-title-steps: var(--ynfm-font-size-title-steps, 0.28rem); // 14px 0.28rem
+  /**
+  * @desc 步骤条-空间-外边距-右-指示器；
+  */
+  --@{steps-prefix-cls}-spacing-margin-right-indicator-steps: var(--ynfm-spacing-margin-right-indicator-steps, 0.16rem); // 8px
+
+  // TabBar 标签栏
+  /**
+  * @desc 标签栏-颜色-图标-子项；
+  */
+  --@{tab-bar-prefix-cls}-color-icon-item-tabbar: var(--ynfm-color-icon-item-tabbar, #737373);
+  /**
+  * @desc 标签栏-颜色-图标-子项-选中；
+  */
+  --@{tab-bar-prefix-cls}-color-icon-item-tabbar-selected: var(--ynfm-color-icon-item-tabbar-selected, #EE2233);
+  /**
+  * @desc 标签栏-颜色-文字-子项；
+  */
+  --@{tab-bar-prefix-cls}-color-text-item-tabbar: var(--ynfm-color-text-item-tabbar, #737373);
+  /**
+  * @desc 标签栏-颜色-文字-子项-选中；
+  */
+  --@{tab-bar-prefix-cls}-color-text-item-tabbar-selected: var(--ynfm-color-text-item-tabbar-selected, #EE2233);
+
+  // ProgressBar 进度条
+  /**
+  * @desc 进度条-颜色-线；
+  */
+  --@{progress-bar-prefix-cls}-color-bg-line: var(--ynfm-color-bg-track-progressbar-finished, #006fe6);
+  /**
+  * @desc 进度条-颜色-轨道；
+  */
+  --@{progress-bar-prefix-cls}-color-bg-track: var(--ynfm-color-bg-track-progressbar, #E5E5E5);
+  /**
+  * @desc 进度条-尺寸-粗细-轨道；
+  */
+  --@{progress-bar-prefix-cls}-size-height-track: var(--ynfm-size-height-track-progressbar, 0.16rem);
+  /**
+  * @desc 进度条-尺寸-宽度-文字；
+  */
+  --@{progress-bar-prefix-cls}-size-width-text: var(--ynfm-size-width-text-progressbar, 0.8rem);
+  --@{progress-bar-prefix-cls}-color-text-progressbar: var(--ynfm-color-text-progressbar, #171717);
+
+  // List 列表
+  /**
+   * @desc 列表-边框-底部-样式；
+   */
+  --@{list-prefix-cls}-border-style-bottom: var(--ynfm-border-style-bottom-list, solid);
+
+  /**
+   * @desc 列表-边框-样式-子项；
+   */
+  --@{list-prefix-cls}-border-style-items: var(--ynfm-border-style-items-list, solid);
+
+  /**
+   * @desc 列表-边框-顶部-样式；
+   */
+  --@{list-prefix-cls}-border-style-top: var(--ynfm-border-style-top-list, solid);
+
+  /**
+   * @desc 列表-边框-顶部-粗细；
+   */
+  --@{list-prefix-cls}-border-top-width: var(--ynfm-border-top-width-list, 0.01rem);
+
+  /**
+   * @desc 列表-边框-底部-粗细；
+   */
+  --@{list-prefix-cls}-border-width-bottom: var(--ynfm-border-width-bottom-list, 0.01rem);
+
+  /**
+   * @desc 列表-边框-粗细-子项；
+   */
+  --@{list-prefix-cls}-border-width-items: var(--ynfm-border-width-items-list, 0.01rem);
+
+  /**
+   * @desc 列表-颜色-背景-按下；
+   */
+  --@{list-prefix-cls}-color-bg-list-pressed: var(--ynfm-color-bg-list-pressed, #F5F5F5);
+
+  /**
+   * @desc 列表-颜色-边框-底部；
+   */
+  --@{list-prefix-cls}-color-border-bottom: var(--ynfm-color-border-bottom-list, #F5F5F5);
+
+  /**
+   * @desc 列表-颜色-边框-子项；
+   */
+  --@{list-prefix-cls}-color-border-items: var(--ynfm-color-border-items-list, #F5F5F5);
+
+  /**
+   * @desc 列表-颜色-边框-顶部；
+   */
+  --@{list-prefix-cls}-color-border-top: var(--ynfm-color-border-top-list, #F5F5F5);
+
+  /**
+   * @desc 列表-颜色-文字-内容；
+   */
+  --@{list-prefix-cls}-color-text-content: var(--ynfm-color-text-content-list, #171717);
+
+  /**
+   * @desc 列表-颜色-文字-描述；
+   */
+  --@{list-prefix-cls}-color-text-describe: var(--ynfm-color-text-describe-list, #737373);
+
+  /**
+   * @desc 列表-文字-字号-内容；
+   */
+  --@{list-prefix-cls}-font-size-content: var(--ynfm-font-size-content-list, 0.3rem);
+
+  /**
+   * @desc 列表-文字-字号-标题；
+   */
+  --@{list-prefix-cls}-font-size-header: var(--ynfm-font-size-header-list, 0.3rem);
+
+  /**
+   * @desc 列表-尺寸-宽度-子项前缀；
+   */
+  --@{list-prefix-cls}-size-width-prefix: var(--ynfm-size-width-prefix-list, auto);
+
+  /**
+   * @desc 列表-空间-边距-左-子项；
+   */
+  --@{list-prefix-cls}-spacing-padding-left-items: var(--ynfm-spacing-padding-left-items-list, 0.32rem);
+
+  /**
+   * @desc 列表-空间-边距-右-子项；
+   */
+  --@{list-prefix-cls}-spacing-padding-right-items: var(--ynfm-spacing-padding-right-items-list, 0.32rem);
+
+  /**
+   * @desc 列表-空间-内边距-右-子项前缀；
+   */
+  --@{list-prefix-cls}-spacing-padding-right-prefix: var(--ynfm-spacing-padding-right-prefix-list, 0.24rem);
+  --@{list-prefix-cls}-color-bg-list: var(--ynfm-color-bg-list, #FFFFFF);
+  --@{list-prefix-cls}-color-icon-left-list: var(--ynfm-color-icon-left-list, #171717);
+  --@{list-prefix-cls}-color-icon-right-list: var(--ynfm-color-icon-right-list, #BFBFBF);
+  --@{list-prefix-cls}-color-text-content-list-disabled: var(--ynfm-color-text-content-list-disabled, #737373);
+
+  // 骨架屏 Skeleton
+  /**
+  * @desc 骨架屏-边框-圆角；
+  */
+  --@{skeleton-prefix-cls}-border-radius :var(--ynfm-border-radius-skeleton, 0.08rem);
+  --@{skeleton-prefix-cls}-size-height-skeleton: var(--ynfm-size-height-skeleton, 0);
+  --@{skeleton-prefix-cls}-size-width-skeleton: var(--ynfm-size-width-skeleton, 100%);
+
+  //可勾选列表 CheckList
+  /**
+  * @desc 可勾选列表-颜色-图标-选择图标
+  */
+  --@{checklist-prefix-cls}-color-icon-checkicon: var(--ynfm-color-icon-checkicon-checklist, #EE2233);
+
+  // 序列 IndexBar
+  /**
+  * @desc 序列-颜色-背景-选中；
+  */
+  --@{index-bar-prefix-cls}-color-bg-indexbar-selected: var(--ynfm-color-bg-indexbar-selected, #EE2233);
+  --@{index-bar-prefix-cls}-color-bg-title-indexbar: var(--ynfm-color-bg-title-indexbar, #F5F5F5);
+  --@{index-bar-prefix-cls}-color-bg-bubble-indexbar: var(--ynfm-color-bg-bubble-indexbar, #FFFFFF);
+  --@{index-bar-prefix-cls}-color-border-bubble-indexbar: var(--ynfm-color-border-bubble-indexbar, #E5E5E5);
+  --@{index-bar-prefix-cls}-color-text-bubble-indexbar: var(--ynfm-color-text-bubble-indexbar, #171717);
+  --@{index-bar-prefix-cls}-color-text-indexbar: var(--ynfm-color-text-indexbar, #404040);
+  --@{index-bar-prefix-cls}-color-text-indexbar-selected: var(--ynfm-color-text-indexbar-selected, #FFFFFF);
+  --@{index-bar-prefix-cls}-color-title-indexbar: var(--ynfm-color-text-title-indexbar, #404040);
+
+  // 表单 Form
+  /**
+  * @desc 表单-边框-样式-下边线；
+  */
+  --@{form-prefix-cls}-border-style-bottom-form: var(--ynfm-border-style-bottom-form, solid);
+  /**
+  * @desc 表单-边框-样式-间隔线；
+  */
+  --@{form-prefix-cls}-border-style-divider-form: var(--ynfm-border-style-divider-form, solid);
+  /**
+  * @desc 表单-边框-样式-上边框；
+  */
+  --@{form-prefix-cls}-border-style-top-form: var(--ynfm-border-style-top-form, solid);
+  /**
+  * @desc 表单-边框-粗细-下边线；
+  */
+  --@{form-prefix-cls}-border-width-bottom-form: var(--ynfm-border-width-bottom-form, 0.01rem);
+  /**
+  * @desc 表单-边框-内部-粗细；
+  */
+  --@{form-prefix-cls}-border-width-divider-form: var(--ynfm-border-width-divider-form, 0.01rem);
+  /**
+  * @desc 表单-边框-粗细-上边框；
+  */
+  --@{form-prefix-cls}-border-width-top-form: var(--ynfm-border-width-top-form, 0.01rem);
+  /**
+  * @desc 表单-颜色-边框-下边线；
+  */
+  --@{form-prefix-cls}-color-border-bottom-form: var(--ynfm-color-border-bottom-form, #F5F5F5);
+  /**
+  * @desc 表单-颜色-边框-间隔线；
+  */
+  --@{form-prefix-cls}-color-border-divider-form: var(--ynfm-color-border-divider-form, #F5F5F5);
+  /**
+  * @desc 表单-颜色-边框-上边框；
+  */
+  --@{form-prefix-cls}-color-border-top-form: var(--ynfm-color-border-top-form, #F5F5F5);
+  /**
+  * @desc 表单-尺寸-宽-表单项-标题-水平布局；
+  */
+  --@{form-prefix-cls}-size-width-title-horizontal-form: var(--ynfm-size-width-title-horizontal-form, 1.86rem);
+  --@{form-prefix-cls}-color-bg-form: var(--ynfm-color-bg-form, #ffffff);
+
+  --@{form-prefix-cls}-color-bg-form-disabled: var(--ynfm-color-bg-form-disabled, #FFFFFF);
+  --@{form-prefix-cls}-color-bg-verification-form: var(--ynfm-color-bg-verification-form, #F50C001A);
+  --@{form-prefix-cls}-color-icon-form: var(--ynfm-color-icon-form, #BFBFBF);
+  --@{form-prefix-cls}-color-text-compulsory-form: var(--ynfm-color-text-compulsory-form, #F50C00);
+  --@{form-prefix-cls}-color-text-discribe-form: var(--ynfm-color-text-discribe-form, #737373);
+  --@{form-prefix-cls}-color-text-title-form: var(--ynfm-color-text-title-form, #404040);
+  --@{form-prefix-cls}-color-text-title-form-disabled: var(--ynfm-color-text-title-form-disabled, #737373);
+  --@{form-prefix-cls}-color-text-title-form-readonly: var(--ynfm-color-text-title-form-readonly, #404040);
+  --@{form-prefix-cls}-color-text-verification-form: var(--ynfm-color-text-verification-form, #F50C00);
+
+  // 异常 ErrorBlock
+  /**
+  * @desc 异常-尺寸-高度-图片；
+  */
+  --@{error-block-prefix-cls}-size-height-image :var(--ynfm-size-height-image-errorblock, 2.1rem);
+  /**
+  * @desc 异常-尺寸-高度-图片-整页模式；
+  */
+  --@{error-block-prefix-cls}-size-height-image-fullpage :var(--ynfm-size-height-image-fullpage-errorblock, 2.1rem);
+  /**
+  * @desc 异常-尺寸-宽度-图片；
+  */
+  --@{error-block-prefix-cls}-size-width-image :var(--ynfm-size-width-image-errorblock, auto);
+  /**
+  * @desc 异常-尺寸-宽度-图片-整页模式；
+  */
+  --@{error-block-prefix-cls}-size-width-image-fullpage :var(--ynfm-size-width-image-fullpage-errorblock, auto);
+  // 文本省略 Ellipsis
+  /**
+  * @desc 文本省略-颜色-文字-展开
+  */
+  --@{ellipsis-prefix-cls}-color-text-unfold: var(--ynfm-color-text-unfold-ellipsis, #006FE6);
+
+  // 间距 Space
+  /**
+  * @desc 间距-空间-水平间距；
+  */
+  --@{space-prefix-cls}-gap-horizontal: var(--ynfm-spacing-gap-horizontal-space, 0.16rem);
+  /**
+  * @desc 间距-空间-垂直间距;
+  */
+  --@{space-prefix-cls}-gap-vertical: var(--ynfm-spacing-gap-vertical-space, 0.16rem);
+
+  // 栅格 Grid
+  /**
+  * @desc 栅格-空间-水平间距；
+  */
+  --@{grid-prefix-cls}-spacing-gap-horizontal-grid: var(--ynfm-spacing-gap-horizontal-grid, 0);
+  /**
+  * @desc 栅格-空间-垂直间距；
+  */
+  --@{grid-prefix-cls}-spacing-gap-vertical-grid: var(--ynfm-spacing-gap-vertical-grid, 0);
+
+  // 动作面板 ActionSheet
+  /**
+  * @desc 动作面板-边框-样式-间隔线；
+  */
+  --@{action-sheet-prefix-cls}-border-style-divider-actionsheet: var(--ynfm-border-style-divider-actionsheet, solid);
+  /**
+  * @desc 动作面板-边框-粗细-间隔线；
+  */
+  --@{action-sheet-prefix-cls}-border-width-divider-actionsheet: var(--ynfm-border-width-divider-actionsheet, 0.01rem);
+  /**
+  * @desc 动作面板-颜色-边框-间隔线；
+  */
+  --@{action-sheet-prefix-cls}-color-border-divider-actionsheet: var(--ynfm-color-border-divider-actionsheet, #F5F5F5);
+  /**
+  * @desc 动作面板-颜色-文字；
+  */
+  --@{action-sheet-prefix-cls}-color-text-actionsheet: var(--ynfm-color-text-actionsheet, #171717);
+  /**
+  * @desc 动作面板-颜色-文字-禁用；
+  */
+  --@{action-sheet-prefix-cls}-color-text-actionsheet-disable: var(--ynfm-color-text-actionsheet-disable, #737373);
+  /**
+  * @desc 动作面板-文字-字号；
+  */
+  --@{action-sheet-prefix-cls}-font-size-actionsheet: var(--ynfm-font-size-actionsheet, 0.3rem);
+
+  --@{action-sheet-prefix-cls}-color-bg-gap-actionsheet: var(--ynfm-color-bg-gap-actionsheet, #F5F5F5);
+  --@{action-sheet-prefix-cls}-color-bg-actionsheet: var(--ynfm-color-bg-actionsheet, #FFFFFF);
+  --@{action-sheet-prefix-cls}-color-text-discribe-actionsheet: var(--ynfm-color-text-discribe-actionsheet, #404040);
+
+  // 浮动面板 FloatingPanel
+  /**
+  * @desc 浮动面板-边线-圆角-头部；
+  */
+  --@{floating-panel-prefix-cls}-border-radius-header-floatingpanel: var(--ynfm-border-radius-header-floatingpanel, 0.24rem);
+  /**
+  * @desc 浮动面板-尺寸-高度-头部；
+  */
+  --@{floating-panel-prefix-cls}-size-height-header-floatingpanel: var(--ynfm-size-height-header-floatingpanel, 0.32rem);
+
+  //下拉菜单 DropDown
+  /**
+  * @desc 下拉菜单-颜色-图标
+  */
+  --@{dropdown-prefix-cls}-color-icon: var(--ynfm-color-icon-dropdown, #475569);
+  /**
+    * @desc 下拉菜单-颜色-文字
+    */
+  --@{dropdown-prefix-cls}-color-text: var(--ynfm-color-text-dropdown, #171717);
+
+  /**
+  * @desc 下拉菜单-文字-字号
+  */
+  --@{dropdown-prefix-cls}-font-size: var(--ynfm-font-size-dropdown, 0.26rem);
+
+  --@{dropdown-prefix-cls}-color-icon-dropdown-selected: var(--ynfm-color-icon-dropdown-selected, #EE2233);
+  --@{dropdown-prefix-cls}-color-text-dropdown-selected: var(--ynfm-color-text-dropdown-selected, #EE2233);
+
+  // 选择组 selector
+
+  /**
+  * @desc 选择组-边线-圆角
+  */
+  --@{selector-prefix-cls}-border-radius: var(--ynfm-border-radius-group-selector, 0.12rem);
+
+  /**
+   * @desc 选择组-颜色-背景
+   */
+  --@{selector-prefix-cls}-color-bg: var(--ynfm-color-bg-group-selector, #F5F5F5);
+
+  /**
+   * @desc 选择组-颜色-背景-选中
+   */
+  --@{selector-prefix-cls}-color-bg-selected: var(--ynfm-color-bg-group-selector-selected, #FDEEED);
+
+  /**
+   * @desc 选择组-颜色-图标-选中
+   */
+  --@{selector-prefix-cls}-color-icon-selected: var(--ynfm-color-icon-group-selector-selected, #EE2233);
+
+  /**
+   * @desc 选择组-颜色-文字
+   */
+  --@{selector-prefix-cls}-color-text: var(--ynfm-color-text-group-selector, #171717);
+
+  /**
+   * @desc 选择组-颜色-文字-选中
+   */
+  --@{selector-prefix-cls}-color-text-selected: var(--ynfm-color-text-group-selector-selected, #EE2233);
+
+  /**
+   * @desc 选择组-文字-字号
+   */
+  --@{selector-prefix-cls}-font-size: var(--ynfm-font-size-group-selector, 0.28rem);
+
+  /**
+   * @desc 选择组-尺寸-高
+   */
+  --@{selector-prefix-cls}-size-height: var(--ynfm-size-height-group-selector, 0.96rem);
+
+  /**
+   * @desc 选择组-空间-间距
+   */
+  --@{selector-prefix-cls}-spacing-gap: var(--ynfm-spacing-gap-group-selector, 0.24rem);
+  // 这条是给多选框的选中对勾的颜色
+  --@{selector-prefix-cls}-color-icon-selector-selected: var(--ynfm-color-icon-selector-selected, #FFFFFF);
+  --@{selector-prefix-cls}-color-bg-mark-group-selector-selected: var(--ynfm-color-bg-mark-group-selector-selected, #EE2233);
+  --@{selector-prefix-cls}-color-icon-mark-group-selector-selected: var(--ynfm-color-icon-mark-group-selector-selected, #FFFFFF);
+
+  //stepper
+  /**
+ * @desc 	步进器-边框-圆角
+ */
+  --@{stepper-prefix-cls}-border-radius: var(--ynfm-border-radius-stepper, 0.1rem);
+  /**
+ * @desc 步进器-边框-样式-内部
+ */
+  --@{stepper-prefix-cls}-border-style-inner: var(--ynfm-border-style-inner-stepper, solid);
+
+  /**
+   * @desc 步进器-边框-样式-左-按钮
+   */
+  --@{stepper-prefix-cls}-border-style-left-button: var(--ynfm-border-style-left-button-stepper, solid);
+
+  /**
+   * @desc 步进器-边框-样式-右-按钮
+   */
+  --@{stepper-prefix-cls}-border-style-right-button: var(--ynfm-border-style-right-button-stepper, solid);
+
+  /**
+   * @desc 步进器-边框-样式
+   */
+  --@{stepper-prefix-cls}-border-style: var(--ynfm-border-style-stepper, solid);
+
+  /**
+   * @desc 步进器-边框-样式-获焦
+   */
+  --@{stepper-prefix-cls}-border-style-actived: var(--ynfm-border-style-stepper-actived, solid);
+
+  /**
+   * @desc 步进器-边框-粗细-内部
+   */
+  --@{stepper-prefix-cls}-border-width-inner: var(--ynfm-border-width-inner-stepper, 0.5px);
+
+  /**
+   * @desc 步进器-边框-粗细-右-按钮
+   */
+  --@{stepper-prefix-cls}-border-width-right-button: var(--ynfm-border-width-right-button-stepper, 0.01rem);
+
+  /**
+   * @desc 步进器-边框-粗细
+   */
+  --@{stepper-prefix-cls}-border-width: var(--ynfm-border-width-stepper, 0px);
+
+  /**
+   * @desc 步进器-边框-粗细-左-按钮
+   */
+  --@{stepper-prefix-cls}-border-width-left-button: var(--ynfm-border-width-left-button-stepper, 0.01rem);
+
+  /**
+   * @desc 步进器-边框-粗细-获焦
+   */
+  --@{stepper-prefix-cls}-border-width-actived: var(--ynfm-border-width-stepper-actived, 0px);
+
+  /**
+   * @desc 步进器-颜色-背景-输入框
+   */
+  --@{stepper-prefix-cls}-color-bg-input: var(--ynfm-color-bg-input-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-背景-左-按钮
+   */
+  --@{stepper-prefix-cls}-color-bg-left-button: var(--ynfm-color-bg-left-button-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-背景-右-按钮
+   */
+  --@{stepper-prefix-cls}-color-bg-right-button: var(--ynfm-color-bg-right-button-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-边框-内部
+   */
+  --@{stepper-prefix-cls}-color-border-inner: var(--ynfm-color-border-inner-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-边框-左-按钮
+   */
+  --@{stepper-prefix-cls}-color-border-left-button: var(--ynfm-color-border-left-button-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-边框-右-按钮
+   */
+  --@{stepper-prefix-cls}-color-border-right-button: var(--ynfm-color-border-right-button-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-边框
+   */
+  --@{stepper-prefix-cls}-color-border: var(--ynfm-color-border-stepper, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-边框-获焦
+   */
+  --@{stepper-prefix-cls}-color-border-actived: var(--ynfm-color-border-stepper-actived, #F5F5F5);
+
+  /**
+   * @desc 步进器-颜色-文字-输入框
+   */
+  --@{stepper-prefix-cls}-color-text-input: var(--ynfm-color-text-input-stepper, #404040);
+
+  /**
+   * @desc 步进器-颜色-文字-左-按钮
+   */
+  --@{stepper-prefix-cls}-color-text-left-button: var(--ynfm-color-icon-left-button-stepper, #404040);
+
+  /**
+   * @desc 步进器-颜色-文字-右-按钮
+   */
+  --@{stepper-prefix-cls}-color-text-right-button: var(--ynfm-color-icon-right-button-stepper, #404040);
+
+  /**
+   * @desc 步进器-文字-字号-输入框
+   */
+  --@{stepper-prefix-cls}-font-size-input: var(--ynfm-font-size-input-stepper, 0.3rem);
+
+  /**
+   * @desc 步进器-文字-字号-左-按钮
+   */
+  --@{stepper-prefix-cls}-font-size-left-button: var(--ynfm-font-size-left-button-stepper, 0.32rem);
+
+  /**
+   * @desc 步进器-文字-字号-右-按钮
+   */
+  --@{stepper-prefix-cls}-font-size-right-button: var(--ynfm-font-size-right-button-stepper, 0.32rem);
+
+  /**
+   * @desc 步进器-尺寸-高度
+   */
+  --@{stepper-prefix-cls}-size-height: var(--ynfm-size-height-stepper, 0.56rem);
+
+  /**
+   * @desc 步进器-尺寸-宽度-输入框
+   */
+  --@{stepper-prefix-cls}-size-width-input: var(--ynfm-size-width-input-stepper, 0.8rem);
+
+  /**
+   * @desc 步进器-尺寸-宽度-左-按钮
+   */
+  --@{stepper-prefix-cls}-size-width-left-button: var(--ynfm-size-width-left-button-stepper, 0.56rem);
+
+  /**
+   * @desc 步进器-尺寸-宽度-右-按钮
+   */
+  --@{stepper-prefix-cls}-size-width-right-button: var(--ynfm-size-width-right-button-stepper, 0.56rem);
+
+  // 浮动气泡 floating-bubble
+
+  /**
+  * @desc 浮动气泡-边框-圆角
+  */
+  --@{floating-bubble-prefix-cls}-border-radius: var(--ynfm-border-radius-floatingbubble, 50%);
+  /**
+  * @desc 浮动气泡-颜色-背景
+  */
+  --@{floating-bubble-prefix-cls}-color-bg: var(--ynfm-color-bg-floatingbubble, #EE2233);
+  /**
+  * @desc 浮动气泡-尺寸-宽度
+  */
+  --@{floating-bubble-prefix-cls}-size-width: var(--ynfm-size-width-floatingbubble, 0.96rem);
+  /**
+  * @desc 浮动气泡-尺寸-高度
+  */
+  --@{floating-bubble-prefix-cls}-size-height: var(--ynfm-size-height-floatingbubble, 0.96rem);
+  /**
+  * @desc 浮动气泡-空间-外边距
+  */
+  --@{floating-bubble-prefix-cls}-spacing-margin: var(--ynfm-spacing-margin-floatingbubble, 0);
+
+  // 图片上传 image-uploader
+  /**
+  * @desc 图片上传-尺寸-单元格
+  */
+  --@{image-uploader-prefix-cls}-size-cell-imageuploader: var(--ynfm-size-cell-imageuploader, 1.28rem);
+  --@{image-uploader-prefix-cls}-color-icon-imageuploader: var(--ynfm-color-icon-imageuploader, #475569);
+  --@{image-uploader-prefix-cls}-color-bg-mask-imageuploader: var(--ynfm-color-bg-mask-imageuploader, #171717);
+  /**
+  * @desc 图片上传-空间-间距
+  */
+  --@{image-uploader-prefix-cls}-spacing-gap-imageuploader: var(--ynfm-spacing-gap-imageuploader, 0.16rem);
+
+  // ProgressCircle 进度圈
+  /**
+  * @desc 进度圈-颜色-线；
+  */
+  --@{progress-circle-prefix-cls}-color-bg-track-finished: var(--ynfm-color-bg-track-progresscircle-finished, #006FE6);
+  /**
+  * @desc 进度圈-颜色-轨道；
+  */
+  --@{progress-circle-prefix-cls}-color-bg-track: var(--ynfm-color-bg-track-progresscircle, #e5e5e5);
+  /**
+  * @desc 进度圈-尺寸-宽度-轨道；
+  */
+  --@{progress-circle-prefix-cls}-size-width-track: var(--ynfm-size-width-track-progresscircle, 4px);
+  /**
+  * @desc 进度圈-尺寸；
+  */
+  --@{progress-circle-prefix-cls}-size: var(--ynfm-size-progresscircle, 44px);
+
+  // Swiper
+  --@{swiper-prefix-cls}-border-radius-swiper: var(--ynfm-border-radius-swiper, 0rem);
+  --@{swiper-prefix-cls}-size-height-swiper: var(--ynfm-size-height-swiper, auto);
+  --@{swiper-prefix-cls}-size-width-swiper: var(--ynfm-size-width-swiper, 100%);
+  --@{swiper-prefix-cls}-space-padding-track-swiper: var(--ynfm-spacing-padding-track-swiper, 0rem);
+
+  // Rate
+  --@{rate-prefix-cls}-color-icon-rate: var(--ynfm-color-icon-rate, #E5E5E5);
+  --@{rate-prefix-cls}-color-icon-rate-selected: var(--ynfm-color-icon-rate-selected, #EE2233);
+  --@{rate-prefix-cls}-font-size-icon-rate: var(--ynfm-font-size-icon-rate, 0.48rem);
+
+  // Card
+  --@{card-prefix-cls}-color-bg-card: var(--ynfm-color-bg-card, #FFFFFF);
+  --@{card-prefix-cls}-color-divider-title-card: var(--ynfm-color-divider-title-card, #F5F5F5);
+  --@{card-prefix-cls}-color-text-content-card: var(--ynfm-color-text-content-card, #171717);
+  --@{card-prefix-cls}-color-text-title-card: var(--ynfm-color-text-title-card, #171717);
+
+  // Table
+  --@{table-prefix-cls}-color-text-subtotal: var(--ynfm-color-text-subtotal-table, #171717);
+  --@{table-prefix-cls}-color-text-total: var(--ynfm-color-text-total-table, #171717);
+  --@{table-prefix-cls}-color-bg-subtotal-row: var(--ynfm-color-bg-subtotal-row-table, #FFF7EB);
+  // --@{table-prefix-cls}-color-bg-subtotal-column: var(--ynfm-color-bg-subtotal-column-table, #FFF7EB);
+  --@{table-prefix-cls}-color-bg-total-row: var(--ynfm-color-bg-total-row-table, #FFF0DB);
+  //--@{table-prefix-cls}-color-bg-total-column: var(--ynfm-color-bg-total-column-table, #FFF0DB);
+  --@{table-prefix-cls}-font-weight-subtotal: var(--ynfm-font-weight-subtotal-table, 500);
+  --@{table-prefix-cls}-font-weight-total: var(--ynfm-font-weight-total-table, 500);
+  --@{table-prefix-cls}-font-size-subtotal: var(--ynfm-font-size-subtotal-table, 0.26rem);
+  --@{table-prefix-cls}-font-size-total: var(--ynfm-font-size-total-table, 0.26rem);
+  --@{table-prefix-cls}-color-text-pagination: var(--ynfm-color-text-pagination-table, #404040);
+  --@{table-prefix-cls}-color-text-cell: var(--ynfm-color-text-cell-table, #404040);
+  --@{table-prefix-cls}-color-text-header-selected: var(--ynfm-color-text-header-table-selected, #FFFFFF);
+  --@{table-prefix-cls}-color-text-header: var(--ynfm-color-text-header-table, #171717);
+  --@{table-prefix-cls}-color-icon-collapse: var(--ynfm-color-icon-collapse-table, #475569);
+  --@{table-prefix-cls}-color-icon-set: var(--ynfm-color-icon-set-table, #475569);
+  --@{table-prefix-cls}-color-icon-sort-selected: var(--ynfm-color-icon-sort-table-selected, #737373);
+  --@{table-prefix-cls}-color-icon-sort-actived-selected: var(--ynfm-color-icon-sort-table-actived-selected, #FFFFFF);
+  --@{table-prefix-cls}-color-icon-sort-actived: var(--ynfm-color-icon-sort-table-actived, #006FE6);
+  --@{table-prefix-cls}-color-icon-sort: var(--ynfm-color-icon-sort-table, #BFBFBF);
+  --@{table-prefix-cls}-color-border-right-column: var(--ynfm-color-border-right-column-table, #E5E5E5);
+  --@{table-prefix-cls}-color-border-bottom-row: var(--ynfm-color-border-bottom-row-table, #E5E5E5);
+  --@{table-prefix-cls}-color-border-outline: var(--ynfm-color-border-outline-table, #E5E5E5);
+  --@{table-prefix-cls}-color-bg-row-selected: var(--ynfm-color-bg-row-table-selected, #006FE6);
+  --@{table-prefix-cls}-color-bg-odd-row: var(--ynfm-color-bg-odd-row-table, #FFFFFF);
+  --@{table-prefix-cls}-color-bg-even-row: var(--ynfm-color-bg-even-row-table, #FAFAFA);
+  --@{table-prefix-cls}-color-bg-column-selected: var(--ynfm-color-bg-column-table-selected, #F0F7FF);
+  --@{table-prefix-cls}-color-bg-cell-selected: var(--ynfm-color-bg-cell-table-selected, #F0F7FF);
+  --@{table-prefix-cls}-color-bg-cell: var(--ynfm-color-bg-cell-table, #FFFFFF);
+  --@{table-prefix-cls}-color-bg-header-selected: var(--ynfm-color-bg-header-table-selected, #006FE6);
+  --@{table-prefix-cls}-color-bg-header: var(--ynfm-color-bg-header-table, #F1F5F9);
+  --@{table-prefix-cls}-font-weight-header: var(--ynfm-font-weight-header-table, 500);
+  // Accordion 折叠面板
+  /**
+  * @desc 折叠面板-标题-空间-内边距-左；
+  */
+  --@{accordion-prefix-cls}-spacing-padding-left-title: var(--ynfm-spacing-padding-left-title-accordion, 0.32rem);
+  /**
+  * @desc 折叠面板-内容区-空间-内边距-左；
+  */
+  --@{accordion-prefix-cls}-spacing-padding-left-content: var(--ynfm-spacing-padding-left-content-accordion, 0.32rem);
+  /**
+  * @desc 折叠面板-标题-空间-内边距-右；
+  */
+  --@{accordion-prefix-cls}-spacing-padding-right-title: var(--ynfm-spacing-padding-right-title-accordion, 0.32rem);
+  /**
+  * @desc 折叠面板-内容区-空间-内边距-右；
+  */
+  --@{accordion-prefix-cls}-spacing-padding-right-content: var(--ynfm-spacing-padding-right-content-accordion, 0.32rem);
+  // SideBar 侧边栏
+  --@{side-bar-prefix-cls}-size-height-sidetabbar: var(--ynfm-size-height-sidetabbar, 100%);
+  --@{side-bar-prefix-cls}-border-radius-item-sidetabbar-selected: var(--ynfm-border-radius-item-sidetabbar-selected, 0.16rem);
+  --@{side-bar-prefix-cls}-size-width-sidetabbar: var(--ynfm-size-width-sidetabbar, 2.1rem);
+  --@{side-bar-prefix-cls}-color-bg-sidetabbar: var(--ynfm-color-bg-sidetabbar, #f5f5f5);
+  --@{side-bar-prefix-cls}-color-bg-sidetabbar-selected: var(--ynfm-color-bg-sidetabbar-selected, #ffffff);
+}

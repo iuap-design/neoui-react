@@ -1,0 +1,51 @@
+@import (reference) '../../../theme/index.less';
+.@{rate-prefix-cls} {
+  --star-size: ~"var(--@{rate-prefix-cls}-font-size-icon-rate)";
+  --active-color: ~"var(--@{rate-prefix-cls}-color-icon-rate-selected)";
+  --inactive-color: ~"var(--@{rate-prefix-cls}-color-icon-rate)";
+  --inactive-color-half: var(--mui-color-border);
+  --readonly-color: #EDEDED;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+  touch-action: pan-y;
+  user-select: none;
+  &-box {
+    position: relative;
+  }
+
+  &-star {
+    padding: 0.125em;
+    line-height: var(--star-size);
+    font-size: var(--star-size);
+    color: var(--inactive-color);
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    &-half {
+      //padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &-active {
+      color: var(--active-color);
+    }
+    &-readonly {
+      cursor: unset;
+      //color: var(--readonly-color);
+    }
+    &-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  //&&-half {
+  //  .@{rate-prefix-cls}-star-half:not(.@{rate-prefix-cls}-star-active) {
+  //    color: var(--inactive-color-half);
+  //  }
+  //}
+}

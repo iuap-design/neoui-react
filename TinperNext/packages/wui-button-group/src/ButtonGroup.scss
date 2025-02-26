@@ -1,0 +1,292 @@
+@import "../../wui-core/scss/minxin-variables";
+
+//$button-group-prefix-cls: $prefix-cls + 'button-group';
+//$button-prefix-cls: $prefix-cls + 'button';
+//$dropdown-group-btn: $prefix-cls + 'dropdown-button';
+
+$tootip-button: $prefix-cls + 'tooltip-disabled-compatible-wrapper';
+
+.#{$button-group-prefix-cls}, .#{$button-group-prefix-cls}-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.#{$button-group-prefix-cls}, .#{$button-group-prefix-cls}-vertical {
+  .#{$button-prefix-cls}:not([disabled]) {
+    // min-width: 25px;
+    margin-right: 0;
+
+    .uf {
+      font-size: var(--#{$button-prefix-cls}-default-font-size);
+    }
+
+    &:hover, &:active {
+      z-index: 2;
+    }
+  }
+}
+/*!rtl:begin:ignore*/
+.#{$button-group-prefix-cls} > .#{$tootip-button}:first-child:not(:last-child) > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-prefix-cls}:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$tootip-button}:first-child:not(:last-child) > .#{$button-prefix-cls},
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-prefix-cls}:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius:$button-border-radius;
+  border-top-right-radius: $button-border-radius;
+}
+
+.#{$button-group-prefix-cls} > .#{$tootip-button}:not(:first-child):not(:last-child) > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}:not(:first-child):not(:last-child) .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}:not(:first-child):last-child > .#{$tootip-button}:first-child > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-prefix-cls}:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+
+.#{$button-group-prefix-cls} > .#{$tootip-button}:last-child:not(:first-child) > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-prefix-cls}:last-child:not(:first-child),
+.#{$button-group-prefix-cls} > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$tootip-button}:last-child:not(:first-child) > .#{$button-prefix-cls},
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-prefix-cls}:last-child:not(:first-child),
+[dir="rtl"] .#{$button-group-prefix-cls} > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius:  $button-border-radius;
+  border-top-left-radius:  $button-border-radius;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}:first-child > .#{$button-prefix-cls}:last-child:not(:first-child),
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}:not(:first-child) > .#{$button-prefix-cls}:first-child
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-prefix-cls}:first-child:not(:last-child) {
+  border-bottom-left-radius:  0;
+  border-top-left-radius:  0;
+}
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}:first-child:not(:last-child) {
+  margin-left: -1px;
+}
+/*!rtl:end:ignore*/
+
+
+.#{$button-group-prefix-cls} .#{$button-prefix-cls} + .#{$button-group-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-group-prefix-cls} + .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-group-prefix-cls} + .v-group {
+  margin-left: 1px;
+}
+
+.#{$button-group-prefix-cls} > .#{$tootip-button}:not(:first-child) > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$tootip-button} + .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$tootip-button} + .#{$button-group-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-prefix-cls} + .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-prefix-cls}-border + .#{$button-prefix-cls}-border,
+.#{$button-group-prefix-cls} .#{$button-prefix-cls}-border + .#{$button-group-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-group-prefix-cls} + .#{$button-prefix-cls}-border,
+.#{$button-group-prefix-cls} .#{$dropdown-group-btn} + .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} .#{$button-group-prefix-cls} + .v-group {
+  margin-left: -1px;
+}
+
+/*!rtl:begin:ignore*/
+.#{$button-group-prefix-cls} > .#{$button-prefix-cls}:first-child {
+  margin-left: 0;
+}
+/*!rtl:end:ignore*/
+
+/*!rtl:begin:ignore*/
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls}:first-child:not(:last-child) {
+  border-top-right-radius: $button-border-radius;
+  border-top-left-radius: $button-border-radius;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls}:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+/*!rtl:end:ignore*/
+
+/*!rtl:begin:ignore*/
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls} > .#{$tootip-button} {
+  position: relative;
+  float: left;
+}
+
+[dir="rtl"] .#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls},
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$button-prefix-cls},
+[dir="rtl"] .#{$button-group-prefix-cls} > .#{$tootip-button} {
+  float: right;
+}
+/*!rtl:end:ignore*/
+
+/*!rtl:begin:ignore*/
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls} + .#{$button-prefix-cls}, .#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls} + .#{$button-group-prefix-cls}, .#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls} + .#{$button-prefix-cls}, .#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls} + .#{$button-group-prefix-cls} {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+.#{$button-group-prefix-cls}.#{$button-group-prefix-cls}-separated > .#{$button-prefix-cls} {
+  margin: 0 8px 0 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls}:last-child:not(:first-child) > .#{$button-prefix-cls}:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls},
+.#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls},
+.#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls} > .#{$button-prefix-cls} {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+.#{$button-group-prefix-cls}-block {
+  display: block;
+  width: 100%;
+}
+
+.#{$button-group-prefix-cls}-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+.#{$button-group-prefix-cls}-justified > .#{$button-prefix-cls}, .#{$button-group-prefix-cls}-justified > .#{$button-group-prefix-cls} {
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+
+
+.#{$button-group-prefix-cls}-vertical > .#{$button-prefix-cls}:last-child:not(:first-child) {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+
+
+// 对分割按钮进行兼容
+.#{$button-group-prefix-cls} > .#{$button-group-prefix-cls}.#{$dropdown-group-btn} {
+  position: relative;
+  float: left;
+
+  &:hover, &:active {
+    z-index: 2;
+  }
+
+  &:first-child:not(:last-child) {
+    & > .#{$button-prefix-cls}:last-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+ 
+
+  &:last-child:not(:first-child) {
+    margin-left: -1px;
+
+    & > .#{$button-prefix-cls}:first-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  &:not(:first-child):not(:last-child) {
+    margin-left: -1px;
+
+    & > .#{$button-prefix-cls}:first-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    & > .#{$button-prefix-cls}:last-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+.#{$button-group-prefix-cls}-vertical > .#{$button-group-prefix-cls}.#{$dropdown-group-btn} {
+  zoom: 1;
+  overflow: auto;
+
+  &::after {
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+  }
+
+  & > .#{$button-prefix-cls} {
+    display: block;
+    float: left;
+    width: unset;
+    max-width: unset;
+
+    &:last-child {
+      width: 28px;
+    }
+  }
+
+  &:hover, &:active {
+    z-index: 2;
+  }
+
+  &:first-child:not(:last-child) {
+    & > .#{$button-prefix-cls}:first-child {
+      border-bottom-left-radius: 0;
+    }
+
+    & > .#{$button-prefix-cls}:last-child {
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &:last-child:not(:first-child) {
+    margin-top: -1px;
+
+    & > .#{$button-prefix-cls}:first-child {
+      border-top-left-radius: 0;
+    }
+
+    & > .#{$button-prefix-cls}:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+
+  &:not(:first-child):not(:last-child) {
+    margin-top: -1px;
+
+    & > .#{$button-prefix-cls}:first-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    & > .#{$button-prefix-cls}:last-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+/*!rtl:end:ignore*/

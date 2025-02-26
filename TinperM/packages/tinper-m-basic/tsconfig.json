@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es2016",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "types": ["vitest/globals"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@common/*": ["./src/common/*"],
+      "@tests/*": ["./src/tests/*"],
+      "@common": ["./src/common/index.ts"],
+      "@testing-library/react": ["./node_modules/@testing-library/react"],
+      "@tinper/m": ["./src/index.tsx"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@theme": ["./src/theme/index.less"]
+    }
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "node_modules",
+    "src/components/*/tests/*.tsx"
+  ]
+}

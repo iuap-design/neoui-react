@@ -1,0 +1,738 @@
+@import './../../wui-core/scss/minxin-mixins';
+@import './../../wui-input/src/Input.scss';
+@import './../../wui-input-group/src/InputGroup.scss';
+
+//$input-number-prefix-cls: $prefix-cls + 'input-number';
+$border: calc(var(--#{$wui-prefix}-base-input-border-width) * 2);
+$input-number-input-height: $form-control-default-height - 2px;
+$border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+
+@mixin size($height, $border: $border) {
+  // height: $height;
+  // line-height: $height;
+
+  .#{$prefix-cls}input-number {
+
+    .#{$prefix-cls}input,
+    .#{$prefix-cls}input-group-btn {
+      height: calc($height - $border);
+      line-height: calc($height - $border);
+    }
+
+    &.simple .icon-group {
+
+      .plus .uf,
+      .reduce .uf {
+        height: calc(($height - $border) / 2 - 1px); // QDJCJS-9443 修复未减去border导致箭头位置偏移问题
+        line-height: calc(($height - $border) / 2 - 1px);
+      }
+    }
+
+    &-addonBefore,
+    &-addonAfter {
+      line-height: calc($height - $border);
+    }
+
+    &-mark {
+      height: 16px; // 高度不随size响应
+      margin: 1px 0;
+      padding: 0 2px;
+      border: 1px solid #dbe0e5;
+      border-radius: 2px;
+      line-height: 14px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--wui-input-suffix-icon-color-hover);;
+      background: #f7f9fd;
+    }
+  }
+}
+
+@mixin simpleSize($height, $border: $border) {
+  &+.#{$prefix-cls}input-group-btn .icon-group {
+
+    .plus .uf,
+    .reduce .uf {
+      height: calc(($height - $border) / 2 - 1px); // QDJCJS-9443 修复未减去border导致箭头位置偏移问题
+      line-height: calc(($height - $border) / 2 - 1px);
+    }
+  }
+}
+
+.#{$input-number-prefix-cls} {
+  width: 100%;
+  // height: $form-control-default-height;
+  border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+  border-radius: $border-radius;
+  .#{$prefix-cls}input-affix-wrapper {
+    // fix: allowClear时有两个重复border问题
+    border: none;
+    padding-right: 0;
+    box-shadow: none !important;
+  }
+
+  &-rtl{
+
+  }
+
+  .#{$prefix-cls}input {
+    height: $input-number-input-height;
+  }
+
+  @each $align in $align-arr {
+    &-align-#{$align} input {
+      text-align: $align;
+    }
+  }
+
+  &-out {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+
+    @media screen and (-ms-high-contrast:active),
+    (-ms-high-contrast:none) {
+      display: inline-block; // QDJCJS-9657，修复IE11的 display:flex; + flex:auto;配合下inline-flex失效问题
+    }
+
+    &-xs {
+      $height: $form-control-xs-height;
+      @include size($height);
+    }
+
+    &-sm {
+      $height: $form-control-sm-height;
+      @include size($height);
+    }
+
+    &-md {
+      $height: $form-control-md-height;
+      @include size($height);
+    }
+
+    &-nm {
+      $height: $form-control-nm-height;
+      @include size($height);
+    }
+
+    &-lg {
+      $height: $form-control-lg-height;
+      @include size($height);
+    }
+
+    // requiredStyle必填样式
+    &.#{$input-number-prefix-cls}-required-style {
+      &:not(.#{$input-number-prefix-cls}-disabled) {
+        &:not(.#{$input-number-prefix-cls}-border-bottom) {
+          &,
+          .#{$prefix-cls}input-group,
+          .#{$prefix-cls}input-group > .#{$prefix-cls}input,
+          .#{$prefix-cls}input-group span {
+            box-shadow: inset 0 0 0 1000px $base-input-bg-required;
+            background: $base-input-bg-required;
+          }
+        }
+
+        &.#{$input-number-prefix-cls}-border-bottom {
+          .#{$input-number-prefix-cls}-addonBefore,
+          .#{$input-number-prefix-cls}-addonAfter {
+            background: transparent;
+            border-bottom-color: $base-input-border-bottom-color;
+          }
+
+          // 下划线模式必填样式(黄色边框、透明背景)
+          .#{$input-number-prefix-cls} {
+            border-bottom: 1px solid $base-input-border-bottom-color;
+            box-shadow: none;
+            background: transparent;
+
+            &:active,
+            &:focus-within {
+              border-bottom-color: $base-input-border-color-focus;
+              box-shadow: 0 1px 0 rgba(0, 145, 255, 0.2);
+            }
+
+            .#{$prefix-cls}input-group-addon {
+              &:first-of-type {
+                border-right-color: transparent;
+              }
+              &:last-child {
+                border-left-color: transparent;
+              }
+            }
+
+            .#{$prefix-cls}input {
+              box-shadow: none;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      // 禁用态
+      &.#{$input-number-prefix-cls}-disabled .#{$input-number-prefix-cls},
+      &.#{$input-number-prefix-cls}-disabled .#{$input-number-prefix-cls} .#{$prefix-cls}input,
+      &.#{$input-number-prefix-cls}-disabled .#{$input-number-prefix-cls} .disabled-cursor {
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+    }
+
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    .disabled-con {
+      background: $base-input-bg-disabled;
+    }
+  }
+
+  &-addonBefore+&,
+  &+& {
+    float: left;
+  }
+
+  &-addonAfter,
+  &-addonBefore {
+    text-align: center;
+    // height: 28px;
+    // line-height: 28px;
+    padding: 0 4px;
+    border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+    border-radius: $border-radius;
+    // z-index: 100;
+    // overflow: hidden;
+    color: $font-color-base;
+
+    .#{$prefix-cls}select {
+      display: block;
+      min-width: 60px;
+      width: 100%;
+      height: 100%;
+
+      .wui-select-selector {
+        border: none;
+      }
+    }
+  }
+
+  &:not(:first-child) {
+    border-radius: 0 $border-radius $border-radius 0;
+
+    :hover {
+      border-left: none;
+    }
+  }
+
+  &:not(:last-child) {
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  &-out-rtl {
+    .#{$input-number-prefix-cls}-addonBefore {
+    /*!rtl:ignore*/
+      border-radius: 0 $border-radius $border-radius 0;
+    /*!rtl:ignore*/
+      border-left: none;
+    /*!rtl:ignore*/
+      border-right: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+      &:hover {
+        /*!rtl:ignore*/
+        border-left: none;
+        /*!rtl:ignore*/
+        border-right: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+       }
+    }
+    .#{$input-number-prefix-cls}-addonAfter{
+    /*!rtl:ignore*/
+      border-radius: $border-radius 0 0 $border-radius;
+    /*!rtl:ignore*/
+      border-right:none;
+    /*!rtl:ignore*/
+      border-left: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+      &:hover {
+        /*!rtl:ignore*/
+          border-right: none;
+          /*!rtl:ignore*/
+        border-left: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+        }
+    }
+  }
+  &-addonBefore {
+    /*!rtl:ignore*/
+    border-radius: $border-radius 0 0 $border-radius;
+    /*!rtl:ignore*/
+    border-right: none; 
+    background: $base-input-bg;
+
+    &:hover {
+    /*!rtl:ignore*/
+      border-right: none;
+    }
+  }
+
+  &-addonAfter {
+    border-radius: 0 $border-radius $border-radius 0;
+    border-left: none;
+    background: $base-input-bg;
+
+    &:hover {
+    /*!rtl:ignore*/
+      border-left: none;
+    }
+  }
+
+  &-placeholder {
+    color: $base-input-placeholder-color;
+    position: absolute;
+    z-index: 2;
+    font-size: 12px;
+    width: calc(100% - 34px);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &.#{$prefix-cls}input-group.simple .#{$input-number-prefix-cls}-placeholder {
+    left: 12px;
+    top: 8px;
+  }
+
+  &:not(.disabled-con) {
+
+    .#{$prefix-cls}input-group-btn,
+    .#{$prefix-cls}input-group-addon {
+      transition: opacity 0.24s linear 0.1s;
+      opacity: 0;
+      color: $base-input-suffix-icon-color;
+    }
+  }
+
+  &:not(.disabled-con):hover {
+    border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-hover;
+    // border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+
+    & {
+
+      .#{$prefix-cls}input-group-btn,
+      .#{$prefix-cls}input-group-addon {
+        transition: opacity 0.24s linear 0.1s;
+        opacity: 100;
+      }
+    }
+  }
+
+  &:not(.disabled-con):active,
+  &:not(.disabled-con):focus-within {
+    border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-focus;
+    box-shadow: 0 0 0 2px rgba(#0091ff,0.2);
+  }
+
+  &-icon-one.#{$prefix-cls}input-group {
+    display: flex; // 修复上下箭头高度错误问题
+  }
+
+  &.#{$prefix-cls}input-group {
+    border-spacing: 0;
+    background: $base-input-bg;
+
+    >span:first-child {
+      border-right: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+    }
+
+    >span:last-child {
+      border-left: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+
+  &.disabled-con {
+    border-color: $base-input-border-color-disabled;
+
+    >span:first-child {
+      border: none;
+      border-right: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-disabled;
+    }
+
+    >span:last-child {
+      border: none;
+      border-left: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-disabled;
+    }
+  }
+
+  &.#{$prefix-cls}input-group {
+    >span {
+      background: $base-input-bg;
+
+      &:hover {
+        background: $hover-bg-color-base;
+        color: $base-input-suffix-icon-color-hover;
+      }
+    }
+
+    .#{$prefix-cls}input-group-addon:first-of-type {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:not(.disabled-con) .#{$prefix-cls}input-group-addon:first-of-type {
+      border-right: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+    }
+    &:not(.disabled-con) .#{$prefix-cls}input-group-addon:last-child {
+      border-left: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+    }
+  }
+
+  &.#{$prefix-cls}input-group.simple {
+    .#{$prefix-cls}input-xs {
+      $height: $form-control-xs-height;
+    }
+
+    .#{$prefix-cls}input-sm {
+      $height: $form-control-sm-height;
+    }
+
+    .#{$prefix-cls}input-md {
+      $height: $form-control-md-height;
+    }
+
+    .#{$prefix-cls}input-nm {
+      $height: $form-control-nm-height;
+    }
+
+    .#{$prefix-cls}input-lg {
+      $height: $form-control-lg-height;
+    }
+
+    .#{$prefix-cls}input-group-btn {
+      position: relative;
+      top: 0px;
+      z-index: 2;
+      right: 0;
+      width: 22px;
+
+      .icon-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        height: $input-number-input-height;
+        background: $base-input-bg;
+        border-radius: 0 $border-radius $border-radius 0;
+        -webkit-transition: opacity 0.24s linear 0.1s;
+        transition: opacity 0.24s linear 0.1s;
+
+        .plus,
+        .reduce {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 50%;
+          overflow: hidden;
+          -webkit-transition: all 0.1s linear;
+          transition: all 0.1s linear;
+          cursor: pointer;
+          color: $base-input-suffix-icon-color;
+
+          &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            background: $base-input-bg-disabled !important;
+            color: $base-input-color-disabled;
+          }
+
+          &:hover {
+            background: var(--#{$wui-prefix}-input-suffix-icon-background-color-hover);
+            color: $base-input-suffix-icon-color-hover;
+          }
+
+          &:active {
+            color: $suffix-icon-hover-color;
+          }
+
+          &.disabled-cursor {
+            cursor: not-allowed;
+            pointer-events: none;
+            background: $base-input-bg-disabled;
+            color: $base-input-color-disabled;
+          }
+        }
+
+        .plus {
+          // color: $suffix-icon-base-color;
+          border-top-right-radius: $border-radius;
+
+          &.disabled-cursor {
+            border-top-right-radius: $border-radius;
+          }
+          :active {
+            color: var(--#{$wui-prefix}-input-suffix-icon-color-active);
+          }
+        }
+
+        .reduce {
+          border-top: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+          border-bottom-right-radius: $border-radius;
+          box-sizing: border-box;
+          // color: #999999;
+
+          &.disabled-cursor {
+            border-bottom-right-radius: $border-radius;
+            border-top: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-disabled;
+          }
+        }
+
+        .disabled-cursor {
+          &.disabled {
+            background: none;
+          }
+
+          .uf {
+            color: $base-input-color-disabled;
+          }
+        }
+
+        .uf {
+          font-size: 12px;
+          transform: scale(0.65);
+
+          &::before {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    .#{$prefix-cls}input-group-btn[disabled] {
+      background: $base-input-bg-disabled;
+    }
+
+    .#{$input-prefix-cls} {
+      width: 100%;
+      border-right: 0;
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+
+      &[disabled] {
+        border-color: $base-input-border-color-disabled;
+
+        &+.#{$prefix-cls}input-group-btn .icon-group {
+          border-color: $base-input-border-color-disabled;
+        }
+      }
+    }
+
+    .has-close {
+      margin: 0 4px;
+    }
+  }
+
+  &.#{$prefix-cls}input-group {
+    .#{$input-prefix-cls} {
+      width: 100%;
+      border: transparent;
+
+      &[disabled] {
+        border-top-color: $base-input-border-color-disabled;
+        border-bottom-color: $base-input-border-color-disabled;
+      }
+
+      &:hover {
+        border-color: $base-input-border-color-hover;
+      }
+
+      &:focus {
+        border-color: $base-input-border-color-focus;
+        box-shadow: none;
+      }
+
+      &:placeholder-shown {
+        text-align: left;
+      }
+    }
+  }
+
+  .#{$prefix-cls}input-group-addon {
+    position: relative;
+    cursor: pointer;
+    padding: 0 6px;
+    user-select: none;
+    -moz-user-select: none;
+    background: transparent;
+    border: none;
+    
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      color: $base-input-color-disabled;
+      background: $base-input-bg-disabled !important;
+    }
+
+    &.disabled-cursor {
+      cursor: not-allowed;
+      pointer-events: none;
+      background: $base-input-bg-disabled !important;
+      color: $base-input-suffix-icon-color-disabled;
+    }
+  }
+
+  &-border-bottom .#{$prefix-cls}input-group-addon.disabled-cursor {
+    background-color: transparent !important;
+  }
+
+  .#{$input-number-prefix-cls}-auto .#{$input-prefix-cls} {
+    width: 100%;
+  }
+
+  .#{$input-prefix-cls}::-webkit-outer-spin-button,
+  .#{$input-prefix-cls}::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  &.#{$prefix-cls}input-group {
+  
+    .#{$prefix-cls}input-group-addon {
+    
+      &:hover {
+        color: $base-input-suffix-icon-color-hover;
+        background: var(--#{$wui-prefix}-input-suffix-icon-background-color-hover);
+      }
+    }
+  }
+
+  &-border-none #{&} {
+    @include borderTransparent(true, true, true, true);
+    border-radius: 0;
+
+    &.#{$prefix-cls}input-group {
+      span:nth-of-type(1),
+      span:last-child {
+        @include borderTransparent(true, true, true, true);
+      }
+    }
+
+    &-addonAfter,
+    &-addonBefore {
+      @include borderTransparent(true, true, true, true);
+      border-radius: 0;
+    }
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:not(.disabled-con):focus-within,
+    &:not(.disabled-con):hover {
+      @include borderTransparent(true, true, true, true);
+    }
+
+    &:active,
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+
+  &-border-bottom #{&} {
+    @include borderTransparent();
+    border-radius: 0;
+
+    span,
+    .#{$prefix-cls}input-group-addon,
+    .icon-group,
+    .#{$prefix-cls}input {
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    &.#{$prefix-cls}input-group {
+      span:nth-of-type(1),
+      span:last-child {
+        @include borderTransparent();
+      }
+      background: transparent;
+      box-shadow: none;
+    }
+
+    &-addonAfter,
+    &-addonBefore {
+      @include borderTransparent();
+      border-radius: 0;
+      background: transparent;
+    }
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:not(.disabled-con):focus-within,
+    &:not(.disabled-con):hover {
+      @include borderTransparent();
+      background: transparent;
+    }
+  }
+
+  &-border-bottom#{&}-disabled .#{$prefix-cls}input-affix-wrapper {
+    background-color: transparent;
+  }
+}
+.#{$input-number-prefix-cls}-out .#{$input-number-prefix-cls}.#{$input-number-prefix-cls}-sm.#{$prefix-cls}input-group.simple .#{$prefix-cls}input-group-btn {
+  top: 0px;
+}
+
+.#{$input-number-prefix-cls}-out .#{$input-number-prefix-cls}.#{$input-number-prefix-cls}-lg.#{$prefix-cls}input-group.simple .#{$prefix-cls}input-group-btn {
+  top: 0px;
+}
+
+.#{$input-number-prefix-cls}-group {
+  line-height: 0; // 修复collapse组件下，input-number的高度与其他表单组件不一致导致布局混乱问题（line-height继承导致）
+  .#{$input-number-prefix-cls}-out {
+    width: calc(50% - 10px);
+    display: inline-block;
+    border-radius: $border-radius;
+  }
+
+  &-split {
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: -10px;
+  }
+}
+
+.disabled-con,
+.disabled-con .disabled-cursor>span:first-child,
+.disabled-con .disabled-cursor>span:last-child {
+  border-color: $base-input-border-color-disabled;
+}
+
+.#{$input-number-prefix-cls}-out-amount {
+  .#{$input-number-prefix-cls}-amount-dom {
+    position: relative;
+    display: inline-flex;
+  }
+  .#{$input-number-prefix-cls}-amount {
+    font-size: 12px;
+    color: #9CA3AF;
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+    line-height: 1;
+  }
+}
+
+.#{$input-number-prefix-cls}-out-amount-horizontal {
+  .#{$input-number-prefix-cls}-amount {
+    padding-left: 9px;
+    padding-top: unset;
+  }
+}
+
+.#{$input-number-prefix-cls}-out-amount-vertical {
+  display: block;
+}

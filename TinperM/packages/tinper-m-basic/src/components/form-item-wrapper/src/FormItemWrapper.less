@@ -1,0 +1,247 @@
+@import (reference) '../../../theme/index.less';
+
+// css变量
+.@{form-item-wrapper-prefix-cls}-box {
+  --color-bg: ~"var(--@{form-item-wrapper-prefix-cls}-color-bg-title)";
+  --color-bg-disabled: ~"var(--@{form-item-wrapper-prefix-cls}-color-bg-title-disabled)";
+
+
+  --color-icon-required: ~"var(--@{form-item-wrapper-prefix-cls}-color-icon-compulsory)";
+  --color-icon: ~"var(--@{form-item-wrapper-prefix-cls}-color-icon)";
+
+  --color-title: ~"var(--@{form-item-wrapper-prefix-cls}-color-text-title)";
+  --color-title-disabled: ~"var(--@{form-item-wrapper-prefix-cls}-color-text-title-disabled)";
+  --color-title-readonly: ~"var(--@{form-item-wrapper-prefix-cls}-color-text-title-formitemwrapper-readonly)";
+
+  --color-bg-verification: ~"var(--@{form-item-wrapper-prefix-cls}-color-bg-verification)";
+  --color-text-verification: ~"var(--@{form-item-wrapper-prefix-cls}-color-text-verification)";
+
+  --size-icon: ~"var(--@{form-item-wrapper-prefix-cls}-font-size-icon)";
+
+  --font-size-title: ~"var(--@{form-item-wrapper-prefix-cls}-font-size-title)";
+  --font-size-verification: ~"var(--@{form-item-wrapper-prefix-cls}-font-size-verification)";
+
+  --font-weight-title: ~"var(--@{form-item-wrapper-prefix-cls}-font-weight-title)";
+  --font-weight-verification: ~"var(--@{form-item-wrapper-prefix-cls}-font-weight-verification)";
+
+
+  --color-splitline: ~"var(--@{form-item-wrapper-prefix-cls}-color-border-divider-formitemwrapper)";
+  --color-sub-title: var(--mui-color-weak);
+}
+
+.@{form-item-wrapper-prefix-cls} {
+  background: var(--color-bg);
+  position: relative;
+  display: flex;
+  min-height: 0.88rem;
+  padding: 0 0.32rem;
+
+  .@{form-item-wrapper-prefix-cls}-righticon{
+    svg {
+      color: ~"var(--@{form-item-wrapper-prefix-cls}-color-icon)";
+    }
+  }
+
+  &-box{
+    width: 100%;
+  }
+  &-split {
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      display: inline-block;
+      background-color: var(--color-splitline);
+      width: calc(100% - 0.24rem);
+    }
+  }
+
+  &-label {
+    color: var(--color-title);
+    font-size: var(--font-size-title);
+    // line-height: var(--font-size-title);
+    line-height: 0.46rem;
+    font-weight: var(--font-weight-title);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: normal;
+    &-sub {
+      color: var(--color-sub-title);
+      font-size: 0.26rem;
+      margin-left: 0.12rem;
+    }
+
+    &-main{
+      position: relative;
+    }
+
+    .required {
+      position: absolute;
+      color: var(--color-icon-required);
+      vertical-align: top;
+    }
+
+    &-tips{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-icon);
+    }
+
+    /* &-extra-icon::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 0.08rem;
+      height: 100%;
+      background-color: var(--mui-color-primary);
+      left: -0.24rem;
+      border-top-right-radius: 0.08rem;;
+      border-bottom-right-radius: 0.08rem;
+      transform: scaleY(.7);
+    } */
+  }
+
+  &-label-letter {
+    word-break: break-all;
+  }
+
+  &.single-line {
+    justify-content: space-between;
+    align-items: center;
+    //height: auto;
+    .@{form-item-wrapper-prefix-cls}-label{
+      width: 1.87rem;
+      line-height: 1.4;
+      margin-right: 0.24rem;
+      flex: 0 0 auto;
+      padding: 0.22rem 0;
+      &-multiline{
+        padding: 0.18rem 0;
+        line-height: normal;
+      }
+      // text-overflow: ellipsis;
+    }
+    .@{form-item-wrapper-prefix-cls}-content {
+      display: inline-flex;
+      align-items: center;
+      flex: 5;
+      padding: 0.1rem 0;
+      text-align: left;
+      // justify-content: flex-end;
+      &-no-label{
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+
+  &.multiple-line {
+    position: relative;
+    flex-direction: column;
+    min-height: 1.25rem;
+    height: auto;
+    padding-top: 0.12rem;
+    padding-bottom: 0.12rem;
+    .@{form-item-wrapper-prefix-cls}-label{
+      width: 100%;
+      display: flex;
+      padding-bottom: 0.08rem;
+      .@{form-item-wrapper-prefix-cls}-label-main{
+        // word-break: break-all;
+        /* white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; */
+      }
+    }
+    .@{form-item-wrapper-prefix-cls}-label-letter{
+      .@{form-item-wrapper-prefix-cls}-label-main{
+        word-break: break-all;
+      }
+    }
+    .@{form-item-wrapper-prefix-cls}-righticon {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 0.32rem;
+    }
+  }
+
+  .@{form-item-wrapper-prefix-cls}-righticon {
+    margin-left: 0.08rem;
+    height: auto;
+  }
+
+  &-error {
+    height: 0.44rem;
+    position: relative;
+    color: var(--color-text-verification);
+    background: var(--color-bg-verification);
+    font-size: var(--font-size-verification);
+    font-weight: var(--font-weight-verification);
+    display: flex;
+    align-items: center;
+    padding-left: 0.24rem;
+    // justify-content: center;
+    transition: height 200ms;
+    &::after {
+      display: none;
+    }
+
+    &.hidden {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+/* 只读态样式 */
+.@{form-item-wrapper-prefix-cls}-readonly{
+  min-height: 0.64rem;
+  padding: 0 0.16rem;
+  .@{form-item-wrapper-prefix-cls}-label{
+    width: 1.68rem;
+    font-size: 0.28rem;
+    color: var(--color-title-readonly);
+  }
+
+  .@{form-item-wrapper-prefix-cls}-content{
+    font-size: 0.28rem;
+    word-break: break-all;
+    &-no-label{
+      word-break: break-all;
+    }
+  }
+
+  &.single-line{
+    .@{form-item-wrapper-prefix-cls}-label{
+      padding: 0;
+    }
+    .@{form-item-wrapper-prefix-cls}-content{
+      padding: 0;
+    }
+  }
+
+  &.@{form-item-wrapper-prefix-cls}-split{
+    &::after{
+      display: none;
+    }
+  }
+}
+
+/* 禁用态样式 */
+.@{form-item-wrapper-prefix-cls}{
+  &-disabled{
+    background-color: ~"var(--@{form-item-wrapper-prefix-cls}-color-bg-formitemwrapper-disabled)";
+    .@{form-item-wrapper-prefix-cls}{
+     &-label{
+      color: var(--color-title-disabled);
+     }
+    }
+  }
+}

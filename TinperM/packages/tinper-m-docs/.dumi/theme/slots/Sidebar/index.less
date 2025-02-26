@@ -1,0 +1,121 @@
+@import (reference) '../../styles/variables.less';
+
+.@{prefix}-sidebar {
+  position: sticky;
+  top: @s-header-height;
+  width: @s-sidebar-width;
+  ;
+  max-height: calc(100vh - @s-header-height);
+  padding-top: 20px;
+  padding-bottom: 24px;
+  // padding-inline-start: 8px;
+  // padding-inline-end: 8px;
+  box-sizing: border-box;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  @media @mobile {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    max-height: initial;
+    padding-inline-start: 32px;
+    background-color: @c-site-bg;
+    border-top: 1px solid @c-border-light;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 10%);
+    transition: 0.2s all;
+
+    @{dark-selector} & {
+      background-color: @c-site-bg-dark;
+      border-top-color: @c-border-less-dark;
+    }
+
+    .@{prefix}-doc-layout:not([data-mobile-sidebar-active]) & {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-100%);
+    }
+  }
+
+  .basic-dt {
+    padding-left: 38px !important;
+  }
+
+  >dl {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+
+    >dt {
+      // width: 56px;
+      height: 22px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      font-size: 14px;
+      color: #111827;
+      letter-spacing: 0;
+      text-align: left;
+      line-height: 22px;
+
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
+    }
+
+    >dd {
+      margin: 0;
+      // padding: 12px 0 12px 44px;
+
+      >a {
+        display: block;
+        color: @c-text-secondary;
+        font-size: 13px;
+        line-height: 20px;
+        text-decoration: none;
+        transition: all 0.3s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @{dark-selector} & {
+          color: @c-text-secondary-dark;
+        }
+
+        &:hover {
+          color: @c-text;
+
+          @{dark-selector} & {
+            color: @c-text-dark;
+          }
+        }
+
+        &.active {
+          color: @c-text;
+          // font-weight: bold;
+
+          @{dark-selector} & {
+            color: @c-text-dark;
+          }
+        }
+      }
+    }
+
+    // divider line & gap
+    +dl {
+      // margin-top: 16px;
+      padding-top: 10px;
+      // border-top: 1px solid @c-border;
+
+      @{dark-selector} & {
+        border-top-color: @c-border-dark;
+      }
+    }
+  }
+
+}

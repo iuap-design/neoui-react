@@ -1,0 +1,48 @@
+@import (reference) '../../../theme/index.less';
+
+.@{badge-prefix-cls}-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.@{badge-prefix-cls} {
+  display: inline-flex;
+  vertical-align: middle;
+  box-sizing: content-box;
+  border-radius: 2rem;
+  background-color: var(--color);
+  --right: 0;
+  --top: 0;
+  // --color: var(--mui-badge-color, var(--mui-color-highlight));
+  --color: ~'var(--@{badge-prefix-cls}-color-bg-badge)';
+
+  &-content {
+    color: ~"var(--@{badge-prefix-cls}-color-text-badge)";
+    box-sizing: border-box;
+    min-width: 0.16rem;
+    padding: 0.02rem 0.08rem;
+    font-size: var(--mui-font-size-1);
+    line-height: 0.24rem;
+    white-space: nowrap;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  &-fixed {
+    position: absolute;
+    right: var(--right);
+    top: var(--top);
+    transform: translate(50%, -50%);
+  }
+
+  &-dot {
+    min-width: 0.1rem;
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+  }
+
+  &-bordered {
+    border: solid 1px ~"var(--@{badge-prefix-cls}-color-border-badge)";
+  }
+}

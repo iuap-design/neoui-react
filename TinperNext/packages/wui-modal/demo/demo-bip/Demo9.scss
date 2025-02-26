@@ -1,0 +1,30 @@
+.demo9-popconfirm {
+  .wui-popover-inner {
+    &-content {
+      .wui-popover-message {
+        padding: 0;
+
+        .uf {
+          display: none;
+        }
+
+        .wui-popover-message-title {
+          padding: 0;
+
+          .wui-form-item {
+            padding: 4px 8px;
+            min-height: 48px;
+          }
+        }
+      }
+
+      .wui-popover-buttons {
+        text-align: center;
+
+        button:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

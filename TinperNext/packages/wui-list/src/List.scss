@@ -1,0 +1,361 @@
+@import "../../wui-core/scss/minxin-variables";
+
+//$list-prefix-cls: $prefix-cls + 'list';
+
+$list-item-padding: 12px 0;
+$text-color: $font-color-base;
+$text-color-secondary: #00000073;
+$font-size-base: 14px;
+$border-split: var(--#{$list-prefix-cls}-border-width-item) var(--#{$list-prefix-cls}-border-style-item) var(--#{$list-prefix-cls}-color-border-item);
+
+
+.#{$list-prefix-cls} {
+
+  position: relative;
+  color: $font-color-base;
+
+  * {
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  &-pagination {
+    // margin-top: @margin-lg;
+    // text-align: right;
+    display: flex;
+    justify-content: flex-end;
+
+    // https://github.com/ant-design/ant-design/issues/20037
+    // .@{ant-prefix}-pagination-options {
+    //   text-align: left;
+    // }
+  }
+
+  &-more {
+    margin-top: 7px;
+    text-align: center;
+
+    button {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+  }
+
+  &-spin {
+    min-height: 40px;
+    text-align: center;
+  }
+
+  // &-empty-text {
+  //   padding: @list-empty-text-padding;
+  //   color: @disabled-color;
+  //   font-size: @font-size-base;
+  //   text-align: center;
+  // }
+
+  &-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $list-item-padding;
+    color: var(--#{$list-prefix-cls}-color-text-title);
+
+    &-meta {
+      display: flex;
+      flex: 1;
+      align-items: flex-start;
+      max-width: 100%;
+
+      &-avatar {
+        margin-right: 16px;
+      }
+
+      &-content {
+        flex: 1 0;
+        width: 0;
+        color: var(--#{$list-prefix-cls}-color-text-title);
+      }
+
+      &-title {
+        margin-top: 0;
+        margin-bottom: 4px;
+        color: var(--#{$list-prefix-cls}-color-text-title);
+        font-size: var(--#{$list-prefix-cls}-font-size-title);
+        font-weight: var(--#{$list-prefix-cls}-font-weight-title);
+        line-height: 1.57;
+
+        > a {
+          color: var(--#{$list-prefix-cls}-color-text-title);
+          transition: all 0.3s;
+
+          &:hover {
+            color: #4e97ff;
+          }
+        }
+      }
+
+      &-description {
+        color: var(--#{$list-prefix-cls}-color-text-content);
+        font-size: var(--#{$list-prefix-cls}-font-size-content);
+        font-weight: var(--#{$list-prefix-cls}-font-weight-content);
+        line-height: 1.57;
+      }
+    }
+
+    &-action {
+      flex: 0 0 auto;
+      margin-left: 48px;
+      padding: 0;
+      font-size: 0;
+      list-style: none;
+
+      & > li {
+        position: relative;
+        display: inline-block;
+        padding: 0 8px;
+        color: $text-color-secondary;
+        font-size: $font-size-base;
+        line-height: 1.57;
+        text-align: center;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+      &-split {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 1px;
+        height: 14px;
+        margin-top: -7px;
+        background-color: var(--#{$list-prefix-cls}-color-border-item);
+      }
+    }
+  }
+
+  // &-header {
+  //   background: @list-header-background;
+  // }
+
+  // &-footer {
+  //   background: @list-footer-background;
+  // }
+
+  &-header,
+  &-footer {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &-empty {
+    padding: 16px 0;
+    color: $text-color-secondary;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  &-split &-item {
+    border-bottom: $border-split;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-split &-header {
+    border-bottom: $border-split;
+  }
+
+  &-split.#{$prefix-cls}-empty &-footer {
+    border-top: $border-split;
+  }
+
+  &-loading &-spin-nested-loading {
+    min-height: 32px;
+  }
+
+  &-split.#{$prefix-cls}-something-after-last-item .#{$prefix-cls}-spin-container > &-items > &-item:last-child {
+    border-bottom: $border-split;
+  }
+
+  &-lg &-item {
+    padding: 16px 24px;
+  }
+
+  &-sm &-item {
+    padding: 8px 16px;
+  }
+
+  &-vertical &-item {
+    align-items: initial;
+
+    &-main {
+      display: block;
+      flex: 1;
+    }
+
+    &-extra {
+      margin-left: 40px;
+    }
+
+    &-meta {
+      margin-bottom: 16px;
+
+      &-title {
+        margin-top: 0;
+        margin-bottom: 12px;
+        color: #333;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &-action {
+      margin-top: 16px;
+      margin-left: auto;
+
+      > li {
+        padding: 0 16px;
+
+        &:first-child {
+          /*!rtl:ignore*/
+          padding-left: 0;
+        }
+      }
+      &-rtl{
+        > li {
+          padding: 0 16px;
+  
+          &:first-child {
+          /*!rtl:ignore*/
+            padding-right: 0;
+          /*!rtl:ignore*/
+            padding-left: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  &-grid .#{$prefix-cls}col > .#{$list-prefix-cls}-item {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  // ============================ without flex ============================
+  &-item-no-flex {
+    display: block;
+  }
+
+  // Horizontal
+  &:not(.#{$list-prefix-cls}-vertical) {
+    .#{$list-prefix-cls}-item-no-flex {
+      .#{$list-prefix-cls}-item-action {
+        float: right;
+      }
+    }
+  }
+}
+
+.#{$list-prefix-cls}-bordered {
+  border: var(--#{$list-prefix-cls}-border-width) var(--#{$list-prefix-cls}-border-style) var(--#{$list-prefix-cls}-color-border);
+  border-radius: var(--#{$list-prefix-cls}-border-radius);
+
+  .#{$list-prefix-cls}-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .#{$list-prefix-cls}-footer {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .#{$list-prefix-cls}-item {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  // .#{$list-prefix-cls}-pagination {
+  //   margin: @margin-md @margin-lg;
+  // }
+
+  &.#{$list-prefix-cls}-sm {
+    .#{$list-prefix-cls}-item {
+      padding: 8px 16px;
+    }
+
+    .#{$list-prefix-cls}-header,
+    .#{$list-prefix-cls}-footer {
+      padding: 8px 16px;
+    }
+  }
+
+  &.#{$list-prefix-cls}-lg {
+    .#{$list-prefix-cls}-item {
+      padding: 16px 24px;
+    }
+
+    .#{$list-prefix-cls}-header,
+    .#{$list-prefix-cls}-footer {
+      padding: 16px 24px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-md-min) {
+  .#{$list-prefix-cls} {
+    &-item {
+      &-action {
+        margin-left: 24px;
+      }
+    }
+  }
+
+  .#{$list-prefix-cls}-vertical {
+    .#{$list-prefix-cls}-item {
+      &-extra {
+        margin-left: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .#{$list-prefix-cls} {
+    &-item {
+      flex-wrap: wrap;
+
+      &-action {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .#{$list-prefix-cls}-vertical {
+    .#{$list-prefix-cls}-item {
+      flex-wrap: wrap-reverse;
+
+      &-main {
+        min-width: 220px;
+      }
+
+      &-extra {
+        margin: auto auto 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.base", 
+  "compilerOptions": {
+
+    "baseUrl": "./next-ui-library/",                       /* 解析非相对模块的基地址，默认是当前目录 Base directory to resolve non-absolute module names. */
+    "paths": {
+        "@tinper/next-ui": ["../packages/index.tsx"],
+        "react": ["../node_modules/@types/react"],
+        "*": ["node_modules/*"],
+        }, /* 路径映射，相对于baseUrl ,A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+  },
+  "exclude": [
+      "node_modules",
+    //   "./packages/**/demo/*",
+    //   "./packages/**/demo/**/*"
+    ],
+  "include": [
+    "./index.d.ts",
+    "./html.d.ts",
+    "./packages/",
+    "./packages/**/src/*",
+    "./packages/**/src/**/*",
+    "./packages/**/demo/*",
+    "./packages/**/demo/**/*",
+    "./next-ui-library/cypress/*",
+    "./next-ui-library/cypress/**/*",
+  ]
+}

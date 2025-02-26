@@ -1,0 +1,138 @@
+@import '../../wui-core/scss/minxin-mixins';
+
+$info-font-size: 18px;
+
+.#{$alert-prefix-cls} {
+    position: relative;
+    padding: $alert-padding 0 $alert-padding 8px;
+    border: 0px solid transparent;
+    border-radius: var(--#{$alert-prefix-cls}-border-radius); // 去掉圆角，默认为0
+    font-size: $font-size-base;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    .show-icon {
+        align-self: flex-start;
+        margin-left: 4px;
+        margin-right: 8px;
+        font-size: $info-font-size;
+        padding: 0;
+    }
+
+    .content {
+        flex: 1;
+        -ms-flex: 1 1 auto; // QDJCJS-9684，修复IE11的flex: 1解析错误问题；
+        font-size: var(--#{$alert-prefix-cls}-font-size);
+        font-weight: var(--#{$alert-prefix-cls}-font-weight);
+        color: var(--#{$alert-prefix-cls}-color-text);
+
+        .message {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+
+        .description {
+            font-size: 14px;
+        }
+    }
+
+    &.dark {
+        .content, .uf-close, .uf-close:hover {
+            color: var(--#{$alert-prefix-cls}-color-text-inverse-fill);
+        }
+    }
+
+    .close {
+        align-self: flex-start;
+        margin: 0 12px;
+        font-weight: $alert-close-font-weight;
+        cursor: pointer;
+    }
+}
+
+.#{$alert-prefix-cls}-success.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-success));
+    border-color: var(--#{$wui-prefix}-color-success);
+
+    .show-icon {
+        color: var(--#{$wui-prefix}-color-success);
+    }
+}
+
+.#{$alert-prefix-cls}-info.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-info));
+    border-color: var(--#{$wui-prefix}-color-info);
+
+    .show-icon {
+        color: var(--#{$wui-prefix}-color-info);
+    }
+}
+
+.#{$alert-prefix-cls}-warning.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-warning));
+    border-color: var(--#{$wui-prefix}-color-warning);
+
+    .show-icon {
+        color: var(--#{$wui-prefix}-color-warning);
+    }
+}
+
+.#{$alert-prefix-cls}-danger.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-danger));
+    border-color: var(--#{$wui-prefix}-color-danger);
+
+    .show-icon {
+        color: var(--#{$wui-prefix}-color-danger);
+    }
+}
+
+.dark.#{$alert-prefix-cls}-success.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-fill-success), $snackbar-color);
+
+    .show-icon {
+        color: var(--#{$alert-prefix-cls}-color-icon-inverse-fill);
+    }
+}
+
+.dark.#{$alert-prefix-cls}-info.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-fill-info), $snackbar-color);
+
+    .show-icon {
+        color: var(--#{$alert-prefix-cls}-color-icon-inverse-fill);
+    }
+}
+
+.dark.#{$alert-prefix-cls}-warning.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-fill-warning), $snackbar-color);
+
+    .show-icon {
+        color: var(--#{$alert-prefix-cls}-color-icon-inverse-fill);
+    }
+}
+
+.dark.#{$alert-prefix-cls}-danger.#{$alert-prefix-cls} {
+    @include alert-styles-variant(var(--#{$alert-prefix-cls}-color-bg-fill-danger), $snackbar-color);
+
+    .show-icon {
+        color: var(--#{$alert-prefix-cls}-color-icon-inverse-fill);
+    }
+}
+
+.#{$alert-prefix-cls}.#{$alert-prefix-cls}-bordered {
+    border-width: 1px;
+}
+.#{$alert-prefix-cls} {
+    .uf-close {
+        font-size: var(--#{$wui-prefix}-font-size-feedback);
+        padding: 0;
+        color: var(--#{$wui-prefix}-color-icon-close-feedback);
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: var(--#{$wui-prefix}-color-icon-close-feedback-hover);
+        }
+    }
+}

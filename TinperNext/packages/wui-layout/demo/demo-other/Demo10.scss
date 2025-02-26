@@ -1,0 +1,25 @@
+.demos-wui-layout {
+    .layout-spliter{
+        box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+        .site-layout{
+            header{
+                line-height: 64px;
+                padding-left: 20px;
+                border-bottom: 1px solid #f1f1f1;
+                .uf{
+                    font-size: 20px;
+                }
+            }
+        }
+        .wui-layout-sider {
+            padding: 16px 0;
+            .logo {
+                height: 32px;
+                width: calc(100% - 32px);
+                margin: 0 16px 30px 16px;
+                background: rgba(255, 255, 255, 0.3);
+                box-sizing: border-box;
+            }
+        }
+    }
+}

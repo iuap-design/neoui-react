@@ -1,0 +1,127 @@
+.demos-wui-table {
+  .demo0501 .wui-table {
+    .wui-row-hover {
+      .opt-btns, .cancel-btns {
+        button {
+          margin: 0;
+
+          &:first-child {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+
+    .wui-table-row {
+      td {
+        input {
+          font-size: 12px;
+        }
+      }
+
+      .wui-form-control,
+      .wui-select-selection {
+        height: 30px;
+      }
+    }
+
+    .editable-cell-text-wrapper {
+      box-sizing: border-box;
+      line-height: 20px;
+      border-radius: 3px;
+    }
+
+    .required {
+      margin-left: 10px;
+      position: relative;
+
+      &::before {
+        content: " ";
+        border: 1px solid #F44336;
+        width: 0;
+        height: 12px;
+        position: absolute;
+        top: 9px;
+        left: -8px;
+        background: #F44336;
+      }
+
+      span.wui-input-group {
+        display: block
+      }
+    }
+
+    .verify-cell {
+      padding-right: 25px !important;
+    }
+
+    .required-icon {
+      position: absolute;
+      top: 2px;
+      color: #F44336;
+      font-size: 20px;
+    }
+
+    .ref-input-wrap {
+      width: 160px !important;
+    }
+  }
+
+  .wui-editable-table-tp {
+    .tp-content {
+      color: #F44336;
+    }
+  }
+}
+
+.inline-edit-demo-modal {
+  .wui-modal-dialog {
+    .wui-modal-body {
+      background: #fff;
+
+      .ref-core-search {
+        width: auto;
+        outline: none;
+
+        > input {
+          padding-right: 20px !important;
+          width: 240px;
+          height: 28px;
+          background: #FFFFFF;
+          border-radius: 4px;
+          border: 1px solid #d9d9d9;
+          outline: none;
+          text-indent: 8px;
+
+          &:active, &:focus {
+            border-color: #505766;
+          }
+        }
+
+        .wui-input-group-btn {
+          right: 5px !important;
+          min-width: 20px;
+
+          .uf {
+            margin-top: 6px;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .wui-tree {
+        li {
+          text-align: left;
+        }
+      }
+    }
+
+    .wui-modal-footer {
+      .ref-core-button .wui-button:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

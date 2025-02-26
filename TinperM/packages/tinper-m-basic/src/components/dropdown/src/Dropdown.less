@@ -1,0 +1,103 @@
+@import (reference) '../../../theme/index.less';
+
+
+.@{dropdown-prefix-cls} {
+  background-color: var(--mui-color-background);
+  --icon-color: ~'var(--@{dropdown-prefix-cls}-color-icon)';
+  --text-color: ~'var(--@{dropdown-prefix-cls}-color-text)';
+  --font-size: ~'var(--@{dropdown-prefix-cls}-font-size)';
+
+  color: var(--text-color);
+
+  .@{dropdown-prefix-cls}-nav {
+    display: flex;
+    border-bottom: 1px solid transparent;
+    padding-top: 0.12rem;
+    padding-bottom: 0.12rem;
+  }
+
+  &-open {
+    .@{dropdown-prefix-cls}-nav {
+      border-bottom-color: var(--mui-color-border);
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    cursor: pointer;
+    // max-width: 220px;
+
+
+    .@{dropdown-prefix-cls-item}-title {
+      display: flex;
+      align-items: center;
+      position: relative;
+      max-width: 100%;
+      font-size: var(--font-size);
+      padding: 0 0.24rem;
+      &-label {
+        background-color: var(--mui-color-background);
+      }
+      &-text {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      &-arrow {
+        color: var(--icon-color);
+        font-size: 9px;
+        transform: rotate(0deg) translateY(1px);
+        transition: all ease 0.2s;
+
+        &-active {
+          transform: rotate(-180deg) translateY(2px);
+        }
+      }
+      &:active {
+        opacity: 0.7;
+      }
+    }
+
+    &-highlight {
+      color: ~"var(--@{dropdown-prefix-cls}-color-text-dropdown-selected)";
+
+      .@{dropdown-prefix-cls-item}-title-arrow-active {
+        color: ~"var(--@{dropdown-prefix-cls}-color-icon-dropdown-selected)";
+      }
+    }
+
+    &-active {
+      .@{dropdown-prefix-cls-item}-title:after {
+        margin-top: -1px;
+        transform: rotate(135deg);
+      }
+    }
+
+    &-content {
+      width: 100%;
+      &-hidden {
+        display: none;
+      }
+    }
+  }
+
+  &-popup {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .@{dropdown-prefix-cls}-popup-mask {
+      position: absolute;
+    }
+
+    .@{dropdown-prefix-cls}-popup-body {
+      position: absolute;
+    }
+  }
+}

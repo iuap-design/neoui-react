@@ -1,0 +1,1370 @@
+{
+    "global": [
+        {
+            "property": "--wui-base-bg-color",
+            "value": "#fff",
+            "desc": "公共base变量：背景颜色；",
+            "readonly": false,
+            "components": "calendar,card,carousel,cascader,collapse,colorpicker,datepicker,drawer,layout,menu,modal,popover,select,table,timepicker,transfer,treeselect,upload"
+        },
+        {
+            "property": "--wui-base-bg-color-disabled",
+            "value": "#f7f7f7",
+            "desc": "公共base变量：背景颜色 禁用态；",
+            "readonly": false,
+            "components": "button,checkbox,dropdown,menu,radio,slider,tree,treeselect"
+        },
+        {
+            "property": "--wui-base-border-color",
+            "value": "#d9d9d9",
+            "desc": "公共base变量：边框颜色；",
+            "readonly": false,
+            "components": "badge,calendar,card,checkbox,collapse,colorpicker,datepicker,divider,drawer,menu,message,modal,radio,tag,timepicker,treeselect,upload"
+        },
+        {
+            "property": "--wui-base-border-color-disabled",
+            "value": "#e4e4e4",
+            "desc": "公共base变量：边框颜色 禁用态；",
+            "readonly": false,
+            "components": "checkbox,slider,tree,treeselect"
+        },
+        {
+            "property": "--wui-base-clear-icon-color",
+            "value": "#ccc",
+            "desc": "公共base清除图标：图标颜色；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,select,slider,timepicker,transfer,treeselect"
+        },
+        {
+            "property": "--wui-base-clear-icon-color-hover",
+            "value": "#505766",
+            "desc": "公共base清除图标：图标颜色 hover态；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,select,slider,timepicker,transfer,treeselect"
+        },
+        {
+            "property": "--wui-base-clear-icon-font-size",
+            "value": "16px",
+            "desc": "公共base关闭图标：字体大小；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,select,slider,timepicker,transfer,treeselect"
+        },
+        {
+            "property": "--wui-base-close-icon-color",
+            "value": "#999",
+            "desc": "公共base关闭图标：图标颜色；",
+            "readonly": false,
+            "components": "drawer,empty,message,modal,notification,select,table,tag,treeselect,upload"
+        },
+        {
+            "property": "--wui-base-close-icon-color-hover",
+            "value": "#505766",
+            "desc": "公共base关闭图标：图标颜色 hover态；",
+            "readonly": false,
+            "components": "drawer,message,modal,notification,select,table,tag,treeselect,upload"
+        },
+        {
+            "property": "--wui-base-item-bg-hover",
+            "value": "#f0f0f0",
+            "desc": "公共base子项目：背景颜色 hover态；",
+            "readonly": false,
+            "components": "cascader,datepicker,form,input,input-number,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-base-input-sm-height",
+            "value": "26px",
+            "desc": "",
+            "readonly": false,
+            "components": "calendar,cascader,menu,select,table,timepicker,transfer,tree,treeselect"
+        },
+        {
+            "property": "--wui-base-item-bg-selected-hover",
+            "value": "#dbe0e5",
+            "desc": "公共base子项目：背景颜色 selected 的 hover态；",
+            "readonly": false,
+            "components": "cascader,menu,select,table,transfer,tree,treeselect"
+        },
+        {
+            "property": "--wui-base-item-color",
+            "value": "var(--wui-base-text-color)",
+            "desc": "公共base子项目：字体颜色；",
+            "readonly": true,
+            "components": "datepicker,timepicker"
+        },
+        {
+            "property": "--wui-base-item-color-disabled",
+            "value": "var(--wui-base-text-color-disabled)",
+            "desc": "公共base子项目：字体颜色 禁用态；",
+            "readonly": true,
+            "components": "cascader,menu,tree,treeselect"
+        },
+        {
+            "property": "--wui-base-scrollbar-bg",
+            "value": "#cdd9e6",
+            "desc": "公共base滚动条：滚动条背景色；",
+            "readonly": false,
+            "components": "calendar,cascader,datepicker,input,input-number,menu,popover,slider,table,timepicker,tooltip"
+        },
+        {
+            "property": "--wui-base-text-color",
+            "value": "#111",
+            "desc": "公共base变量：字体颜色；",
+            "readonly": false,
+            "components": "anchor,button,calendar,card,checkbox,clipboard,collapse,colorpicker,datepicker,divider,drawer,dropdown,form,input-number,layout,list,menu,modal,popover,progress,radio,slider,spin,steps,table,tabs,timeline,timepicker,tooltip,transfer,tree,treeselect,upload"
+        },
+        {
+            "property": "--wui-base-text-color-disabled",
+            "value": "#999",
+            "desc": "公共base变量：字体颜色 禁用态；",
+            "readonly": false,
+            "components": "button,checkbox,dropdown,menu,radio,select,steps,table,tabs,transfer,treeselect"
+        },
+        {
+            "property": "--wui-button-default-bg-color",
+            "value": "#fff",
+            "desc": "按钮：默认按钮背景颜色；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-bg-color-hover",
+            "value": "#F3F5F9",
+            "desc": "按钮：默认按钮背景颜色hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-bg-color-hover",
+            "value": "var(--ynfw-color-bg-btn-hover, #F3F5F9)",
+            "desc": "",
+            "readonly": true,
+            "components": "button,calendar,dropdown"
+        },
+        {
+            "property": "--wui-button-default-border-color",
+            "value": "#bbb",
+            "desc": "按钮：默认按钮边框颜色；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-border-color-active",
+            "value": "#505766",
+            "desc": "按钮：默认按钮边框颜色active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-border-color-hover",
+            "value": "#505766",
+            "desc": "按钮：默认按钮边框颜色hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-color",
+            "value": "#505766",
+            "desc": "按钮：默认按钮文字颜色；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-color-active",
+            "value": "#373c47",
+            "desc": "按钮：默认按钮文字颜色active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-default-color-hover",
+            "value": "#373c47",
+            "desc": "按钮：默认按钮文字颜色hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-text-color",
+            "value": "#0033cc",
+            "desc": "按钮：文字按钮文本颜色；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-text-color-active",
+            "value": "#0066ff",
+            "desc": "按钮：文字按钮文本颜色active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-text-color-disabled",
+            "value": "#ccc",
+            "desc": "按钮：文字按钮文本颜色disabled态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-button-text-color-hover",
+            "value": "#0066ff",
+            "desc": "按钮：文字按钮文本颜色hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-checkbox-bg-color",
+            "value": "#fff",
+            "desc": "复选框：背景色",
+            "readonly": false,
+            "components": "checkbox,tree,treeselect"
+        },
+        {
+            "property": "--wui-danger-color",
+            "value": "#ff5735",
+            "desc": "危险色；",
+            "readonly": false,
+            "components": "badge,button,checkbox,colorpicker,dropdown,form,message,modal,notification,progress,radio,steps,switch,table,tag,timeline,upload"
+        },
+        {
+            "property": "--wui-danger-color-active",
+            "value": "#cc452a",
+            "desc": "危险色 active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-danger-color-hover",
+            "value": "#cc452a",
+            "desc": "危险色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-dark-color",
+            "value": "#505766",
+            "desc": "黑暗色；",
+            "readonly": false,
+            "components": "badge,button,checkbox,colorpicker,dropdown,menu,message,popover,progress,radio,select,slider,switch,table,tabs,tag,tooltip,transfer,tree,treeselect"
+        },
+        {
+            "property": "--wui-dark-color-active",
+            "value": "#404551",
+            "desc": "黑暗色 active态；",
+            "readonly": false,
+            "components": "button,dropdown,popover"
+        },
+        {
+            "property": "--wui-dark-color-hover",
+            "value": "#404551",
+            "desc": "黑暗色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-info-color",
+            "value": "#588ce9",
+            "desc": "提示色；",
+            "readonly": false,
+            "components": "autocomplete,badge,button,card,checkbox,datepicker,dropdown,form,layout,message,modal,notification,progress,radio,slider,steps,switch,table,tag,timeline,timepicker,upload"
+        },
+        {
+            "property": "--wui-info-color-active",
+            "value": "#4670ba",
+            "desc": "提示色 active态；",
+            "readonly": false,
+            "components": "button,datepicker,dropdown,table"
+        },
+        {
+            "property": "--wui-info-color-hover",
+            "value": "#4670ba",
+            "desc": "提示色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown,table"
+        },
+        {
+            "property": "--wui-input-bg",
+            "value": "var(--wui-base-bg-color)",
+            "desc": "公共输入框：背景色；",
+            "readonly": true,
+            "components": "cascader,datepicker,form,input,input-group,input-number,select,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-bg-disabled",
+            "value": "var(--wui-base-bg-color-disabled)",
+            "desc": "公共输入框：背景色 禁用态；",
+            "readonly": true,
+            "components": "cascader,checkbox,datepicker,form,input,input-number,select,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-border-color",
+            "value": "rgba(80, 87, 102, 0.35)",
+            "desc": "公共输入框：边框颜色；",
+            "readonly": false,
+            "components": "cascader,checkbox,datepicker,form,input,input-group,input-number,radio,transfer,treeselect"
+        },
+        {
+            "property": "--wui-input-border-color-disabled",
+            "value": "rgba(80, 87, 102, 0.2)",
+            "desc": "公共输入框：边框颜色 禁用态；",
+            "readonly": false,
+            "components": "cascader,checkbox,datepicker,form,input,input-number,radio,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-border-color-focus",
+            "value": "#0091ff",
+            "desc": "公共输入框：边框颜色 focus态；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-border-color-hover",
+            "value": "rgba(80, 87, 102, 0.8)",
+            "desc": "公共输入框：边框颜色 hover态；",
+            "readonly": false,
+            "components": "cascader,checkbox,datepicker,input,input-number,radio,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-color",
+            "value": "#111",
+            "desc": "公共输入框：字体颜色；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,select,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-color-disabled",
+            "value": "var(--wui-base-text-color-disabled)",
+            "desc": "公共输入框：字体颜色 禁用态；",
+            "readonly": true,
+            "components": "cascader,datepicker,input,input-number,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-font-size",
+            "value": "var(--ynfw-font-size-input, 12px)",
+            "desc": "",
+            "readonly": true,
+            "components": "cascader,input,input-number,select,treeselect"
+        },
+        {
+            "property": "--wui-input-placeholder-color",
+            "value": "#ccc",
+            "desc": "公共输入框：placeholder占位符；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,select,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-suffix-icon-color",
+            "value": "rgba(80, 87, 102, 0.6)",
+            "desc": "公共输入框：后缀图标颜色；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-group,input-number,menu,select,table,timepicker,treeselect"
+        },
+        {
+            "property": "--wui-input-suffix-icon-color-hover",
+            "value": "rgba(80, 87, 102, 1)",
+            "desc": "公共输入框：后缀图标颜色 hover态；",
+            "readonly": false,
+            "components": "cascader,input,input-group,input-number"
+        },
+        {
+            "property": "--wui-input-suffix-icon-font-size",
+            "value": "16px",
+            "desc": "输入框前后缀图标：字体大小；",
+            "readonly": false,
+            "components": "cascader,datepicker,input,input-number,timepicker"
+        },
+        {
+            "property": "--wui-primary-color",
+            "value": "rgb(238, 34, 51)",
+            "desc": "主色；",
+            "readonly": false,
+            "components": "anchor,badge,button,calendar,checkbox,colorpicker,datepicker,dropdown,menu,progress,radio,select,spin,steps,switch,tabs,timeline,transfer,tree,treeselect,upload"
+        },
+        {
+            "property": "--wui-primary-color-active",
+            "value": "rgb(190, 27, 40)",
+            "desc": "主色 active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-primary-color-hover",
+            "value": "rgb(190, 27, 40)",
+            "desc": "主色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-secondary-color",
+            "value": "#dbe0e5",
+            "desc": "次要色；",
+            "readonly": false,
+            "components": "button,dropdown,table"
+        },
+        {
+            "property": "--wui-secondary-color-active",
+            "value": "#c4c9cd",
+            "desc": "主色 active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-secondary-color-hover",
+            "value": "#c4c9cd",
+            "desc": "主色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-select-loading-bg-color",
+            "value": "#eee",
+            "desc": "下拉框：加载中浅色部分边框颜色",
+            "readonly": false,
+            "components": "select,treeselect"
+        },
+        {
+            "property": "--wui-select-loading-color",
+            "value": "#aaa",
+            "desc": "下拉框：加载中深色部分边框颜色",
+            "readonly": false,
+            "components": "select,treeselect"
+        },
+        {
+            "property": "--wui-success-color",
+            "value": "#18b681",
+            "desc": "成功色；",
+            "readonly": false,
+            "components": "badge,button,checkbox,dropdown,form,message,modal,notification,progress,radio,spin,steps,switch,tag,timeline,upload"
+        },
+        {
+            "property": "--wui-success-color-active",
+            "value": "#139167",
+            "desc": "成功色 active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-success-color-hover",
+            "value": "#139167",
+            "desc": "成功色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-warning-color",
+            "value": "#ffa600",
+            "desc": "警告色；",
+            "readonly": false,
+            "components": "badge,button,checkbox,dropdown,form,message,modal,notification,popover,progress,radio,spin,switch,tag,timeline,upload"
+        },
+        {
+            "property": "--wui-warning-color-active",
+            "value": "#cc8400",
+            "desc": "警告色 active态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        },
+        {
+            "property": "--wui-warning-color-hover",
+            "value": "#cc8400",
+            "desc": "警告色 hover态；",
+            "readonly": false,
+            "components": "button,dropdown"
+        }
+    ],
+    "avatar": [
+        {
+            "property": "--wui-avatar-color",
+            "value": "#fff",
+            "desc": "头像：字体颜色",
+            "readonly": false,
+            "components": "avatar"
+        },
+        {
+            "property": "--wui-avatar-bg-color",
+            "value": "#ccc",
+            "desc": "头像：背景色",
+            "readonly": false,
+            "components": "avatar"
+        },
+        {
+            "property": "--wui-avatar-border-color",
+            "value": "#fff",
+            "desc": "头像：边框颜色",
+            "readonly": false,
+            "components": "avatar"
+        }
+    ],
+    "calendar": [
+        {
+            "property": "--wui-calendar-table-header-border-color",
+            "value": "#505766",
+            "desc": "日历：日历头部边框色",
+            "readonly": false,
+            "components": "calendar"
+        },
+        {
+            "property": "--wui-calendar-table-header-bg-color",
+            "value": "#f7f9fd",
+            "desc": "日历头部背景色",
+            "readonly": false,
+            "components": "calendar"
+        },
+        {
+            "property": "--wui-primary-color-light",
+            "value": "rgba(238, 34, 51, 0.1)",
+            "desc": "主色 浅色态；",
+            "readonly": false,
+            "components": "calendar"
+        }
+    ],
+    "card": [
+        {
+            "property": "--wui-card-head-bg-color",
+            "value": "#fafafa",
+            "desc": "card标题的背景色",
+            "readonly": false,
+            "components": "card"
+        }
+    ],
+    "datepicker": [
+        {
+            "property": "--wui-base-item-color-active",
+            "value": "var(--wui-primary-color)",
+            "desc": "公共base子项目：字体颜色 active态；",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-border-width-divider",
+            "value": "var(--ynfw-border-width-divider-cascader, 1px)",
+            "desc": "级联选择-面板-分割线-宽度",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-border-style-divider",
+            "value": "var(--ynfw-border-style-divider-cascader, solid)",
+            "desc": "级联选择-面板-分割线-类型",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-divider",
+            "value": "var(--ynfw-color-divider-cascader, #E9E9E9)",
+            "desc": "级联选择-面板-分割线-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-text",
+            "value": "var(--ynfw-color-text-cascader, var(--wui-base-item-color))",
+            "desc": "级联：级联菜单-面板-文字-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-text-disabled",
+            "value": "var(--ynfw-color-text-cascader-disabled, var(--wui-base-item-color-disabled))",
+            "desc": "级联：禁用-级联菜单-面板-文字-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-font-size-icon",
+            "value": "var(--ynfw-font-size-icon-cascader, 12px)",
+            "desc": "级联选择-下级-图标-字号",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-icon",
+            "value": "var(--ynfw-color-icon-cascader, #A8ABB3)",
+            "desc": "默认-级联选择-下级-图标-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-icon-hover",
+            "value": "var(--ynfw-color-icon-cascader-hover, #505766)",
+            "desc": "悬停-级联选择-下级-图标-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-color-icon-pressed",
+            "value": "var(--ynfw-color-icon-cascader-pressed, #505766)",
+            "desc": "点击-级联选择-下级-图标-颜色",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-font-size",
+            "value": "var(--ynfw-font-size-cascader, 12px)",
+            "desc": "级联：级联菜单-面板-文字-字号",
+            "readonly": true,
+            "components": "cascader"
+        },
+        {
+            "property": "--wui-cascader-font-weight",
+            "value": "var(--ynfw-font-weight-cascader, 400)",
+            "desc": "级联：级联菜单-面板-文字-字重",
+            "readonly": true,
+            "components": "cascader"
+        }
+    ],
+    "checkbox": [
+        {
+            "property": "--wui-checkbox-font-size",
+            "value": "var(--ynfw-font-size-checkbox, 12px)",
+            "desc": "多选: 文字-字号",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-font-weight",
+            "value": "var(--ynfw-font-weight-checkbox, 400)",
+            "desc": "多选: 文字-字重",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg-fill-checkbox-selected",
+            "value": "var(--ynfw-color-bg-fill-checkbox-selected, #EE2233)",
+            "desc": "选中-多选-填充模式-背景-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-border-radius",
+            "value": "var(--ynfw-border-radius-checkbox, 2px)",
+            "desc": "多选-边框-圆角",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border",
+            "value": "var(--ynfw-color-border-checkbox, var(--wui-input-border-color))",
+            "desc": "多选-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg",
+            "value": "var(--ynfw-color-bg-checkbox, var(--wui-base-bg-color))",
+            "desc": "多选-背景-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border-hover",
+            "value": "var(--ynfw-color-border-checkbox-hover, var(--wui-input-border-color-hover))",
+            "desc": "悬停-多选-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-text",
+            "value": "var(--ynfw-color-text-checkbox, var(--wui-base-text-color))",
+            "desc": "多选: 文字-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border-fill-checkbox",
+            "value": "var(--ynfw-color-border-fill-checkbox, #D4D4D4)",
+            "desc": "多选-填充模式-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg-fill-checkbox",
+            "value": "#FFF",
+            "desc": "多选-填充模式-背景-颜色",
+            "readonly": false,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-text-disabled",
+            "value": "var(--ynfw-color-text-checkbox-disabled, var(--wui-base-item-color-disabled))",
+            "desc": "禁用: 多选-文字-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border-fill-checkbox-disabled",
+            "value": "var(--ynfw-color-border-fill-checkbox-disabled, #D1D5DB)",
+            "desc": "禁用-多选-填充模式-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg-fill-checkbox-disabled",
+            "value": "var(--ynfw-color-bg-fill-checkbox-disabled, #F7f7f7)",
+            "desc": "禁用-多选-填充模式-背景-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border-disabled",
+            "value": "var(--ynfw-color-border-checkbox-disabled, var(--wui-input-border-color-disabled))",
+            "desc": "禁用-多选-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg-disabled",
+            "value": "var(--ynfw-color-bg-checkbox-disabled, var(--wui-base-bg-color-disabled))",
+            "desc": "禁用-多选-背景-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-border-fill-checkbox-hover",
+            "value": "var(--ynfw-color-border-fill-checkbox-hover, #505766)",
+            "desc": "悬停-多选-填充模式-边框-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        },
+        {
+            "property": "--wui-checkbox-color-bg-fill-checkbox-selected-hover",
+            "value": "var(--ynfw-color-bg-fill-checkbox-selected-hover, #be1b28)",
+            "desc": "悬停-选中-多选-填充模式-背景-颜色",
+            "readonly": true,
+            "components": "checkbox"
+        }
+    ],
+    "collapse": [
+        {
+            "property": "--wui-collapse-color-bg-body",
+            "value": "var(--ynfw-color-bg-body-collapse, var(--wui-base-bg-color))",
+            "desc": "折叠-内容-背景-颜色",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-border-radius",
+            "value": "var(--ynfw-border-radius-collapse, 4px)",
+            "desc": "折叠-边线-圆角",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-border-width",
+            "value": "var(--ynfw-border-width-collapse, 1px)",
+            "desc": "折叠-边线-粗细",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-border-style",
+            "value": "var(--ynfw-border-style-collapse, solid)",
+            "desc": "折叠-边线-样式",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-color-border",
+            "value": "var(--ynfw-color-border-collapse, var(--wui-base-border-color))",
+            "desc": "折叠-边线-颜色",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-font-size-title",
+            "value": "var(--ynfw-font-size-title-collapse, 14px)",
+            "desc": "折叠: 标题-文字-字号",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-font-weight-title",
+            "value": "var(--ynfw-font-weight-title-collapse, 400)",
+            "desc": "折叠: 标题-文字-字重",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-color-text-title",
+            "value": "var(--ynfw-color-text-title-collapse, var(--wui-base-text-color))",
+            "desc": "折叠: 标题-文字-颜色",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-size-height-header",
+            "value": "var(--ynfw-size-height-header-collapse, 40px)",
+            "desc": "折叠-标题-高度",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-font-size-content",
+            "value": "var(--ynfw-font-size-content-collapse, 12px)",
+            "desc": "折叠: 内容-文字-字号",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-font-weight-content",
+            "value": "var(--ynfw-font-weight-content-collapse, 400)",
+            "desc": "折叠: 内容-文字-字重",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-color-text-content",
+            "value": "var(--ynfw-color-text-content-collapse, var(--wui-base-text-color))",
+            "desc": "折叠: 内容-文字-颜色",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-bg-color",
+            "value": "var(--ynfw-color-bg-list-collapse, #f9fbff)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-text-color",
+            "value": "var(--ynfw-color-text-title-list-collapse, #111)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-text-font-size",
+            "value": "var(--ynfw-font-size-title-list-collapse, 13px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-text-font-weight",
+            "value": "var(--ynfw-font-weight-title-list-collapse, 700)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-divider-width",
+            "value": "var(--ynfw-border-width-divider-list-collapse, 1px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-divider-style",
+            "value": "var(--ynfw-border-style-divider-list-collapse, dashed)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-divider-color",
+            "value": "var(--ynfw-color-divider-list-collapse, #d4d4d4)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-title-height",
+            "value": "var(--ynfw-size-height-title-list-collapse, 32px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-bg-color",
+            "value": "var(--ynfw-color-bg-card-collapse, #f9fbff)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-text-color",
+            "value": "var(--ynfw-color-text-title-card-collapse, #111)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-text-font-size",
+            "value": "var(--ynfw-font-size-title-card-collapse, 16px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-text-font-weight",
+            "value": "var(--ynfw-font-weight-title-card-collapse, 700)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-title-height",
+            "value": "var(--ynfw-size-height-title-card-collapse, 32px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-icon-size",
+            "value": "var(--ynfw-font-size-icon-card-collapse, 16px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-content-text-color",
+            "value": "var(--ynfw-color-text-content-list-collapse, #333)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-content-text-font-size",
+            "value": "var(--ynfw-font-size-content-list-collapse, 13px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-list-content-font-weight",
+            "value": "var(--ynfw-font-weight-content-list-collapse, 400)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-content-text-color",
+            "value": "var(--ynfw-color-text-content-card-collapse, #333)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-content-text-font-size",
+            "value": "var(--ynfw-font-size-content-card-collapse, 13px)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-card-content-font-weight",
+            "value": "var(--ynfw-font-weight-content-card-collapse, 400)",
+            "desc": "",
+            "readonly": true,
+            "components": "collapse"
+        },
+        {
+            "property": "--wui-collapse-color-bg-header",
+            "value": "var(--ynfw-color-bg-header-collapse, var(--wui-base-bg-color))",
+            "desc": "折叠-标题-背景-颜色",
+            "readonly": true,
+            "components": "collapse"
+        }
+    ],
+    "datepicker": [
+        {
+            "property": "--wui-picker-cell-bg-color-selected",
+            "value": "var(--wui-primary-color-light)",
+            "desc": "RangePicker选中区域的背景色",
+            "readonly": true,
+            "components": "datepicker"
+        },
+        {
+            "property": "--wui-picker-cell-bg-color-hover",
+            "value": "var(--wui-primary-color-light)",
+            "desc": "日期hover、快捷按钮选中的背景色",
+            "readonly": true,
+            "components": "datepicker"
+        },
+        {
+            "property": "--wui-picker-cell-size",
+            "value": "24px",
+            "desc": "日期面板中单元格的宽高",
+            "readonly": false,
+            "components": "datepicker"
+        },
+        {
+            "property": "--wui-picker-input-font-size",
+            "value": "12px",
+            "desc": "日期输入框的字体大小",
+            "readonly": false,
+            "components": "datepicker"
+        }
+    ],
+    "form": [
+        {
+            "property": "--wui-input-bg-color-required",
+            "value": "#fffcea",
+            "desc": "公共输入框：背景色 必填态；",
+            "readonly": false,
+            "components": "form"
+        }
+    ],
+    "pagination": [
+        {
+            "property": "--wui-pagination-color",
+            "value": "var(--wui-base-text-color)",
+            "desc": "分页：页码、翻页箭头字体颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-nointerval-border-color",
+            "value": "var(--ynfw-color-border-pagenumber-nointerval-pagination, rgba(80, 87, 102, 0.35))",
+            "desc": "分页-无间隔边框-颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-pagenumber-bg-color",
+            "value": "var(--ynfw-color-bg-pagenumber-pagination, #FFF)",
+            "desc": "分页-数字-背景-颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-nointerval-border-radius",
+            "value": "var(--ynfw-border-radius-pagenumber-nointerval-pagination, 0)",
+            "desc": "分页-无间隔边框-圆角",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-pagenumber-border-radius",
+            "value": "var(--ynfw-border-radius-pagenumber-pagination, 3px)",
+            "desc": "分页-边框-圆角",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-border-color",
+            "value": "var(--wui-base-border-color)",
+            "desc": "有边框的分页：页码、翻页箭头边框颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-color-hover",
+            "value": "var(--wui-base-text-color)",
+            "desc": "分页：页码、翻页箭头 hover态字体颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-bg-color-hover",
+            "value": "#edf1f7",
+            "desc": "分页：页码、翻页箭头 hover态背景色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-border-color-hover",
+            "value": "#A8ABB3",
+            "desc": "有边框的分页：页码、翻页箭头 hover态边框颜色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-color-active",
+            "value": "#fff",
+            "desc": "分页：页码 当前active态字体颜色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-bg-color-active",
+            "value": "#ADB4BC",
+            "desc": "分页：页码 当前active态背景色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-border-color-active",
+            "value": "#ADB4BC",
+            "desc": "有边框的分页：页码 当前active态边框颜色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-color-disabled",
+            "value": "#777",
+            "desc": "分页：页码、翻页箭头 禁用态字体颜色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-bg-color-disabled",
+            "value": "transparent",
+            "desc": "分页：页码、翻页箭头 禁用态背景色",
+            "readonly": false,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-border-color-disabled",
+            "value": "var(--wui-base-border-color-disabled)",
+            "desc": "有边框的分页：页码、翻页箭头 禁用态边框颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-arrow-icon-color-disabled",
+            "value": "var(--ynfw-color-icon-arrow-pagination-disabled, #c1c7d0)",
+            "desc": "禁用-分页-箭头图标-颜色",
+            "readonly": true,
+            "components": "pagination"
+        },
+        {
+            "property": "--wui-pagination-bg-color",
+            "value": "transparent",
+            "desc": "分页：页码、翻页箭头背景色",
+            "readonly": false,
+            "components": "pagination"
+        }
+    ],
+    "radio": [
+        {
+            "property": "--wui-radio-bg-color",
+            "value": "#fff",
+            "desc": "单选框：背景色",
+            "readonly": false,
+            "components": "radio"
+        }
+    ],
+    "rate": [
+        {
+            "property": "--wui-rate-active-color",
+            "value": "#FFD400",
+            "desc": "评分：激活态颜色；",
+            "readonly": false,
+            "components": "rate"
+        },
+        {
+            "property": "--wui-rate-default-color",
+            "value": "#d9d9d9",
+            "desc": "评分：默认颜色；",
+            "readonly": false,
+            "components": "rate"
+        }
+    ],
+    "skeleton": [
+        {
+            "property": "--wui-skeleton-bg-color",
+            "value": "rgba(190, 190, 190, 0.2)",
+            "desc": "骨架屏：背景色",
+            "readonly": false,
+            "components": "skeleton"
+        },
+        {
+            "property": "--wui-skeleton-bg-to-color",
+            "value": "rgba(129, 129, 129, 0.24)",
+            "desc": "骨架屏：背景渐变色值",
+            "readonly": false,
+            "components": "skeleton"
+        }
+    ],
+    "spin": [
+        {
+            "property": "--wui-spin-color-text",
+            "value": "var(--ynfw-color-text-spin, var(--wui-primary-color))",
+            "desc": "",
+            "readonly": true,
+            "components": "spin"
+        },
+        {
+            "property": "--wui-spin-font-size",
+            "value": "var(--ynfw-font-size-spin, 12px)",
+            "desc": "",
+            "readonly": true,
+            "components": "spin"
+        },
+        {
+            "property": "--wui-spin-backdrop-bg-color",
+            "value": "rgba(255,255,255,0.4)",
+            "desc": "",
+            "readonly": false,
+            "components": "spin"
+        }
+    ],
+    "steps": [
+        {
+            "property": "--wui-steps-arrow-bg-color",
+            "value": "#fff",
+            "desc": "步骤条：arrow模式的背景色",
+            "readonly": false,
+            "components": "steps"
+        }
+    ],
+    "switch": [
+        {
+            "property": "--wui-switch-back-bg-color",
+            "value": "linear-gradient(90deg, #858A94 0%, #B9BCC2 100%)",
+            "desc": "switch：未选中时滑道的背景色；",
+            "readonly": false,
+            "components": "switch"
+        },
+        {
+            "property": "--wui-switch-back-bg-color-disabled",
+            "value": "#D9D9D9",
+            "desc": "switch：未选中时滑道的背景色disabled态；",
+            "readonly": false,
+            "components": "switch"
+        }
+    ],
+    "table": [
+        {
+            "property": "--wui-table-body-font-size",
+            "value": "var(--ynfw-font-size-cell-table, 12px)",
+            "desc": "",
+            "readonly": true,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-expanded-row-bg-color-hover",
+            "value": "#fff",
+            "desc": "表格：展开行hover的背景",
+            "readonly": false,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-border-color",
+            "value": "#dbe0e5",
+            "desc": "表格：边框颜色",
+            "readonly": false,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-striped-color",
+            "value": "#f7f7f7",
+            "desc": "表格：斑马纹颜色",
+            "readonly": false,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-head-bg-color",
+            "value": "#eff1f6",
+            "desc": "表格：header背景色",
+            "readonly": false,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-row-height",
+            "value": "35px",
+            "desc": "表格：行高",
+            "readonly": false,
+            "components": "table"
+        },
+        {
+            "property": "--wui-table-row-header-height",
+            "value": "30px",
+            "desc": "表格：表头行高",
+            "readonly": false,
+            "components": "table"
+        }
+    ],
+    "tabs": [
+        {
+            "property": "--wui-tabs-line-color",
+            "value": "#333",
+            "desc": "页签：line类型基础文本颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-overflow-btn-color",
+            "value": "#505766",
+            "desc": "页签：溢出按钮文本颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-trangle-border-color",
+            "value": "#505766",
+            "desc": "页签：trangle模式边框色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-line-border-color",
+            "value": "#f0f0f0",
+            "desc": "页签：line模式边框颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-line-color-default",
+            "value": "#666",
+            "desc": "页签：line类型默认文本颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-line-bg-color-hover",
+            "value": "#f4f4f4",
+            "desc": "页签：line模式hover态背景色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-line-color-active",
+            "value": "#111",
+            "desc": "页签：line模式选中颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-card-nav-bg-color",
+            "value": "#f7f9fd",
+            "desc": "页签：card模式菜单背景色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-card-border-color",
+            "value": "#e4e4e4",
+            "desc": "页签：card模式边框颜色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-card-bg-color-hover",
+            "value": "#eceff4",
+            "desc": "页签：card模式hover背景色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-card-border-color-active",
+            "value": "#505766",
+            "desc": "页签：card模式active背景色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-card-bg-color-active",
+            "value": "#fff",
+            "desc": "页签：card模式active背景色",
+            "readonly": false,
+            "components": "tabs"
+        },
+        {
+            "property": "--wui-tabs-color",
+            "value": "#505766",
+            "desc": "页签：基础文本颜色",
+            "readonly": false,
+            "components": "tabs"
+        }
+    ],
+    "timeline": [
+        {
+            "property": "--wui-timeline-custom-bg-color",
+            "value": "#fff",
+            "desc": "时间轴：自定义图标背景色",
+            "readonly": false,
+            "components": "timeline"
+        }
+    ]
+}

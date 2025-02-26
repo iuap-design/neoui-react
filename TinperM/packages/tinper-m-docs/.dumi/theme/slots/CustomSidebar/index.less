@@ -1,0 +1,206 @@
+@import (reference) '../../styles/variables.less';
+
+
+//其他样式与slots.Sidebar目录下相同
+.dumi-default-sidebar {
+  font-size: 14px;
+  width: 240px;
+  color: #333;
+  // height: 1000px;
+  box-shadow: 0px 2px 4px 0px rgba(140, 165, 189, 0.18);
+
+  .dumi-default-sidebar-group {}
+
+  >dl>dt {
+    width: auto;
+    font-weight: 400;
+    padding-left: 46px;
+    margin-bottom: 14px;
+    position: relative;
+    cursor: pointer;
+
+    >svg {
+      position: absolute;
+      top: 3px;
+      right: 20px;
+      width: 17px;
+      height: 17px;
+      opacity: 50%;
+    }
+
+    .design-menu-img {
+      width: 17px !important;
+      position: absolute;
+      left: 20px;
+      // top: 3px;
+      padding: 3px;
+      // top: -1px;
+      background: white;
+      border-radius: 5px;
+
+      &.basic {
+        left: 12px;
+      }
+    }
+  }
+}
+
+.navlinkLike {
+  display: block;
+  color: #4f5866;
+  line-height: 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  position: relative;
+  padding: 11px 44px 11px 40px;
+
+  &:hover {
+    color: @c-text;
+  }
+
+  >svg {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    height: 1.1rem;
+    width: 1.1rem;
+    opacity: 50%;
+  }
+}
+
+.custom-dt.has-show {
+  padding: 12px 0 12px 40px;
+
+  &:hover {
+    background: #F0F0F0;
+  }
+}
+
+.custom-dt.has-expand {
+  padding: 0;
+}
+
+.custom-dt {
+  margin: 0 0 0 8px;
+
+  &.guide {
+    &.active {
+      background: #E9F0FA !important;
+      border-radius: 5px;
+
+      &:hover {
+        background: #dbe0e5 !important;
+        ;
+      }
+
+      // font-weight: 600;
+    }
+  }
+
+  // Navlink a
+  >a {
+    display: block;
+    color: @c-text-secondary;
+    line-height: 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    &:hover {
+      color: @c-text;
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
+    }
+
+    &.active {
+      color: #30363f;
+    }
+
+  }
+}
+
+.custom-dd {
+  padding-left: 6px;
+  list-style-type: disc;
+
+  i {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #b2afaf;
+    margin-right: 7px;
+    margin-bottom: 3px;
+  }
+
+  .title-content {
+    padding-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navlinkLike {
+    padding: 9px 4px 9px 36px;
+  }
+
+  &.active {
+    // background: #E9F0FA !important;
+  }
+
+  >a {
+    display: block;
+    color: @c-text-secondary;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 11px 0px 11px 32px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #111827;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 22px;
+    border-radius: 4px;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    &:hover {
+      color: @c-text;
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
+    }
+
+    &.active {
+      color: #30363f;
+      background: #E9F0FA !important;
+
+      &:hover {
+        background-color: #dbe0e5 !important;
+      }
+
+      // font-weight: 600;
+    }
+
+    &:hover {
+      background: #F0F0F0;
+    }
+  }
+}

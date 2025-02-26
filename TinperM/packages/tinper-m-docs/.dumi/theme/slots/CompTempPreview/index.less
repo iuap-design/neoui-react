@@ -1,0 +1,37 @@
+@import (reference) '../../styles/variables.less';
+
+//与CustomizeTheme共用
+.ct-background {
+    height: 945.5px;
+    background: url('../../../../public/ct-background.png') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-top: -120px;
+
+    .title-inline-block {
+        padding: 100px 0 180px;
+    }
+}
+
+.theme-title {
+    text-align: center;
+    height: 37px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 26px;
+    color: #333333;
+    letter-spacing: 0;
+    padding-top: 100px;
+}
+
+.group-content {
+    display: flex;
+    justify-content: center;
+
+    .group {
+        margin-top: -150px;
+        max-width: 70%;
+        min-width: 30%;
+        -webkit-user-drag: none;
+    }
+}

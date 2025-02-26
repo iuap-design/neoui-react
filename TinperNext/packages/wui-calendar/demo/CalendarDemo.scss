@@ -1,0 +1,72 @@
+.demos-wui-calendar {
+  .events {
+    line-height: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .events li {
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .events li span {
+    vertical-align: middle;
+  }
+
+  .events li span:first-child {
+    font-size: 9px;
+    margin-right: 4px;
+  }
+
+  .event-warning {
+    color: #fac450;
+  }
+
+  .event-normal {
+    color: #108ee9;
+  }
+
+  .event-error {
+    color: #f50;
+  }
+
+  .notes-month {
+    text-align: center;
+  }
+
+  .notes-month section {
+    font-size: 28px;
+  }
+
+  .text-type {
+    line-height: 28px;
+  }
+
+  .show-words {
+    color: '#333';
+    text-align: 'left';
+    line-height: 1.5;
+  }
+
+  .show-remarks {
+    line-height: 1.3;
+    text-align: left;
+    padding: 0 10px 0 10px;
+    height: 100%;
+    margin-top: -3px;
+
+    li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .demo15-headerComponents {
+    float: left;
+  }
+}

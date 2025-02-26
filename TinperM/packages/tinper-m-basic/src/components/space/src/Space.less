@@ -1,0 +1,76 @@
+@import (reference) '../../../theme/index.less';
+.@{space-prefix-cls}-item {
+  flex: none;
+}
+
+.@{space-prefix-cls} {
+  display: inline-flex;
+  // --gap: .16rem;
+  --gap-vertical: ~"var(--@{space-prefix-cls}-gap-vertical)";
+  --gap-horizontal: ~"var(--@{space-prefix-cls}-gap-horizontal)";;
+  &-vertical {
+    flex-direction: column;
+    > .@{space-prefix-cls}-item {
+      margin-bottom: var(--gap-vertical);
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &-horizontal {
+    flex-direction: row;
+    > .@{space-prefix-cls}-item {
+      margin-right: var(--gap-horizontal);
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &.@{space-prefix-cls}-wrap {
+      flex-wrap: wrap;
+      margin-bottom: calc(var(--gap-vertical) * -1);
+      > .@{space-prefix-cls}-item {
+        padding-bottom: var(--gap-vertical);
+      }
+    }
+  }
+  &.@{space-prefix-cls}-block {
+    display: flex;
+  }
+  &-align {
+    &-center {
+      align-items: center;
+    }
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+    &-baseline {
+      align-items: baseline;
+    }
+  }
+  &-justify {
+    &-center {
+      justify-content: center;
+    }
+    &-start {
+      justify-content: flex-start;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-between {
+      justify-content: space-between;
+    }
+    &-around {
+      justify-content: space-around;
+    }
+    &-evenly {
+      justify-content: space-evenly;
+    }
+    &-stretch {
+      justify-content: stretch;
+    }
+  }
+}

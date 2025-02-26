@@ -1,0 +1,29 @@
+.demos-wui-layout {
+    .layout-collapsed {
+        box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+        .logo {
+            height: 32px;
+            width: calc(100% - 32px);
+            margin: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            box-sizing: border-box;
+        }
+        .site-layout {
+            border-left: 1px solid #f0f2f5;
+        }
+        .my-trigger{
+            position: absolute;
+            top: 20px;
+            background-color: #dedede;
+            color: #fff;
+            line-height: 24px;
+            width: 12px;
+            cursor: pointer;
+            z-index: 9;
+            >.uf{
+                padding: 0;
+                font-size: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,127 @@
+@import (reference) '../../../theme/index.less';
+
+.@{image-uploader-prefix-cls} {
+  --cell-size: ~"var(--@{image-uploader-prefix-cls}-size-cell-imageuploader)";
+  --gap: ~"var(--@{image-uploader-prefix-cls}-spacing-gap-imageuploader)";
+  ---gap: var(--gap);
+  ---gap-horizontal: var(--gap-horizontal, var(--gap));
+  ---gap-vertical: var(--gap-vertical, var(--gap));
+  box-sizing: border-box;
+
+  &-grid,
+  &-space {
+    --gap: var(---gap);
+    --gap-horizontal: var(---gap-horizontal);
+    --gap-vertical: var(---gap-vertical);
+  }
+
+  &-cell-wrapper {
+    position: relative;
+  }
+
+  &-cell-fail-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: ~"var(--@{image-uploader-prefix-cls}-color-bg-mask-imageuploader)";
+    opacity: 0.4;
+    border-radius: 0.16rem;
+  }
+
+  &-cell-fail-icon {
+    position: absolute;
+    color: var(--mui-color-danger);
+    left: 0.39rem;
+    top: 0.39rem;
+  }
+
+  &-cell {
+    position: relative;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: 0.16rem;
+    overflow: hidden;
+
+    &-fail {
+
+    }
+
+    &-delete {
+      position: absolute;
+      top: -0.1rem;
+      right: -0.1rem;
+      width: 0.3rem;
+      height: 0.3rem;
+      background-color: var(--mui-color-white);
+      border-radius: 50%;
+      font-size: 0.16rem;
+      color: var(--mui-color-weak);
+      cursor: pointer;
+
+      &-icon {
+        position: absolute;
+        top: -0.03rem;
+        left: -0.03rem;
+      }
+    }
+
+    &-mask {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: var(--mui-color-white);
+    }
+
+    &-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    &-image {
+      width: var(--cell-size);
+      height: var(--cell-size);
+    }
+  }
+
+  &-upload-button-wrap {
+    position: relative;
+
+    .@{image-uploader-prefix-cls}-upload-button {
+      background-color: var(--mui-color-border);
+      text-align: center;
+      line-height: var(--cell-size);
+      display: block;
+
+      &-icon {
+        color: ~"var(--@{image-uploader-prefix-cls}-color-icon-imageuploader)";
+        font-size: 0.64rem;
+      }
+    }
+    .@{image-uploader-prefix-cls}-input {
+      cursor: pointer;
+      position: absolute;
+      opacity: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.08rem;
+    }
+  }
+
+  .@{image-uploader-prefix-cls}-gap-measure {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: var(--gap-horizontal);
+    width: 0;
+  }
+}

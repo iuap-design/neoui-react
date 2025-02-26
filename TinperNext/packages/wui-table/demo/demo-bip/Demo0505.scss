@@ -1,0 +1,90 @@
+.demos-wui-table {
+  .demo0505 {
+
+    .toolbar-btns {
+      margin-bottom: 8px;
+
+      .wui-button {
+        &:first-child {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .wui-table {
+      .wui-row-select {
+        background-color: #FFF7E7;
+      }
+
+      .wui-table-row {
+        td {
+          input {
+            font-size: 12px;
+          }
+        }
+
+        .wui-form-control,
+        .wui-select-selection {
+          height: 30px;
+        }
+      }
+
+      .editable-cell-text-wrapper {
+        box-sizing: border-box;
+        line-height: 20px;
+        border-radius: 3px;
+      }
+
+      .required {
+        margin-left: 10px;
+        position: relative;
+
+        &::before {
+          content: " ";
+          border: 1px solid #F44336;
+          width: 0;
+          height: 12px;
+          position: absolute;
+          top: 9px;
+          left: -8px;
+        }
+
+        span.wui-input-group {
+          display: block
+        }
+      }
+
+      .verify-cell {
+        padding-right: 25px !important;
+      }
+
+      .edited::after {
+        content: " ";
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #f44336 transparent transparent #f44336;
+      }
+
+      .required-icon {
+        position: absolute;
+        top: 2px;
+        color: #F44336;
+        font-size: 20px;
+      }
+
+      .ref-input-wrap {
+        width: 160px !important;
+      }
+    }
+  }
+
+  .wui-editable-table-tp {
+    .tp-content {
+      color: #F44336;
+    }
+  }
+}

@@ -1,0 +1,257 @@
+@use "sass:math";
+@import "../../wui-core/scss/minxin-variables";
+@import "./Grid.scss";
+@import "./Spliter.scss";
+
+//$layout-prefix-cls: $prefix-cls + 'layout';
+$container-prefix-cls: $prefix-cls + 'container';
+
+$layout-body-background: $base-bg-color;
+$font-size-base: 14px;
+
+$layout-header-height: 64px;
+$layout-header-padding: 50px;
+// $layout-header-color: rgba(0,0,0,.85);
+$layout-header-background: $base-bg-color;
+
+
+$layout-footer-padding: 24px 50px;
+$layout-footer-background: $base-bg-color;
+
+$layout-sider-background: #2e3c61;
+$layout-sider-background-light: $base-bg-color;
+$layout-zero-trigger-width: 18px;
+$layout-zero-trigger-height: 24px;
+
+$trigger-border-focus-color: #505766;
+$trigger-border-color: #C1CDE5;
+
+@mixin clearfix {
+  // :before,
+  // :after {
+  //  content: " "; // 1
+  //  display: table; // 2
+  // }
+  // :after {
+  //  clear: both;
+  // }
+}
+
+// Centered container element
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: floor(math.div($gutter, 2));
+  padding-right: ceil(math.div($gutter, 2));
+  @include clearfix;
+  //&:extend(.clearfix all);
+}
+
+
+.#{$container-prefix-cls} {
+  @include container-fixed();
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.#{$container-prefix-cls}-fluid {
+  @include container-fixed();
+}
+
+
+.#{$layout-prefix-cls} {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  /* fix firefox can't set height smaller than content on flex item */
+  min-height: 0;
+  background: $layout-body-background;
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
+  &-has-sider {
+    flex-direction: row;
+
+    > .#{$layout-prefix-cls},
+    > .#{$layout-prefix-cls}-content {
+      width: 0; // https://segmentfault.com/a/1190000019498300
+    }
+  }
+
+  &-header,
+  &-footer {
+    flex: 0 0 auto;
+  }
+
+  &-header {
+    min-height: $layout-header-height;
+    // padding: 0 $layout-header-padding;
+    // color: $layout-header-color;
+    // line-height: $layout-header-height;
+    background: $layout-header-background;
+  }
+
+  &-footer {
+    padding: $layout-footer-padding;
+    color: $font-color-base;
+    font-size: $font-size-base;
+    background: $layout-footer-background;
+  }
+
+  &-content {
+    flex: auto;
+    /* fix firefox can't set height smaller than content on flex item */
+    min-height: 0;
+  }
+
+  &-sider {
+    position: relative;
+
+    /* fix firefox can't set width smaller than content on flex item */
+    min-width: 0;
+    background: $layout-sider-background;
+    // transition: all 0.2s;
+
+    &-children {
+      height: 100%;
+      // margin-top: -0.1px;
+      // // Hack for fixing margin collaspe bug
+      // // https://github.com/ant-design/ant-design/issues/7967
+      // // solution from https://stackoverflow.com/a/33132624/3040605
+      // padding-top: 0.1px;
+    }
+
+    &-has-trigger {
+      padding-bottom: 48px;
+    }
+
+    &-right {
+      order: 1;
+    }
+
+    &-trigger {
+      background: #002140;
+      bottom: 0;
+      color: $base-bg-color;
+      cursor: pointer;
+      height: 48px;
+      line-height: 48px;
+      position: absolute;
+      text-align: center;
+      transition: all .2s;
+      z-index: 1;
+    }
+
+    &-zero-width {
+      > * {
+        overflow: hidden;
+      }
+
+      &-trigger {
+        position: absolute;
+        top: 58px;
+        z-index: 10;
+        width: $layout-zero-trigger-width;
+        color: $base-bg-color;
+        font-size: 12px;
+        height: $layout-zero-trigger-height;
+        line-height: $spliter-trigger-line-height;
+        text-align: center;
+        background: $layout-sider-background;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        & >.uf {
+          font-size: 12px;
+          padding: 0;
+          zoom: $spliter-trigger-icon-zoom;
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: rgba(225, 225, 225, 0.1);
+          transition: all 0.3s;
+          content: '';
+        }
+
+        &:hover::after {
+          background: rgba(255, 255, 255, 0.24);
+        }
+
+        &-left{
+          &.#{$layout-prefix-cls}-sider-zero-width-trigger-collapsed {
+            right: -18px;
+            border-radius: 0 50% 50% 0;
+            &::after {
+              border-radius: 0 50% 50% 0;
+            }
+          }
+          &.#{$layout-prefix-cls}-sider-zero-width-trigger-expanded {
+            right: 0;
+            border-radius: 50% 0 0 50%;
+            &::after {
+              border-radius: 50% 0 0 50%;
+            }
+          }
+        }
+
+        &-right {
+          &.#{$layout-prefix-cls}-sider-zero-width-trigger-collapsed {
+            left: -18px;
+            border-radius: 50% 0 0 50%;
+            &::after {
+              border-radius: 50% 0 0 50%;
+            }
+          }
+          &.#{$layout-prefix-cls}-sider-zero-width-trigger-expanded {
+            left: 0;
+            border-radius: 0 50% 50% 0;
+            &::after {
+              border-radius: 0 50% 50% 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.#{$layout-prefix-cls}-sider-light {
+  background: $layout-sider-background-light;
+
+  .#{$layout-prefix-cls}-sider-trigger {
+    color: $font-color-base;
+    background: $layout-sider-background-light;
+  }
+
+  .#{$layout-prefix-cls}-sider-zero-width-trigger {
+    color: $spliter-trigger-icon-color;
+    background: $layout-sider-background-light;
+    border: 0.5px solid $trigger-border-color;
+    box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+    &:hover {
+      border: 1px solid $trigger-border-focus-color;
+    }
+  }
+}

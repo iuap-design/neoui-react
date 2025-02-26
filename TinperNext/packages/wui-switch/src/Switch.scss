@@ -1,0 +1,237 @@
+@use "sass:math";
+@import "../../wui-core/scss/minxin-mixins";
+
+//$switch-prefix-cls: $prefix-cls + 'switch';
+
+.#{$switch-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: map-get($switch-width, default);
+  height: map-get($switch-height, default);
+  line-height: map-get($switch-lineHeight, default);
+  vertical-align: middle;
+  border-radius: $switch-border-radius;
+  border: none;
+  //background: $switch-back-color;
+  background: var(--#{$switch-prefix-cls}-default-bg-color); // var(--#{$switch-prefix-cls}-back-bg-color);
+  cursor: pointer;
+  outline: 0;
+  padding: 0;
+/*  -webkit-transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  &-inner {
+    color: #fff;
+    display: block;
+    //position: absolute;
+    font-size: map_get($switch-inner-fontSize, default);
+    padding-left: map_get($switch-inner-left, default);
+    //left: map_get($switch-inner-left, default);
+    //top:$switch-inner-defaultTop;
+  }
+  //&-backdrop{
+  //  display: inline-block;
+  //  width: map-get($switch-width, default);
+  //  height: map-get($switch-height, default);
+  //  border-radius: $switch-border-radius;
+  //  background: #fff;
+  //}
+  &:not(.#{$switch-prefix-cls}-disabled):active:after {
+    width: map_get($switch-active-width, default);
+  }
+  &:not(.#{$switch-prefix-cls}-disabled):focus {
+    box-shadow: 0 0 0 2px rgba(238, 34, 51, 0.1);
+    outline: 0;
+  }
+  &:after {
+    position: absolute;
+    width: $switch-after-widthHeight;
+    height: $switch-after-widthHeight;
+    top: $switch-after-top;
+    left: $switch-after-left;
+    border-radius: $switch-border-radius-after;
+    content: " ";
+    cursor: pointer;
+    background: var(--#{$switch-prefix-cls}-handle-bg-color);
+    box-shadow: var(--#{$switch-prefix-cls}-handle-box-shadow); // 0px 1px 4px 0px rgba(80, 87, 102, 0.3);
+    -webkit-transition: left 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+      width 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transition: left 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+      width 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  }
+  &.is-checked {
+    border: none;
+    background: $switch-primary-bg;
+    .#{$switch-prefix-cls}-inner {
+      padding-left: 0px;
+      padding-right: map_get($switch-inner-right, default);
+    }
+    &:after {
+      left: calc(100% - 14px);
+    }
+    &:not(.#{$switch-prefix-cls}-disabled):active:after {
+      left: calc(100% - 14px);
+    }
+  }
+  &.#{$switch-prefix-cls}-disabled {
+    cursor: no-drop;
+    //background: #D9D9D9;
+    background: var(--#{$switch-prefix-cls}-back-bg-color-disabled);
+    transition: all 0s ease 0s;
+    &.is-checked {
+      //background-color: $switch-checked-color;
+      background-color:$switch-primary-bg;
+      opacity: 0.35;
+    }
+    &:after {
+      //background: #fff;
+      animation-name: none;
+      cursor: no-drop;
+    }
+
+    &:hover:after {
+      transform: scale(1);
+      animation-name: none;
+    }
+    &.#{$switch-prefix-cls}-loading .uf-loadingstate{
+      position: absolute;
+      display: inline-block;
+      z-index: 9;
+      padding: 0;
+      top:50%;
+      left:$switch-before-left;
+      width: $switch-before-widthHeight;
+      height: $switch-before-widthHeight;
+      margin-top: -(math.div($switch-before-widthHeight,2));
+      line-height: $switch-before-widthHeight;
+      font-size: $switch-before-widthHeight;
+      -webkit-animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+      animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+    }
+    &.is-checked.#{$switch-prefix-cls}-loading .uf-loadingstate{
+      //left: map_get($switch-checked-beforeLeft, default);
+      left: calc(100% - 13px);
+    }
+  }
+}
+
+.#{$switch-prefix-cls}.#{$switch-prefix-cls}-sm {
+  min-width: map-get($switch-width, small);
+  height: map-get($switch-height, small);
+  line-height: map-get($switch-lineHeight, small);
+  .#{$switch-prefix-cls}-inner {
+    color: #fff;
+    font-size: map_get($switch-inner-fontSize, small);
+    padding-left: map_get($switch-inner-right, small);
+  }
+  &:not(.#{$switch-prefix-cls}-disabled):active:after {
+    width: map_get($switch-active-width, small);
+  }
+
+  &:after {
+    width: $switch-after-widthHeight-sm;
+    height: $switch-after-widthHeight-sm;
+    top: $switch-after-top-sm;
+    left: $switch-after-left-sm;
+  }
+  &.#{$switch-prefix-cls}-loading .uf-loadingstate {
+    left: $switch-before-left-sm;
+  }
+  &.is-checked.#{$switch-prefix-cls}-loading .uf-loadingstate{
+    left: $switch-checked-before-left-sm;
+  }
+  &.is-checked {
+    .#{$switch-prefix-cls}-inner {
+      padding-left: 0px;
+      padding-right: map_get($switch-inner-right, small);
+    }
+    &:after {
+      left: $switch-checked-after-left-sm;
+    }
+    &:not(.#{$switch-prefix-cls}-disabled):active:after {
+      //left: map_get($switch-checked-activeLeft, small);
+      left: calc(100% - 16px);
+    }
+  }
+}
+
+.#{$switch-prefix-cls}.#{$switch-prefix-cls}-lg {
+  min-width: map-get($switch-width, large);
+  height: map-get($switch-height, large);
+  line-height: map-get($switch-lineHeight, large);
+  border-radius: 10px;
+
+  .#{$switch-prefix-cls}-inner {
+    color: var(--#{$switch-prefix-cls}-color-text);
+    font-size: var(--#{$switch-prefix-cls}-font-size);
+    font-weight: var(--#{$switch-prefix-cls}-font-weight);
+    padding-left: map_get($switch-inner-left, large);
+  }
+  &:not(.#{$switch-prefix-cls}-disabled):active:after {
+    width: map_get($switch-active-width, large);
+  }
+  &:after {
+    width: $switch-after-widthHeight-lg;
+    height: $switch-after-widthHeight-lg;
+    top: $switch-after-top-lg;
+    left: $switch-after-left-lg;
+  }
+  &.#{$switch-prefix-cls}-loading .uf-loadingstate {
+    width: $switch-before-widthHeight-lg;
+    height: $switch-before-widthHeight-lg;
+    left: $switch-before-left-lg;
+    margin-top: -(math.div($switch-before-widthHeight-lg,2));
+    line-height: $switch-before-widthHeight-lg;
+    font-size: $switch-before-widthHeight-lg;
+  }
+  &.is-checked.#{$switch-prefix-cls}-loading .uf-loadingstate{
+    //left: map_get($switch-checked-beforeLeft, large);
+    left: calc(100% - 17px);
+  }
+  &.is-checked {
+    .#{$switch-prefix-cls}-inner {
+      padding-left: 0px;
+      padding-right: map_get($switch-inner-right, large);
+    }
+    &:after {
+      left: calc(100% - 17px);
+    }
+    &:not(.#{$switch-prefix-cls}-disabled):active:after {
+      //left: map_get($switch-checked-activeLeft, large);
+      left: calc(100% - 18px);
+    }
+  }
+}
+
+.#{$switch-prefix-cls}-primary.is-checked {
+  @include switch-styles-variant($switch-primary-bg);
+}
+
+.#{$switch-prefix-cls}-info.is-checked {
+  @include switch-styles-variant($switch-info-bg);
+}
+
+.is-checked.#{$switch-prefix-cls}-danger {
+  @include switch-styles-variant($switch-danger-bg);
+}
+
+.#{$switch-prefix-cls}-warning.is-checked {
+  @include switch-styles-variant($switch-warning-bg);
+}
+
+.#{$switch-prefix-cls}-dark.is-checked {
+  @include switch-styles-variant($switch-dark-bg);
+}
+
+.#{$switch-prefix-cls}-success.is-checked {
+  @include switch-styles-variant($switch-success-bg);
+}
+
+//加载按钮样式
+@keyframes rotate1 {
+  @include loading-rotate();
+}

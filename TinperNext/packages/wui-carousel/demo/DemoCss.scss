@@ -1,0 +1,19 @@
+.demos-wui-carousel {
+  /* For demo */
+  div {
+    outline: none;
+  }
+
+  .slick-slide {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #656b79;
+    overflow: hidden;
+  }
+
+  .slick-slide h3 {
+    color: #fff;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,24 @@
+.sidebar-demo-container-f {
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  [data-prefers-color='dark'] & {
+    background-color: unset;
+  }
+}
+
+.sidebar-demo-side-f {
+  flex: none;
+}
+
+.sidebar-demo-main-f {
+  flex: auto;
+  padding: 0 0.48rem 0.64rem;
+  overflow-y: scroll;
+  h2 {
+    margin: 0;
+    padding: 0.24rem 0;
+  }
+}

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker Component should render correctly 1`] = `
+<div>
+  <div
+    class="mui-time-picker"
+  >
+    <div
+      class="mui-time-picker"
+    >
+      <div
+        class="mui-time-picker-input mui-input mui-input-wrapper-readonly"
+        fieldid="time-picker-fieldid_input"
+      >
+        <div
+          class="mui-input-wrap-no-tips"
+          fieldid="time-picker-fieldid_input_wrap_no_tips"
+        >
+          <div
+            class="mui-input-content"
+            fieldid="time-picker-fieldid_input_content"
+          >
+            <input
+              class="mui-input-box"
+              fieldid="time-picker-fieldid"
+              placeholder="请选择"
+              readonly=""
+              type="text"
+              value="07:08:19"
+            />
+            <div
+              class="mui-input-clear-box"
+              fieldid="time-picker-fieldid_input_clear"
+              style="display: none;"
+            >
+              <svg
+                class="mui-input-clear"
+                fieldid="time-picker-fieldid_input_clear_icon"
+                fill="currentColor"
+                height="0.32rem"
+                id="arcclose-circle-Fill"
+                style="width: 0.36rem; height: 0.36rem;"
+                viewBox="0 0 1024 1024"
+                width="0.32rem"
+              >
+                <path
+                  class="mui-input-clear"
+                  d="M512 939.12576c235.64288 0 426.67008-191.0272 426.67008-426.6752 0-235.648-191.0272-426.6752-426.6752-426.6752-235.648 0-426.6752 191.0272-426.6752 426.6752 0 235.648 191.0272 426.6752 426.6752 426.6752zM396.98944 351.32928l276.62336 276.62336a32.6144 32.6144 0 0 1-46.11584 46.12096l-115.26144-115.2512-115.24608 115.25632a32.6144 32.6144 0 0 1-43.79136 2.11456l-2.32448-2.11456a32.6144 32.6144 0 0 1 0-46.12096l115.24096-115.2512-115.24096-115.25632a32.6144 32.6144 0 0 1-2.11456-43.79136l2.11456-2.3296a32.6144 32.6144 0 0 1 46.11584 0z m230.5024 0.01024a32.6144 32.6144 0 0 1 46.12096 46.11584L596.75648 474.3168a32.6144 32.6144 0 0 1-46.12096-46.11584l76.86144-76.86144z"
+                  fieldid="time-picker-fieldid_input_clear_icon"
+                  fill="currentColor"
+                  height="0.32rem"
+                  style="width: 0.36rem; height: 0.36rem;"
+                  viewBox="0 0 48 48"
+                  width="0.32rem"
+                />
+              </svg>
+            </div>
+            <div
+              class="mui-input-suffix mui-input-suffix-readonly"
+              fieldid="time-picker-fieldid_input_suffix"
+            >
+              <svg
+                fill="currentColor"
+                height="0.32rem"
+                id="arccalendar"
+                style="width: 0.44rem; height: 0.44rem;"
+                viewBox="0 0 1024 1024"
+                width="0.32rem"
+              >
+                <path
+                  d="M636.136727 186.181818c17.128727 0 30.999273 13.870545 30.999273 31.045818v20.666182h103.470545A113.757091 113.757091 0 0 1 884.363636 351.697455v219.22909a31.045818 31.045818 0 0 1-62.045091 0v-74.472727H201.634909v227.607273c0 28.532364 23.179636 51.665455 51.712 51.665454h517.213091c28.532364 0 51.665455-23.133091 51.665455-51.665454v-31.650909a31.045818 31.045818 0 1 1 62.091636 0v31.650909A113.757091 113.757091 0 0 1 770.606545 837.818182H253.393455A113.757091 113.757091 0 0 1 139.636364 724.061091v-372.363636A113.757091 113.757091 0 0 1 253.393455 237.847273h103.470545v-20.666182a31.045818 31.045818 0 1 1 62.045091 0v20.666182h186.181818v-20.666182c0-17.175273 13.917091-31.045818 31.045818-31.045818z m-279.272727 113.757091H253.393455c-28.532364 0-51.665455 23.179636-51.665455 51.758546l-0.046545 82.711272h620.590545V351.697455c0-28.578909-23.133091-51.758545-51.665455-51.758546h-103.470545v62.091636a31.045818 31.045818 0 1 1-62.045091 0V299.938909H418.909091v62.091636a31.045818 31.045818 0 0 1-62.045091 0V299.938909z"
+                  fill="currentColor"
+                  height="0.32rem"
+                  style="width: 0.44rem; height: 0.44rem;"
+                  viewBox="0 0 48 48"
+                  width="0.32rem"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,269 @@
+@use "sass:math";
+@import "../../wui-core/scss/minxin-variables";
+
+$row-prefix-cls: $prefix-cls + 'row';
+$col-prefix-cls: $prefix-cls + 'col';
+
+$grid-column12: 12;
+$grid-column24: 24;
+
+
+// Creates a wrapper for a series of columns
+@mixin make-row() {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin make-grid($type, $grid-column) {
+  // @include grid_columns();
+  .#{$col-prefix-cls} {
+    position: relative;
+    max-width: 100%;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+  }
+
+  // 占位为0
+  .#{$col-prefix-cls}-#{$type}-0, .#{$col-prefix-cls}-0 {
+    display: none;
+  }
+  .#{$col-prefix-cls}-#{$type}-push-0, .#{$col-prefix-cls}-push-0 {
+    left: auto;
+  }
+  .#{$col-prefix-cls}-#{$type}-pull-0, .#{$col-prefix-cls}-pull-0 {
+    right: auto;
+  }
+  .#{$col-prefix-cls}-#{$type}-offset-0, .#{$col-prefix-cls}-offset-0 {
+    margin-left: 0;
+  }
+  .#{$col-prefix-cls}-#{$type}-order-0, .#{$col-prefix-cls}-order-0 {
+    order: 0;
+  }
+
+
+  @for $i from 1 through $grid-column {
+    // wui-col-i
+    .#{$col-prefix-cls}-#{$i} {
+      width: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-#{$type}-#{$i} {
+      width: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-#{$type}-push-#{$i} {
+      left: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-#{$type}-pull-#{$i} {
+      right: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-#{$type}-offset-#{$i} {
+      margin-left: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-#{$type}-order-#{$i} {
+      order: $i;
+    }
+    // wui-col-push-i wui-col-pull-i wui-col-offset-i wui-col-order-i
+    .#{$col-prefix-cls}-push-#{$i} {
+      left: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-pull-#{$i} {
+      right: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-offset-#{$i} {
+      margin-left: percentage(math.div($i, $grid-column));
+    }
+    .#{$col-prefix-cls}-order-#{$i} {
+      order: $i;
+    }
+  }
+}
+
+@mixin make-scope($grid-column) {
+
+
+  // Row
+  //
+  // Rows contain and clear the floats of your columns.
+
+  .#{$row-prefix-cls} {
+    @include make-row();
+    // 影响 justify space-between 属性，将before 和 after 作为元素计算在内
+    // &:before{
+    //   display: table;
+    //   content: " ";
+    // };
+    // &:after{
+    //   display: table;
+    //   content: " ";
+    //   clear: both;
+    // }
+
+    // 内容水平排列方式 justify======
+    // x轴原点
+    &-start {
+      justify-content: flex-start;
+    }
+
+    // x轴居中
+    &-center {
+      justify-content: center;
+    }
+
+    // x轴反方向
+    &-end {
+      justify-content: flex-end;
+    }
+
+    // x轴平分
+    &-space-between {
+      justify-content: space-between;
+    }
+
+    // x轴有间隔地平分
+    &-space-around {
+      justify-content: space-around;
+    }
+
+    // 垂直对齐方式 align========
+    // 顶部对齐
+    &-top {
+      align-items: flex-start;
+    }
+
+    // 居中对齐
+    &-middle {
+      align-items: center;
+    }
+
+    // 底部对齐
+    &-bottom {
+      align-items: flex-end;
+    }
+
+    &-no-wrap {
+      flex-wrap: nowrap;
+    }
+  }
+
+  // Columns
+  //
+  // Common styles for small and large grid columns
+  // _md 类型是为了兼容 #{$col-prefix-cls}-1 这种类名
+  $allColumnName: '';
+  // $xsColumnName: '';
+  // $smColumnName: '';
+  // $mdColumnName: '';
+  // $_mdColumnName: '';
+  // $lgColumnName: '';
+  // @include grid_columns();
+  @for $i from 1 through $grid-column {
+    $array: xs sm md lg xl xxl _md;
+    @for $j from 1 through length($array) {
+      @if $j == 7 {
+        $name: '.'+ #{$col-prefix-cls}-#{$i} + ',';
+        $allColumnName: $allColumnName + $name;
+      } @else {
+        $name: '.'+ #{$col-prefix-cls}-#{nth($array, $j)}-#{$i} + ',';
+        $allColumnName: $allColumnName + $name;
+      }
+
+      // @if $j == 1 {
+      //   $name: '.'+ #{$col-prefix-cls}-xs-#{$i} + ',';
+      //   $xsColumnName: $xsColumnName + $name;
+      // } @else if $j == 2 {
+      //   $name: '.'+ #{$col-prefix-cls}-sm-#{$i} + ',';
+      //   $smColumnName: $smColumnName + $name;
+      // } @else if $j == 3 {
+      //   $name: '.'+ #{$col-prefix-cls}-md-#{$i} + ',';
+      //   $name_col: '.'+ #{$col-prefix-cls}-#{$i} + ',';
+      //   $mdColumnName: $mdColumnName + $name;
+      //   $_mdColumnName: $_mdColumnName + $name_col;
+      // } @else if $j == 4 {
+      //   $name: '.'+ #{$col-prefix-cls}-lg-#{$i} + ',';
+      //   $lgColumnName: $lgColumnName + $name;
+      // }
+    }
+  }
+  #{$allColumnName} {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    // padding-left:  ceil(math.div($grid-gutter-width, 2));
+    // padding-right: floor(math.div($grid-gutter-width, 2));
+    box-sizing: border-box;
+    float: left;
+  }
+
+  // #{$xsColumnName}, #{$smColumnName}, #{$mdColumnName}, #{$_mdColumnName}, #{$lgColumnName},
+  // #{$xlColumnName}, #{$xxlColumnName} {
+  //   float: left;
+  // }
+
+  @include make-grid(xs, $grid-column);
+  @include make-grid(sm, $grid-column);
+  @include make-grid(md, $grid-column);
+  @include make-grid(lg, $grid-column);
+  @include make-grid(xl, $grid-column);
+  @include make-grid(xxl, $grid-column);
+
+  // Small grid
+  //
+  // Columns, offsets, pushes, and pulls for the small device range, from phones
+  // to tablets
+
+  // @media (min-width: $screen-sm-min) {
+  //   #{$smColumnName} {
+  //     float: left;
+  //   }
+  //   @include make-grid(sm, $grid-column);
+  // }
+
+  // Medium grid
+  //
+  // Columns, offsets, pushes, and pulls for the desktop device range.
+
+  // @media (min-width: $screen-md-min) {
+  //   #{$mdColumnName} {
+  //     float: left;
+  //   }
+  //   #{$_mdColumnName} {
+  //     float: left;
+  //   }
+  //   @include make-grid(md, $grid-column);
+  // }
+
+  // Large grid
+  //
+  // Columns, offsets, pushes, and pulls for the large desktop device range.
+  
+  // @media (min-width: $screen-lg-min) {
+  //   #{$lgColumnName} {
+  //     float: left;
+  //   }
+  //   @include make-grid(lg, $grid-column);
+  // }
+
+}
+
+@mixin grid_columns() {
+  $grid-column: $grid-column24;
+  @include make-scope($grid-column);
+  .#{$row-prefix-cls} {
+    &-12 {
+      $grid-column: $grid-column12;
+      @include make-scope($grid-column)
+    }
+  }
+  // [data-grid="12"] {
+  //   $grid-column: $grid-column12;
+  //   @include make-scope($grid-column)
+  // }
+  // [data-grid="24"] {
+  //   $grid-column: $grid-column24;
+  //   @include make-scope($grid-column)
+  // }
+
+}
+
+@include grid_columns();

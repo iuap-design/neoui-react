@@ -1,0 +1,143 @@
+@import (reference) '../../../theme/index.less';
+
+.@{toolbar-prefix-cls}-wrapper {
+  --background-color:~"var(--@{toolbar-prefix-cls}-color-bg-toolbar)";
+  --item-padding-left:~"var(--@{toolbar-prefix-cls}-spacing-padding-left-item-toolbar)";
+  --item-padding-right:~"var(--@{toolbar-prefix-cls}-spacing-padding-right-item-toolbar)";
+  --item-auto-button-background-color: var(--mui-color-background-lower);
+  --item-auto-button-text-color: var(--mui-color-text);
+
+  background-color: var(--background-color);
+  height: 1.2rem;
+  padding: 0 0.2rem;
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  >.@{toolbar-prefix-cls}-item {
+    display: inline-block;
+    padding: 0 var(--item-padding-right) 0 var(--item-padding-left);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // 均匀平铺
+  // &>:only-child {
+  //   min-width: calc(100% - 0.32rem);
+  // }
+
+  // &>:first-child:nth-last-child(2) {
+  //   min-width: calc(50% - 0.32rem);
+
+  //   &~div {
+  //     min-width: calc(50% - 0.32rem);
+  //   }
+  // }
+
+  // &>:first-child:nth-last-child(3) {
+  //   min-width: calc(33.33% - 0.32rem);
+
+  //   &~div {
+  //     min-width: calc(33.33% - 0.32rem);
+  //   }
+  // }
+
+  // &>:first-child:nth-last-child(4) {
+  //   min-width: calc(25% - 0.32rem);
+
+  //   &~div {
+  //     min-width: calc(25% - 0.32rem);
+  //   }
+  // }
+
+  // &>:first-child:nth-last-child(n+5) {
+  //   min-width: calc(22% -0.32rem);
+
+  //   &~div {
+  //     min-width: calc(22% - 0.32rem);
+  //   }
+  // }
+
+  // .@{button-prefix-cls} {
+  //   min-width: unset;
+  // }
+
+  .@{toolbar-prefix-cls}-item-more {
+    font-weight: 900;
+    text-align: center;
+    vertical-align: middle;
+
+    .@{toolbar-prefix-cls}-item-more-icon {
+      height: 0.44rem;
+      width: 0.44rem;
+      color: var(--mui-color-text-secondary);
+      vertical-align: middle;
+    }
+
+    .@{toolbar-prefix-cls}-item-more-span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .@{action-sheet-prefix-cls}-popup {
+      font-weight: 400;
+    }
+
+    .@{button-prefix-cls} {
+      min-width: unset;
+      width: 100%;
+      justify-content: left;
+      border: none;
+      background-color: ~"var(--@{button-prefix-cls}-color-bg-stroke-btn)";
+      color: ~"var(--@{button-prefix-cls}-color-text-stroke-btn)";
+    }
+  }
+}
+
+.@{toolbar-prefix-cls}-wrapper-auto {
+  --item-padding-right: 0.08rem;
+  --item-padding-left: 0.08rem;
+
+  display: flex;
+
+  .@{toolbar-prefix-cls}-item {
+    flex: 1;
+  }
+
+  .@{button-prefix-cls} {
+    // padding 设置为了防止放置大图标时撑开按钮高度
+    padding-top: unset;
+    padding-bottom: unset;
+    color: var(--item-auto-button-text-color);
+    background-color: var(--item-auto-button-background-color);
+    border: none;
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+.@{toolbar-prefix-cls}-wrapper-auto .@{toolbar-prefix-cls}-item-more {
+  flex: unset;
+
+  .@{button-prefix-cls} {
+    svg {
+      color: var(--mui-color-text-secondary);
+      width: 0.44rem;
+      height: 0.44rem;
+    }
+  }
+  .@{toolbar-prefix-cls}-item-more-auto-button {
+    width: 1.28rem;
+    justify-content: center;
+    background-color: var(--item-auto-button-background-color);
+  }
+}

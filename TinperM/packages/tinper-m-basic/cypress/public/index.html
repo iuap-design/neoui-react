@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Project</title>
+  <link href="//design.yonyoucloud.com/static/tinper-m/release/tinper-m.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body ondragover="dragOver(event)">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+<script>
+  function dragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "move";
+  };
+</script>
+</html>

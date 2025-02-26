@@ -1,0 +1,86 @@
+@import (reference) '../../../theme/index.less';
+
+.@{side-bar-prefix-cls} {
+  --height: ~"var(--@{side-bar-prefix-cls}-size-height-sidetabbar)";
+  --width: ~"var(--@{side-bar-prefix-cls}-size-width-sidetabbar)";
+  --item-border-radius: ~"var(--@{side-bar-prefix-cls}-border-radius-item-sidetabbar-selected)";
+  --background-color: ~"var(--@{side-bar-prefix-cls}-color-bg-sidetabbar)";
+
+  width: var(--width);
+  height: var(--height);
+  box-sizing: border-box;
+  font-size: 0.3rem;
+  overflow-y: auto;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  background-color: var(--background-color);
+
+  display: flex;
+  flex-direction: column;
+
+  &-items {
+    flex: none;
+    overflow: hidden;
+  }
+  &-extra-space {
+    flex: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.32rem 0.24rem;
+    position: relative;
+    cursor: pointer;
+    background-color: var(--background-color);
+    overflow: visible;
+
+    &-highlight {
+      position: absolute;
+      height: 100%;
+      width: 0.04rem;
+      left: -0.24rem;
+      top: 0;
+      background: var(--mui-color-primary);
+      border-radius: 0.04rem;
+    }
+
+    &-active {
+      color: var(--mui-color-primary);
+      background-color: ~"var(--@{side-bar-prefix-cls}-color-bg-sidetabbar-selected)";
+      position: relative;
+      font-weight: 500;
+    }
+
+    &-corner {
+      width: var(--item-border-radius);
+      height: var(--item-border-radius);
+      position: absolute;
+      z-index: 100;
+      right: 0;
+      user-select: none;
+      pointer-events: none;
+      &-top {
+        top: 0;
+        transform: rotate(-90deg);
+      }
+      &-bottom {
+        bottom: 0;
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      .@{side-bar-prefix-cls}-item-title {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &-badge.mui-badge {
+    --right: -0.16rem;
+  }
+}

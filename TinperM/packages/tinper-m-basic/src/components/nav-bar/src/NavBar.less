@@ -1,0 +1,147 @@
+@import (reference) '../../../theme/index.less';
+@import '../../icon/src/Icon.less';
+
+.text-ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// css 变量
+.@{navbar-prefix-cls} {
+  --nav-z-index: 1;
+  --border-bottom: ~"var(--@{navbar-prefix-cls}-border-width-bottom-navbar)"  ~"var(--@{navbar-prefix-cls}-border-style-bottom-navbar)"  ~"var(--@{navbar-prefix-cls}-color-border-bottom-navbar)";
+  --height:  ~"var(--@{navbar-prefix-cls}-size-height-navbar)";
+  --title-font-size: ~"var(--@{navbar-prefix-cls}-font-size-title-navbar)";
+  --title-font-weight: ~"var(--@{navbar-prefix-cls}-font-weight-title-navbar)";
+  --subtitle-font-size: ~"var(--@{navbar-prefix-cls}-font-size-subtitle-navbar)";
+  --subtitle-font-weight: ~"var(--@{navbar-prefix-cls}-font-weight-subtitle-navbar)";
+  --bg-light: ~"var(--@{navbar-prefix-cls}-color-bg-navbar)";
+  --bg-dark: ~"var(--@{navbar-prefix-cls}-color-bg-dark-navbar)";
+  --title-color-light:  ~"var(--@{navbar-prefix-cls}-color-text-title-navbar)";
+  --title-color-dark:  ~"var(--@{navbar-prefix-cls}-color-text-title-dark-navbar)";
+  --subtitle-color-light:  ~"var(--@{navbar-prefix-cls}-color-text-subtitle-navbar)";
+  --subtitle-color-dark:  ~"var(--@{navbar-prefix-cls}-color-text-subtitle-dark-navbar)";
+}
+
+.@{navbar-prefix-cls} {
+  display: flex;
+  z-index: var(--nav-z-index);
+  border-bottom: var(--border-bottom);
+  background: var(--bg-light);
+  color: var(--title-color-light);
+
+  &-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--height);
+    user-select: none;
+  }
+
+  &-content-blur {
+    position: relative;
+    overflow: hidden;
+    background: inherit;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: calc(var(--nav-z-index) + 1);
+      background: inherit;
+      filter: blur(10px);
+    }
+    .@{navbar-prefix-cls}-left,.@{navbar-prefix-cls}-right,.@{navbar-prefix-cls}-title{
+      z-index: calc(var(--nav-z-index) + 2);
+    }
+  }
+
+  &-back{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    svg {
+      width: 0.44rem;
+      height: 0.44rem;
+    }
+  }
+
+  &-left,&-right{
+    flex: 1 1;
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .icon-text{
+      height: 0.44rem;
+      font-size: 0.3rem;
+      font-weight: 400;
+      line-height: 0.44rem;
+      margin: 0.08rem;
+    }
+  }
+
+  &-left{
+    justify-content: flex-start;
+    padding-left: 0.24rem;
+  }
+
+  &-right{
+    justify-content: flex-end;
+    padding-right: 0.24rem;
+  }
+
+  &-title{
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    height: fit-content;
+    font-size: var(--title-font-size);
+    font-weight: var(--title-font-weight);
+    line-height: 1.5;
+    text-align: center;
+    max-width: 80%;
+    .text-ellipsis();
+    &-text{
+      .text-ellipsis();
+    }
+  }
+
+  &-align-stretch{
+    .@{navbar-prefix-cls}-title > *{
+      width: 100%;
+    }
+  }
+
+  &-align-left{
+    .@{navbar-prefix-cls}-left,.@{navbar-prefix-cls}-right{
+      flex: unset;
+    }
+    .@{navbar-prefix-cls}-title{
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .@{navbar-prefix-cls}-content{
+      justify-content: flex-start;
+    }
+  }
+
+  &-align-right{
+    .@{navbar-prefix-cls}-left,.@{navbar-prefix-cls}-right{
+      flex: unset;
+    }
+    .@{navbar-prefix-cls}-title{
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .@{navbar-prefix-cls}-content{
+      justify-content: flex-end;
+    }
+  }
+
+}

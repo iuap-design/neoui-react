@@ -1,0 +1,326 @@
+@use 'sass:math';
+@import "../../wui-core/scss/minxin-mixins";
+
+//$tooltip-prefix-cls: $prefix-cls + 'tooltip';
+$tooltip-border-color-feedback: var(--#{$tooltip-prefix-cls}-custom-color, --#{$tooltip-prefix-cls}-border-color-feedback);
+$tooltip-border-width-feedback: var(--#{$tooltip-prefix-cls}-border-width-feedback);
+$tooltip-border-style-feedback: var(--#{$tooltip-prefix-cls}-border-style-feedback);
+$preset-colors: pink,
+magenta,
+red,
+volcano,
+orange,
+yellow,
+gold,
+cyan,
+lime,
+green,
+blue,
+geekblue,
+purple;
+$tooltip-arrow-shadow-width: 3px;
+$tooltip-arrow-shadow-width-num: 3;
+
+$tooltip-arrow-rotate-width: math.sqrt($tooltip-arrow-width-num * $tooltip-arrow-width-num * 2)+$tooltip-arrow-shadow-width-num * 2;
+
+$tooltip-arrow-offset-vertical: 4px; // 8 - 3px
+$tooltip-arrow-offset-horizontal: 4px; // 16 - 3px
+$tooltip-line-height: 20px;
+
+// Base class
+.#{$tooltip-prefix-cls} {
+  position: absolute;
+  z-index: $zIndex-tooltip;
+  display: block;
+  max-width: $tooltip-max-width;
+  -ms-overflow-x: hidden; // QDJCJS-8204：非tooltip问题，兼容IE11的bug,未超出宽度却出现滚动条问题；
+  -ms-overflow-y: hidden; // QDJCJS-9662，兼容IE11下滚动条问题；
+  visibility: visible;
+  line-height: $tooltip-line-height;
+  pointer-events: all; //确保在弹窗下事件正常响应
+
+  &-hidden {
+    display: none;
+  }
+
+  &-placement-top,
+  &-placement-topLeft,
+  &-placement-topRight {
+    padding-bottom: $tooltip-distance;
+
+    // .#{$tooltip-prefix-cls}-arrow {
+    //   /*!rtl:ignore*/
+    //   transform: rotate(45deg) translate(-4px, 4px)
+    // }
+  }
+
+  &-placement-right,
+  &-placement-rightTop,
+  &-placement-rightBottom {
+   /*!rtl:ignore*/
+    padding-left: $tooltip-distance;
+  }
+
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    padding-top: $tooltip-distance;
+
+    // .#{$tooltip-prefix-cls}-arrow {
+    //   /*!rtl:ignore*/
+    //   transform: rotate(45deg) translate(-4px, 4px)
+    // }
+  }
+
+  &-placement-left,
+  &-placement-leftTop,
+  &-placement-leftBottom {
+    /*!rtl:ignore*/
+    padding-right: $tooltip-distance;
+  }
+
+  // Wrapper for the tooltip content
+  &-inner {
+    min-width: 30px;
+    min-height: 28px;
+    padding: 8px;
+    font-size: var(--#{$tooltip-prefix-cls}-font-size);
+    font-weight: var(--#{$tooltip-prefix-cls}-font-weight);
+    color: var(--#{$tooltip-prefix-cls}-color-text);
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    background-color: var(--#{$tooltip-prefix-cls}-color-bg);
+    border-radius: var(--#{$tooltip-prefix-cls}-border-radius);
+    box-shadow: var(--#{$tooltip-prefix-cls}-box-shadow);
+    cursor: default;
+
+    @include set-scrollbar-style(0, 5px);
+
+    p {
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+  }
+
+  &-hide-arrow {
+    .#{$tooltip-prefix-cls}-arrow {
+      display: none;
+    }
+  }
+
+  // Arrows
+  &-arrow {
+    position: absolute;
+    display: block;
+    width: $tooltip-arrow-rotate-width + px;
+    height: $tooltip-arrow-rotate-width + px;
+    // margin: auto;
+    // transform: rotate(45deg);
+    background-color: transparent;
+    pointer-events: none;
+
+    &-content {
+      position: absolute;
+      display: block;
+      width: $tooltip-arrow-width;
+      height: $tooltip-arrow-width;
+      margin: auto;
+      background-color: var(--#{$tooltip-prefix-cls}-color-bg);
+      content: '';
+      pointer-events: auto;
+    }
+  }
+
+  // 非边界情况箭头位置
+  &:not(#{&}-isEdge) &-arrow &-arrow-content {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &-placement-top &-arrow,
+  &-placement-topLeft &-arrow,
+  &-placement-topRight &-arrow {
+    bottom: $tooltip-distance - $tooltip-arrow-rotate-width;
+
+    &-content {
+      // box-shadow: $tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px #42526E;
+      /*!rtl:ignore*/
+      transform: translateY(math.div(-$tooltip-arrow-rotate-width, 2) + px) rotate(45deg);
+      /*!rtl:ignore*/
+      box-shadow: inset -1px 0 0 $tooltip-border-color-feedback, inset 0 -1px 0 $tooltip-border-color-feedback;
+    }
+  }
+  
+  // &.#{$tooltip-prefix-cls}-placement-top div.#{$tooltip-prefix-cls}-content &-arrow,
+  // &.#{$tooltip-prefix-cls}-placement-topLeft div.#{$tooltip-prefix-cls}-content &-arrow,
+  // &.#{$tooltip-prefix-cls}-placement-topRight div.#{$tooltip-prefix-cls}-content &-arrow {
+  //   &-content {
+  //     top: -1px;
+  //   }
+  // }
+
+  &-placement-top &-arrow {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-placement-topLeft &-arrow {
+    /*!rtl:ignore*/
+    left: $tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-topRight &-arrow {
+    /*!rtl:ignore*/
+    right: $tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-right &-arrow,
+  &-placement-rightTop &-arrow,
+  &-placement-rightBottom &-arrow {
+    /*!rtl:ignore*/
+    left: $tooltip-distance - $tooltip-arrow-rotate-width;
+
+    &-content {
+      // box-shadow: -$tooltip-arrow-shadow-width $tooltip-arrow-shadow-width 7px #42526E;
+      /*!rtl:ignore*/
+      transform: translateX(math.div($tooltip-arrow-rotate-width, 2)+px) rotate(45deg);
+      /*!rtl:ignore*/
+      box-shadow: inset 1px 0 0 $tooltip-border-color-feedback, inset 0 -1px 0 $tooltip-border-color-feedback;
+    }
+  }
+  // &.#{$tooltip-prefix-cls}-placement-right div.#{$tooltip-prefix-cls}-content &-arrow,
+  // &.#{$tooltip-prefix-cls}-placement-rightTop div.#{$tooltip-prefix-cls}-content &-arrow,
+  // &.#{$tooltip-prefix-cls}-placement-rightBottom div.#{$tooltip-prefix-cls}-content &-arrow {
+  //   &-content {
+  //     left: 1px;
+  //     right: 0;
+  //   }
+  // }
+
+  &-placement-right &-arrow {
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-placement-rightTop &-arrow {
+    top: $tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-rightBottom &-arrow {
+    bottom: $tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-left &-arrow,
+  &-placement-leftTop &-arrow,
+  &-placement-leftBottom &-arrow {
+    /*!rtl:ignore*/
+    right: $tooltip-distance - $tooltip-arrow-rotate-width;
+
+    &-content {
+      // box-shadow: $tooltip-arrow-shadow-width -$tooltip-arrow-shadow-width 7px #42526E;
+      /*!rtl:ignore*/
+      transform: translateX(math.div(-$tooltip-arrow-rotate-width, 2) + px) rotate(45deg);
+      /*!rtl:ignore*/
+      box-shadow: inset -1px 0 0 $tooltip-border-color-feedback, inset 0 1px 0 $tooltip-border-color-feedback;
+    }
+  }
+  &-placement-left &-arrow {
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+
+
+  }
+
+  &-placement-leftTop &-arrow {
+    top: $tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-leftBottom &-arrow {
+    bottom: $tooltip-arrow-offset-vertical;
+  }
+
+  &-placement-bottom &-arrow,
+  &-placement-bottomLeft &-arrow,
+  &-placement-bottomRight &-arrow {
+    top: $tooltip-distance - $tooltip-arrow-rotate-width;
+
+    &-content {
+      /*!rtl:ignore*/
+      transform: translateY(math.div($tooltip-arrow-rotate-width, 2) + px) rotate(45deg);
+      /*!rtl:ignore*/
+      box-shadow: inset 1px 0 0 $tooltip-border-color-feedback, inset 0 1px 0 $tooltip-border-color-feedback;
+    }
+  }
+
+  &-placement-bottom &-arrow {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-placement-bottomLeft &-arrow {
+    /*!rtl:ignore*/
+    left: $tooltip-arrow-offset-horizontal;
+  }
+
+  &-placement-bottomRight &-arrow {
+    /*!rtl:ignore*/
+    right: $tooltip-arrow-offset-horizontal;
+  }
+}
+
+/*!rtl:begin:ignore*/
+[dir="rtl"] .#{$tooltip-prefix-cls} {
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    .#{$tooltip-prefix-cls}-arrow {
+      left: calc($tooltip-arrow-offset-horizontal - 10px);
+      right: auto;
+      transform: translateX(50%) rotate(-45deg);
+    }
+  }
+}
+/*!rtl:end:ignore*/
+@each $color in $preset-colors {
+  $lightColor: '.#{$color}-6';
+  $name: $tooltip-prefix-cls + '-'+ $color;
+
+  .#{$name} {
+    .#{$tooltip-prefix-cls}-inner {
+      background-color: $color;
+    }
+
+    .#{$tooltip-prefix-cls}-arrow {
+      &-content {
+        background-color: $color;
+      }
+
+    }
+  }
+}
+
+.#{$tooltip-prefix-cls}-inverse {
+  .#{$tooltip-prefix-cls}-inner {
+    border: $tooltip-border-width-feedback $tooltip-border-style-feedback $tooltip-border-color-feedback;
+    background-color: $tooltip-color;
+    color: var(--#{$collapse-prefix-cls}-inverse-content-text-color);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+  }
+
+  .#{$tooltip-prefix-cls}-arrow {
+    &-content {
+    
+    color: $tooltip-arrow-color;
+    background-color: $tooltip-color;
+    }
+  }
+}
+
+// motion支持

@@ -1,0 +1,237 @@
+@import "../../wui-core/scss/minxin-mixins";
+@import "../../wui-icon/src/Icon.scss";
+
+//$message-prefix-cls: $prefix-cls + 'message';
+
+$message-bg-color-light: var(--#{$message-prefix-cls}-color-bg);
+$message-content-padding: 11px 40px 11px 4px;
+$font-color-base: var(--#{$message-prefix-cls}-color-text);
+$inverse-text-color: var(--#{$message-prefix-cls}-color-text-inverse-fill);
+$inverse-icon-color: var(--#{$message-prefix-cls}-color-icon-inverse-fill);
+
+.#{$message-prefix-cls} {
+    font-size: $message-font-size;
+    position: fixed;
+    z-index: $zIndex-message;
+    &-topLeft, &-topRight, &-bottomLeft, &-bottomRight {
+      .#{$message-prefix-cls}-notice-description-content{
+        min-width: 140px;
+      }
+    }
+
+    &-notice {
+      position: relative;
+      padding: $message-padding;
+      border-radius: var(--#{$message-prefix-cls}-border-radius);
+      border: var(--#{$message-prefix-cls}-border-width) var(--#{$message-prefix-cls}-border-style);
+      box-shadow: var(--#{$message-prefix-cls}-box-shadow);
+      box-sizing: border-box;
+      line-height: 1.5;
+      overflow: hidden;
+      color: $font-color-base;
+      &-description {
+        font-size: var(--#{$message-prefix-cls}-font-size);
+        font-weight: var(--#{$message-prefix-cls}-font-weight);
+        word-wrap: break-word;
+        white-space: pre-line; // QDJCJS-23597 支持content字符串用\n等换行
+        vertical-align: middle;
+        &-content {
+            min-width: 250px;
+            max-width: 610px;
+            display: inline-block;
+            padding: $message-content-padding;
+            margin-left: 33px;
+        }
+        &-icon{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            padding-left: 12px;
+            padding-right: 4px;
+            text-align: center;
+            .uf {
+                font-size: var(--#{$message-prefix-cls}-font-size-icon-info);
+                line-height: 42px;
+                padding: 0;
+            }
+        }
+      }
+
+      &-close {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        cursor: pointer;
+        outline: none;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        color: var(--#{$wui-prefix}-color-icon-close-feedback);
+        &-x .uf {
+          font-size: var(--#{$wui-prefix}-font-size-feedback);
+          padding: 0;
+        }
+        &-x:after {
+          content: "";
+        }
+
+        &:hover {
+          opacity: 1;
+          filter: alpha(opacity=100);
+          text-decoration: none;
+          color: var(--#{$wui-prefix}-color-icon-close-feedback-hover);
+        }
+
+      }
+    }
+
+    &-notice-dark {
+      background-color: $brand-dark;
+      border-color: $brand-dark;
+      color: $inverse-text-color;
+      .#{$message-prefix-cls}-notice-close {
+        &:hover {
+          color: $inverse-text-color;
+        }
+      }
+    }
+
+    &-notice-light {
+          background-color: $message-bg-color-light;
+          border-color: var(--#{$message-prefix-cls}-color-border);
+          color: $brand-dark;
+          .#{$message-prefix-cls}-notice-description-content{
+              color: $font-color-base;
+          }
+     }
+    &-notice-success {
+          background-color: var(--#{$message-prefix-cls}-color-bg-fill-success);
+          color: $inverse-text-color;
+          border-color: var(--#{$message-prefix-cls}-color-bg-fill-success);
+          .#{$message-prefix-cls}-notice-description-icon{
+            color: $inverse-icon-color;
+          } 
+    }
+    &-notice-danger {
+          background-color: var(--#{$message-prefix-cls}-color-bg-fill-danger);
+          color: $inverse-text-color;
+          border-color: var(--#{$message-prefix-cls}-color-bg-fill-danger);
+          .#{$message-prefix-cls}-notice-description-icon{
+            color: $inverse-icon-color;
+          } 
+    }
+    &-notice-error {
+          background-color: var(--#{$message-prefix-cls}-color-bg-fill-danger);
+          color: $inverse-text-color;
+          border-color: var(--#{$message-prefix-cls}-color-bg-fill-danger);
+          .#{$message-prefix-cls}-notice-description-icon{
+            color: $inverse-icon-color;
+          } 
+    }
+     &-notice-info {
+          background-color: var(--#{$message-prefix-cls}-color-bg-fill-info);
+          color: $inverse-text-color;
+          border-color: var(--#{$message-prefix-cls}-color-bg-fill-info);
+          .#{$message-prefix-cls}-notice-description-icon{
+            color: $inverse-icon-color;
+          } 
+    }
+    &-notice-warning {
+          background-color: var(--#{$message-prefix-cls}-color-bg-fill-warning);
+          color: $inverse-text-color;
+          border-color: var(--#{$message-prefix-cls}-color-bg-fill-warning);
+          .#{$message-prefix-cls}-notice-description-icon{
+            color: $inverse-icon-color;
+          } 
+    }
+    &-notice-successlight {
+           background-color: var(--#{$message-prefix-cls}-color-bg-success);
+           color: $font-color-base;
+           border-color: var(--#{$message-prefix-cls}-color-border-success);
+           .#{$message-prefix-cls}-notice-description-icon{
+               color: var(--#{$message-prefix-cls}-color-icon-success);
+           }
+    }
+    &-notice-dangerlight {
+            background-color: var(--#{$message-prefix-cls}-color-bg-danger);
+            color: $font-color-base;
+            border-color: var(--#{$message-prefix-cls}-color-border-danger);
+            .#{$message-prefix-cls}-notice-description-icon{
+                color: var(--#{$message-prefix-cls}-color-icon-danger);
+            }
+    }
+     &-notice-infolight {
+             background-color: var(--#{$message-prefix-cls}-color-bg-info);
+             color: $font-color-base;
+             border-color: var(--#{$message-prefix-cls}-color-border-info);
+             .#{$message-prefix-cls}-notice-description-icon{
+                 color: var(--#{$message-prefix-cls}-color-icon-info);
+             }
+    }
+    &-notice-warninglight {
+             background-color: var(--#{$message-prefix-cls}-color-bg-warning);
+             color: $font-color-base;
+             border-color: var(--#{$message-prefix-cls}-color-border-warning);
+             .#{$message-prefix-cls}-notice-description-icon{
+                 color: var(--#{$message-prefix-cls}-color-icon-warning);
+             }
+    }
+
+    &-fade-effect {
+      animation-duration: 0.24s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+      animation-play-state: paused;
+    }
+    
+    // 不同位置动画
+    $position_list: top, left, right, bottom;
+    @each $position, $index in $position_list {
+      &-#{$position}-enter,
+      #{&}-#{$position}-appear {
+        opacity: 0;
+        @extend .#{$message-prefix-cls}-fade-effect;
+      }
+    
+      &-#{$position}-leave {
+        @extend .#{$message-prefix-cls}-fade-effect;
+        animation-duration: 0.2s;
+      }
+      &-#{$position}-enter-active {
+        animation-name: uMessage_#{$position};
+        animation-play-state: running;
+      }
+      &-#{$position}-leave-active {
+        animation-name: uMessageFadeOut;
+        animation-play-state: running;
+      }
+
+      @keyframes uMessage_#{$position} {
+        0% {
+          opacity: 0;
+          #{$position}: -100px; // 动画范围暂定100px
+        }
+        100% {
+          opacity: 1;
+          #{$position}: 0;
+        }
+      }
+    }
+
+    @keyframes uMessageFadeOut {
+      0% {
+        opacity: 1;
+        padding-top: $message-padding;
+        padding-bottom: $message-padding;
+        max-height: 150px;
+      }
+      100% {
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        max-height: 0;
+      }
+    }
+}

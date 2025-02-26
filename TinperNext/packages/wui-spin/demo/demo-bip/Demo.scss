@@ -1,0 +1,42 @@
+.demos-wui-spin {
+  .demo2, .demo3, .demo4, .demo4_1 {
+    height: 100px;
+    width: 500px;
+    background: rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    font-size: 14px;
+
+    .wui-spin-backdrop {
+      z-index: 1029;
+    }
+  }
+
+  .demo3 {
+    border: 1px solid #c1c7d0;
+    background: #fff;
+  }
+
+  .demo5 {
+    height: 100px;
+    width: 500px;
+    overflow: hidden;
+    font-size: 14px;
+
+    .wui-spin-backdrop {
+      z-index: 1029;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wui-spin.wui-spin-rotate.wui-spin-rotate-sm > div {
+      left: 20%;
+    }
+
+    .wui-spin.wui-spin-rotate > div {
+      left: 40%;
+    }
+
+    .wui-spin.wui-spin-rotate.wui-spin-rotate-lg > div {
+      left: 65%;
+    }
+  }
+}

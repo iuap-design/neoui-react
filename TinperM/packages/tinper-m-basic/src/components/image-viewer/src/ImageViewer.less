@@ -1,0 +1,75 @@
+@import (reference) '../../../theme/index.less';
+@import (reference) '../../icon/src/Icon.less';
+
+
+.@{image-viewer-prefix-cls} {
+  --font-size: ~"var(--@{image-viewer-prefix-cls}-font-size-imageviewer)";
+  --font-weight: ~"var(--@{image-viewer-prefix-cls}-font-weight-imageviewer)";
+
+  &-content {
+    width: 100vw;
+    height: 100vh;
+    touch-action: none;
+    user-select: none;
+  }
+  &-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+  &-slides {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    cursor: grab;
+    touch-action: none;
+    &-inner {
+      height: 100%;
+      white-space: nowrap;
+      > * {
+        margin-right: 16px;
+      }
+    }
+  }
+  &-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+  &-slide-control {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+  }
+  &-slide-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  &-slides-indicator {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 0.52rem;
+    transform: translateX(-50%);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    color: ~"var(--@{image-viewer-prefix-cls}-color-text-indicator-imageviewer)";
+    line-height: 20px;
+    font-family: PingFangSC, PingFang SC;
+  }
+}

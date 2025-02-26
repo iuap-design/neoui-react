@@ -1,0 +1,47 @@
+/*
+ * @Author: Mr.mjc
+ * @Date: 2022-10-09 17:31:02
+ * @LastEditors: Mr.mjc
+ * @LastEditTime: 2023-02-13 15:47:20
+ * @Description: table版
+ * @FilePath: /next-ui/packages/wui-table/src/Table.scss
+ */
+@import "./Mixin.scss";
+
+.#{$table-prefix-cls}:not(.#{$table-prefix-cls}-sticky) {
+  &.#{$table-prefix-cls}-scroll {
+    overflow: auto;
+    .#{$table-prefix-cls}-body {
+      table {
+        overflow: hidden; //确保中间区域不出现多余滚动条
+      }
+    }
+  }
+  &.#{$table-prefix-cls}-bordered {
+    .#{$table-prefix-cls}-placeholder {
+      border-left: 1px solid $table-border-color;    
+      border-right: 1px solid $table-border-color;
+      border-bottom: 1px solid $table-border-color;
+      .#{$table-prefix-cls}-placeholder-fixed {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -1px;
+        border-left: 1px solid $table-border-color; 
+        border-right: 1px solid $table-border-color;
+        pointer-events: none;
+        box-sizing: content-box;
+      }
+    }
+  }
+  .#{$table-prefix-cls}-placeholder {
+    padding: $vertical-padding 8px;
+    background: $table-bg;
+    // border-bottom: 1px solid $table-border-color;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,171 @@
+@import (reference) '../../../theme/index.less';
+
+.@{tabs-prefix-cls} {
+  --title-font-size: var(--ynfm-font-size-tab, 0.28rem);
+  --content-padding: ~"var(--@{tabs-prefix-cls}-spacing-padding-content-tab)";
+  --active-line-height:~"var(--@{tabs-prefix-cls}-size-height-line-tab-selected)";
+  --active-line-border-radius:~"var(--@{tabs-prefix-cls}-border-radius-line-tab-selected)";
+  --active-line-color:~"var(--@{tabs-prefix-cls}-color-bg-line-tab-selected)";
+  --active-title-color:~"var(--@{tabs-prefix-cls}-color-text-tab-selected)";
+  --active-title-font-size:~"var(--@{tabs-prefix-cls}-font-size-text-tab-selected)";
+  --tabs-header-padding: 0 0.27rem;
+  position: relative;
+  overflow: hidden;
+  // Hack for auto scroll fail when the parent element is a flex layout
+  min-width: 0;
+  background: ~"var(--@{tabs-prefix-cls}-color-bg-tab)";
+  box-sizing: border-box;
+
+  &-header {
+    position: relative;
+    padding: 0 0.05rem;
+  }
+
+  &-tab-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+  }
+
+  &-tab-wrapper {
+    padding: var(--tabs-header-padding);
+
+    &-stretch {
+      flex: auto;
+    }
+  }
+
+  &-tab {
+    white-space: nowrap;
+    padding: 0.14rem 0 0.12rem;
+    width: min-content;
+    margin: 0 auto;
+    font-size: var(--title-font-size);
+    line-height: 0.46rem;
+    color: ~"var(--@{tabs-prefix-cls}-color-text-tab)";
+    font-weight: 400;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    // overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-tab-active {
+    color: var(--active-title-color);
+    font-weight: 500;
+    font-size: var(--active-title-font-size);
+    line-height: 0.46rem;
+  }
+
+  &-tab-disabled {
+    color: ~"var(--@{tabs-prefix-cls}-color-text-disabled)";
+    cursor: not-allowed;
+  }
+
+  &-tab-line {
+    position: absolute;
+    bottom: 0.04rem;
+    left: -0.02rem;
+    height: var(--active-line-height);
+    background: var(--active-line-color);
+    border-radius: var(--active-line-border-radius);
+  }
+
+  &-content {
+    padding: var(--content-padding);
+    display: none;
+
+    &-active {
+      display: block;
+    }
+  }
+
+  &-header-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 0.6rem;
+    height: 100%;
+    pointer-events: none;
+  }
+}
+
+.@{tabs-prefix-cls}-tabbar-position-h {
+  .@{tabs-prefix-cls}-tab-line-dot::before {
+    content: '';
+    top: 0;
+    right: -0.08rem;
+    width: var(--active-line-height);
+    height: var(--active-line-height);
+    background: var(--active-line-color);
+    border-radius: var(--active-line-border-radius);
+    position: absolute;
+  }
+}
+
+.@{tabs-prefix-cls}-tabbar-position-v {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+
+  .@{tabs-prefix-cls}-tab {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.22rem 0 0.2rem;
+  }
+
+  .@{tabs-prefix-cls}-header-wrap {
+    height: 100%;
+  }
+
+  .@{tabs-prefix-cls}-header {
+    height: 100%;
+  }
+
+  .@{tabs-prefix-cls}-content {
+    flex-grow: 1;
+  }
+
+  .@{tabs-prefix-cls}-tab-list {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .@{tabs-prefix-cls}-tab-wrapper {
+    flex: 1;
+  }
+
+  .@{tabs-prefix-cls}-tab-line {
+    top: 0;
+    left: unset;
+    right: 0;
+    width: var(--active-line-height);
+  }
+}
+
+.@{tabs-prefix-cls}-tabbar-position-right {
+  flex-direction: row-reverse;
+
+  .@{tabs-prefix-cls}-tab-line {
+    right: unset;
+    left: 0;
+  }
+}
+
+.@{tabs-prefix-cls}-tabbar-position-bottom {
+  flex-direction: column-reverse;
+  display: flex;
+}

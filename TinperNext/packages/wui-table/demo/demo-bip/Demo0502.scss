@@ -1,0 +1,87 @@
+.demos-wui-table {
+  .wui-editable-table .wui-table {
+    .wui-table-row {
+      td {
+        input {
+          &.error {
+            border-color: #F44336;
+          }
+        }
+      }
+
+      .editable-cell {
+        height: 28px;
+      }
+
+      &-hover {
+        .editable-cell-text-wrapper {
+          line-height: 18px;
+          background: #fff;
+        }
+      }
+
+      .wui-form-control,
+      .wui-select-selection {
+        height: 28px;
+      }
+    }
+
+    .editable-cell-text-wrapper {
+      box-sizing: border-box;
+      line-height: 20px;
+      border-radius: 3px;
+    }
+
+    .editable-cell-input-wrapper {
+      padding-right: 0;
+
+      .ref-input-wrap {
+        width: 200px !important;
+        height: 28px;
+
+        .rc-tree-select {
+          .rc-tree-select-selection {
+            height: 28px;
+            border-color: #d9d9d9;
+
+            &:hover {
+              border-color: #505766;
+              box-shadow: none;
+            }
+
+            .rc-tree-select-selection__rendered {
+              line-height: 28px;
+
+              .rc-tree-select-selection-selected-value {
+                line-height: 26px;
+                height: 100%;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        .wui-input-group {
+          display: inline-block;
+        }
+      }
+    }
+
+    .verify-cell {
+      padding-right: 25px !important;
+    }
+
+    .require {
+      position: absolute;
+      top: 2px;
+      color: #F44336;
+      font-size: 20px;
+    }
+  }
+
+  .wui-editable-table-tp {
+    .tp-content {
+      color: #F44336;
+    }
+  }
+}

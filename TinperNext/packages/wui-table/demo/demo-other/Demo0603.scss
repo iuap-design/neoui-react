@@ -1,0 +1,22 @@
+.demos-wui-table {
+  th {
+    .drop-menu {
+      .uf {
+        font-size: 12px;
+        visibility: hidden;
+        margin-left: 15px;
+      }
+
+
+    }
+
+    &:hover {
+      .uf {
+        visibility: visible;
+      }
+    }
+
+  }
+
+
+}

@@ -1,0 +1,25 @@
+{
+    "extends": "../tsconfig.base", //继承公共基础配置
+      "compilerOptions": {
+        "declarationDir": "build/packages",              /* 生成*.d.ts声明文件输出的目录 */
+        "noEmitOnError": false,                 /* 报错时是否生成输出文件 */
+        "baseUrl": ".",                       /* 解析非相对模块的基地址，默认是当前目录 Base directory to resolve non-absolute module names. */
+        "paths": {
+            "react": ["../node_modules/@types/react"],
+            "@tinper/next-ui": ["../packages/index.tsx"],
+            "*": ["./node_modules/*"],
+            }, /* 路径映射，相对于baseUrl ,A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      },
+      "include": [
+        "../index.d.ts",
+        "../html.d.ts",
+        // "../packages/",
+        // "../packages/**/src/*",
+        // "../packages/**/src/**/*",
+        // "../packages/wui-calendar/demo/*",
+        // "../packages/wui-calendar/demo/**/*"
+        "../packages/**/demo/*",
+        "../packages/**/demo/**/*"
+      ],
+}
+  

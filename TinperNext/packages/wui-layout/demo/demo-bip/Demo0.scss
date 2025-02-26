@@ -1,0 +1,34 @@
+.layout-demo-basic {
+  text-align: center;
+
+  > .wui-layout {
+    margin-top: 35px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .wui-layout-header,
+  .wui-layout-footer {
+    color: #fff;
+    background: #7dbcea;
+  }
+
+  .wui-layout-footer {
+    line-height: 1.5;
+  }
+
+  .wui-layout-content {
+    min-height: 120px;
+    color: #fff;
+    line-height: 120px;
+    background: rgba(16, 142, 233, 1);
+  }
+
+  .wui-layout-sider {
+    color: #fff;
+    line-height: 120px;
+    background: #3ba0e9;
+  }
+}

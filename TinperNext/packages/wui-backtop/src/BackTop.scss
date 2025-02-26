@@ -1,0 +1,46 @@
+@import "../../wui-core/scss/minxin-mixins";
+$backtop-size-width: var(--#{$back-prefix-cls}-size-width);
+$backtop-size-height: var(--#{$back-prefix-cls}-size-height);
+$backtop-border-radius: var(--#{$back-prefix-cls}-border-radius);
+$backtop-border-color: var(--#{$back-prefix-cls}-border-color);
+$backtop-border-color-hover: var(--#{$back-prefix-cls}-border-color-hover);
+$backtop-border-width: var(--#{$back-prefix-cls}-border-width);
+$backtop-border-style: var(--#{$back-prefix-cls}-border-style);
+$backtop-bg-color: var(--#{$back-prefix-cls}-bg-color);
+$backtop-bg-color-hover: var(--#{$back-prefix-cls}-bg-color-hover);
+$backtop-font-size: var(--#{$back-prefix-cls}-font-size);
+$backtop-font-color: var(--#{$back-prefix-cls}-font-color);
+
+.#{$back-prefix-cls}{
+  cursor: pointer;
+  position: fixed;
+  right: $backtop-right;
+  bottom: $backtop-bottom;
+  z-index: $zindex-backtop;
+  background: $backtop-bg-color;
+  color: $backtop-color;
+  padding: $back-top-padding;
+  width: $backtop-size-width;
+  height: $backtop-size-height;
+  border-radius: $backtop-border-radius;
+  line-height: calc($backtop-size-height - $back-top-padding * 2);
+  text-align: center;
+  border: $backtop-border-width $backtop-border-style $backtop-border-color;
+  font-size: $backtop-font-size;
+  color: $backtop-font-color;
+  // padding: calc($back-top-padding + 3px) $back-top-padding $back-top-padding;
+  &-hide{
+    display: none;
+  }
+  &#{&}-dom{
+    position: absolute;
+    right: $backtop-dom-right;
+  }
+  .uf {
+    font-size: $backtop-font-size;
+  }
+  &:hover {
+    background: $backtop-bg-color-hover;
+    border: $backtop-border-width $backtop-border-style $backtop-border-color-hover; 
+  }
+}

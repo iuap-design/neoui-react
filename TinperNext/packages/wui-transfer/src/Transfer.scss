@@ -1,0 +1,355 @@
+@import "../../wui-core/scss/minxin-mixins";
+// @import '../node_modules/bee-button/src/Button.scss';
+// @import '../node_modules/bee-form-control/src/FormControl.scss';
+// @import '../node_modules/bee-checkbox/src/Checkbox.scss';
+// @import "../node_modules/bee-icon/src/Icon.scss";
+// @import "../node_modules/bee-panel/src/Panel.scss";
+
+//$transfer-prefix-cls: $prefix-cls + 'transfer';
+
+.#{$transfer-prefix-cls} {
+  *, :after, :before {
+    box-sizing:border-box;
+  }
+
+  // &-rtl{
+  //   .#{$transfer-prefix-cls}-list{
+  //     &-header
+  //   }
+  // }
+  position: relative;
+  line-height: 1.5;
+
+  &-list {
+    position: relative;
+    font-size: 12px;
+    //border: 1px solid $transfer-border-gap-color;
+    border: var(--#{$transfer-prefix-cls}-border-width) solid var(--#{$transfer-prefix-cls}-color-border);
+    display: inline-block;
+    border-radius: var(--#{$transfer-prefix-cls}-border-radius);
+    vertical-align: middle;
+    position: relative;
+    width: 180px;
+    height: 200px;
+    padding-top: 33px;
+    background: var(--#{$transfer-prefix-cls}-color-bg);
+    &.#{$transfer-prefix-cls}-list-draggable:first-child{
+      margin-right: 16px;
+    }
+
+    &-with-footer {
+      padding-bottom: 38px;
+    }
+
+    &-search {
+      &-action {
+        color: $transfer-font-color;
+        position: absolute;
+        top: 5px;
+        right: 4px;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        font-size: 12px;
+        text-decoration: none;
+        .uf {
+          transition: all .3s;
+          font-size: 12px;
+          color: $transfer-font-color;
+          &:hover {
+            color: rgba(0,0,0,.43);
+          }
+        }
+        .uf.uf-close-c {
+          font-size: $clear-icon-font-size;
+          color: $clear-icon-base-color;
+          &:hover {
+            color: $clear-icon-hover-color;
+          }
+        }
+      }
+    }
+
+    &-header {
+      padding: 7px 15px;
+      border-radius: $border-radius-base $border-radius 0 0;
+      color: var(--#{$transfer-prefix-cls}-color-text-header);
+      font-size: var(--#{$transfer-prefix-cls}-font-size-header);
+      font-weight: var(--#{$transfer-prefix-cls}-font-weight-header);
+      //border-bottom: 1px solid #e9e9e9;//$transfer-border-gap-color;
+      // border-bottom: 1px solid $border-color-base;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      .#{$prefix-cls}checkbox{
+        margin-right:0;
+      }
+      &-selected {
+        vertical-align: middle;
+      }
+      &-number {
+        position: absolute;
+        right: 6px;
+      }
+      
+    }
+
+    &-body {
+      font-size: var(--#{$transfer-prefix-cls}-font-size-content);
+      font-weight: var(--#{$transfer-prefix-cls}-font-weight-content);
+      position: relative;
+      height: 100%;
+
+      &-search-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 4px 8px;
+        width: 100%;
+      }
+    }
+
+    &-body-with-search {
+      padding-top: 34px;
+    }
+
+    // 无搜索框body与header显示分割线 QDJCJS-10907
+    &-body:not(.#{$transfer-prefix-cls}-list-body-with-search) {
+      border-top: 1px solid $base-input-border-color;
+    }
+
+    &-content {
+      height: 100%;
+      overflow: auto;
+      margin: 0;
+      padding: 0;
+
+      @include set-scrollbar-style();
+
+      &.delbtn-backdrop{
+        background: #505F79;
+        opacity: 0.65;
+        &.uf-del{
+          color: #fff;
+        }
+      }
+      &-item {
+        position: relative;
+        overflow: visible;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 7px 15px;
+        min-height: 32px;
+        transition: all 0.3s ease;
+        color: var(--#{$transfer-prefix-cls}-color-text-content);
+        .#{$prefix-cls}checkbox{
+          margin-right:0;
+        }
+        .multi-drag-count {
+          position: absolute;
+          right: -11px;
+          top: -8px;
+          z-index: 999;
+          width: 26px;
+          height: 26px;
+          line-height: 26px;
+          border-radius: 99px;
+          text-align: center;
+          background: #FFD700;
+          color: #999;
+        }
+      }
+      &-item:not(&-item-disabled):hover {
+        cursor: pointer;
+        //background-color: $transfer-item-hover-color;
+        background-color: $base-item-bg-color-hover;
+      }
+
+      &-item-selected{
+        background: $base-item-bg-color-selected;
+        &:not(&-item-disabled):hover{
+          background: $base-item-bg-color-selected-hover;
+        }
+      }
+
+      &-item-disabled {
+        cursor: not-allowed;
+        color: var(--#{$transfer-prefix-cls}-color-text-content-disabled);
+      }
+
+      &-item-highlight-enter {
+        // animation: transferHighlightIn 1s ease;
+        transition: none;
+      }
+    }
+    &-delete-selected{
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: rgba(52, 69, 99, 0.2);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #fff;
+      &.show{
+        display: block;
+      }
+      .#{$transfer-prefix-cls}-list-del-btn{
+        width:78px;
+        height:78px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -39px;
+        margin-left: -39px;
+        padding: 13px;
+        background:rgba(94,108,132,1);
+        border-radius:$border-radius-base;
+        text-align: center;
+        vertical-align: middle;
+        span{
+          display: block;
+        }
+      }
+    }
+
+    &-body-not-found {
+      padding-top: 0;
+      color: $transfer-font-color;
+      text-align: center;
+      display: none;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      margin-top: -10px;
+      &.show{
+        display: block;
+      }
+    }
+
+    &-content:empty + &-body-not-found {
+      display: block;
+    }
+
+    &-footer {
+      border-top: 1px solid #e9e9e9;
+      border-radius: 0 0 $select-border-radius $select-border-radius;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &-operation {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 16px;
+    vertical-align: middle;
+
+    button {
+      padding: 0 5px;
+      display: block;
+      min-width: var(--#{$transfer-prefix-cls}-size-width-icon);
+      height: var(--#{$transfer-prefix-cls}-size-height-icon);
+      font-size: 12px;
+      background: var(--#{$transfer-prefix-cls}-color-bg-icon);
+      color: var(--#{$transfer-prefix-cls}-color-icon);
+      border: 0;
+      border-radius: var(--#{$transfer-prefix-cls}-border-radius-bg-icon);
+      outline: none;
+      .#{$prefix-cls}icon.uf {
+        padding: 0;
+      }
+      &[disabled] {
+        background: var(--#{$transfer-prefix-cls}-color-bg-icon-disabled);
+        cursor: not-allowed;
+        color: var(--#{$transfer-prefix-cls}-color-icon-disabled);
+      }
+
+      &:not([disabled]):hover {
+        background: var(--#{$transfer-prefix-cls}-color-bg-icon-hover)
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      .uf {
+        font-size: var(--#{$transfer-prefix-cls}-font-size-icon);
+      }
+    }
+  }
+  .#{$prefix-cls}checkbox.#{$prefix-cls}checkbox-indeterminate  .#{$prefix-cls}checkbox-label:after {
+    color: #fff;
+    content: unicode("e6ce");
+    font-family: "uf";
+    line-height: 18px;
+    font-size: 14px;
+  }
+
+  // .#{$prefix-cls}checkbox .#{$prefix-cls}checkbox-label:before {
+  //   top: -1px;
+  // }
+
+  // .#{$prefix-cls}checkbox .#{$prefix-cls}checkbox-label:after {
+  //   top: 0;
+  // }
+
+  // .#{$prefix-cls}checkbox.#{$prefix-cls}checkbox-indeterminate .#{$prefix-cls}checkbox-label:before {
+    // box-shadow: inset 0 0 0 10px rgb(30,136,229);
+    // border-color: rgb(30,136,229);
+  // }
+  .#{$prefix-cls}button.disabled, .#{$prefix-cls}button[disabled]:hover {
+    background: #fff;
+    color:#9a9898;
+    border-color: rgb(224,224,224);
+  }
+}
+
+.#{$transfer-prefix-cls}-operation .#{$prefix-cls}button-sm {
+	padding: 0;
+    font-size: 1.2rem;
+    border: 1px solid;
+    color: rgb(109, 107, 107);
+    min-width: 3rem;
+}
+
+.#{$transfer-prefix-cls}-operation .#{$prefix-cls}button-sm{
+    background: $checkbox-color;
+    color: #fff;
+    border-color: $checkbox-color;
+}
+.#{$transfer-prefix-cls}-operation .#{$prefix-cls}button-sm:hover{
+    background: $checkbox-color;
+    border-color: $checkbox-color;
+}
+
+
+
+.#{$transfer-prefix-cls}-operation .#{$prefix-cls}button-sm[disabled]{
+    background: #fff;
+    color:#9a9898;
+    border-color: rgb(224,224,224);
+}
+
+
+
+// 使用Input默认样式
+// .#{$transfer-prefix-cls}-list-search {
+// 	font-size: 1.2rem;
+// 	border-color: $transfer-border-gap-color;
+//     height: 26px;
+// }
+
+@keyframes transferHighlightIn {
+  0% {
+    background: $base-item-bg-color-selected;
+  }
+  100% {
+    background: transparent;
+  }
+}

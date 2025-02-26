@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="iuap-tinper.m-fe" description="tinper-m">
+  <nginx_mode>ucf</nginx_mode>
+  <ucf_engine>
+    <ucf-res>
+      <exclude>./tinper-m.dev.js</exclude>
+      <exclude>./tinper-m.css.map</exclude>
+      <exclude>./tinper-m.min.js.map</exclude>
+      <exclude>./manifest.json</exclude>
+      <exclude>./manifest.md</exclude>
+      <exclude>./GIT_CHANGELOG</exclude>
+    </ucf-res>
+  </ucf_engine>
+</module>

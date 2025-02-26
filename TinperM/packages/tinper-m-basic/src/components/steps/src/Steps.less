@@ -1,0 +1,263 @@
+@import (reference) '../../../theme/index.less';
+@import '../../icon/src/Icon.less';
+
+.@{step-prefix-cls} {
+  --steps-color-finish: var(--mui-color-success);
+  --steps-color-primary: var(--mui-color-primary);
+  --steps-color-danger: var(--mui-color-danger);
+  --steps-color-weak: var(--mui-color-text-secondary);
+  --steps-color-border: var(--mui-color-light);
+
+  --line-to-next-color: var(--steps-color-border);
+  --icon-color: var(--mui-color-light);
+  position: relative;
+  // make other brother component are not covered
+  z-index: 0;
+  min-width: 22%;
+  box-sizing: border-box;
+
+  .@{step-prefix-cls}-indicator {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      border-color: var(--line-to-next-color);
+      //background-color: var(--line-to-next-color);
+    }
+    .@{step-prefix-cls}-icon-container {
+      position: absolute;
+      z-index: 1;
+      color: var(--icon-color);
+    }
+  }
+
+  .@{step-prefix-cls}-title {
+    color: var(--mui-color-title-text);
+  }
+
+  &:last-child {
+    .@{step-prefix-cls}-indicator::after {
+      display: none;
+    }
+  }
+  &-status-finish {
+    --icon-color: var(--steps-color-success);
+  }
+
+  &-status-wait {
+    --icon-color: var(--mui-color-light);
+    .@{step-prefix-cls}-title {
+      color: var(--mui-color-text-secondary);
+    }
+  }
+  &-status-process {
+    --icon-color: var(--mui-color-info);
+    .@{step-prefix-cls}-title {
+      font-weight: 500;
+    }
+  }
+
+  &-status-error {
+    --icon-color: var(--steps-color-danger);
+  }
+}
+
+.@{steps-prefix-cls} {
+  --steps-color-weak: var(--mui-color-text-secondary);
+
+  --title-font-size: ~"var(--@{steps-prefix-cls}-font-size-title-steps)";
+  --description-font-size: ~"var(--@{steps-prefix-cls}-font-size-describe-steps)";
+  --indicator-margin-right: ~"var(--@{steps-prefix-cls}-spacing-margin-right-indicator-steps)";
+  --horizontal-indicator-width: ~"var(--@{steps-prefix-cls}-font-size-icon-steps)";
+  --vertical-indicator-width:  ~"var(--@{steps-prefix-cls}-font-size-icon-steps-vertical)";
+
+
+  width: 100%;
+  box-sizing: border-box;
+
+  &-horizontal {
+    display: flex;
+    //justify-content: space-around;
+    padding: 0.16rem 0;
+    overflow-x: auto;
+
+    .@{step-prefix-cls}-status-finish {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-bottom-style: solid;
+        }
+      }
+    }
+
+    .@{step-prefix-cls}-status-wait {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-bottom-style: dashed;
+        }
+      }
+    }
+    .@{step-prefix-cls}-status-process {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-bottom-style: dashed;
+        }
+      }
+    }
+
+    .@{step-prefix-cls}-status-error {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-bottom-style: dashed;
+        }
+      }
+    }
+
+    .@{step-prefix-cls} {
+      flex: 1;
+
+      .@{step-prefix-cls}-indicator {
+        width: 100%;
+        height: var(--horizontal-indicator-width);
+        &::after {
+          left: 64%;
+          top: 46%;
+          //height: 2px;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom-width: 2px;
+          border-bottom-color: var(--line-to-next-color);
+          //transform: translateY(-118%);
+          width: 72%;
+        }
+        .@{step-prefix-cls}-icon-container {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .@{step-prefix-cls}-icon-default {
+          width: var(--horizontal-indicator-width);
+          height: var(--horizontal-indicator-width);
+        }
+      }
+    }
+
+    .@{step-prefix-cls}-content {
+      text-align: center;
+      font-size: var(--description-font-size);
+      padding: 0.16rem 0.16rem 0;
+      .@{step-prefix-cls}-title {
+        font-size: var(--title-font-size);
+      }
+      .@{step-prefix-cls}-description {
+        margin-top: 0.08rem;
+        color: var(--steps-color-weak);
+      }
+    }
+  }
+
+  &-vertical {
+    //padding: 8px 16px;
+
+    .@{step-prefix-cls}-status-finish {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-left-style: solid;
+        }
+      }
+    }
+
+    .@{step-prefix-cls}-status-wait {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-left-style: dashed;
+        }
+      }
+    }
+    .@{step-prefix-cls}-status-process {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-left-style: dashed;
+        }
+      }
+    }
+
+    .@{step-prefix-cls}-status-error {
+      .@{step-prefix-cls}-indicator {
+        &::after {
+          border-left-style: dashed;
+        }
+      }
+    }
+
+    .@{step-prefix-cls} {
+      display: flex;
+      align-items: stretch;
+
+      .@{step-prefix-cls}-indicator {
+        flex: none;
+        width: var(--vertical-indicator-width);
+        margin-right: var(--indicator-margin-right);
+
+        &::after {
+          //left: 50%;
+          left: calc(50% - 1px);
+          top: calc(var(--title-font-size) * 0.5 / 2 + var(--vertical-indicator-width));
+          width: 2px;
+          //transform: translateX(-50%);
+          border-top: none;
+          border-bottom: none;
+          border-right: none;
+          border-left-width: 2px;
+          border-left-color: var(--line-to-next-color);
+          height: calc(100% - var(--vertical-indicator-width));
+        }
+        .@{step-prefix-cls}-icon-container {
+          top: calc(var(--title-font-size) * 0.5 / 2);
+          //top: calc(var(--title-font-size) * 1.5 / 2);
+          //left: 50%;
+          //transform: translate(-50%, -50%);
+        }
+        .@{step-prefix-cls}-icon-default {
+          width: var(--vertical-indicator-width);
+          height: var(--vertical-indicator-width);
+        }
+      }
+
+      &:last-child {
+        .@{step-prefix-cls}-content {
+          padding-bottom: 0;
+        }
+      }
+      .@{step-prefix-cls}-content {
+        text-align: left;
+        padding-bottom: .48rem;
+        .@{step-prefix-cls}-title {
+          font-size: var(--title-font-size);
+          line-height: 1.5;
+          // color: #111111;
+        }
+        .@{step-prefix-cls}-description {
+          padding-top: 0.08rem;
+          font-size: var(--description-font-size);
+          color: var(--steps-color-weak);
+        }
+      }
+    }
+  }
+}
+
+.@{step-prefix-cls}-icon-container {
+  line-height: 0;
+}
+
+.@{step-prefix-cls}-icon-dot {
+  --icon-dot-width: .16rem;
+
+  display: block;
+  width: var(--icon-dot-width);
+  height: var(--icon-dot-width);
+  background: currentColor;
+  border-radius: 0.08rem;
+}

@@ -1,0 +1,22 @@
+:root {
+  /**
+  * @desc 公共base关闭图标：字体大小；
+  */
+  --#{$wui-prefix}-base-clear-icon-font-size: var(--ynfw-font-size-icon-input, 16px);
+  /**
+  * @desc 输入框前后缀图标：字体大小；
+  */
+  --#{$wui-prefix}-input-suffix-icon-font-size: var(--ynfw-font-size-icon-input, 16px);
+  /**
+  * @desc 公共输入类组件：字体大小；
+  */
+  --#{$wui-prefix}-base-input-font-size: var(--#{$input-prefix-cls}-font-size, 12px);
+  /**
+  * @desc 公共输入类组件：高度；
+  */
+  --#{$wui-prefix}-base-input-xs-height: 20px;
+  --#{$wui-prefix}-base-input-sm-height: 26px;
+  --#{$wui-prefix}-base-input-md-height: var(--ynfw-size-height-input, 28px);
+  --#{$wui-prefix}-base-input-nm-height: 32px;
+  --#{$wui-prefix}-base-input-lg-height: 36px;
+}

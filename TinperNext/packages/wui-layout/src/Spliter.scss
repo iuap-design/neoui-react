@@ -1,0 +1,332 @@
+@import "../../wui-core/scss/minxin-variables";
+@import '../../wui-core/scss/minxin-mixins';
+$spliter-prefix-cls: $prefix-cls + 'spliter';
+
+$spliter-trigger-background-light: #FBFDFF;
+$spliter-trigger-width: 24px;
+$spliter-trigger-line-height: 22px;
+$spliter-trigger-height: 18px;
+$spliter-trigger-icon-color: #9CA3AF;
+$spliter-trigger-shadow-color: rgb(210 217 231);
+$spliter-trigger-icon-zoom: 0.8;
+
+$trigger-border-focus-color: #4B5563;
+$trigger-border-color: #9CA3AF;
+
+.#{$spliter-prefix-cls}-resizer-primary{
+    order: 2;
+}
+.#{$spliter-prefix-cls}-resizer {
+    position: relative;
+    display: flex;
+    &-line {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background: #B0C0D0;
+        z-index: 9;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding;
+        background-clip: padding-box;
+        // &:hover {
+        //     transition: all 2s ease;
+        // }
+    }
+    &-line-not-allowed {
+       cursor: not-allowed!important;
+    }
+    &-line-not-allowed:hover {
+        border-top: 1px solid transparent!important;
+        background-color: #B0C0D0!important;
+     }
+    &-trigger, &-fixed {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: $spliter-trigger-background-light;
+        border: 1px solid $trigger-border-color;
+        color: $spliter-trigger-icon-color;
+        z-index: 10;
+        >.uf{
+            padding: 0;
+            font-size: 16px;
+            zoom: $spliter-trigger-icon-zoom;
+        }
+        &:hover{
+            border: 1px solid $trigger-border-focus-color;
+            color: $trigger-border-focus-color
+        }
+    }
+    &-fixed > .uf {
+        zoom: 0.7;
+    }
+    /*!rtl:begin:ignore*/
+    &.horizontal {
+        .#{$spliter-prefix-cls}-resizer-line {
+            height: 2px;
+            margin-top: -1px;
+            border-top: 1px solid transparent;
+            cursor: row-resize;
+            width: 100%;
+            &:hover, &:active{
+                border-top: 1px solid $brand-info;
+                background-color: $brand-info;
+            }
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger {
+            min-height: $spliter-trigger-height;
+            min-width: $spliter-trigger-width;
+            position: absolute;
+            left: 58px;
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger-collapsed {
+            border-radius: 0 0 50% 50%;
+            box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger-expanded {
+            border-radius: 50% 50% 0 0;
+            box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+        }
+    }
+    /*!rtl:end:ignore*/
+
+    &.vertical {
+        .#{$spliter-prefix-cls}-resizer-line{
+            width: 1px;
+            // border-left: 1px solid transparent;
+            // margin-left: -1px;
+            background: transparent;
+            cursor: col-resize;
+            &:not(.#{$spliter-prefix-cls}-resizer-line-not-allowed){
+                &::before {
+                    position: absolute;
+                    content: " ";
+                    width: 7px;
+                    height: 100%;
+                    top: 0;
+                    /*!rtl:ignore*/
+                    left: -2px;
+                }
+            }
+            &:hover, &:active{
+                background: transparent;
+            }
+        }
+        .#{$spliter-prefix-cls}-resizer-line-first{
+            /*!rtl:ignore*/
+            border-left: 1px solid #B0C0D0;
+            cursor: col-resize;
+            &:hover, &:active{
+                /*!rtl:ignore*/
+                border-left-color: transparent;
+                &:not(.#{$spliter-prefix-cls}-resizer-line-not-allowed)::before {
+                    /*!rtl:ignore*/
+                    border-left: 2px solid $brand-info;
+                }
+            }
+        }
+        .#{$spliter-prefix-cls}-resizer-line-collapsed.#{$spliter-prefix-cls}-resizer-line-first{
+            &:not(.#{$spliter-prefix-cls}-resizer-line-not-allowed)::before {
+                left: -1px;
+            }
+        }
+        
+        .#{$spliter-prefix-cls}-resizer-line-second{
+            border-right: 1px solid #B0C0D0;
+            cursor: col-resize;
+            &:hover, &:active{
+                /*!rtl:ignore*/
+                border-right-color: transparent;
+                &:not(.#{$spliter-prefix-cls}-resizer-line-not-allowed)::before {
+                    border-right: 2px solid $brand-info;
+                    left: -5px;
+                }
+            }
+        }
+
+        .#{$spliter-prefix-cls}-resizer-line-collapsed.#{$spliter-prefix-cls}-resizer-line-second{
+            &:not(.#{$spliter-prefix-cls}-resizer-line-not-allowed)::before {
+                left: -6px;
+            }
+        }
+
+        .#{$spliter-prefix-cls}-resizer-trigger, .#{$spliter-prefix-cls}-resizer-fixed {
+            height: 18px;
+            min-width: 16px;
+            position: absolute;
+            top: 58px;
+            // line-height: $spliter-trigger-line-height;
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger-collapsed {
+            border-radius: 0 50% 50% 0;
+            background-color: #9CA3AF;
+            color: #fff;
+            &:hover{
+                background-color: #4B5563;
+            }
+            // box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger-expanded{
+            /*!rtl:ignore*/
+            border-radius: 50% 0 0 50%;
+            // box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+        }
+        .#{$spliter-prefix-cls}-resizer-trigger-expanded-rtl{
+            /*!rtl:ignore*/
+            border-radius:  0 50% 50% 0 ;
+            // box-shadow: -3px 3px 10px 0 $spliter-trigger-shadow-color;
+        }
+        // 固定图标默认不展示，只有spliter hover时展示
+        .#{$spliter-prefix-cls}-resizer-fixed {
+            visibility: hidden;
+        }
+        &:hover, &:active {
+            .#{$spliter-prefix-cls}-resizer-fixed {
+                visibility: visible;
+            }
+        }
+    }
+}
+.#{$spliter-prefix-cls}-pane{
+  overflow: auto; //防止内容超出容器范围后被截断
+  @include set-scrollbar-style();
+}
+
+.#{$spliter-prefix-cls}-collapsed .#{$spliter-prefix-cls}-pane{
+    transition: all 0.2s;
+}
+.#{$spliter-prefix-cls}-first-hidden {
+    display: none;
+}
+
+.#{$spliter-prefix-cls}-gradient.#{$spliter-prefix-cls}-resizer {
+    .uf-gridcaretdown {
+        color: #505766;
+        font-size: 16px;
+        line-height: 16px;
+        zoom: 1;
+    }
+    .#{$spliter-prefix-cls}-resizer-trigger {
+        min-width: 22px; 
+        top: -8px !important;
+        left: calc(50% - 12px); 
+        border-radius: 3px;
+        border: 1px solid #505766; 
+        z-index: 10;
+    }
+
+    .#{$spliter-prefix-cls}-resizer-line {
+        background-color: transparent;
+        background-image: linear-gradient(270deg, rgba(80, 87, 102, 0), #b9bcc2 17%, #b9bcc2 81%, rgba(80, 87, 102, 0));
+    }
+
+    &:hover {
+        .#{$spliter-prefix-cls}-resizer-trigger {
+            background-color: #EDF1F7;
+        }
+
+        .#{$spliter-prefix-cls}-resizer-line {
+            background-image: linear-gradient(270deg, rgba(80, 87, 102, 0), #505766 17%, #505766 83%, rgba(80, 87, 102, 0));
+            border: none;
+        }
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 10px;
+            background-image: linear-gradient(270deg, rgba(205, 217, 230, 0), #cdd9e6 17%, #cdd9e6 83%, rgba(205, 217, 230, 0));
+            opacity: .8;
+            transform: scaleY(-1) translateY(5px);
+            position: absolute;
+        }
+    }
+}
+
+    // .vertical section {
+    //     width: 100vh;
+    //     height: 100vh;
+    //     display: -webkit-box;
+    //     display: -webkit-flex;
+    //     display: -ms-flexbox;
+    //     display: flex;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-box-direction: normal;
+    //     -webkit-flex-direction: column;
+    //         -ms-flex-direction: column;
+    //             flex-direction: column;
+    // }
+
+    // .vertical header {
+    //     padding: 1rem;
+    //     background: #eee;
+    // }
+
+    // .vertical footer {
+    //     padding: 1rem;
+    //     background: #eee;
+    // }
+
+    // #vertically-nested-in-container-example {
+    //     -webkit-box-flex: 1;
+    //     -webkit-flex: 1;
+    //         -ms-flex: 1;
+    //             flex: 1;
+    //     display: -webkit-box;
+    //     display: -webkit-flex;
+    //     display: -ms-flexbox;
+    //     display: flex;
+    // }
+
+    // .horizontal section {
+    //     width: 100vh;
+    //     height: 100vh;
+    //     display: flex;
+    //     flex-direction: column;
+    // }
+
+    // .horizontal header {
+    //     padding: 1rem;
+    //     background: #eee;
+    // }
+
+    // .horizontal footer {
+    //     padding: 1rem;
+    //     background: #eee;
+    // }
+
+    // #horizontally-nested-in-container-example {
+    //     flex: 1;
+    //     display: flex;
+    // }
+
+    // .parent {
+    //     width: 100%;
+    //     height: 100%;
+    //     -webkit-box-flex: 1;
+    //     -webkit-flex: 1;
+    //         -ms-flex: 1;
+    //             flex: 1;
+    //     display: -webkit-box;
+    //     display: -webkit-flex;
+    //     display: -ms-flexbox;
+    //     display: flex;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-box-direction: normal;
+    //     -webkit-flex-direction: column;
+    //         -ms-flex-direction: column;
+    //             flex-direction: column;
+    // }
+    // .header {
+    //     background: #aaa;
+    //     height: 3rem;
+    //     line-height: 3rem;
+    // }
+    // .wrapper {
+    //     background: #ffa;
+    //     margin: 5rem;
+    //     -webkit-box-flex: 1;
+    //     -webkit-flex: 1;
+    //         -ms-flex: 1;
+    //             flex: 1;
+    // }

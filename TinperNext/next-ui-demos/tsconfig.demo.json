@@ -1,0 +1,14 @@
+{
+    "include": ["./build/packages/**/demo/*", "./build/packages/**/demo/**/*"],
+    "compilerOptions": {
+        "target": "ESNEXT",
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "baseUrl": "./../next-ui-library/",
+        "paths": {
+            "@tinper/next-ui": ["lib/index.d.ts"],
+            "*": ["node_modules/*"]
+        }
+    }
+}

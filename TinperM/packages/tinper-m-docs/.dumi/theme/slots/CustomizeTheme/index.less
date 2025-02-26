@@ -1,0 +1,266 @@
+@import (reference) '../../styles/variables.less';
+
+.fifthPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 80px;
+
+    .header-title {
+        text-align: center;
+        height: 37px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        font-size: 26px;
+        color: #333333;
+        letter-spacing: 0;
+
+        @{dark-selector} & {
+            color: @c-text-dark;
+        }
+    }
+
+    .theme-switcher {
+        display: flex;
+        margin-top: 32px;
+        column-gap: 32px;
+
+        button {
+            width: 120px;
+            height: 48px;
+            border: none;
+            border-radius: 9px;
+            font-size: 20px;
+            color: #FFFFFF;
+            opacity: 0.5;
+            cursor: pointer;
+
+            &.selected-btn {
+                opacity: 1;
+            }
+
+            &:nth-of-type(1) {
+                background: #EE2233;
+            }
+
+            &:nth-of-type(2) {
+                background: #008AFF;
+            }
+
+            &:nth-of-type(3) {
+                background: #128346;
+            }
+
+            &:nth-of-type(4) {
+                background: #A47238;
+            }
+
+            &:nth-of-type(5) {
+                background: #30343E;
+            }
+        }
+    }
+
+    .theme-design {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 16px;
+        row-gap: 24px;
+        margin-top: 20px;
+    }
+
+    .color-panel {
+        width: 660px;
+        height: 500px;
+        border: 1px solid #E5E7EB;
+        box-shadow: 0 6px 12px 0 #aabfe5;
+        border-radius: 12px;
+
+        .color-content {
+            width: 612px;
+            height: 452px;
+            background: #E9F0FA;
+            box-shadow: inset 0 2px 2px 0 #8f9bab52;
+            border-radius: 12px;
+            margin: 24px;
+            overflow: hidden;
+
+            .color-row {
+                width: 548px;
+                height: 80px;
+                margin: 20px auto 0;
+                padding: 12px 16px;
+                background: #FFFFFF;
+                border: 1px solid #E5E7EB;
+                border-radius: 8px;
+                display: flex;
+                column-gap: 10px;
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                    margin: 8px;
+                }
+
+                .color-block {
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 auto;
+                    border-radius: 4px;
+                }
+
+                .color-name {
+                    height: 30px;
+                    width: 48px;
+                    line-height: 30px;
+                    font-family: PingFangTC-Medium;
+                    font-size: 14px;
+                    color: #374151;
+                    text-align: center;
+                }
+
+                .color-desc {
+                    height: 30px;
+                    line-height: 30px;
+                    font-family: PingFangTC-Regular;
+                    font-size: 12px;
+                    color: #9CA3AF;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .display-panel {
+        img {
+            height: 620px;
+            width: 848px;
+        }
+    }
+
+    .code-panel {
+        @media screen and(max-width:1184px) {
+            display: none;
+        }
+
+        width: 336px;
+        height: 600px;
+        background: #1E293B;
+        border-radius: 12px;
+
+        .code-block-header {
+            height: 40px;
+            position: relative;
+            border-bottom: 1px solid #324053;
+
+            &:after {
+                content: " ";
+                position: absolute;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: #fc625d;
+                width: 12px;
+                height: 12px;
+                top: 15px;
+                left: 15px;
+                -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+                box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+            }
+        }
+
+        pre code.hljs {
+            display: block;
+            text-wrap: wrap;
+            padding: 1em;
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: #abb2bf;
+        }
+
+        pre {
+            height: 535px;
+            overflow: auto;
+            background: none;
+
+            code.language-json {
+                width: 336px;
+            }
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+
+        .hljs-string {
+            color: #71BFE5
+        }
+
+        .hljs-attr {
+            color: #DC69A7
+        }
+    }
+}
+
+pre {
+
+    // width: 336px;
+    code.code {
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+        width: 336px !important;
+    }
+}
+
+.code-panel {
+    width: 336px;
+    height: 600px;
+    background: #1E293B;
+    border-radius: 12px;
+
+    .code-block-header {
+        height: 40px;
+        position: relative;
+        border-bottom: 1px solid #324053;
+
+        &:after {
+            content: " ";
+            position: absolute;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background: #fc625d;
+            width: 12px;
+            height: 12px;
+            top: 15px;
+            left: 15px;
+            -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+            box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+        }
+    }
+
+    pre code.hljs {
+        display: block;
+        text-wrap: wrap;
+        padding: 1em;
+        font-family: 'Consolas', 'Courier New', monospace;
+        color: #abb2bf;
+    }
+
+    pre {
+        height: 560px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+
+    .hljs-string {
+        color: #71BFE5
+    }
+
+    .hljs-attr {
+        color: #DC69A7
+    }
+}

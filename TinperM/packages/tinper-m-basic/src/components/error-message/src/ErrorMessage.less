@@ -1,0 +1,125 @@
+@import (reference) '../../../theme/index.less';
+
+.@{error-message-prefix-cls} {
+    --min-width-popup: 5.92rem;
+    --max-width-popup: 80vw;
+
+    .mui-center-popup-wrap {
+        --min-width: var(--min-width-popup);
+        --max-width: var(--max-width-popup);
+    }
+
+    &-header-icon {
+        width: 0.92rem;
+        height: 0.92rem;
+        color: var(--mui-color-danger);
+    }
+
+    &-msg {
+        overflow: hidden;
+        overflow-wrap: break-word;
+        max-height: 3.2rem;
+        overflow-y: auto;
+
+        pre {
+            margin: 0;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    }
+
+    &-code-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &-code-left {
+        width: 1.3rem;
+    }
+
+    &-code-right {
+        max-width: 3.74rem;
+        overflow: hidden;
+        overflow-wrap: break-word;
+    }
+
+    &-id-left {
+        width: 1.3rem;
+    }
+
+    &-id-right {
+        max-width: 3.34rem;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        margin-right: 0.2rem;
+    }
+
+    &-id-icon {
+        width: 0.44rem;
+        height: 0.44rem;
+        color: var(--mui-color-icon-functionicon);
+    }
+
+    &-id-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &-code-right {
+        color: var(--mui-color-text-link);
+    }
+
+    .@{dialog-prefix-cls}-body {
+        .@{dialog-prefix-cls}-content {
+            padding-right: unset;
+        }
+
+        .@{dialog-prefix-cls}-title {
+            overflow: unset;
+            white-space: unset;
+            text-overflow: unset;
+            text-align: left;
+            padding: 0 0.48rem;
+        }
+    }
+
+    &-detail-msg-wrap {
+        height: calc(100% - 0.88rem);
+        overflow: hidden;
+        overflow-y: scroll;
+        overflow-wrap: anywhere;
+        font-size: 0.3rem;
+        color: var(--mui-color-title-text);
+    }
+
+    &-detail-msg {
+        padding: 0.16rem 0.32rem 0 0.32rem;
+        
+        pre {
+            margin: 0;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    }
+
+    &-detail-title-wrap {
+        width: 100%;
+        position: relative;
+    }
+
+    &-detail-title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-detail-copy {
+        position: absolute;
+        right: 0.16rem;
+        top: 0;
+        font-size: 0.3rem;
+        color: var(--mui-color-primary);
+    }
+
+}

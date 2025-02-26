@@ -1,0 +1,479 @@
+---
+nav: basic-components
+group:
+  title: 开发指南
+  order: 0
+order: 5
+title: 更新日志
+toc: content
+---
+
+# 更新日志
+## v1.0.3
+#### 2024-07-12
+##### 新组件
+  - 级联选择器	CascadePickerView
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 表格	Table
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 进度圈	ProgressCircle
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 图片上传 ImageUploader
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+
+##### 组件更新
+  - 搜索栏 SearchBar
+    - [修复] 使用input时mode传search, 优化原生键盘显示
+    - [修复] 搜索框清空值后处于聚焦状态，取消按钮不应消失
+    - [修复] rightIcon为空时，依然有占位存在
+  - 导航栏 NavBar
+    - [修复] backArrow属性传true时未显示箭头
+  - 表单标题 FormItemWrapper
+    - [修复] svg 颜色限制导致组件颜色丢失
+    - [修复] 支持模板修改表单标题的上下间距
+  - 单选 Radio
+    - [新增] 新增属性 mandatorySelection，支持单行单选自定义能否取消选中
+    - [新增] 新增 Radio.Control 对应 CSS 变量
+  - 表单 Form
+    - [新增] 新增属性 rightIcon、showErrorIcon、showFeedbackError、rightErrorIconStyle
+    - [优化] 优化错误提示显示结构样式
+    - [修复] 高度默认值改为fit-content
+  - 日历 Calendar
+    - [新增] 支持季度和月度模式
+    - [修复] value和defaultValue失效的问题
+    - [修复] 起始日期的背景色和时间段的背景色不一样
+  - 日期时间选择器  DateTimePicker
+	  - [修复] 英文状态下清空并返回按钮未展示出来
+  - 日期选择器 DatePicker
+	  - [修复] 日期组件系统格式设置为年份时，日期时间组件pc端和移动端的数据格式不统一
+  - 下拉刷新  PullToRefresh
+    - [修复] 触发阈值 / 高度默认值与文档不符
+  - 标签  Tag
+    - [新增] color 属性新增 message、invalid、start 取值
+    - [修复] 选中状态属性改变时组件未响应变化
+    - [修复] readonly属性改为readOnly，与其他组件保持一致
+  - 列表项  ListItem
+    - [修复] children属性未传值时，外层容器不占位
+    - [修复] 列表项未放在列表中时，保持内容垂直居中
+  - 时间范围选择  TimeRangePicker
+    - [修复] 带时分秒的日期 真机上会换行
+    - [修复] 提示信息有undefined
+  - 日历选择器视图  CalendarPickerView
+    - [修复] 今日被选中后 今日字样消失的问题
+  - 多选  Checkbox  
+    - [修复] 修复由于 defaultValue 传值格式不对导致的报错问题
+  - 按钮  Button
+    - [修复] 文字行高没有跟随字号变化
+  - 轻提示  Toast
+    - [新增] 增加singleton属性，支持同时存在多个提示
+  - 数字框 InputNumber
+    - [修复] 修复传数字 0 时不显示问题
+  - 多页签 Tabs
+    - [优化] onTabClick 点击事件阻止冒泡行为
+  - 滑动操作 SwipeAction
+    - [新增] Action 新增属性 icon、iconPosition
+  - 可勾选列表 CheckList
+    - [新增] 支持不能取消选中
+  - 选择器 Picker
+    - [修复] 键盘同面板弹出的问题
+  - 图片 Image
+    - [修复] src初始值为空，后续赋值时，图片不会重新加载的问题
+    - [修复] onLoad事件在src变化后有时不会触发的问题
+  - 多行文本框 TextArea
+    - [修复] 设置 autoSize 后，初始显示行数不正确问题
+    - [修复] 同时设置 showClose、showCount 造成的样式问题
+
+## v1.0.2
+#### 2024-06-14
+##### 新组件
+  - 分割线	Divider
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 卡片	Card
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 级联选择器	CascadePicker
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 浮动气泡 FloatingBubble
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 日期选择器视图 DatePickerView
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+
+##### 组件更新
+  - 搜索栏 SearchBar
+    - [新增] 根节点增加激活时类名
+    - [新增] 支持ref, 通过ref控制搜索框的激活/失焦/清空
+    - [修复] onSearch事件取不到值的问题
+  - 表单标题 FormItemWrapper
+    - [修复] 内容区域内边距按照规范调整
+    - [修复] 支持模板修改表单标题的上下间距
+  - 输入框 Input
+    - [修复] 调整 fieldid 将 xx_input_box 改为 xx
+    - [修复] 修复点击清空按钮后失焦问题
+  - 多页签 Tabs
+    - [新增] 新增属性 renderTabBar、prerenderingSibilingsNumber、tabBarPostion
+  - 超链接 Hyperlink
+    - [新增] 支持友空间内跳转第三方页面后，可点击回退按钮返回
+    - [新增] 添加浏览态点击事件
+    - [新增] onClick事件添加event传参 
+    - [修复] 受控状态地址为空字符串协议无法切换的问题
+    - [修复] 输入中文时，组件丢失
+  - 日期选择器 DatePicker
+    - [新增] 支持选择季度
+  - 弹窗 Popup
+    - [新增] 新增 footer 属性，支持底部扩展区
+  - 动作面板 ActionSheet
+    - [新增] actions 属性支持 className、style
+  - 滑动操作 SwipeAction
+    - [新增] 支持属性 disabled
+    - [新增] 属性 rightActions 属性支持 className、style
+  - 时间选择器 TimePicker
+    - [新增] 弹出的遮罩层支持className、style
+    - [修复] 属性中 12小时制不生效，保存时还是保存的24小时格式
+    - [修复] 时间格式 时分不生效 保存时还是能选择并保存到时分秒
+  - 日历 Calendar
+    - [新增] 支持获取当前点击的日期
+  - 头像 Avatar
+    - [新增] 支持传入字符串，显示为头像
+  - 无限滚动 InfiniteScroll
+    - [优化] 滚动到底部事件触发条件优化
+  - 列表 List
+    - [优化] 列表项按照UE设计图调整样式
+  - 弹性布局 Flex 
+    - [新增] 点击事件回调参数增加event
+  - 气泡弹出框 Popover 
+    - [新增] 菜单项添加className、style
+  - 按钮 Button
+    - [修复] block属性设为true时，按钮宽度被最大宽度限制，没有通栏展示的问题
+  - 步骤条 Steps
+    - [新增] Steps.Step 支持id、onClick属性
+  - 选择组 Selector
+    - [修复] 名称换行样式问题
+
+## v1.0.1
+#### 2024-05-17
+##### 新组件
+  - 数字框	InputNumber
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 选择器	Picker
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 选择器视图	PickerView
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 表单	Form
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 步进器	Stepper
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 选择组	Selector
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 下拉菜单	DropDown
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 动作面板	ActionSheet
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 日历选择器视图	CalendarPickerView
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 可勾选列表	CheckList
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 文本省略	Ellipsis
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 浮动面板	FloatingPanel
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 序列	IndexBar
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 安全区域	SafeArea
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 间距	Space
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 栅格	Grid
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 背景蒙层	Mask
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 骨架屏	Skeleton
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 异常	ErrorBlock
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 水印	WaterMark
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 滑动操作	SwipeAction
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+
+##### 组件更新
+  - 复选框 CheckBox
+    - [修复] 修改选中图标禁用样式
+  - 单选框 Radio
+    - [修复] 修复部分情况下内部有白边问题
+    - [修复] 修复单选中多选弹窗内元素超过一定数量时显示问题
+    - [修改] 修改单选框中多选弹窗的面板高度为50%-80%，超出内部滚动
+    - [修改] 修改单选框中多选弹窗底部，由原来的“已选全选相关”替换为重置按钮，并吸底
+    - [新增] 补充选中禁用 demo
+  - 日历 Calendar
+    - [修复] 限制月份时可以通过选择日来切换到受限的月份
+  - 时间选择器 DatePicker 
+    - [修复] 适配picker后的清除问题
+    - [修复] 适配picker后的关闭问题
+  - 表单标题 FormItemWrapper
+    - [修复] 文字默认左对齐 的问题
+    - [修复] contentStyle设置文字对齐方式未生效的问题
+  - 标签 Tag
+    - [修复] 标签 tag，文字模式，去掉左右内边距的问题
+  - 对话框 Dialog
+    - [修复] 修复异步操作加载条不显示问题
+
+## v1.0.0
+#### 2024-04-12
+##### 新组件
+  - 头像	Avatar
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 评分  Rate
+		- [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+    - [优化] 默认是不可清除的  
+  - 日期范围  TimeRangePicker
+    - [新增] 示例和文档  
+    - [新增] design token变量，方便组件属性统一控制  
+    - [新增] 单元测试及属性覆盖率报告  
+  - 超链接  HyperLink  
+		- [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告  
+    - [修复] 下拉前缀固定显示
+    - [修复] 浏览态下 多得内容之间在没有空格的情况下，会溢出且没有折行展示
+  - 列表  List
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 走马灯  Swiper
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 进度条  ProgressBar
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 折叠面板  Accordion
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告 
+  - 标签栏  Tabbar
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告 
+  - 步骤条  Steps
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告 
+  - 流式布局  Flex
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 多页签  Tabs
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+    - [新增] 新增decoration属性  
+    - [修复] 修复示例中多余Tab点击展开时的样式问题
+  - 徽标  Badge
+    - [新增] 示例和文档
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+##### 组件更新
+  - 表单标题	FormItemWrapper
+    - [优化] 组件样式按照设计稿标准调整  
+    - [优化] 示例优化，补充不同使用场景的示例
+    - [修复] 浏览态内容折行时无内边距的问题
+    - [修复] 示例中错误提示图标不符合规范的问题
+  - 搜索栏	SearchBar
+    - [修复] 失去焦点时延迟过高的问题
+  - 日期选择  DatePicker  
+    - [新增] range和clear功能
+    - [优化] 样式按照UE最新规范调整
+  - 时间选择  TimePicker  
+    - [新增] 样式按照UE最新规范调整
+  - 日期时间选择  DateTimePicker  
+    - [优化] 样式按照UE最新规范调整
+  - 气泡弹出框  Popover  
+    - [修复] 缩放时箭头与主体分离的问题
+  - 文本框  Input  
+    - [新增] 新增 prefix 属性  
+    - [优化] extra 属性 变更为 suffix，onExtraClick 变更为 onSuffixClick
+    - [修复] 传入空值时文本框内未清空问题		
+    - [修复] 部分情况下输入中文时，无法正常显示内容问题  
+    - [修复] onBlur、onClickClear 触发时机不对导致有时清空失败问题
+  - 工具栏  ToolBar  
+    - [修复] 修复ToolBar多余元素弹出时的样式问题
+  - 开关  Switch
+    - [优化] 样式按照UE最新规范调整
+  - 日历  Calendar
+	  - [修复] week以周一开始时显示不全的问题
+	  - [优化] date, time, dateTime, 12hour 和 value 互相转换
+  - 轻提示  Toast
+	  - [修复] 带图标的模式下出现滚动条的问题
+  - 图片  Image
+	  - [修复] 修改示例中标题样式，符合规范样式
+  - 多行文本  TextArea  
+    - [新增] 添加属性 showClose、onClickClear  
+    - [修复] 解决自适应属性引发的问题		
+  - 浮框  Popup   
+    - [优化] 将 title 属性更名为 popupTitle
+  - 标签  Tag  
+    - [新增] 印章类型示例  
+  - 导航栏  NavBar
+	  - [修复] 导航栏图标尺寸不符合规范的问题  
+  - 选项  Radio.Control
+	  - [修复] 无标题时关闭图标被遮挡的问题  
+    - [优化] 去除组件中嵌套的，表单标题组件(FormItemWrapper)  
+  - 复选框  CheckBox
+	  - [修复] 复选框文字部分默认不换行的问题  
+
+## v0.0.2
+#### 2024-03-15
+##### 新组件
+  - 多行文本框	TextArea
+    - [新增] CSS变量补充以及designToken添加
+    - [修复] 滚动条闪烁问题
+  - 气泡弹出框	Popover
+    - [新增] design token变量添加，方便组件属性统一控制
+    - [修复] popover 深色菜单在windows点击后空白
+  - 表单标题	FormItemWrapper
+    - [新增] designToken接入，文档css变量补充  
+    - [优化] demo优化：增加包裹不同类型组件的示例；以及自定义错误提示的示例
+  - 无限滚动	InfiniteScroll
+    - [修复] 体验页面，示例1加载完成后，切换到示例2也显示加载完成的问题
+    - [优化] 加载失败示例优化，没有更多数据时不需要点击重新加载，直接显示提示文案
+  - 下拉刷新	PullToRefresh
+    - [修复] 下拉失败示例中，失败提示与ue稿不符( 修改了Toast样式 )
+  - 导航栏	NavBar
+    - [优化] 接收属性精简，只保留必要属性，业务相关实现移动到demo中
+  - 搜索栏	SearchBar
+    - [修复] onCancel/onSearch 事件缺失，CSS变量中全局变量缺失的问题
+    - [修复] 聚焦显示取消按钮的示例中，失去焦点后取消按钮未自动消失，且输入值无法清空的问题
+  - 模态对话框	Dialog
+    - [修复] 补充子元素缺失的fieldid
+  - 图片预览 ImageViewer
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 开关 Switch
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 全局配置	ConfigProvider  
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 单选框	Radio
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 复选框	CheckBox
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 滑块	Slider
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 级联选择视图	CascaderView
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 日期时间选择器	DateTimePicker
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 时间选择器	TimePicker
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 日历	Calendar
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 工具栏	ToolBar
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 浮框	Popup
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 模态框	Modal
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 加载	Loading
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 通告栏	Notice
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 轻提示	Toast
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+  - 空页面	Empty
+    - [新增] design token变量，方便组件属性统一控制
+    - [新增] 单元测试及属性覆盖率报告
+##### 功能升级
+  - [新增] 支持中、英、繁内置多语
+
+
+## v0.0.1
+#### 2024-01-19
+##### 新组件
+  - 按钮 Button
+  - 图标 Icon
+  - 图片 Image
+  - 输入框 Input
+  - 日期选择 DatePicker
+    - [修复] 12小时制 年月到临界值时 时针消失
+  - 标签组件 Tag
+##### 功能升级
+  - [优化] 支持Design Token样式变量映射
+  - [优化] 完善单元测试，生成组件属性覆盖率报告

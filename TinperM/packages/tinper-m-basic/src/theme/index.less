@@ -1,0 +1,197 @@
+@import './theme/prefix.less';
+@import './theme/component.less';
+@import './theme/global.less';
+// 通用定义
+* {
+  box-sizing: border-box;
+}
+
+.rounded{
+//   border-radius: 0.08rem;
+  overflow: hidden;
+  &-base{
+    // border-radius: 0.08rem;
+    overflow: hidden;
+  }
+  &-none{
+      border-radius: 0;
+  }
+  &-sm{
+      border-radius: 0.04rem;
+      overflow: hidden;
+  }
+  &-md{
+      border-radius: 0.06rem;
+      overflow: hidden;
+  }
+  &-lg{
+      border-radius: 0.16rem;
+      overflow: hidden;
+  }
+  &-xl{
+      border-radius: 0.24rem;
+      overflow: hidden;
+  }
+  &-2xl{
+      border-radius: 0.32rem;
+      overflow: hidden;
+  }
+  &-3xl{
+      border-radius: 0.48rem;
+      overflow: hidden;
+  }
+  &-full{
+      border-radius: 50%;
+      overflow: hidden;
+  }
+}
+
+.p{
+  &-0{
+      padding: 0;
+  }
+  &-2{
+      padding: 0.04rem;
+  }
+  &-4{
+      padding: 0.08rem;
+  }
+  &-8{
+      padding: 0.16rem;
+  }
+  &-12{
+      padding: 0.24rem;
+  }
+  &-16{
+      padding: 0.32rem;
+  }
+  &-20{
+      padding: 0.4rem;
+  }
+  &-24{
+      padding: 0.48rem;
+  }
+  &-28{
+      padding: 0.56rem;
+  }
+  &-32{
+      padding: 0.64rem;
+  }
+}
+
+.m{
+  &-0{
+      margin: 0;
+  }
+  &-2{
+      margin: 0.04rem;
+  }
+  &-4{
+      margin: 0.08rem;
+  }
+  &-8{
+      margin: 0.16rem;
+  }
+  &-12{
+      margin: 0.24rem;
+  }
+  &-16{
+      margin: 0.32rem;
+  }
+  &-20{
+      margin: 0.4rem;
+  }
+  &-24{
+      margin: 0.48rem;
+  }
+  &-28{
+      margin: 0.56rem;
+  }
+  &-32{
+      margin: 0.64rem;
+  }
+}
+
+.shadow{
+  &-base{
+      box-shadow: 0 0.02rem 0.06rem 0 rgba(0, 0, 0, 0.1), 0 0.02rem 0.04rem -0.02rem rgba(0, 0, 0, 0.1);
+  }
+  &-xs{
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  }
+  &-sm{
+      box-shadow: 0 0.02rem 0.04rem 0 rgba(0, 0, 0, 0.05);
+  }
+  &-md{
+      box-shadow: 0 0.08rem 0.12rem -0.02rem rgba(0, 0, 0, 0.1), 0 0.04rem 0.08rem -0.04rem rgba(0, 0, 0, 0.1);
+  }
+  &-lg{
+      box-shadow: 0 0.2rem 0.3rem -0.06rem rgba(0, 0, 0, 0.1), 0 0.08rem 0.12rem -0.08rem rgba(0, 0, 0, 0.1);
+  }
+  &-xl{
+      box-shadow: 0 0.4rem 0.5rem -0.1rem rgba(0, 0, 0, 0.1), 0 0.16rem 0.2rem -0.12rem rgba(0, 0, 0, 0.1);
+  }
+  &-2xl{
+      box-shadow: 0 0.5rem 1rem -0.24rem rgba(0, 0, 0, 0.25);
+  }
+  &-inner{
+      box-shadow: inset 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+.text{
+    &-xs{
+      font-size: 0.24rem; /* 12px */
+      line-height:0.32rem; /* 16px */
+    }
+
+    &-sm{
+      font-size: 0.28rem; /* 14px */
+      line-height: 0.4rem; /* 20px */
+    }
+
+    &-base{
+      font-size: 0.32rem; /* 16px */
+      line-height:0.48rem; /* 24px */
+    }
+
+    &-lg{
+      font-size:0.36rem; /* 18px */
+      line-height:0.56rem; /* 28px */
+    }
+
+    &-xl{
+      font-size:0.4rem; /* 20px */
+      line-height:0.56rem; /* 28px */
+    }
+
+    &-2xl{
+      font-size: 0.48rem; /* 24px */
+      line-height:0.64rem; /* 32px */
+    }
+
+    &-3xl{
+      font-size:0.6rem; /* 30px */
+      line-height:0.72rem; /* 36px */
+    }
+
+    &-4xl{
+      font-size:0.72rem; /* 36px */
+      line-height:0.8rem; /* 40px */
+    }
+
+    &-5xl{
+      font-size:0.96rem; /* 48px */
+      line-height: 0.96rem; /* 48px */
+    }
+
+    &-6xl{
+    font-size: 1.2rem; /* 60px */
+    line-height: 1.2rem;  /* 60px */
+    }
+
+    &-7xl{
+    font-size:1.44rem; /* 72px */
+    line-height: 1.44rem; /* 72px */
+    }
+}

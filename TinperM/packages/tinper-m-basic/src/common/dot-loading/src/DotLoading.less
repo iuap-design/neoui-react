@@ -1,0 +1,43 @@
+.mui-dot-loader {
+  --size: 0.3rem;
+  --color: ~"var(--mui-loading-color-fill-loading)";
+}
+
+.mui-dot-loader {
+  font-size: var(--size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mui-dot {
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background-color: var(--color);
+  margin: 0 0.05rem;
+  animation: mui-dot-color-change 1s ease-in-out infinite;
+}
+
+.mui-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.mui-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes mui-dot-color-change {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.3);
+  }
+}

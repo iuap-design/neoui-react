@@ -1,0 +1,273 @@
+@import "../../wui-core/scss/minxin-variables";
+
+//$skeleton-prefix-cls: $prefix-cls + 'skeleton';
+$skeleton-avatar-prefix-cls: $skeleton-prefix-cls + '-avatar';
+$skeleton-title-prefix-cls: $skeleton-prefix-cls + '-title';
+$skeleton-paragraph-prefix-cls: $skeleton-prefix-cls + '-paragraph';
+$skeleton-button-prefix-cls: $skeleton-prefix-cls + '-button';
+$skeleton-input-prefix-cls: $skeleton-prefix-cls + '-input';
+$skeleton-image-prefix-cls: $skeleton-prefix-cls + '-image';
+$skeleton-prefix-cls-loading: $skeleton-prefix-cls + '-loading';
+
+$skeleton-color: var(--#{$skeleton-prefix-cls}-bg-color);
+$skeleton-to-color: var(--#{$skeleton-prefix-cls}-bg-to-color);
+
+@mixin skeleton-element-common-size($size) {
+  height: $size;
+  line-height: $size;
+}
+
+@mixin skeleton-color() {
+  background: linear-gradient(
+                  90deg,
+                  $skeleton-color 25%,
+                  $skeleton-to-color 37%,
+                  $skeleton-color 63%
+  );
+  background-size: 400% 100%;
+  animation: #{$skeleton-prefix-cls-loading} 1.4s ease infinite;
+}
+
+@keyframes #{$skeleton-prefix-cls-loading} {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+// Button
+@mixin skeleton-element-button() {
+  display: inline-block;
+  vertical-align: top;
+  background: $skeleton-color;
+  border-radius: 2px;
+
+  @include skeleton-element-button-size($button-height-md);
+
+  &-lg {
+    @include skeleton-element-button-size($button-height-lg);
+  }
+
+  &-sm {
+    @include skeleton-element-button-size($button-height-sm);
+  }
+}
+
+// Avatar
+@mixin skeleton-element-avatar() {
+  display: inline-block;
+  vertical-align: top;
+  background: $skeleton-color;
+
+  @include skeleton-element-avatar-size($avatar-size-base);
+
+  &-lg {
+    @include skeleton-element-avatar-size($avatar-size-lg);
+  }
+
+  &-sm {
+    @include skeleton-element-avatar-size($avatar-size-sm);
+  }
+}
+
+// Input
+@mixin skeleton-element-input() {
+  display: inline-block;
+  vertical-align: top;
+  background: $skeleton-color;
+
+  @include skeleton-element-input-size(28px);
+
+  &-lg {
+    @include skeleton-element-input-size(32px);
+  }
+
+  &-sm {
+    @include skeleton-element-input-size(24px);
+  }
+}
+
+// Image
+@mixin skeleton-element-image() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  background: $skeleton-color;
+
+  @include skeleton-element-image-size($skeleton-image-size-base*2);
+
+  &-path {
+    fill: #bfbfbf;
+  }
+
+  &-svg {
+    @include skeleton-element-image-size($skeleton-image-size-base);
+    max-width: $skeleton-image-size-base * 4;
+    max-height: $skeleton-image-size-base * 4;
+  }
+}
+
+@mixin skeleton-element-avatar-size($size) {
+  width: $size;
+  @include skeleton-element-common-size($size);
+
+  &.#{$skeleton-avatar-prefix-cls}-circle {
+    border-radius: 50%;
+  }
+}
+
+@mixin skeleton-element-button-size($size) {
+  width: calc($size * 2);
+  min-width: calc($size * 2);
+  @include skeleton-element-common-size($size);
+
+  &.#{$skeleton-button-prefix-cls}-circle {
+    width: $size;
+    border-radius: 50%;
+  }
+
+  &.#{$skeleton-button-prefix-cls}-round {
+    border-radius: $size;
+  }
+}
+
+@mixin skeleton-element-input-size($size) {
+  width: 100%;
+  @include skeleton-element-common-size($size);
+}
+
+@mixin skeleton-element-image-size($size) {
+  width: $size;
+  @include skeleton-element-common-size($size);
+
+  &.#{$skeleton-image-prefix-cls}-circle {
+    border-radius: 50%;
+  }
+}
+
+
+.#{$skeleton-prefix-cls} {
+  display: table;
+  width: 100%;
+
+  &-header {
+    display: table-cell;
+    padding-right: 16px;
+    vertical-align: top;
+
+    // Avatar
+    .#{$skeleton-avatar-prefix-cls} {
+      @include skeleton-element-avatar();
+    }
+  }
+
+  &-content {
+    display: table-cell;
+    width: 100%;
+    vertical-align: top;
+
+    // Title
+    .#{$skeleton-title-prefix-cls} {
+      width: 100%;
+      height: 16px;
+      margin-top: 16px;
+      background: $skeleton-color;
+      border-radius: $skeleton-block-radius;
+
+      + .#{$skeleton-paragraph-prefix-cls} {
+        margin-top: 24px;
+      }
+    }
+
+    // paragraph
+    .#{$skeleton-paragraph-prefix-cls} {
+      padding: 0;
+
+      > li {
+        width: 100%;
+        height: 16px;
+        list-style: none;
+        background: $skeleton-color;
+        border-radius: $skeleton-block-radius;
+
+        &:last-child:not(:first-child):not(:nth-child(2)) {
+          width: 61%;
+        }
+
+        + li {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  // 骨架屏有头像，对conten 下的margin 重新赋值
+  &-with-avatar &-content {
+    // Title
+    .#{$skeleton-title-prefix-cls} {
+      margin-top: 12px;
+
+      + .#{$skeleton-paragraph-prefix-cls} {
+        margin-top: 28px;
+      }
+    }
+  }
+
+  &-round &-content {
+    .#{$skeleton-title-prefix-cls},
+    .#{$skeleton-paragraph-prefix-cls} > li {
+      border-radius: 100px;
+    }
+  }
+
+  // Button block
+  &.#{$skeleton-prefix-cls}-block {
+    width: 100%;
+
+    .#{$skeleton-button-prefix-cls} {
+      width: 100%;
+    }
+  }
+
+  // With active animation
+  &.#{$skeleton-prefix-cls}-active {
+    & .#{$skeleton-prefix-cls}-content {
+      .#{$skeleton-title-prefix-cls},
+      .#{$skeleton-paragraph-prefix-cls} > li {
+        @include skeleton-color();
+      }
+    }
+
+    .#{$skeleton-avatar-prefix-cls},
+    .#{$skeleton-button-prefix-cls},
+    .#{$skeleton-input-prefix-cls},
+    .#{$skeleton-image-prefix-cls} {
+      @include skeleton-color();
+    }
+  }
+
+  // Skeleton element
+  &-element {
+    display: inline-block;
+    width: auto;
+
+    .#{$skeleton-button-prefix-cls} {
+      @include skeleton-element-button();
+    }
+
+    .#{$skeleton-avatar-prefix-cls} {
+      @include skeleton-element-avatar();
+    }
+
+    .#{$skeleton-input-prefix-cls} {
+      @include skeleton-element-input();
+    }
+
+    .#{$skeleton-image-prefix-cls} {
+      @include skeleton-element-image();
+    }
+  }
+}

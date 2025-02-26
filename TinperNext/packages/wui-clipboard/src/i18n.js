@@ -1,0 +1,58 @@
+module.exports = {
+    'lang': 'zh-cn',
+    'copy': '复制',
+    'cut': '剪切',
+    'copyReady': '已复制',
+    'cutReady': '已剪切',
+    'copyToClipboard': '复制到剪切板',
+    'close': '关闭',
+
+    'zh-cn': {
+        'copy': '复制',
+        'cut': '剪切',
+        'copyReady': '已复制',
+        'cutReady': '已剪切',
+        'copyToClipboard': '复制到剪切板',
+        'close': '关闭',
+    },
+    'en-us': {
+        'copy': 'Copy',
+        'cut': 'Cut',
+        'copyReady': 'Copied',
+        'cutReady': 'Cut',
+        'copyToClipboard': 'Copy to Clipboard',
+        'close': 'Close',
+    },
+    'zh-tw': {
+        'copy': '複製',
+        'cut': '剪切',
+        'copyReady': '已複製',
+        'cutReady': '已剪切',
+        'copyToClipboard': '複製到剪切板',
+        'close': '關閉',
+    },
+    'vi-vn': {
+        'copy': 'SAO chép',
+        'cut': 'cắt',
+        'copyReady': 'Đã được SAO chép',
+        'cutReady': 'Đã được cắt',
+        'copyToClipboard': 'SAO chép vào bảng nháp',
+        'close': 'Đóng cửa',
+    },
+    'id-id': {
+        'copy': 'Salin',
+        'cut': 'Potong',
+        'copyReady': 'Tersalin',
+        'cutReady': 'Terpotong',
+        'copyToClipboard': 'Salin ke Papan Klip',
+        'close': 'Tutup',
+    },
+    'ar-sa': {
+        'copy': 'نسخ',
+        'cut': 'قص',
+        'copyReady': 'تم النسخ',
+        'cutReady': 'تم القص',
+        'copyToClipboard': 'نسخ إلى الحافظة المؤقتة',
+        'close': 'إغلاق',
+    }
+}

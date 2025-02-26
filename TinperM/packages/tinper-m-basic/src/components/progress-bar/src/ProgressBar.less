@@ -1,0 +1,37 @@
+@import (reference) '../../../theme/index.less';
+
+.@{progress-bar-prefix-cls} {
+  --track-width: ~"var(--@{progress-bar-prefix-cls}-size-height-track)";
+  --track-color: ~"var(--@{progress-bar-prefix-cls}-color-bg-track)";
+  --fill-color: ~"var(--@{progress-bar-prefix-cls}-color-bg-line)";
+  --text-width: ~"var(--@{progress-bar-prefix-cls}-size-width-text)";
+
+  display: flex;
+  align-items: center;
+  &-trail {
+    flex: auto;
+    background: var(--track-color);
+    overflow: hidden;
+    height: var(--track-width);
+  }
+  &-fill {
+    transition: width 0.3s;
+    background: var(--fill-color);
+    height: var(--track-width);
+  }
+  &-text {
+    flex: none;
+    width: calc(var(--text-width) + .16rem);
+    padding-left: .16rem;
+    color: ~"var(--@{progress-bar-prefix-cls}-color-text-progressbar)";
+    font-size: 0.3rem;
+    box-sizing: border-box;
+  }
+}
+
+.@{progress-bar-prefix-cls}-rounded {
+  .@{progress-bar-prefix-cls}-trail,
+  .@{progress-bar-prefix-cls}-fill {
+    border-radius: var(--track-width);
+  }
+}

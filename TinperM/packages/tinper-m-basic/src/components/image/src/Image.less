@@ -1,0 +1,21 @@
+@import (reference) '../../../theme/index.less';
+
+.@{image-prefix-cls}{
+  --width: ~"var(--@{image-prefix-cls}-size-width-image)";
+  --height: ~"var(--@{image-prefix-cls}-size-height-image)";
+  --placeholder-bg-color: #F6F6F6;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+
+  .@{image-prefix-cls}-placeholder {
+    background: var(--placeholder-bg-color);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

@@ -1,0 +1,26 @@
+@import  (reference)  '../../../theme/index.less';
+
+.circle-loader{
+  --color: ~'var(--@{loading-prefix-cls}-color-fill-loading)';
+  --size: ~'var(--@{loading-prefix-cls}-size-loading)';
+}
+
+.circle-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+  font-size: var(--size);
+  width: var(--size);
+  height: var(--size);
+  animation: circle-animation infinite .75s linear;
+}
+
+@keyframes circle-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

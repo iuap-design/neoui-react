@@ -1,0 +1,115 @@
+@import (reference) '../../styles/variables.less';
+
+.dumi-default-base-download {
+    .dumi-default-download-title {
+        // width: 157px;
+        height: 37px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        font-size: 26px;
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        
+        @{dark-selector} & {
+            color: @c-text-dark;
+          }
+    }
+
+    .dumi-default-download-description {
+        // width: 602px;
+        height: 20px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        font-size: 14px;
+        color: #BFBFBF;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .dumi-default-downloads {
+
+        .download-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .download-item {
+                width: 355px;
+                height: 614px;
+                margin: 0 10px;
+                // border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .item-info {
+                    position: absolute;
+                    top: 350px;
+                    >h3 {
+                        font-size: 24px;
+                        text-align: center;
+                        color: #333333;
+                    }
+
+                    >p {
+                        // width: 266px;
+                        height: 75px;
+                        font-family: PingFangSC-Medium;
+                        font-weight: 500;
+                        font-size: 14px;
+                        color: #333333;
+                        letter-spacing: 0;
+                        text-align: center;
+                    }
+
+                    button {
+                        width: 186px;
+                        height: 47px;
+                        background: #EE2233;
+                        border-radius: 24px;
+                        font-family: PingFangSC-SNaNpxibold;
+                        font-weight: 600;
+                        font-size: 14px;
+                        color: #FFFFFF;
+                        letter-spacing: 0;
+                        border: none;
+                        cursor: not-allowed;
+                        margin: 0 80px;
+                        opacity: .5;
+
+                    }
+
+                    div {
+                            
+                        p {
+                            width: auto;
+                            height: 20px;
+                            font-family: PingFangSC-Regular;
+                            font-weight: 400;
+                            font-size: 14px;
+                            // color: #333333;
+                            color: #BFBFBF;
+                            letter-spacing: 0;
+                            text-align: center;
+                            margin-right: 20px;
+                            img{
+                                vertical-align:middle;
+                                margin: 5px;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+.dumi-default-bottom{
+    margin-top: 150px;
+    img{
+        width: 100%;
+        height: 386px;
+    }
+}

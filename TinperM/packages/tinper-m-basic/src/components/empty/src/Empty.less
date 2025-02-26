@@ -1,0 +1,33 @@
+@import (reference) '../../../theme/index.less';
+
+.@{empty-prefix-cls} {
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  box-sizing: border-box;
+
+  &-image-container {
+    display: flex;
+    justify-content: center;
+    width: 2.6rem;
+    .@{empty-prefix-cls}-image {
+      width: 2.6rem;
+    }
+    & svg,
+    img {
+      height: 100%;
+    }
+  }
+
+  &-description {
+    width: 5.2rem;
+    text-align: center;
+    margin-top: 8px;
+    font-weight: ~"var(--@{empty-prefix-cls}-font-weight-content-empty)";
+    font-size: ~"var(--@{empty-prefix-cls}-font-size-content-empty)";
+    color: ~"var(--@{empty-prefix-cls}-color-text-content-empty)";
+  }
+}

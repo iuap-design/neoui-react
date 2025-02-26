@@ -1,0 +1,22 @@
+.demos-wui-transfer {
+  .demo8 {
+    .wui-tree,
+    .wui-transfer {
+      max-height: 525px;
+      display: inline-block;
+      vertical-align: top;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .wui-tree {
+      max-width: 220px;
+      width: 220px;
+    }
+
+    .wui-transfer {
+      width: calc(100% - 235px);
+      overflow: auto;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import (reference) '../../../theme/index.less';
+
+.@{page-indicator-prefix-cls} {
+  display: flex;
+  width: auto;
+
+  --dot-color: var(--mui-color-light);
+  --active-dot-color: var(--mui-color-primary);
+  --dot-size: .08rem;
+  --active-dot-size: .18rem;
+  --dot-border-radius: .05rem;
+  --active-dot-border-radius: var(--dot-border-radius);
+  --dot-spacing: .08rem;
+
+  &-dot {
+    display: block;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: var(--dot-border-radius);
+    background: var(--dot-color);
+
+    &:last-child {
+      margin-right: 0;
+    }
+    &-active {
+      border-radius: var(--active-dot-border-radius);
+      background: var(--active-dot-color);
+    }
+  }
+  &-color-white {
+    --dot-color: rgba(255, 255, 255, 0.5);
+    --active-dot-color: var(--mui-color-white);
+  }
+  &-horizontal {
+    flex-direction: row;
+    .@{page-indicator-prefix-cls}-dot {
+      margin-right: var(--dot-spacing);
+      &-active {
+        width: var(--active-dot-size);
+      }
+    }
+  }
+  &-vertical {
+    flex-direction: column;
+    .@{page-indicator-prefix-cls}-dot {
+      margin-bottom: var(--dot-spacing);
+      &-active {
+        height: var(--active-dot-size);
+      }
+    }
+  }
+}

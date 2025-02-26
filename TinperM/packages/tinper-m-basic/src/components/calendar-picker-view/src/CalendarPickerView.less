@@ -1,0 +1,391 @@
+@import (reference) '../../../theme/index.less';
+
+.@{calendar-picker-view-prefix-cls} {
+
+  // 日历-边线-圆角-日期-选中
+  --border-radius-cell-calendar-selected: ~"var(--@{calendar-prefix-cls}-border-radius-cell-calendar-selected)";
+
+  // 日历-样式-下边线-星期标识
+  --border-style-weekmark-calendar: ~"var(--@{calendar-prefix-cls}-border-style-weekmark-calendar)";
+
+  // 日历-粗细-下边线-星期标识
+  --border-width-weekmark-calendar: ~"var(--@{calendar-prefix-cls}-border-width-weekmark-calendar)";
+
+  // 日历-颜色-背景-日期-选中
+  --color-bg-cell-calendar-selected: ~"var(--@{calendar-prefix-cls}-color-bg-cell-calendar-selected)";
+
+  // 日历-颜色-背景-面板
+  --color-bg-panel-calendar: ~"var(--@{calendar-prefix-cls}-color-bg-panel-calendar)";
+
+  // 日历-颜色-背景-日期-范围-选中
+  --color-bg-range-cells-calendar-selected: ~"var(--@{calendar-prefix-cls}-color-bg-range-cells-calendar-selected)";
+
+  // 日历-颜色-下边线-星期标识
+  --color-border-weekmark-calendar: ~"var(--@{calendar-prefix-cls}-color-border-weekmark-calendar)";
+
+  // 日历-图标-颜色-头部-图标（上下左右箭头）
+  --color-icon-arrow-header-calendar: ~"var(--@{calendar-prefix-cls}-color-icon-arrow-header-calendar)";
+
+  // 日历-颜色-文本-日期
+  --color-text-cell-calendar: ~"var(--@{calendar-prefix-cls}-color-text-cell-calendar)";
+
+  // 日历-颜色-文本-日期-禁用
+  --color-text-cell-calendar-disabled: ~"var(--@{calendar-prefix-cls}-color-text-cell-calendar-disabled)";
+
+  // 日历-颜色-文本-内容-选中
+  --color-text-cell-calendar-selected: ~"var(--@{calendar-prefix-cls}-color-text-cell-calendar-selected)";
+
+  // 日历-颜色-文本-内容-今日
+  --color-text-cell-calendar-today: ~"var(--@{calendar-prefix-cls}-color-text-cell-calendar-today)";
+
+  // 日历-颜色-文本-辅助文字
+  --color-text-hint-cell-calendar: ~"var(--@{calendar-prefix-cls}-color-text-hint-cell-calendar)";
+
+  // 日历-颜色-文本-辅助文字-选中
+  --color-text-hint-cell-calendar-selected: ~"var(--@{calendar-prefix-cls}-color-text-hint-cell-calendar-selected)";
+
+  // 日历-颜色-背景-日期-辅助文字-范围
+  --color-text-hint-range-cells-calendar: ~"var(--@{calendar-prefix-cls}-color-text-hint-range-cells-calendar)";
+
+  // 日历-颜色-文本-标题
+  --color-text-title-calendar: ~"var(--@{calendar-prefix-cls}-color-text-title-calendar)";
+
+  // 日历-颜色-文本-星期标识
+  --color-text-weekmark-cell-calendar: ~"var(--@{calendar-prefix-cls}-color-text-weekmark-cell-calendar)";
+
+  // 日历-文字-字号-日期
+  --font-size-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-size-cell-calendar)";
+
+  // 日历-文字-字号-辅助文字
+  --font-size-hint-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-size-hint-cell-calendar)";
+
+  // 日历-文字-字号-标题
+  --font-size-title-calendar: ~"var(--@{calendar-prefix-cls}-font-size-title-calendar)";
+
+  // 日历-文字-字号-星期标识
+  --font-size-weekmark-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-size-weekmark-cell-calendar)";
+
+  // 日历-文字-字重-日期
+  --font-weight-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-weight-cell-calendar)";
+
+  // 日历-文字-字重-辅助文字
+  --font-weight-hint-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-weight-hint-cell-calendar)";
+
+  // 日历-文字-字重-标题
+  --font-weight-title-calendar: ~"var(--@{calendar-prefix-cls}-font-weight-title-calendar)";
+
+  // 日历-文字-字重-星期标识
+  --font-weight-weekmark-cell-calendar: ~"var(--@{calendar-prefix-cls}-font-weight-weekmark-cell-calendar)";
+
+
+  // panel
+  --panel-bg-color: var(--color-bg-panel-calendar);
+  //header
+  --header-btn-color: var(--color-icon-arrow-header-calendar);
+  --title-font-size: var(--font-size-title-calendar);
+  --title-text-color: var(--color-text-title-calendar);
+  --title-font-weight: var(--font-weight-title-calendar);
+  // mark
+  --mark-font-size: var(--font-size-weekmark-cell-calendar);
+  --mark-border-color: var(--color-border-weekmark-calendar);
+  --mark-border-width: var(--border-width-weekmark-calendar);
+  --mark-border-style: var(--border-style-weekmark-calendar);
+
+  --mark-text-color: var(--color-text-weekmark-cell-calendar);
+  --mark-font-weight: var(--font-weight-weekmark-cell-calendar);
+
+  //cell
+  --cell-bottom-disabled-text-color: var(--color-text-cell-calendar-disabled);
+  --cell-bottom-font-size: var(--font-size-hint-cell-calendar);
+  --cell-bottom-text-color: var(--color-text-hint-cell-calendar);
+  --cell-bottom-text-color-selected: var(--color-text-hint-cell-calendar-selected);
+  --cell-bottom-text-range-color: var(--color-text-hint-range-cells-calendar);
+  --cell-bottom-font-weight: var(--font-weight-hint-cell-calendar);
+
+  --cell-top-font-size: var(--font-size-cell-calendar);
+  --cell-top-text-color: var(--color-text-cell-calendar);
+
+  --cell-selected-color-text: var(--color-text-cell-calendar-selected);
+  --cell-font-weight: var(--font-weight-cell-calendar);
+  --cell-today-text-color: var(--color-text-cell-calendar-today);
+
+  --cell-selected-bg-color: var(--color-bg-cell-calendar-selected);
+  --cell-selected-bg-range-color: var(--color-bg-range-cells-calendar-selected);
+  --cell-selected-border-radius: var(--border-radius-cell-calendar-selected);
+
+  padding-top: 0.24rem;
+  background-color: var(--panel-bg-color);
+
+  @selected-row-begin-end-border-radius: 0.16rem;
+
+  .selected-row-begin-border-radius {
+    border-top-left-radius: @selected-row-begin-end-border-radius;
+    border-bottom-left-radius: @selected-row-begin-end-border-radius;
+  }
+
+  .selected-row-end-border-radius {
+    border-top-right-radius: @selected-row-begin-end-border-radius;
+    border-bottom-right-radius: @selected-row-begin-end-border-radius;
+  }
+  //boundary style of the selected range
+  .selected-boundary {
+    border-radius: var(--cell-selected-border-radius);
+    opacity: 0.99;
+    color: var(--mui-color-white);
+    background: var(--cell-selected-bg-color);
+    // boundary style of the selected range when the selectMode is single
+    &:not(.@{calendar-picker-view-prefix-cls}-cell-selected-single)::before {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      background: var(--cell-selected-bg-color);
+      z-index: -999;
+
+    }
+    .@{calendar-picker-view-prefix-cls}-cell-bottom {
+      color: var(--cell-bottom-text-color-selected);
+    }
+    .@{calendar-picker-view-prefix-cls}-cell-top {
+      color: var(--cell-bottom-text-color-selected);
+    }
+  }
+
+  // row where the arrows are located
+  &-header {
+    display: flex;
+    padding: 0.16rem 0.24rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.28rem;
+    font-weight: var(--title-font-weight);
+    user-select: none;
+
+    font-size: 0.36rem;
+    color: var(--title-text-color);
+
+
+    //padding-top: 4px;
+
+    .@{calendar-picker-view-prefix-cls}-arrow-button {
+      padding: 0.06rem 0.08rem;
+      display: flex;
+      color: var(--header-btn-color);
+      //margin-right: 0.28rem;
+      svg {
+        height: 0.32rem;
+
+      }
+
+      &-disabled {
+        cursor: not-allowed;
+        color: var(--color-text-cell-calendar-disabled);
+      }
+
+
+      &.@{calendar-picker-view-prefix-cls}-arrow-button-right {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+    }
+
+    .@{calendar-picker-view-prefix-cls}-title {
+      font-size: var(--title-font-size);
+      flex: auto;
+      text-align: center;
+      font-weight: 500;
+      color: var(--title-text-color);
+    }
+  }
+
+  &-title {
+    padding: 0.14rem 0.4rem;
+    background: ~"var(--@{calendar-picker-view-prefix-cls}-color-bg-title-calendarpickerview)";
+    font-weight: 500;
+    font-size: 0.36rem;
+    color: ~"var(--@{calendar-picker-view-prefix-cls}-color-text-title-calendarpickerview)";
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  &-body {
+    height: 80vh;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // weekday
+  &-mark {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--mark-border-style) var(--mark-border-width) var(--mark-border-color);
+    height: 1rem;
+    font-size: var(--mark-font-size);
+    padding: 0.28rem 0.24rem;
+    color: var(--mark-text-color);
+    font-weight: var(--mark-font-weight);
+
+    &-cell {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+
+  &-cells {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 0.16rem 0.24rem;
+  }
+
+  &-cell {
+    flex: none;
+    width: calc(100% / 7);
+    // aspect-ratio: 1 / 1;
+    margin-bottom: 0.26rem;
+    color: var(--cell-top-text-color);
+    cursor: pointer;
+    font-weight: var(--cell-font-weight);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.34rem;
+    position: relative;
+
+    &-wrapper{
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    &-content{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &&-today {
+      color: var(--cell-today-text-color);
+    }
+
+    &&-selected {
+      //color: var(--cell-selected-color-text);
+      background: var(--cell-selected-bg-range-color);
+      color: var(--mui-color-white);
+
+      .@{calendar-picker-view-prefix-cls}-cell-bottom {
+        color: var(--cell-bottom-text-range-color);
+      }
+
+      .@{calendar-picker-view-prefix-cls}-cell-top {
+        color: var(--cell-bottom-text-range-color);
+      }
+
+
+      &&-begin {
+        .selected-boundary();
+
+        &:not(.@{calendar-picker-view-prefix-cls}-cell-selected-single)::before {
+          right: 0;
+
+
+
+        }
+      }
+
+      &&-end {
+        .selected-boundary();
+
+        &:not(.@{calendar-picker-view-prefix-cls}-cell-selected-single)::before {
+          left: 0;
+
+        }
+      }
+
+      &&-row {
+
+        &-begin:not(.@{calendar-picker-view-prefix-cls}-cell-selected-end) {
+
+          .selected-row-begin-border-radius()
+
+        }
+
+        &-begin::before {
+          .selected-row-begin-border-radius()
+        }
+
+        &-end:not(.@{calendar-picker-view-prefix-cls}-cell-selected-begin) {
+          .selected-row-end-border-radius()
+
+        }
+
+        &-end::before {
+          .selected-row-end-border-radius()
+        }
+
+      }
+    }
+
+
+
+
+
+    // date
+    &-top {
+      flex: none;
+
+      top: 0.08rem;
+
+
+    }
+
+    &-date {
+      font-size: var(--cell-top-font-size);
+      line-height: 0.42rem;
+    }
+
+    &-bottom {
+      bottom: 0.08rem;
+
+    }
+
+    // label
+    &-top,&-bottom {
+      flex: none;
+      font-size: var(--cell-bottom-font-size);
+
+      color: var(--cell-bottom-text-color);
+      font-weight: var(--cell-bottom-font-weight);
+      .mui-text-ellipsis();
+      line-height: 0.26rem;
+      width: 85%;
+      position: absolute;
+      text-align: center;
+    }
+
+    &&-disabled {
+      color: var(--cell-bottom-disabled-text-color);
+
+      .@{calendar-picker-view-prefix-cls}-cell-bottom {
+        color: var(--cell-bottom-disabled-text-color);
+      }
+    }
+  }
+
+
+}

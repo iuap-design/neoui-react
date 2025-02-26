@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="iuap-tinper.m-ui-demos-fe" description="tinper-m-demos">
+  <nginx_mode>ucf</nginx_mode>
+</module>

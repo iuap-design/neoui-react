@@ -1,0 +1,11 @@
+@import "../../wui-core/scss/minxin-variables";
+
+.#{$clipboard-prefix-cls} {
+  cursor: pointer;
+  color: $font-color-base;
+}
+
+.#{$clipboard-prefix-cls}-tooltip .tooltip-inner {
+  min-width: 55px;
+  text-align: center;
+}

@@ -1,0 +1,31 @@
+@import (reference) '../../../theme/index.less';
+
+.@{checklist-item-prefix-cls} {
+
+  --checkicon-color: ~"var(--@{checklist-prefix-cls}-color-icon-checkicon)";
+
+  &-extra {
+    font-size: var(--mui-font-size-10);
+    line-height: 1;
+    color: var(--checkicon-color);
+    width: 0.44rem;
+    height: 0.44rem;
+    &&-active {
+      background-color: ~"var(--@{checkbox-prefix-cls}-color-bg-selector-selected)";
+      color: ~"var(--@{selector-prefix-cls}-color-icon-selector-selected)";
+      border-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &-multiple {
+      border: 1px solid ~"var(--@{checkbox-prefix-cls}-color-border-selector)";
+      border-radius: ~"var(--@{checkbox-prefix-cls}-border-radius-circle-checkbox)";
+
+    }
+  }
+
+  &-readonly {
+    cursor: unset;
+  }
+}

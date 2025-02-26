@@ -1,0 +1,166 @@
+@import (reference) '../../styles/variables.less';
+
+.preview-page {
+  overflow: hidden;
+  height: calc(100vh - 76px);
+  background-image: url('../../../../public/preview-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  &-content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-phone{
+    width: 19.5%;
+    aspect-ratio: 1/2;
+    background: #FAFBFC;
+    border: 13px solid #4C4949;
+    border-radius: 28px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    /* 兼容 iOS < 11.2 */
+    padding-top: constant(safe-area-inset-top);
+    padding-left: constant(safe-area-inset-left);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    /* 兼容 iOS >= 11.2 */
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+
+    .header{
+      font-size: 20px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      a{
+        width: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .demo-switch{
+        width: 40px;
+        font-size: 12px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 6px;
+        user-select: none;
+        &-btn{
+          box-sizing: border-box;
+          padding: 2px;
+          height: 20px;
+          width: 20px;
+          fill: #ee2233;
+          &.disabled{
+            opacity: 0.5;
+            fill: @c-text-note;
+            cursor: not-allowed;
+          }
+        }
+      }
+      .demo-title{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+      }
+    }
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    a:-webkit-any-link {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    iframe{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    .logo{
+      margin: 80px 16px 0 16px;
+    }
+  }
+  &-qrcode{
+    width: 155px;
+    height: 160.22px;
+    margin: 0 30px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .demo-list {
+    padding-bottom: 20px;
+    .component-wrapper {
+        margin-left: 16px;
+        margin-right: 13px;
+    }
+
+    .demo-nav-title {
+        margin: 0;
+        padding: 32px 16px 32px 0;
+        color: rgba(69,90,100,.6);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .demo-item-wrapper {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px 16px;
+        overflow: hidden;
+        color: #323233;
+        font-size: 14px;
+        line-height: 24px;
+        background: #fff;
+        margin-bottom: 10px;
+        .demo-item-title {
+            flex: 1;
+            font-family: Helvetica;
+            font-size: 15px;
+            color: #000000;
+            line-height: 22px;
+            font-weight: 400;
+        }
+        .demo-item-detail-icon {
+            display: flex;
+            .yonui-demo-show {
+                margin: auto;
+            }
+        }
+    }
+
+  }
+}
+
+/* 在手机端应用的样式 */
+@media (max-width: 900px) {
+  .dumi-default-header{
+    display: none !important;
+  }
+  .preview-page-phone{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+  }
+}
+

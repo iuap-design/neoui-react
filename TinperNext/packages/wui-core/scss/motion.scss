@@ -1,0 +1,204 @@
+@import "./minxin-variables.scss";
+// motion
+@mixin motion-common($duration: $animation-duration-base) {
+  animation-duration: $duration;
+  animation-fill-mode: both;
+}
+
+@mixin motion-common-leave($duration: $animation-duration-base) {
+  animation-duration: $duration;
+  animation-fill-mode: both;
+}
+
+@mixin make-motion($className, $keyframeName, $duration: $animation-duration-base) {
+  .#{$className}-enter,
+  .#{$className}-appear {
+    @include motion-common($duration);
+
+    animation-play-state: paused;
+  }
+  .#{$className}-leave {
+    @include motion-common-leave($duration);
+
+    animation-play-state: paused;
+  }
+  .#{$className}-enter.#{$className}-enter-active,
+  .#{$className}-appear.#{$className}-appear-active {
+    animation-name: $keyframeName + 'In';
+    animation-play-state: running;
+  }
+  .#{$className}-leave.#{$className}-leave-active {
+    animation-name: $keyframeName + 'Out';
+    animation-play-state: running;
+    pointer-events: none;
+  }
+}
+
+@mixin zoom-motion($className, $keyframeName, $duration: $animation-duration-base) {
+  $name: $prefix-cls + $className;
+  @include make-motion($name, $keyframeName, $duration);
+  .#{name}-enter,
+  .#{name}-appear {
+    transform: scale(0); // need this by yiminghe
+    opacity: 0;
+    animation-timing-function: $ease-out-circ;
+
+    &-prepare {
+      transform: none;
+    }
+  }
+  .#{name}-leave {
+    animation-timing-function: $ease-in-out-circ;
+  }
+}
+
+// For Modal, Select choosen item
+@include zoom-motion(zoom, uZoom);
+// For Popover, Popconfirm, Dropdown
+@include zoom-motion(zoom-big, uZoomBig);
+// For Tooltip
+@include zoom-motion(zoom-big-fast, uZoomBig, $animation-duration-fast);
+
+@include zoom-motion(zoom-up, uZoomUp);
+@include zoom-motion(zoom-down, uZoomDown);
+@include zoom-motion(zoom-left, uZoomLeft);
+@include zoom-motion(zoom-right, uZoomRight);
+
+
+@keyframes uZoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes uZoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes uZoomBigIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes uZoomBigOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes uZoomUpIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 50% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+}
+
+@keyframes uZoomUpOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 50% 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes uZoomLeftIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 0% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 0% 50%;
+  }
+}
+
+@keyframes uZoomLeftOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 0% 50%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 0% 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes uZoomRightIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 100% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+}
+
+@keyframes uZoomRightOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 100% 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes uZoomDownIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 100%;
+  }
+}
+
+@keyframes uZoomDownOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+}

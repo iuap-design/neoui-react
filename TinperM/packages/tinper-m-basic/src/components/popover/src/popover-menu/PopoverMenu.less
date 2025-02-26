@@ -1,0 +1,65 @@
+@import (reference) '../../../../theme/index.less';
+
+.@{popover-prefix-cls}-menu {
+  --border-color: ~"var(--@{popover-prefix-cls}-color-border-menu-popover)";
+  color: ~"var(--@{popover-prefix-cls}-color-text-menu-popover)";
+
+  &.mui-popover {
+    --content-padding: 0;
+  }
+
+  &-list {
+    overflow: hidden;
+    min-width: 120px;
+  }
+  &-list-inner {
+    margin-top: -1px;
+  }
+  &-list-scroll {
+    padding-right: 2px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: auto;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #ddd;
+    }
+  }
+
+  &-item {
+    display: flex;
+    padding-left: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    &-icon {
+      flex: none;
+      padding-right: 8px;
+      font-size: 20px;
+    }
+    &-text {
+      flex: auto;
+      padding: 14px 20px 14px 0;
+      border-top: solid 1px var(--border-color);
+    }
+    &-disabled {
+      > * {
+        opacity: 0.5;
+      }
+      cursor: not-allowed;
+    }
+
+  }
+}
+
+.mui-popover.mui-popover-dark {
+  &.mui-popover-menu {
+    --border-color: ~"var(--@{popover-prefix-cls}-color-border-menu-dark-popover)";
+    color: ~"var(--@{popover-prefix-cls}-color-text-menu-dark-popover)";
+    --background: ~"var(--@{popover-prefix-cls}-color-bg-panel-dark-popover)";
+  }
+}

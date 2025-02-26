@@ -1,0 +1,20 @@
+@import "../../wui-core/scss/minxin-variables";
+$avatar-prefix-cls: $prefix-cls+'avatar';
+
+.#{$avatar-prefix-cls}-group {
+  display: inline-flex;
+
+  .#{$avatar-prefix-cls} {
+    border: 1px solid var(--#{$avatar-prefix-cls}-border-color);
+
+    &:not(:first-child) {
+      margin-left: $avatar-group-overlapping;
+    }
+  }
+
+  &-popover {
+    .#{$prefix-cls}-avatar + .#{$prefix-cls}-avatar {
+      margin-left: $avatar-group-space;
+    }
+  }
+}

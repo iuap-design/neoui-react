@@ -1,0 +1,63 @@
+@import './theme-default.less';
+@import './theme-dark.less';
+
+:root {
+  --mui-safe-area-multiple: 1;
+  -webkit-tap-highlight-color: rgba(38, 38, 38, 0);
+}
+
+html {
+  background-color: var(--mui-color-background-body);
+}
+
+body {
+  color: var(--mui-color-text);
+  font-size: var(--mui-font-size-main);
+  font-family: var(--mui-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--mui-color-primary);
+  transition: opacity ease-in-out 0.2s;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.mui-plain-anchor {
+  color: unset;
+  transition: none;
+
+  &:active {
+    opacity: unset;
+  }
+}
+
+body.mui-overflow-hidden {
+  overflow: hidden !important;
+}
+
+div.mui-px-tester {
+  --size: 1;
+  height: calc(var(--size) / 2 * 2px);
+  width: 0;
+  position: fixed;
+  left: -100vw;
+  top: -100vh;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mui-text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: clip;
+}

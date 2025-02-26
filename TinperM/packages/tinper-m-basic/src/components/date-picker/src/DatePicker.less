@@ -1,0 +1,58 @@
+@import (reference) '../../../theme/index.less';
+.@{datepicker-prefix-cls} {
+
+  width: 100%;
+  &-range {
+    display: flex;
+    padding: 0.16rem 0.4rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.2rem;
+    color: var(--mui-color-weak);
+
+
+
+    &-btn {
+
+      cursor: pointer;
+      --mui-input-color-bg-input-readonly: ~"var(--@{time-range-picker-picker-prefix-cls}-color-bg-input-timerangepicker)";
+      --mui-input-font-size-content-input: 0.26rem;
+      .mui-input-box {
+        width: 2.96rem;
+        height: 0.56rem;
+        --readonly-color: ~"var(--@{time-range-picker-picker-prefix-cls}-color-text-input-timerangepicker)";
+        --placeholder-color: var(--mui-color-text-secondary);
+        border: 1px solid ~"var(--@{time-range-picker-picker-prefix-cls}-color-border-input-timerangepicker)";
+      }
+
+      text-align: center;
+      ::placeholder {
+        text-align: center;
+      }
+      :read-only {
+        text-align: center;
+      }
+      &.@{input-prefix-cls} {
+        padding-left: 0;
+        padding-right:0 ;
+      }
+      &-active {
+        .mui-input-box {
+          border: 1px solid ~"var(--@{time-range-picker-picker-prefix-cls}-color-border-input-timerangepicker-selected)";
+          border-radius: 0.08rem;
+          --readonly-color: ~"var(--@{time-range-picker-picker-prefix-cls}-color-text-input-timerangepicker-selected)";
+          --placeholder-color: ~"var(--@{time-range-picker-picker-prefix-cls}-color-text-input-timerangepicker-selected)";
+        }
+        --mui-input-color-bg-input-readonly: ~"var(--@{time-range-picker-picker-prefix-cls}-color-bg-input-timerangepicker-selected)";
+
+        text-align: center;
+        ::placeholder {
+          color: var(--mui-color-primary);
+        }
+
+
+      }
+    }
+
+  }
+}

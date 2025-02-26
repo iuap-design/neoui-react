@@ -1,0 +1,135 @@
+/* rtl相关图标需要翻转 */
+.wui-icon-rtl{
+    transform: scaleX(-1);
+    display: inline-block;
+}
+.wui-icon-rtl.uf.uf-search-light-2{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-search-light{
+    transform: scaleX(1);
+}
+
+.wui-icon-rtl.uf.uf-iuap-col{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-iuapdesign-col, 
+.wui-icon-rtl.uf.uf-tinperzch-col,
+.wui-icon-rtl.uf.uf-tinperzc-col,
+.wui-icon-rtl.uf.uf-tinperen-col,
+.wui-icon-rtl.uf.uf-tinpercn-col,
+.wui-icon-rtl.uf.uf-yycloud,
+.wui-icon-rtl.uf.uf-pass-o,
+.wui-icon-rtl.uf.uf-qm,
+.wui-icon-rtl.uf.uf-qm-c,
+.wui-icon-rtl.uf.uf-check-c-o,
+.wui-icon-rtl.uf.uf-new,
+.wui-icon-rtl.uf.uf-yybs,
+.wui-icon-rtl.uf.uf-pencil-s,
+.wui-icon-rtl.uf.uf-a-wenhaomoren,
+.wui-icon-rtl.uf.uf-check-s-2,
+.wui-icon-rtl.uf.uf-erp-search,
+.wui-icon-rtl.uf.uf-personin-o,
+.wui-icon-rtl.uf.uf-erpbox,
+.wui-icon-rtl.uf.uf-widgettab,
+.wui-icon-rtl.uf.uf-sort19,
+.wui-icon-rtl.uf.uf-sort91,
+.wui-icon-rtl.uf.uf-za,
+.wui-icon-rtl.uf.uf-es,
+.wui-icon-rtl.uf.uf-bee-col,
+.wui-icon-rtl.uf.uf-uba-col,
+.wui-icon-rtl.uf.uf-kero-col,
+.wui-icon-rtl.uf.uf-personin,
+.wui-icon-rtl.uf.uf-gridlogo,
+.wui-icon-rtl.uf.uf-bediting,
+.wui-icon-rtl.uf.uf-bi-o,
+.wui-icon-rtl.uf.uf-baojia-c,
+.wui-icon-rtl.uf.uf-bohui-s-o,
+.wui-icon-rtl.uf.uf-xia-s,
+.wui-icon-rtl.uf.uf-shang-s,
+.wui-icon-rtl.uf.uf-qian,
+.wui-icon-rtl.uf.uf-ju-c-o,
+.wui-icon-rtl.uf.uf-qi-c-o
+{
+    transform: scaleX(1);
+}
+
+
+
+.wui-icon-rtl.uf.uf-magnifyingglass{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-search{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-search-s{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-search-o,
+.wui-icon-rtl.uf.uf-search-c-o
+{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-xuanzhong{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-zoom-in,
+.wui-icon-rtl.uf.uf-zoom-out
+{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-correct{
+    transform: scaleX(1);
+}
+
+.wui-icon-rtl.uf.uf-yiwancheng{
+    transform: scaleX(1);
+}
+
+.wui-icon-rtl.uf.uf-hanshu{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-chenggongtishi{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-gaojichaxun{
+    transform: scaleX(1);
+}
+
+.wui-icon-rtl.uf.uf-datu{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-qianmingtupian{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-pencil-c{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-yunqianming{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-bukejian{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-a-wenhaomoren{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-correct-2{
+    transform: scaleX(1);
+}
+
+.wui-icon-rtl.uf.uf-wentifankui{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-pass-3{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-pass{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-pass-s-o{
+    transform: scaleX(1);
+}
+.wui-icon-rtl.uf.uf-pass-2{
+    transform: scaleX(1);
+}

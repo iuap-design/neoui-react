@@ -1,0 +1,176 @@
+@import (reference) '../../../theme/index.less';
+@import '../../icon/src/Icon.less';
+
+
+.@{slider-prefix-cls} {
+  --fill-color: ~"var(--@{slider-prefix-cls}-color-bg-line-slider-finished)";
+  --fill-icon: ~"var(--@{slider-prefix-cls}-color-icon-handle-slider)";
+  --fill-dot: ~"var(--@{slider-prefix-cls}-color-border-dot-slider-finished)";
+  --thumb-width: ~"var(--@{slider-prefix-cls}-size-width-handle-slider)";
+
+  padding: 0.1rem 0.28rem;
+  list-style: none;
+  user-select: none;
+  box-sizing: border-box;
+
+  &-track-container {
+    padding: 0.16rem 0;
+  }
+
+  &-track {
+    position: relative;
+    width: 100%;
+    height: 0.04rem;
+    background-color: ~"var(--@{slider-prefix-cls}-color-bg-line-slider)";
+    border-radius: 0.06rem;
+  }
+
+  &-fill {
+    position: absolute;
+    z-index: 1;
+    height: 0.04rem;
+    border-radius: 0.04rem;
+    background-color: var(--fill-color);
+  }
+
+  &-ticks {
+    position: absolute;
+    width: 100%;
+    height: 0.04rem;
+    background: transparent;
+  }
+
+  &-tick {
+    position: absolute;
+    z-index: 2;
+    top: -0.04rem;
+    width: 0.12rem;
+    height: 0.12rem;
+    margin-left: -0.06rem;
+    border-radius: 50%;
+    background: ~"var(--@{slider-prefix-cls}-color-bg-dot-slider)";
+    border: 1px solid ~"var(--@{slider-prefix-cls}-color-border-dot-slider)";
+    &-active {
+      border: 1px solid var(--fill-dot);
+    }
+  }
+
+  &-thumb {
+    width: var(--thumb-width);
+    height: ~"var(--@{slider-prefix-cls}-size-height-handle-slider)";
+    border-radius: 50%;
+    text-align: center;
+    line-height: ~"var(--@{slider-prefix-cls}-size-height-handle-slider)";
+    color: var(--fill-icon);
+    &:focus {
+      outline: none;
+    }
+  }
+  &-thumb-icon {
+    width: 0.24rem;
+    height: 0.24rem;
+    margin: 0.12rem;
+    user-select: none;
+  }
+  &-thumb-container {
+    cursor: grab;
+    touch-action: none;
+    position: absolute;
+    z-index: 2;
+    width: var(--thumb-width);
+    height: ~"var(--@{slider-prefix-cls}-size-height-handle-slider)";
+    background: ~"var(--@{slider-prefix-cls}-color-bg-handle-slider)";
+    box-shadow: ~"var(--@{slider-prefix-cls}-box-shadow-handle-slider)";
+    //box-shadow: 0px 0px 8px 0px rgba(17,17,17,0.16);
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-mark {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    font-size: ~"var(--@{slider-prefix-cls}-font-size-marktext-slider)";
+    font-weight: ~"var(--@{slider-prefix-cls}-font-weight-marktext-slider)";
+    height: 0.22rem;
+    margin-top: 0.2rem;
+  }
+
+  &-mark-text {
+    position: absolute;
+    display: inline-block;
+    line-height: 1;
+    color: ~"var( --@{slider-prefix-cls}-color-text-marktext-slider)";
+    text-align: center;
+    word-break: keep-all;
+    user-select: none;
+    transform: translateX(-50%);
+
+    &:last-of-type {
+      transform: translateX(-100%);
+    }
+  }
+
+  &-disabled {
+    .@{slider-prefix-cls}-mark,
+    .@{slider-prefix-cls}-thumb-icon {
+      opacity: 0.5;
+    }
+    .@{slider-prefix-cls}-tick-active{
+      // border: unset;
+      &::after {
+        content: '';
+        position: absolute;
+        left: -0.02rem;
+        top: -0.02rem;
+        width: 0.12rem;
+        height: 0.12rem;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background-color: var(--mui-slider-tick-mask);
+      }
+
+    }
+    .@{slider-prefix-cls}-track{
+      // background-color: #DBDBDC;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background-color: var(--mui-slider-tick-mask);
+      }
+    }
+    .@{slider-prefix-cls}-fill {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background-color: var(--mui-slider-tick-mask);
+      }
+    }
+    .@{slider-prefix-cls}-thumb {
+      cursor: not-allowed;
+      box-shadow: 0 0.04rem 0.1rem 0 rgba(0, 0, 0, 0.06);
+    }
+    .@{slider-prefix-cls}-mark-text,
+    .@{slider-prefix-cls}-tick {
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+
+  .@{popover-prefix-cls}-inner-content {
+    font-size: 0.28rem;
+    padding: 0.12rem 0.24rem;
+  }
+}

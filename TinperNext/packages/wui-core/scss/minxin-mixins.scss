@@ -1,0 +1,926 @@
+@use "sass:math";
+@import "./minxin-variables";
+// Typography 排版
+
+@mixin typo-preferred-font($usePreferred: true) {
+  @if $usePreferred {
+    font-family: --#{$wui-prefix}-font-family;
+  }
+}
+
+@mixin typo-display-4($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(112,10) * $unit;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-3($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(56,10) * $unit;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-2($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(45,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(48,10) * $unit;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-1($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(34,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(40,10) * $unit;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-headline($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(24,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(32,10) * $unit;
+  -moz-osx-font-smoothing: grayscale;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-title($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(20,10) * $unit;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(16,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(24,10) * $unit;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead-2($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(16,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(28,10) * $unit;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-2($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(14,10) * $unit;
+  @if $usePreferred {
+    font-weight: 500;
+  } @else {
+    font-weight: bold;
+  }
+  line-height: math.div(24,10) * $unit;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-1($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(14,10) * $unit;
+  font-weight: 400;
+  line-height: math.div(24,10) * $unit;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-caption($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(12,10) * $unit;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-blockquote($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  position: relative;
+  font-size: math.div(24,10) * $unit;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+
+  &:before {
+    position: absolute;
+    left: -0.5em;
+    content: '“';
+  }
+
+  &:after {
+    content: '”';
+    margin-left: -0.05em;
+  }
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-menu($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(14,10) * $unit;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-button($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
+  font-size: math.div(14,10) * $unit;
+  font-weight: 500;
+  // text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+// Shadows
+
+// Focus shadow mixin.
+@mixin focus-shadow() {
+  box-shadow: 0 0 math.div(8,10) * $unit rgba(0, 0, 0, .18), 0 math.div(8,10) * $unit math.div(16,10) * $unit rgba(0, 0, 0, .36);
+}
+
+@mixin shadow-0dp() {
+  box-shadow: none;
+}
+
+@mixin shadow-2dp() {
+  box-shadow: 0 math.div(2,10) * $unit math.div(2,10) * $unit 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(3,10) * $unit math.div(1,10) * $unit math.div(-2,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 math.div(1,10) * $unit math.div(5,10) * $unit 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  /*box-shadow: 0 math.div(2,10) * $unit math.div(2,10) * $unit 0 rgb(0, 0, 0),
+  0 math.div(3,10) * $unit math.div(1,10) * $unit math.div(-2,10) * $unit rgb(0, 0, 0),
+  0 math.div(1,10) * $unit math.div(5,10) * $unit 0 rgb(0, 0, 0) \9;*/
+}
+
+@mixin shadow-3dp() {
+  box-shadow: 0 math.div(3,10) * $unit math.div(4,10) * $unit 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(3,10) * $unit math.div(3,10) * $unit math.div(-2,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 math.div(1,10) * $unit math.div(8,10) * $unit 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+
+@mixin shadow-4dp() {
+  box-shadow: 0 math.div(4,10) * $unit math.div(5,10) * $unit 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(1,10) * $unit math.div(10,10) * $unit 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 math.div(2,10) * $unit math.div(4,10) * $unit math.div(-1,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-6dp() {
+  box-shadow: 0 math.div(6,10) * $unit math.div(10,10) * $unit 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(1,10) * $unit math.div(18,10) * $unit 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 math.div(3,10) * $unit math.div(5,10) * $unit math.div(-1,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-8dp() {
+  box-shadow: 0 math.div(8,10) * $unit math.div(10,10) * $unit math.div(1,10) * $unit rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(3,10) * $unit math.div(14,10) * $unit math.div(2,10) * $unit rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 math.div(5,10) * $unit math.div(5,10) * $unit math.div(-3,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-16dp() {
+  box-shadow: 0 math.div(16,10) * $unit math.div(24,10) * $unit math.div(2,10) * $unit rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(6,10) * $unit math.div(30,10) * $unit math.div(5,10) * $unit rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 math.div(8,10) * $unit math.div(10,10) * $unit math.div(-5,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+@mixin shadow-24dp() {
+  box-shadow: 0 math.div(9,10) * $unit math.div(46,10) * $unit math.div(8,10) * $unit rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 math.div(11,10) * $unit math.div(15,10) * $unit math.div(-7,10) * $unit rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 math.div(24,10) * $unit math.div(38,10) * $unit math.div(3,10) * $unit rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+//Animations
+
+@mixin material-animation-fast-out-slow-in($duration:0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: $animation-curve-fast-out-slow-in;
+}
+
+@mixin material-animation-linear-out-slow-in($duration:0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: $animation-curve-linear-out-slow-in;
+}
+
+@mixin material-animation-fast-out-linear-in($duration:0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: $animation-curve-fast-out-linear-in;
+}
+
+@mixin material-animation-default($duration:0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: $animation-curve-default;
+}
+
+
+// Transitions
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transition-property($transition-property) {
+  -webkit-transition-property: $transition-property;
+  transition-property: $transition-property;
+}
+
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+
+@mixin transition-duration($transition-duration) {
+  -webkit-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
+}
+
+@mixin transition-timing-function($timing-function) {
+  -webkit-transition-timing-function: $timing-function;
+  transition-timing-function: $timing-function;
+}
+
+@mixin transition-transform($transition) {
+  -webkit-transition: -webkit-transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
+  transition: transform $transition;
+}
+
+// 边框透明，默认仅显示bottom，即下划线模式
+@mixin borderTransparent($top: true, $right: true, $bottom: false, $left: true) {
+  @if $top {
+    border-top-color: transparent;
+  }
+
+  @if $right {
+    border-right-color: transparent;
+  }
+
+  @if $bottom {
+    border-bottom-color: transparent;
+  }
+
+  @if $left {
+    border-left-color: transparent;
+  }
+}
+
+//添加圆角
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+//边框按钮颜色
+@mixin border-button-styles-variant($text-color,$bg-color,$bg-hover-color,$bg-active-color) {
+
+  color: $text-color;
+  background: #fff;
+  border: 1px $bg-color solid;
+
+  &:hover {
+    background: $bg-hover-color;
+    border-color: $bg-hover-color;
+    color: #fff;
+  }
+
+  &.focus, &:focus {
+    color: $text-color;
+    background: #fff;
+    border-color: $bg-color;
+  }
+
+  &.active, &:active {
+    color: #fff;
+    background: $bg-active-color;
+    border-color: $bg-active-color;
+  }
+}
+
+//dange和ghost active字体颜色
+@mixin color-button-active-variant($text-color,$bg-color,$bg-hover-color,$bg-active-color) {
+  color: $text-color;
+  border: 1px $bg-color solid;
+
+  &:hover {
+    background: transparent;
+    border-color: $bg-hover-color;
+    color: $bg-hover-color;
+  }
+
+  &.focus, &:focus {
+    background: transparent;
+    color: $text-color;
+    border-color: $bg-color;
+  }
+
+  &.active, &:active {
+    background: transparent;
+    color: $bg-active-color;
+    border-color: $bg-active-color;
+  }
+}
+
+//按钮颜色
+@mixin timeline-styles-variant($border-color) {
+  border-color: $border-color;
+  color: $border-color;
+}
+
+//按钮颜色
+@mixin button-styles-variant($text-color,$bg-color,$bg-hover-color,$bg-active-color) {
+
+  color: $text-color;
+  background: $bg-color;
+  border: 1px $bg-color solid;
+
+  &:hover {
+    background: $bg-hover-color;
+    border-color: $bg-hover-color;
+  }
+
+  &.focus, &:focus {
+    background: $bg-color;
+    border-color: $bg-color;
+  }
+
+  &.active, &:active {
+    background: $bg-active-color;
+    border-color: $bg-active-color;
+  }
+}
+
+// 文本按钮
+@mixin button-text-styles-variant($text-color, $text-hover-color) {
+  color: $text-color;
+  border: 0;
+  background: transparent;
+  &:hover {
+    color: $text-hover-color;
+    background: transparent;
+  }
+}
+
+//按钮尺寸
+@mixin button-size($padding-y, $padding-x, $font-size, $height) {
+  padding: 0 $padding-x;
+  font-size: $font-size;
+  height: $height;
+  line-height: calc($height - 2px); // IA-63725
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+//徽章
+@mixin badge-variant($color, $bg) {
+  color: $color;
+  background-color: $bg;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      color: $color;
+    }
+  }
+}
+
+
+//标签
+
+@mixin tag-styles-variant($color, $hover-color) {
+  background-color: $color;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: $hover-color;
+    }
+  }
+
+  &.#{$prefix-cls}tag-outline {
+    color: $color;
+    background-color: transparent;
+    border-color: $color;
+  }
+}
+
+
+// 分页
+
+@mixin pagination-size($padding-vertical, $padding-horizontal, $font-size, $font-weight, $line-height, $border-radius, $height-size, $width) {
+  > li {
+    > a {
+      padding: $padding-vertical $padding-horizontal;
+      font-size: $font-size;
+      font-weight: $font-weight;
+      line-height: $line-height;
+      min-height: $line-height;
+      min-width: $width;
+    }
+
+    > span {
+      padding: $padding-vertical $padding-horizontal;
+      font-size: $font-size;
+      font-weight: $font-weight;
+      line-height: $line-height;
+      min-height: $line-height;
+      min-width: $width;
+    }
+
+    &:first-child {
+      > a {
+        @include border-left-radius($border-radius);
+      }
+
+      > span {
+        @include border-left-radius($border-radius);
+      }
+    }
+
+    &:last-child {
+      > a {
+        @include border-right-radius($border-radius);
+      }
+    }
+  }
+  > li[role="gap"] {
+    > a {
+      padding: $padding-vertical+1px $padding-horizontal;
+      font-size: $font-size;
+      font-weight: $font-weight;
+      line-height: $line-height;
+      min-height: $line-height;
+      min-width: $width;
+    }
+
+    > span {
+      padding: $padding-vertical+1px $padding-horizontal;
+      font-size: $font-size;
+      font-weight: $font-weight;
+      line-height: $line-height;
+      min-height: $line-height;
+      min-width: $width;
+    }
+  }
+  > li.iconBtn > a {
+    & > i {
+      font-size: $font-size;
+    }
+  }
+  // simple 模式下行高设置
+  > .page_jump_simple {
+    > .page_jump_value_simple {
+      height: $height-size;
+      line-height: $height-size;
+      font-size: $font-size;
+      font-weight: $font-weight;
+    }
+    > span {
+      line-height: $height-size;
+      font-size: $font-size;
+      font-weight: $font-weight;
+    }
+  }
+  /**
+  * 默认展示模式
+  * 第一种： wui-pagination-total + data_per_select + page_jump
+  * 第二种： wui-pagination-total + page_jump
+  */
+  + .#{$prefix-cls}pagination-total {
+    height: $height-size;
+    line-height: $height-size;
+    font-size: $font-size;
+    & + .data_per_select {
+      > span {
+        line-height: $height-size;
+        font-size: $font-size;
+      }
+
+      .#{$prefix-cls}select{
+        height: $height-size;
+        font-size: $font-size;
+        border-width: var(--#{$pagination-prefix-cls}-input-border-width);
+        border-radius: var(--#{$pagination-prefix-cls}-pagenumber-border-radius);
+
+        &-selector {
+          min-height: calc($height-size - 2px);
+          .#{$prefix-cls}select-selection-item, .#{$prefix-cls}select-selection-search{
+            line-height: calc($height-size - 2px);
+          }
+          .#{$prefix-cls}select-selection-placeholder {
+            line-height: calc($height-size - 2px);
+            height: calc($height-size - 2px);
+          }
+        }
+
+        &-item {
+          font-size: $font-size;
+        }
+      }
+
+      & + .page_jump {
+        > span {
+          line-height: $height-size;
+          font-size: $font-size;
+        }
+
+        > .page_jump_value{
+          height: $height-size;
+          line-height: $height-size;
+          font-size: $font-size;
+          margin: 0 8px;
+          padding: 0;
+        }
+      }
+    }
+
+    & + .page_jump {
+      > span {
+        line-height: $height-size;
+        font-size: $font-size;
+      }
+
+      > .page_jump_value{
+        height: $height-size;
+        line-height: $height-size;
+        font-size: $font-size;
+      }
+    }
+  }
+}
+
+//radio
+
+@mixin radio-styles-variant($color) {
+  &.is-checked {
+    .#{$prefix-cls}radio-outer-circle {
+      border: 1px solid $color;
+    }
+
+    .#{$prefix-cls}radio-inner-circle {
+      background: $color;
+    }
+  }
+
+}
+
+//progress
+
+@mixin progress-styles-variant($bg-color) {
+  background-color: $bg-color;
+}
+
+//alert
+@mixin alert-styles-variant($bg-color,$text-color:#333333) {
+  background-color: $bg-color;
+  border-color: $bg-color;
+  color: $text-color;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+//checkbox
+
+@mixin checkbox-styles-variant($color) {
+  &.is-checked {
+    .#{$prefix-cls}checkbox-outline {
+      border: 1px solid $color;
+    }
+
+    .#{$prefix-cls}checkbox-tick-outline {
+      background: $color;
+    }
+  }
+
+}
+
+//switch colors
+@mixin switch-styles-variant($color) {
+  background: $color;
+  //border: 1px solid $color;
+}
+
+//tooltips
+
+@mixin tooltip-styles-variant($color) {
+  .tooltip-inner {
+    background-color: $color !important;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: $color !important;
+  }
+  &.top .tooltip-arrow {
+    border-top-color: $color !important;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: $color !important;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: $color !important;
+  }
+}
+
+@mixin menu-styles-variant($color,$color-hover) {
+  .#{$prefix-cls}menu-item:hover {
+    background-color: $color-hover;
+
+    a {
+      color: #FFFFFF;
+    }
+
+  }
+  .#{$prefix-cls}menu-item.active > a {
+    background-color: $color;
+  }
+  .#{$prefix-cls}menu-item:focus {
+    outline: none;
+    background-color: $color;
+
+    a {
+      color: #FFFFFF;
+    }
+  }
+}
+
+
+// utilities
+// font-weight
+@mixin font-weight-light() {
+  font-weight: $font-weight-light;
+}
+
+@mixin font-weight-normal() {
+  font-weight: $font-weight-normal;
+}
+
+@mixin font-weight-medium() {
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-weight-bold() {
+  font-weight: $font-weight-bold;
+}
+
+// text
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal; //for IE
+  white-space: nowrap;
+}
+
+@mixin text-break() {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+@mixin text-nowrap() {
+  white-space: nowrap;
+}
+
+
+// visibility
+
+@mixin responsive-visibility() {
+  display: block !important;
+  table {
+    display: table !important;
+  }
+  tr {
+    display: table-row !important;
+  }
+  th,
+  td {
+    display: table-cell !important;
+  }
+}
+
+@mixin responsive-invisibility() {
+  display: none !important;
+}
+
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin hide-text() {
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin text-hide() {
+  @include hide-text();
+}
+
+
+// nav
+
+@mixin navbar-vertical-align($element-height) {
+  margin-top: (($navbar-height - $element-height) / 2);
+  margin-bottom: (($navbar-height - $element-height) / 2);
+}
+
+// 设置滚动条样式
+@mixin set-scrollbar-style($width: var(--#{$wui-prefix}-scrollbar-width), $height: var(--#{$wui-prefix}-scrollbar-width)) {
+  $-scrollbar-color: var(--#{$wui-prefix}-scrollbar-color);
+  $-scrollbar-bg-color: var(--#{$wui-prefix}-scrollbar-bg-color);
+  $-scrollbar-border-color: var(--#{$wui-prefix}-scrollbar-border-color);
+  $-scrollbar-hover-color: var(--#{$wui-prefix}-scrollbar-hover-color);
+
+  // chrome
+  &:hover::-webkit-scrollbar {
+    width: $width;  // 纵向滚动条宽度
+    height: $height; // 横向滚动条高度
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  &::-webkit-scrollbar-track-piece,
+  &::-webkit-scrollbar-track {
+    background-color: $-scrollbar-bg-color;
+    border-color: $-scrollbar-border-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $-scrollbar-color;
+
+    &:hover {
+      background-color: $-scrollbar-hover-color;
+    }
+  }
+  &::-webkit-scrollbar-button,
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+  
+  // firefox
+  @-moz-document url-prefix() {
+    scrollbar-color: $-scrollbar-color $-scrollbar-bg-color;
+    scrollbar-width: none;
+    &:hover {
+      scrollbar-width: thin;
+    }
+  }
+}
+
+//loading旋转动画
+@mixin loading-rotate() {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@function unicode($str...) {
+  $result: "";
+  @for $i from 1 through length($str) {
+    $item: nth($str, $i);
+    $result: $result + unquote(str-insert($item, "\\", 1));
+  }
+  @return unquote('\"')+$result+unquote('\"')
+}
+
+@mixin required-style() {
+
+  &[class*="-required-style"] {
+    &:not([class*="-disabled"]) {
+      // requiredStyle必填背景样式
+      &:not([class*="-border-bottom"]) {
+        box-shadow: inset 0 0 0 1000px $base-input-bg-required;
+        background: $base-input-bg-required;
+      }
+  
+      // 下划线模式必填样式(黄色边框、透明背景)
+      &[class*="-border-bottom"] {
+        &:not(.wui-input-affix-focus, .wui-picker-focused, .wui-time-picker-focused) {
+          border-bottom: 1px solid $base-input-border-bottom-color;
+          box-shadow: none;
+          background: transparent;
+        }
+
+        input {
+          background: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+
+    &[class*="-disabled"] {
+      // 下划线必填模式禁用样式(透明背景)
+      &[class*="-border-bottom"],
+      &[class*="-border-bottom"] input[disabled] {
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  } 
+
+}

@@ -1,0 +1,20 @@
+@import (reference) '../../../theme/index.less';
+
+.@{loading-prefix-cls} {
+  &-spinloading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ~"var(--@{loading-prefix-cls}-color-text-loading)";
+    font-size: 16 * 0.02rem;
+  }
+  &-dotloading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ~"var(--@{loading-prefix-cls}-color-text-loading)";
+    font-size: 16 * 0.02rem;
+  }
+}

@@ -1,0 +1,72 @@
+@import "../../wui-core/scss/minxin-mixins";
+// @import "../../wui-input/src/Input.scss";
+
+// .#{$autocomplete-prefix-cls} {
+//   display: inline-block;
+//   position: relative;
+//   font-size: 14px;
+//   color: $base-item-text-color;
+//   &-match-words {
+//     //color: #588CE9;
+//     color: $brand-info;
+//   }
+//   &-options {
+//     margin: 0;
+//     padding: 0;
+//     list-style: none;
+//     top: 110%;
+//     left: 0;
+//     right: 0;
+//     position: absolute;
+//     border-radius: $border-radius-base;
+//     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+//     //background: #fff;
+//     background: $base-bg-color;
+//     z-index: 1800;
+
+//     > li {
+//       padding: 3px 6px;
+//       overflow: hidden;
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//       &:hover{
+//         cursor: pointer;
+//       }
+//       &.active {
+//         //background-color: $select-dropdown-hover-bg;
+//         background-color: $base-item-bg-color-hover;
+//       }
+
+//       &.not-found {
+//         padding-left: 10px;
+//         height: 25px;
+//         line-height: 21px;
+//         color: #999;
+//         font-weight: normal;
+//         font-size: 12px;
+//       }
+//     }
+//   }
+//   // .u-form-control{
+//   //   height: 32px;
+//   //   border-color: $border-color-base;
+//   // }
+// }
+
+.#{$autocomplete-prefix-cls} {
+  display: inline-block;
+  position: relative;
+  //font-size: 14px;
+  color: $base-item-text-color;
+  width: 100%;
+  &-match-words {
+    //color: #588CE9;
+    color: $brand-info;
+  }
+  // 适配input标签默认宽度
+  //.#{$select-prefix-cls}-selector {
+  //  width: 12em;
+  //  font-size: 12px;
+  //}
+}
+

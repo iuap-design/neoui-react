@@ -1,0 +1,150 @@
+@import (reference) '../../../theme/index.less';
+
+.@{dialog-prefix-cls} {
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 1000;
+
+  .@{mask-prefix-cls} {
+    z-index: 0;
+  }
+}
+
+.@{dialog-prefix-cls}-body {
+  --color-primary-dialog: ~"var(--@{dialog-prefix-cls}-color-text-secondarybtn-dialog)";
+  --color-font-base-dialog: ~"var(--@{dialog-prefix-cls}-color-text-title-dialog)";
+  --color-fail-dialog: ~"var(--@{dialog-prefix-cls}-color-text-dangerbtn-dialog)";
+
+  width: 100%;
+  max-height: calc(70vh + 0.96rem);
+  font-size: 0.28rem;
+  border-radius: ~"var(--@{dialog-prefix-cls}-border-radius-dialog)";
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: ~"var(--@{dialog-prefix-cls}-color-bg-dialog)";
+  box-shadow: 0rem 0.04rem 0.24rem 0rem rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  > .@{dialog-prefix-cls}-content {
+    flex: auto;
+  }
+
+  &:not(.@{dialog-prefix-cls}-with-image) {
+    padding-top: 0.48rem;
+  }
+
+  .@{dialog-prefix-cls}-image-container {
+    margin-bottom: 0.24rem;
+    max-height: 40vh;
+  }
+  .@{dialog-prefix-cls}-header {
+    margin-bottom: 0.16rem;
+    padding: 0 0.24rem;
+    .@{dialog-prefix-cls}-header-center {
+      display: flex;
+      justify-content: center;
+    }
+    .@{dialog-prefix-cls}-header-center-c {
+      display: flex;
+      flex: 0 1 auto;
+    }
+  }
+  .@{dialog-prefix-cls}-title {
+    padding: 0 0.24rem;
+    font-weight: ~"var(--@{dialog-prefix-cls}-font-weight-title-dialog)";
+    font-size: ~"var(--@{dialog-prefix-cls}-font-size-title-dialog)";
+    line-height: 0.5rem;
+    text-align: center;
+    color: ~"var(--@{dialog-prefix-cls}-color-text-title-dialog)";
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .@{dialog-prefix-cls}-content {
+    padding: 0 0.48rem;
+    margin-bottom: 0.48rem;
+    max-height: 35vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: ~"var(--@{dialog-prefix-cls}-font-size-content-dialog)";
+    line-height: 0.44rem;
+    font-weight: ~"var(--@{dialog-prefix-cls}-font-weight-content-dialog)";
+    color: ~"var(--@{dialog-prefix-cls}-color-text-content-dialog)";
+
+    .@{dialog-prefix-cls}-content-center {
+      display: flex;
+      justify-content: center;
+    }
+    .@{dialog-prefix-cls}-content-center-c {
+      flex: 0 1 auto;
+      word-break: break-all
+    }
+  }
+  .@{dialog-prefix-cls}-footer {
+    user-select: none;
+    .@{dialog-prefix-cls}-action-row {
+      display: flex;
+      align-items: stretch;
+      border-top: 0.02rem solid ~"var(--@{dialog-prefix-cls}-color-border-content-dialog)";
+      > * {
+        flex: 1;
+      }
+      .@{dialog-prefix-cls}-button {
+        min-width: unset;
+        font-size: ~"var(--@{dialog-prefix-cls}-font-size-btn-dialog)";
+        font-weight: ~"var(--@{dialog-prefix-cls}-font-weight-btn-dialog)";
+        line-height: 0.46rem;
+        padding: 0.26rem;
+        border-radius: 0;
+        border-width: 0;
+        color: ~"var(--@{dialog-prefix-cls}-color-text-primarybtn-dialog)";
+        background-color: ~"var(--@{dialog-prefix-cls}-color-bg-btn-dialog)";
+        border: none;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &-bold {
+          font-weight: bold;
+        }
+        border-right: 0.02rem solid ~"var(--@{dialog-prefix-cls}-color-border-content-dialog)";
+        &:last-child {
+          border-right: none;
+        }
+        .circle-loader {
+          border-color: ~"var(--@{dialog-prefix-cls}-color-text-primarybtn-dialog)";
+          color: ~"var(--@{dialog-prefix-cls}-color-text-primarybtn-dialog)";
+          border-top-color: transparent;
+        }
+      }
+      .@{dialog-prefix-cls}-button-primary {
+        color: var(--color-primary-dialog);
+        .circle-loader {
+          border-color: var(--color-primary-dialog);
+          color: var(--color-primary-dialog);
+          border-top-color: transparent;
+        }
+      }
+      .@{dialog-prefix-cls}-button-danger {
+        color: var(--color-fail-dialog);
+        .circle-loader {
+          border-color: var(--color-fail-dialog);
+          color: var(--color-fail-dialog);
+          border-top-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.@{dialog-prefix-cls}-with-content .@{dialog-prefix-cls}-title {
+  margin-bottom: 0.2rem;
+}
+
+.@{dialog-prefix-cls}-image-container {
+  overflow-y: auto;
+}

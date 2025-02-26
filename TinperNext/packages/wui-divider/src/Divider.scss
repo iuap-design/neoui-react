@@ -1,0 +1,147 @@
+@import "../../wui-core/scss/minxin-variables";
+
+//$divider-prefix-cls: $prefix-cls+'divider';
+//$divider-color: #E9EBEC;
+//$heading-color: #333;
+$divider-color: $border-color-base;
+$heading-color: $font-color-base;
+$border-width-base: 1px;
+$divider-font-size: 16px;
+$divider-orientation-margin: 5%;
+$divider-text-padding: 12px;
+
+@mixin lineType($border-type, $border-width) {
+  background: none;
+  border-color: $divider-color;
+  border-style: $border-type;
+  border-width: $border-width;
+}
+
+.#{$divider-prefix-cls} {
+
+  border-top: $border-width-base solid $divider-color;
+
+  &-vertical {
+    position: relative;
+    top: -0.06em;
+    display: inline-block;
+    height: 0.9em;
+    margin: 0 8px;
+    vertical-align: middle;
+    border-top: 0;
+    border-left: $border-width-base solid $divider-color;
+  }
+
+  &-horizontal {
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 24px 0;
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text {
+    display: flex;
+    margin: 16px 0;
+    color: $heading-color;
+    font-weight: 500;
+    font-size: $divider-font-size;
+    white-space: nowrap;
+    text-align: center;
+    border-top: 0;
+    border-top-color: $divider-color;
+
+    &::before,
+    &::after {
+      // position: relative;
+      // top: 50%;
+      width: 50%;
+      border-top: $border-width-base solid transparent;
+      // Chrome not accept `inherit` in `border-top`
+      border-top-color: inherit;
+      border-bottom: 0;
+      transform: translateY(50%);
+      content: '';
+    }
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text-left {
+    &::before {
+      // top: 50%;
+      width: $divider-orientation-margin;
+    }
+
+    &::after {
+      // top: 50%;
+      width: 100% - $divider-orientation-margin;
+    }
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text-right {
+    &::before {
+      // top: 50%;
+      width: 100% - $divider-orientation-margin;
+    }
+
+    &::after {
+      // top: 50%;
+      width: $divider-orientation-margin;
+    }
+  }
+
+  &-inner-text {
+    display: inline-block;
+    padding: 0 $divider-text-padding;
+  }
+
+  &-dashed {
+    @include lineType(dashed, $border-width-base 0 0)
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text.#{$divider-prefix-cls}-dashed {
+    border-top: 0;
+
+    &::before,
+    &::after {
+      @include lineType(dashed, $border-width-base 0 0)
+    }
+  }
+
+  &-vertical.#{$divider-prefix-cls}-dashed {
+    border-width: 0 0 0 $border-width-base;
+  }
+
+  &-dotted {
+    @include lineType(dotted, 2px 0 0)
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text.#{$divider-prefix-cls}-dotted {
+    border-top: 0;
+
+    &::before,
+    &::after {
+      @include lineType(dotted, 2px 0 0)
+    }
+  }
+
+  &-vertical.#{$divider-prefix-cls}-dotted {
+    border-width: 0 0 0 2px;
+  }
+
+  &-double {
+    @include lineType(double, 0 0 3px)
+  }
+
+  &-horizontal.#{$divider-prefix-cls}-with-text.#{$divider-prefix-cls}-double {
+    border: none;
+
+    &::before,
+    &::after {
+      @include lineType(double, 3px 0 0)
+    }
+  }
+
+  &-vertical.#{$divider-prefix-cls}-double {
+    border-width: 0 0 0 3px;
+  }
+}

@@ -1,0 +1,42 @@
+@import (reference) '../../../theme/index.less';
+
+.@{swipe-action-prefix-cls} {
+  --background: var(--mui-color-background);
+  background: var(--background);
+  cursor: grab;
+  overflow: hidden;
+  box-sizing: border-box;
+  touch-action: pan-y;
+  &-track {
+    position: relative;
+    overflow: visible;
+  }
+  &-content {
+  }
+  &-actions {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: auto;
+    white-space: nowrap;
+    &-right {
+      left: 100%;
+      top: 0;
+      height: 100%;
+    }
+    &-left {
+      right: 100%;
+      top: 0;
+      height: 100%;
+    }
+  }
+  &-action-button.@{button-prefix-cls} {
+    --border-radius: 0;
+    --border-width: 0;
+    --text-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: unset;
+  }
+}

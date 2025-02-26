@@ -1,0 +1,90 @@
+@import (reference) '../../../theme/index.less';
+
+.@{action-sheet-prefix-cls} {
+  box-sizing: border-box;
+  &-popup {
+    >.mui-popup-body {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      overflow: hidden;
+    }
+  }
+
+  &-extra {
+    display: flex;
+    justify-content: left;
+    color:~"var(--@{action-sheet-prefix-cls}-color-text-actionsheet)";
+    line-height: 0.46rem;
+    font-size:~"var(--@{action-sheet-prefix-cls}-font-size-actionsheet)";
+    padding: 0.26rem 0.32rem 0.24rem 0.32rem;
+    border-bottom-color:~"var(--@{action-sheet-prefix-cls}-color-border-divider-actionsheet)";
+    border-bottom-width:~"var(--@{action-sheet-prefix-cls}-border-width-divider-actionsheet)";
+    border-bottom-style:~"var(--@{action-sheet-prefix-cls}-border-style-divider-actionsheet)";
+  }
+
+  &-button-list {
+    overflow-y: auto;
+    max-height: 50vh;
+  }
+
+  &-button-item-wrapper {
+    border-bottom-color:~"var(--@{action-sheet-prefix-cls}-color-border-divider-actionsheet)";
+    border-bottom-width:~"var(--@{action-sheet-prefix-cls}-border-width-divider-actionsheet)";
+    border-bottom-style:~"var(--@{action-sheet-prefix-cls}-border-style-divider-actionsheet)";
+  }
+
+  &-button-item {
+    text-align: center;
+    display: block;
+    background-color: ~"var(--@{action-sheet-prefix-cls}-color-bg-actionsheet)";
+    padding: 0.26rem;
+    padding-top: 0.27rem;
+
+    &:active {
+      background-color: ~"var(--@{action-sheet-prefix-cls}-color-bg-actionsheet)"
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+
+      // opacity: 0.4;
+      .@{action-sheet-prefix-cls}-button-item-name {
+        color:~"var(--@{action-sheet-prefix-cls}-color-text-actionsheet-disable)"
+      }
+    }
+
+    &-name {
+      color:~"var(--@{action-sheet-prefix-cls}-color-text-actionsheet)";
+      font-size: 0.3rem;
+      line-height: 0.46rem;
+    }
+
+    &-description {
+      font-size: 0.24rem;
+      line-height: 0.4rem;
+      color: ~"var(--@{action-sheet-prefix-cls}-color-text-discribe-actionsheet)";
+    }
+
+    &-danger {
+      .@{action-sheet-prefix-cls}-button-item-name {
+        color: var(--mui-color-danger);
+      }
+    }
+
+    &-bold {
+      .@{action-sheet-prefix-cls}-button-item-name {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-cancel {
+    background-color: ~"var(--@{action-sheet-prefix-cls}-color-bg-gap-actionsheet)";
+    padding-top: 8px;
+
+    .@{action-sheet-prefix-cls}-button-item-name {
+      color: var(--mui-color-text);
+    }
+  }
+}

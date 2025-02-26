@@ -1,0 +1,25 @@
+.demos-wui-dropdown {
+  // @import "../src/Dropdown.scss";
+
+  .demoPadding {
+    > button {
+      margin: 10px;
+    }
+
+    .dropdown-link {
+      cursor: pointer;
+      margin: 10px;
+      font-size: 12px;
+
+      .uf {
+        font-size: 12px;
+        padding-left: 0px;
+      }
+
+      &:hover {
+        color: #1890ff;
+      }
+    }
+  }
+
+}

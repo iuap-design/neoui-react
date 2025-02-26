@@ -1,0 +1,44 @@
+@import (reference) '../../../theme/index.less';
+
+.@{center-popup-prefix-cls} {
+  --z-index: 1000;
+  --min-width: ~"var(--@{center-popup-prefix-cls}-size-min-width-center-popup)";
+  --max-width: ~"var(--@{center-popup-prefix-cls}-size-max-width-center-popup)";
+  --background-color: ~"var(--@{center-popup-prefix-cls}-color-bg-center-popup)";
+  --border-radius: ~"var(--@{center-popup-prefix-cls}-border-radius-center-popup)";
+
+  position: fixed;
+  box-sizing: border-box;
+  z-index: var(--z-index);
+}
+
+.@{center-popup-prefix-cls}-wrap {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  transform: translate(-50%, -50%);
+}
+
+.@{center-popup-prefix-cls}-body {
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  font-size: 0.3rem;
+  font-weight: 400;
+  color: var(--mui-color-title-text);
+  line-height: 0.4rem;
+}
+
+.@{center-popup-prefix-cls}-close-icon {
+  position: absolute;
+  z-index: 100;
+  right: 0.16rem;
+  top: 0.16rem;
+
+  cursor: pointer;
+  padding: 0.08rem;
+  color: #111;
+}

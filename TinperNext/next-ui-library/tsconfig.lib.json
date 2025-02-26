@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.base", //继承公共基础配置
+  "compilerOptions": {
+    "declarationDir": "lib",              /* 生成*.d.ts声明文件输出的目录 */
+    // "baseUrl": "./next-ui-library/",                       /* 解析非相对模块的基地址，默认是当前目录 Base directory to resolve non-absolute module names. */
+    "paths": {
+        "react": ["../node_modules/@types/react"],
+        "*": ["./node_modules/*"],
+        // "@tinper/next-ui": ["./lib/index.d.ts"],
+        }, /* 路径映射，相对于baseUrl ,A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+  },
+  "exclude": [
+    "node_modules",
+    "../node_modules",
+    "../packages/**/demo/*",
+    "../packages/**/test/*",
+    "../packages/**/test/**/*",
+    "../packages/**/demo/**/*"
+  ],
+}

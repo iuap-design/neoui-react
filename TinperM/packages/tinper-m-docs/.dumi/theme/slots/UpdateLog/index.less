@@ -1,0 +1,101 @@
+.update-log-content {
+    .markdown {
+        font-size: 14px;
+
+        >ul {
+            background: #FFFFFF;
+            box-shadow: 0px 2px 11px 0px rgba(140, 165, 189, 0.17);
+            border-radius: 9px;
+            padding: 12px 45PX;
+            margin-left: 120px;
+            box-sizing: border-box;
+            position: relative;
+
+            &::before {
+                content: '';
+                border-left: 2px solid #f3f4f6;
+                height: 100%;
+                position: absolute;
+                left: -22px;
+                top: 0px;
+            }
+
+
+            >li {
+                list-style-type: circle;
+                color: #666666;
+
+                >div>img {
+                    filter: drop-shadow(red 10000px 0);
+                    transform: translateX(-10000px);
+                }
+
+                >ul {
+                    list-style-type: none;
+                    padding-left: 5px;
+
+                    >li {
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            display: inline-block;
+                            float: left;
+                            height: 6px;
+                            width: 6px;
+                            margin: 10px 14px 0 0;
+                            box-sizing: border-box;
+                            background: #000000;
+                            border-radius: 6px;
+                        }
+
+                        >div>img {
+                            position: relative;
+                            top: 4px;
+                            left: 1px;
+                            padding-right: 2px;
+                            filter: drop-shadow(red 10000px 0);
+                            transform: translateX(-10000px);
+                        }
+                    }
+                }
+            }
+        }
+
+        >h2 {
+            letter-spacing: 0.05em;
+            position: absolute;
+            left: 400px;
+            margin-top: -5px;
+            font-weight: 400;
+            font-size: 22px;
+        }
+
+        >h4 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #666666;
+            margin: 0 5px;
+        }
+
+        >h5 {
+            padding: 10px 0 0 140px;
+            font-weight: 400;
+            font-size: 18px;
+
+            &::before {
+                content: '';
+                height: 8px;
+                width: 8px;
+                display: block;
+                position: absolute;
+                left: 92.5px;
+                top: 33px;
+                border-radius: 50%;
+                background: #f3f4f6;
+                border: 2px solid red;
+            }
+        }
+
+    }
+}

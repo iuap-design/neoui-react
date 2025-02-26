@@ -1,0 +1,45 @@
+@import (reference) '../../../theme/index.less';
+
+.@{divider-prefix-cls} {
+}
+
+.@{divider-prefix-cls}-horizontal {
+  display: flex;
+  align-items: center;
+  margin: 0.32rem 0;
+  border-width: 0;
+  border-color: var(--mui-color-border);
+  border-style: solid;
+  color: var(--mui-color-weak);
+  font-size: 0.28rem;
+  .@{divider-prefix-cls}-left&::before {
+    max-width: 10%;
+  }
+  .@{divider-prefix-cls}-right&::after {
+    max-width: 10%;
+  }
+  &::after,
+  &::before {
+    flex: auto;
+    display: block;
+    content: '';
+    border-style: inherit;
+    border-color: inherit;
+    border-width: 1px 0 0;
+  }
+  .@{divider-prefix-cls}-content {
+    flex: none;
+    padding: 0 0.32rem;
+  }
+}
+
+.@{divider-prefix-cls}-vertical {
+  position: relative;
+  top: -0.06em;
+  display: inline-block;
+  height: 0.9em;
+  margin: 0 0.32rem;
+  vertical-align: middle;
+  border-top: 0;
+  border-left: 1px solid var(--mui-color-border);
+}

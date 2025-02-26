@@ -1,0 +1,58 @@
+.register-demo-modal {
+  .wui-modal-header {
+    padding-left: 13px;
+  }
+
+  .wui-modal-header,
+  .wui-modal-footer {
+    border: 0;
+  }
+
+  .wui-modal-body {
+    padding: 22px 24px 16px 20px;
+
+    .wui-form-item {
+      min-height: 44px;
+      padding: 0;
+
+      .wui-form-item-control {
+        width: 100%;
+      }
+
+      &.wui-form-item-custom {
+        min-height: 42px;
+
+        .wui-form-item-control-input-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .wui-checkbox {
+            margin-bottom: -3px;
+
+            .wui-checkbox-label {
+              color: #ccc;
+            }
+          }
+
+          .wui-button-text {
+            margin-right: -17px;
+          }
+        }
+      }
+
+      a {
+        float: right;
+        outline: none;
+        text-decoration: none;
+      }
+    }
+
+    .operations {
+      .wui-button {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

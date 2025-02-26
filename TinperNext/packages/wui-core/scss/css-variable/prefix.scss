@@ -1,0 +1,126 @@
+// The prefix to use on all css variables from tinper-next.
+$wui-prefix: 'wui';
+// 组件类名前缀
+$prefix-cls: $wui-prefix + '-';
+
+// Alert
+$alert-prefix-cls: $prefix-cls + 'alert';
+// Anchor
+$anchor-prefix-cls: $prefix-cls + 'anchor';
+// Autocomplete
+$autocomplete-prefix-cls: $prefix-cls + 'autocomplete';
+// Avatar
+$avatar-prefix-cls: $prefix-cls+'avatar';
+// BackTop
+$back-prefix-cls: $prefix-cls + 'back-top';
+// Badge
+$badge-prefix-cls: $prefix-cls + 'badge';
+$badge-ribbon-cls: $prefix-cls + 'ribbon';
+// Breadcrumb
+$breadcrumb-prefix-cls: $prefix-cls + 'breadcrumb';
+// Button
+$button-prefix-cls: $prefix-cls + 'button';
+// Button-group
+$button-group-prefix-cls: $prefix-cls + 'button-group';
+$dropdown-group-btn: $prefix-cls + 'dropdown-button';
+// Calendar
+$calendar-prefix-cls: $prefix-cls + 'calendar';
+// Card
+$card-prefix-cls: $prefix-cls+'card';
+// Carousel
+$carousel-prefix-cls: $prefix-cls + 'carousel';
+// Cascader
+$cascader-prefix-cls: $prefix-cls + 'cascader';
+// Checkbox
+$checkbox-prefix-cls: $prefix-cls + 'checkbox';
+// Clipboard
+$clipboard-prefix-cls: $prefix-cls + 'clipboard';
+// Collapse
+$collapse-prefix-cls: $prefix-cls + 'collapse';
+// Colorpicker
+$colorpicker-prefix-cls: $prefix-cls + 'colorpicker';
+// Datepicker
+$picker-prefix: $prefix-cls + 'picker';
+// Divider
+$divider-prefix-cls: $prefix-cls+'divider';
+// Drawer
+$drawer-prefix-cls: $prefix-cls + 'drawer';
+// Dropdown
+$dropdown-prefix-cls: $prefix-cls + 'dropdown';
+// Empty
+$empty-prefix-cls: $prefix-cls + 'empty';
+// Input
+$input-prefix-cls: $prefix-cls + 'input';
+// Input-group
+$input-group-prefix-cls: $prefix-cls + 'input-group';
+// Input-number
+$input-number-prefix-cls: $prefix-cls + 'input-number';
+// Form
+$form-prefix-cls: $prefix-cls + 'form';
+// Layout
+$layout-prefix-cls: $prefix-cls + 'layout';
+// List
+$list-prefix-cls: $prefix-cls + 'list';
+// Menu
+$menu-prefix-cls: $prefix-cls + 'menu';
+// Message
+$message-prefix-cls: $prefix-cls + 'message';
+// Errormessage
+$error-message-prefix-cls: $prefix-cls + 'error-message';
+// Modal
+$modal-prefix-cls: $prefix-cls + 'modal';
+// Navbar
+$navbar-prefix-cls: $prefix-cls + 'navbar';
+// Notification
+$notification-prefix-cls: $prefix-cls + 'notification';
+// Pagination
+$pagination-prefix-cls: $prefix-cls + 'pagination';
+// Popconfirm
+$popconfirm-prefix-cls: $prefix-cls + 'popconfirm';
+// Popover
+$popover-prefix-cls: $prefix-cls + 'popover';
+// Progress
+$progress-prefix-cls: $prefix-cls + 'progress';
+// Radio
+$radio-prefix-cls: $prefix-cls + 'radio';
+// Rate
+$rate-prefix-cls: $prefix-cls + 'rate';
+// Select
+$select-prefix-cls: $prefix-cls + 'select';
+// Skeleton
+$skeleton-prefix-cls: $prefix-cls + 'skeleton';
+// Slider
+$slider-prefix-cls: $prefix-cls + 'slider';
+// Space
+$space-prefix-cls: $prefix-cls+'space';
+// Spin
+$loading-prefix-cls: $prefix-cls + 'spin';
+// Steps
+$steps-prefix-cls: $prefix-cls + 'steps';
+// Svgicon
+$svg-prefix-cls: $prefix-cls + 'svgicon';
+// Switch
+$switch-prefix-cls: $prefix-cls + 'switch';
+// Table
+$table-prefix-cls: $prefix-cls + 'table';
+// Tabs
+$tabs-prefix-cls: $prefix-cls + 'tabs';
+// Tag
+$tag-prefix-cls: $prefix-cls + 'tag';
+// Timeline
+$timeline-prefix-cls: $prefix-cls + 'timeline';
+// Timepicker
+$time-picker-prefix-cls: $prefix-cls + 'time-picker';
+// Tooltip
+$tooltip-prefix-cls: $prefix-cls + 'tooltip';
+// Transfer
+$transfer-prefix-cls: $prefix-cls + 'transfer';
+// Tree
+$treePrefixCls : $prefix-cls + "tree";
+// TreeSelect
+$treeSelectPrefixCls:  $prefix-cls + 'select-tree';
+// Upload
+$upload-prefix-cls: $prefix-cls + 'upload';
+$scrollbar-prefix-cls: $prefix-cls + 'scrollbar';
+// typography
+$typography-prefix-cls: $prefix-cls + 'typography';

@@ -1,0 +1,185 @@
+@import (reference) '../../../theme/index.less';
+
+.@{input-number-prefix-cls} {
+  --color: ~"var(--@{input-prefix-cls}-color-text-input)";
+  --cursor-color: ~"var(--@{input-prefix-cls}-color-cursor-input)";
+  --disabled-color: ~"var(--@{input-prefix-cls}-color-text-input-disabled)";
+  --placeholder-color: ~"var(--@{input-prefix-cls}-color-text-placeholder-input)";
+  --readonly-color: ~"var(--@{input-prefix-cls}-color-text-input-readonly)";
+
+  width: 100%;
+  background-color:~"var(--@{input-prefix-cls}-color-bg-input)";
+  border-radius:~"var(--@{input-prefix-cls}-border-radius-input)";
+  box-sizing: border-box;
+
+  &-content {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  &-box {
+    display: block;
+    width: 100%;
+    height:~"var(--@{input-prefix-cls}-size-height-input)";
+    color: var(--color);
+    border: none;
+    font-size:~"var(--@{input-prefix-cls}-font-size-content-input)";
+    font-family: PingFangSC, PingFang SC;
+    font-weight:~"var(--@{input-prefix-cls}-font-weight-content-input)";
+    line-height: 1.5;
+    caret-color: var(--cursor-color);
+    background-color: inherit;
+    padding: 0;
+    margin: 0;
+    resize: none;
+
+    &:read-only {
+      color: var(--readonly-color);
+      pointer-events: none;
+    }
+
+    &:-moz-read-only {
+      color: var(--readonly-color);
+      pointer-events: none;
+    }
+
+    &:disabled {
+      color: var(--disabled-color);
+    }
+
+    &::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: var(--placeholder-color);
+      font-size:~"var(--@{input-prefix-cls}-font-size-placeholder-input)";
+      font-weight:~"var(--@{input-prefix-cls}-font-weight-placeholder-input)";
+    }
+
+    &::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: var(--placeholder-color);
+      ;
+      font-size:~"var(--@{input-prefix-cls}-font-size-placeholder-input)";
+      font-weight:~"var(--@{input-prefix-cls}-font-weight-placeholder-input)";
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: var(--placeholder-color);
+      ;
+      font-size:~"var(--@{input-prefix-cls}-font-size-placeholder-input)";
+      font-weight:~"var(--@{input-prefix-cls}-font-weight-placeholder-input)";
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-clear-box {
+    display: flex;
+    padding: 0.06rem;
+  }
+
+  &-addonafter {
+    display: flex;
+    margin-left: 0.16rem;
+    color: var(--color);
+  }
+
+  &-addonafter-disabled {
+    color: var(--disabled-color);
+  }
+
+  &-addonbefore {
+    min-width: 0.4rem;
+    color: var(--color);
+    overflow: hidden;
+  }
+
+  &-addonbefore-disabled {
+    color: var(--disabled-color);
+  }
+
+  &-inner {
+    // width: 100%;
+    position: relative;
+    flex-grow: 1;
+  }
+
+  &-showunit {
+    position: absolute;
+    height: 0.26rem;
+    display: flex;
+    min-width: 0.28rem;
+    justify-content: center;
+    background: ~"var(--@{input-number-prefix-cls}-color-bg-magnitude-inputnumber)";
+    font-size: 0.2rem;
+    line-height: 0.26rem;
+    top: 0.52rem;
+    border-radius: 0.04rem;
+    color: ~"var(--@{input-number-prefix-cls}-color-text-magnitude-inputnumber)";
+    padding: 0 0.04rem;
+  }
+
+  &-showunit::after {
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border-color: ~"var(--@{input-number-prefix-cls}-color-bg-magnitude-inputnumber)" transparent;
+    border-style: solid;
+    border-width: 0.1rem 0.1rem 0 0;
+    top: -0.04rem;
+    left: 0.08rem;
+    position: absolute;
+    transform: rotate(45deg);
+  }
+
+  &-showunit-blank {
+    height: 0.2rem;
+  }
+
+  input[type="password"]::-webkit-contacts-auto-fill-button,
+  input[type="password"]::-webkit-credentials-auto-fill-button,
+  input[type="password"]::-ms-reveal {
+    display: none;
+  }
+
+  /* 隐藏内部按钮 */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* 隐藏外部按钮（适用于某些浏览器，如 Firefox） */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.@{input-number-prefix-cls}-wrapper-disabled {
+  cursor: not-allowed;
+  background-color:~"var(--@{input-prefix-cls}-color-bg-input-disabled)";
+}
+
+.@{input-number-prefix-cls}-wrapper-readonly {
+  background-color:~"var(--@{input-prefix-cls}-color-bg-input-readonly)";
+}
+
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--color) !important; //这个地方的颜色是字体颜色，可以根据实际情况修改
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; //设置input输入框的背景颜色为透明色
+  background-color: transparent; //设置input输入框的背景颜色为透明色
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+input {
+  background-color: transparent; //设置input输入框的背景颜色为透明色
+}

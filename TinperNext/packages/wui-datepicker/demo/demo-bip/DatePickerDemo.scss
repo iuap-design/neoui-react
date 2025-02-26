@@ -1,0 +1,15 @@
+.demos-wui-datepicker {
+  padding-left: 3vw;
+
+  .demo3 {
+    > .demo3-item {
+      margin-bottom: 20px !important;
+    }
+  }
+}
+.quarter-class {
+  .wui-picker-quarter-panel .wui-picker-cell-selected .wui-picker-cell-inner {
+    width: 100%;
+    margin: 3px 0;
+  }
+}

@@ -1,0 +1,125 @@
+@import (reference) '../../styles/variables.less';
+
+.@{prefix}-productintroduce {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: -60px auto 48px;
+  padding: 25px 83px 30px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 0 2px 10px 3px #c4c9da80;
+  border-radius: 12px;
+
+  &-background{
+    position: absolute;
+    top: 0;
+    left: 16%;
+    width: 43%;
+    height: 50%;
+    background: #F2E7F5;
+    filter: blur(27px);
+
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 16%;
+    top: 0;
+    left: 7%;
+    height: 50%;
+    background: #EFF1FA;
+    filter: blur(27px);
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 2%;
+    height: 50%;
+    background: #EFF1FA;
+    filter: blur(27px);
+  }
+
+  &-item {
+    display: flex;
+    z-index: 1;
+    min-width: 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // float: left;
+    img {
+      width: 70px;
+      height: 70px;
+    }
+
+    > i {
+      font-size: 64px;
+      font-style: normal;
+
+      @media @mobile {
+        font-size: 48px;
+      }
+    }
+
+    > h3 {
+      margin: 4px 0;
+      color: @c-text;
+      font-weight: normal;
+      font-size: 20px;
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
+
+      a {
+        color: @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+        }
+
+        &:not(:hover) {
+          text-decoration: none;
+        }
+      }
+
+      @media @mobile {
+        font-size: 18px;
+      }
+    }
+
+    > p {
+      margin: 12px 0;
+      color: @c-text-secondary;
+      font-size: 16px;
+      line-height: 1.475;
+
+      @{dark-selector} & {
+        color: @c-text-secondary-dark;
+      }
+
+      @media @mobile {
+        font-size: 14px;
+      }
+
+      a {
+        color: @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+        }
+
+        &:not(:hover) {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

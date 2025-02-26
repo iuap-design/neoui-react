@@ -1,0 +1,3552 @@
+@import './prefix';
+
+
+// ! 特别提示：如有变量仅用于js而css中未使用，请加注释 @jsOnly。否则css变量文档将无法获取该变量
+:root {
+  // Avatar
+  /**
+    * @desc 头像：字体颜色
+    */
+  --#{$avatar-prefix-cls}-color: var(--ynfw-color-text-avatar,#fff);
+  /**
+  * @desc 头像：边框颜色
+  */
+  --#{$avatar-prefix-cls}-border-color: var(--ynfw-color-border-avatar, #fff);
+  /**
+  * @desc 头像：背景色
+  */
+  --#{$avatar-prefix-cls}-bg-color: var(--ynfw-color-bg-avatar, #ccc);
+
+  // Button
+  /**
+  * @desc 按钮：默认按钮文字颜色；
+  */
+  --#{$button-prefix-cls}-default-color: var(--ynfw-color-text-btn-default, #505766);
+  /**
+  * @desc 按钮：默认按钮文字颜色hover态；
+  */
+  --#{$button-prefix-cls}-default-color-hover: var(--ynfw-color-text-btn-hover, #373c47);
+  /**
+  * @desc 按钮：默认按钮文字颜色active态；
+  */
+  --#{$button-prefix-cls}-default-color-active: var(--ynfw-color-text-btn-pressed, #373c47);
+  /**
+  * @desc 按钮：默认按钮边框颜色；
+  */
+  --#{$button-prefix-cls}-default-border-color: var(--ynfw-color-border-btn-default, #bbb);
+  /**
+  * @desc 按钮：默认按钮边框颜色hover态；
+  */
+  --#{$button-prefix-cls}-default-border-color-hover: var(--ynfw-color-border-btn-hover, #505766);
+  /**
+  * @desc 按钮：默认按钮边框颜色active态；
+  */
+  --#{$button-prefix-cls}-default-border-color-active: var(--ynfw-color-border-btn-pressed, #505766);
+  /**
+  * @desc 按钮：默认按钮背景颜色；
+  */
+  // --#{$button-prefix-cls}-default-bg-color: #fff;
+  /**
+  * @desc 按钮：默认按钮背景颜色hover态；
+  */
+  --#{$button-prefix-cls}-default-bg-color-hover: var(--ynfw-color-bg-btn-hover, #F3F5F9);
+  /**
+  * @desc 按钮：文字按钮文本颜色；
+  */
+  --#{$button-prefix-cls}-text-color: var(--ynfw-color-text-textbtn-default, #0033cc);
+  /**
+  * @desc 按钮：深色背景文字按钮文本颜色；
+  */
+  --#{$button-prefix-cls}-text-inverse-color: var(--ynfw-color-text-inverse-textbtn, #3d8df9);
+  /**
+  * @desc 按钮：深色背景文字按钮文本颜色hover；
+  */
+  --#{$button-prefix-cls}-text-inverse-color-hover: var(--ynfw-color-text-inverse-textbtn-hover, #67aefb);
+  /**
+  * @desc 按钮：文字按钮文本颜色hover态；
+  */
+  --#{$button-prefix-cls}-text-color-hover: var(--ynfw-color-text-textbtn-hover, #0066ff);
+  /**
+  * @desc 按钮：文字按钮文本颜色active态；
+  */
+  --#{$button-prefix-cls}-text-color-active: var(--ynfw-color-text-textbtn-pressed,#0066ff);
+  /**
+  * @desc 按钮：文字按钮文本颜色disabled态；
+  */
+  --#{$button-prefix-cls}-text-color-disabled: var(--ynfw-color-text-textbtn-disabled, #ccc);
+    /**
+  * @desc 按钮：默认高度（小尺寸除外）；
+  */
+  --#{$button-prefix-cls}-default-height: var(--ynfw-size-height-btn, 28px);
+      /**
+  * @desc primary按钮 禁用背景色设置；
+  */
+  --#{$button-prefix-cls}-primary-bg-color-disabled: var(--ynfw-color-primary-disabled, #f79099);
+      /**
+  * @desc 默认按钮：禁用背景色设置；
+  */
+  --#{$button-prefix-cls}-default-bg-color-disabled: var(--ynfw-color-bg-btn-disabled, #FFF);
+      /**
+  * @desc 默认按钮：禁用边框色设置；
+  */
+  --#{$button-prefix-cls}-default-border-color-disabled: var(--ynfw-color-border-btn-disabled, #DDD);
+      /**
+  * @desc secondary按钮：禁用背景色设置；
+  */
+  --#{$button-prefix-cls}-secondary-bg-color-disabled: var(--ynfw-color-bg-secondary-btn-disabled, #EDF0F2);
+      /**
+  * @desc 按钮：字号设置；
+  */
+  --#{$button-prefix-cls}-default-font-size: var(--ynfw-font-size-btn, 12px);
+      /**
+  * @desc 按钮：字重设置；
+  */
+  --#{$button-prefix-cls}-default-font-weight: var(--ynfw-font-weight-btn, 400);
+      /**
+  * @desc 按钮：边框圆角设置
+  */
+  --#{$button-prefix-cls}-border-radius: var(--ynfw-border-radius-btn, 4px);
+      /**
+  * @desc 文字按钮：文字按钮文本字号；
+  */
+  --#{$button-prefix-cls}-link-font-size: var(--ynfw-font-size-textbtn, 12px);
+      /**
+  * @desc 文字按钮：文字按钮文本字重；
+  */
+  --#{$button-prefix-cls}-link-font-weight: var(--ynfw-font-weight-textbtn, 400);
+  // Card
+  /**
+  * @desc card标题的背景色
+  */
+  --#{$card-prefix-cls}-head-bg-color: var(--ynfw-color-bg-card-header, #fafafa);
+
+  // Datepicker
+  // color
+  /**
+  * @desc 日期hover、快捷按钮选中的背景色
+  */
+  --#{$picker-prefix}-cell-bg-color-hover: var(--ynfw-color-bg-calendar-cell-hover, var(--#{$wui-prefix}-primary-color-light));
+  /**
+  * @desc RangePicker选中区域的背景色
+  */
+  --#{$picker-prefix}-cell-bg-color-selected: var(--ynfw-color-bg-calendar-cell-selected, var(--#{$wui-prefix}-primary-color-light));
+
+  /**
+  * @desc 日期输入框的字体大小
+  */
+  --#{$picker-prefix}-input-font-size: var(--ynfw-font-size-input, var(--#{$input-prefix-cls}-font-size));
+  /**
+  * @desc 日期范围输入框active背景色
+  */
+  --#{$wui-prefix}-input-active-bg-color: var(--ynfw-input-active-bg-color, #DBEAFE);
+  // size
+  /**
+  * @desc 日期面板中单元格的宽高
+  */
+  --#{$picker-prefix}-cell-size: var(--ynfw-size-height-cell-datepicker, 24px); // time\date\month\year
+
+
+  // Pagination
+  /**
+  * @desc 分页：页码、翻页箭头字体颜色
+  */
+  --#{$pagination-prefix-cls}-color: var(--ynfw-color-text-primary-global, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 分页：页码、翻页箭头 hover态字体颜色
+  */
+  --#{$pagination-prefix-cls}-color-hover: var(--ynfw-color-text-primary-global, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 分页：页码 当前active态字体颜色
+  */
+  --#{$pagination-prefix-cls}-color-active: var(--ynfw-color-text-pagination-selected, #fff);
+  /**
+  * @desc 分页：页码、翻页箭头 禁用态字体颜色
+  */
+  --#{$pagination-prefix-cls}-color-disabled: var(--ynfw-color-text-tertiary-global, #777);  // #999颜色太浅， ...溢出按钮文字不清晰
+  /**
+  * @desc 分页：页码、翻页箭头背景色
+  */
+  --#{$pagination-prefix-cls}-bg-color: var(--ynfw-color-bg-pagination-arrow-default, transparent);
+  /**
+  * @desc 分页：页码、翻页箭头 hover态背景色
+  */
+  --#{$pagination-prefix-cls}-bg-color-hover: var(--ynfw-color-bg-pagination-arrow-hover, #edf1f7);
+  /**
+  * @desc 分页：页码 当前active态背景色
+  */
+  --#{$pagination-prefix-cls}-bg-color-active: var(--ynfw-color-bg-pagination-selected, #ADB4BC);
+  /**
+  * @desc 分页：页码、翻页箭头 禁用态背景色
+  */
+  --#{$pagination-prefix-cls}-bg-color-disabled: var(--ynfw-color-bg-pagination-arrow-disabled, transparent);
+  /**
+  * @desc 有边框的分页：页码、翻页箭头边框颜色
+  */
+  --#{$pagination-prefix-cls}-border-color: var(--ynfw-color-border-pagination-arrow-default, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 有边框的分页：页码、翻页箭头 hover态边框颜色
+  */
+  --#{$pagination-prefix-cls}-border-color-hover: var(--ynfw-color-border-pagination-arrow-hover, #A8ABB3);
+  /**
+  * @desc 有边框的分页：页码 当前active态边框颜色
+  */
+  --#{$pagination-prefix-cls}-border-color-active: var(--ynfw-color-border-pagination-arrow-selected, #ADB4BC);
+  /**
+  * @desc 有边框的分页：页码、翻页箭头 禁用态边框颜色
+  */
+  --#{$pagination-prefix-cls}-border-color-disabled: var(--ynfw-color-border-disabled, var(--#{$wui-prefix}-base-border-color-disabled));
+  //Select
+  /**
+    * @desc 下拉框：加载中深色部分边框颜色
+    */
+  --#{$select-prefix-cls}-loading-color: var(--ynfw-color-border-bold, #aaa);
+  /**
+  * @desc 下拉框：加载中浅色部分边框颜色
+  */
+  --#{$select-prefix-cls}-loading-bg-color: var(--ynfw-color-border-light, #eee);
+
+  //Skeleton
+  /**
+  * @desc 骨架屏：背景色
+  */
+  --#{$skeleton-prefix-cls}-bg-color: var(--ynfw-color-bg-skeleton, rgba(190, 190, 190, 0.2));
+  /**
+  * @desc 骨架屏：背景渐变色值
+  */
+  --#{$skeleton-prefix-cls}-bg-to-color: var(--ynfw-color-bg-skeleton-bold, rgba(129, 129, 129, 0.24));
+
+  //Spin
+  /**
+  * @desc spin：遮罩层背景颜色；
+  */
+  --#{$loading-prefix-cls}-backdrop-bg-color: rgba(255,255,255,0.4);
+
+  //Switch
+  /**
+  * @desc switch：未选中时滑道的背景色；
+  */
+  --#{$switch-prefix-cls}-back-bg-color: var(--ynfw-color-bg-switch, linear-gradient(90deg, #858A94 0%, #B9BCC2 100%));
+  /**
+  * @desc switch：未选中时滑道的背景色disabled态；
+  */
+  --#{$switch-prefix-cls}-back-bg-color-disabled: var(--ynfw-color-bg-switch-disabled, #D9D9D9);
+
+  //Table
+  /**
+  * @desc 表格：边框颜色
+  */
+  --#{$table-prefix-cls}-border-color: var(--ynfw-color-border-cell-table-default, #dbe0e5);
+  /**
+  * @desc 表格：顶部分割线边框颜色
+  */
+  --#{$table-prefix-cls}-border-top-color: var(--ynfw-color-border-top-table, #505766);
+  /**
+  * @desc 表格：顶部分割线边框宽度
+  */
+  --#{$table-prefix-cls}-border-top-width: var(--ynfw-border-width-top-table, 1px);
+  /**
+  * @desc 表格：表头字号
+  */
+  --#{$table-prefix-cls}-header-font-size: var(--ynfw-font-size-header-table, 13px);
+  /**
+  * @desc 表格：表头字重
+  */
+  --#{$table-prefix-cls}-header-font-weight: var(--ynfw-font-weight-header-table, 600);
+   /**
+  * @desc 表格：表头图标字号
+  */
+  --#{$table-prefix-cls}-header-icon-font-size: var(--ynfw-font-size-icon-header-table, 16px);
+   /**
+  * @desc 表格：表体 单元格边框宽度
+  */
+  --#{$table-prefix-cls}-border-width: var(--ynfw-border-width-table, 1px);
+    /**
+  * @desc 表格：表体字号
+  */
+  --#{$table-prefix-cls}-body-font-size: var(--ynfw-font-size-cell-table, 12px);
+    /**
+  * @desc 表格：表体字重
+  */
+  --#{$table-prefix-cls}-body-font-weight: var(--ynfw-font-weight-cell-table, 400);
+    /**
+  * @desc 表格：定位行背景色
+  */
+  --#{$table-prefix-cls}-bg-find: var(--ynfw-color-bg-row-table-find, #FDF3E1);
+    /**
+  * @desc 表格：定位行背景色
+  */
+  --#{$table-prefix-cls}-bg-find-select: var(--ynfw-color-bg-row-table-find-selected, #FFECC6);
+    /**
+  * @desc 表格：合计行背景色
+  */
+  --#{$table-prefix-cls}-bg-total: var(--ynfw-color-bg-subtotal-table, #FFFBF3);
+    /**
+  * @desc 表格：合计行字号
+  */
+  --#{$table-prefix-cls}-font-size-total: var(--ynfw-font-size-total-table, 13PX);
+    /**
+  * @desc 表格：合计行字重
+  */
+  --#{$table-prefix-cls}-font-weight-total: var(--ynfw-font-weight-total-table, 400);
+  //   /**
+  // * @desc 表格：合计行行高
+  // */
+  // --#{$table-prefix-cls}-height-total: var(--ynfw-size-height-totalrow-table, 400);
+  /**
+  * @desc 表格：header背景色
+  */
+  --#{$table-prefix-cls}-head-bg-color:	var(--ynfw-color-bg-header-table, #eff1f6);
+  /**
+  * @desc 表格：斑马纹颜色
+  */
+  --#{$table-prefix-cls}-striped-color:	var(--ynfw-color-bg-striped-table, #f7f7f7);
+  /**
+  * @desc 表格：展开行hover的背景
+  */
+  --#{$table-prefix-cls}-expanded-row-bg-color-hover: var(--ynfw-color-bg-row-table-expanded-hover, #fff);
+  /**
+  * @desc 表格：行高
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-row-height: var(--ynfw-size-height-row-table, 35px);
+  /**
+  * @desc 表格：表头行高
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-row-header-height: var(--ynfw-size-height-header-table, 30px);
+  /**
+  * @desc 表格：框选/点选-边框粗细
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-select-border-width: var(--ynfw-border-width-table-click, 1px);
+  /**
+  * @desc 表格：框选/点选-背景颜色
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-select-background-color: var(--ynfw-color-bg-table-click, #F0F0F0);
+  /**
+  * @desc 表格：框选/点选-边框颜色
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-select-border-color: var(--ynfw-color-border-table-click, #0033CC);
+
+/**
+  * @desc 表格：默认列宽
+  * @jsOnly table
+  */
+  --#{$table-prefix-cls}-cloumn-width: 200px;
+
+  //Tabs
+  /**
+  * @desc 页签：基础文本颜色
+  */
+  --#{$tabs-prefix-cls}-color: var(--ynfw-color-text-tabs, #505766);
+  /**
+  * @desc 页签：溢出按钮文本颜色
+  */
+  --#{$tabs-prefix-cls}-overflow-btn-color: var(--ynfw-color-text-tabs-overflow-btn, #505766);
+  /**
+  * @desc 页签：line类型基础文本颜色
+  */
+  --#{$tabs-prefix-cls}-line-color: var(--ynfw-color-text-card-tabs, #333);
+  /**
+  * @desc 页签：line类型默认文本颜色
+  */
+  --#{$tabs-prefix-cls}-line-color-default: var(--ynfw-color-text-line-tabs, #666);
+  /**
+  * @desc 页签：line模式选中颜色
+  */
+  --#{$tabs-prefix-cls}-line-color-active: var(--ynfw-color-text-line-tabs-selected, #111);
+  /**
+  * @desc 页签：line模式hover态背文本颜色
+  */
+  --#{$tabs-prefix-cls}-line-color-hover: var(--ynfw-color-text-tabs, #505766);
+  /**
+  * @desc 页签：line模式hover态背景色
+  */
+  --#{$tabs-prefix-cls}-line-bg-color-hover: var(--ynfw-color-bg-tabs-linemode-hover, #f4f4f4);
+  /**
+  * @desc 页签：editable-card模式默认边线颜色
+  */
+  --#{$tabs-prefix-cls}-editable-border-color: var(--ynfw-color-border-editablecard-tabs, #e9e9e9);
+  /**
+  * @desc 页签：editable-card模式默认背景颜色
+  */
+  --#{$tabs-prefix-cls}-editable-bg-color: var(--ynfw-color-bg-editablecard-tabs, #f5f5f5);
+  /**
+  * @desc 页签：editable-card模式默认文字颜色
+  */
+  --#{$tabs-prefix-cls}-line-color-hover: var(--ynfw-color-text-tabs, #666);
+  /**
+  * @desc 页签：editable-card模式选中边线颜色
+  */
+  --#{$tabs-prefix-cls}-editable-border-color-selected: var(--ynfw-color-border-editablecard-tabs-selected, #e9e9e9);
+  /**
+  * @desc 页签：editable-card模式选中背景颜色
+  */
+  --#{$tabs-prefix-cls}-editable-bg-color-selected: var(--ynfw-color-bg-editablecard-tabs-selected, #fff);
+  /**
+  * @desc 页签：editable-card模式选中文字颜色
+  */
+  // --#{$tabs-prefix-cls}-editable-text-color-selected: var(--ynfw-color-primary, #ee2233);
+  /**
+  * @desc 页签：editable-card模式默认图标颜色
+  */
+  --#{$tabs-prefix-cls}-editable-color-icon: var(--ynfw-color-icon-tabs, #969aa3);
+  /**
+  * @desc 页签：editable-card模式选中图标颜色
+  */
+  --#{$tabs-prefix-cls}-editable-color-icon-selected: var(--ynfw-color-icon-tabs-hover, #505766);
+  /**
+  * @desc 页签：editable-card模式图标字号
+  */
+  --#{$tabs-prefix-cls}-editable-size-icon: var(--ynfw-font-size-icon-tabs, 12px);
+  /**  todo 重复 变量
+  * @desc 页签：fade模式选中文字颜色  
+  */
+  --#{$tabs-prefix-cls}-fade-color: var(--ynfw-color-text-fade-tabs, var(--#{$tabs-prefix-cls}-color-text-fade));
+  /**
+  * @desc 页签：fade模式选中文字字重
+  */
+  --#{$tabs-prefix-cls}-fade-font-weight: var(--ynfw-font-weight-fade-tabs, 400);
+  /**
+  * @desc 页签：fade模式选中文字字重
+  */
+  --#{$tabs-prefix-cls}-fade-font-weight-selected: var(--ynfw-font-weight-fade-tabs-selected, 600);
+  /**
+  * @desc 页签：多页签箭头图标颜色
+  */
+--#{$tabs-prefix-cls}-color-icon-tabs: var(--ynfw-color-icon-tabs, #9ca3af);
+/**
+  * @desc 页签：多页签图标悬停颜色
+  */
+--#{$tabs-prefix-cls}-color-icon-tabs-hover: var(--ynfw-color-icon-tabs-hover, #4b5563);
+/**
+  * @desc 页签：多页签menu，选中文字加粗
+  */
+--#{$tabs-prefix-cls}-font-weight-tabs-more: var(--ynfw-font-weight-tabs, 600);
+/**
+  * @desc 页签：card页签，分割线宽
+  */
+--#{$tabs-prefix-cls}-border-width-card-tabs: var(--ynfw-border-width-card-tabs, 1px);
+/**
+  * @desc 页签：card页签，分割线颜色
+  */
+--#{$tabs-prefix-cls}-color-border-card-tabs: var(--ynfw-color-border-card-tabs, #e5e7eb);
+
+  /**
+  * @desc 日历：日历头部边框色
+  */
+  --#{$calendar-prefix-cls}-table-header-border-color: var(--ynfw-color-border-calendar-header, #505766);
+  /**
+  * @desc 日历头部背景色
+  */
+  --#{$calendar-prefix-cls}-table-header-bg-color:var(--ynfw-color-bg-calendar-header, #f7f9fd);
+  
+  
+  /**
+  *@desc 表单label文字控制 
+  */
+  --#{$form-prefix-cls}-label-font-size: var(--ynfw-font-size-text, 12px);
+  
+  --#{$form-prefix-cls}-label-font-weight: var(--ynfw-font-weight-text, 400);
+  /**
+  *@desc 表单error extra 文字控制
+  */
+  --#{$form-prefix-cls}-extra-font-size: var(--ynfw-font-size-error-text, 12px);
+  // --#{$form-prefix-cls}-label-font-size: var(--ynfw-font-size-text);
+
+
+  --#{$input-prefix-cls}-font-size: var(--ynfw-font-size-input, 12px);
+  
+  /**
+  * @desc 级联：级联菜单-面板-文字-颜色
+  */
+  --#{$cascader-prefix-cls}-color-text: var(--ynfw-color-text-cascader, var(--#{$wui-prefix}-base-item-color));
+  /**
+  * @desc 级联：禁用-级联菜单-面板-文字-颜色
+  */
+  --#{$cascader-prefix-cls}-color-text-disabled: var(--ynfw-color-text-cascader-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 级联：级联菜单-面板-文字-字号
+  */
+  --#{$cascader-prefix-cls}-font-size: var(--ynfw-font-size-cascader, 12px);
+  /**
+  * @desc 级联：级联菜单-面板-文字-字重
+  */
+  --#{$cascader-prefix-cls}-font-weight: var(--ynfw-font-weight-cascader, 400);
+  /**
+  * @desc 树：树选择-文字-颜色
+  */
+  --#{$treePrefixCls}-color-text: var(--ynfw-color-text-tree, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 树：禁用-树选择-文字-颜色
+  */
+  --#{$treePrefixCls}-color-disabled: var(--ynfw-color-text-tree-disabled, #999);
+  /**
+  * @desc 树：树选择-文字-字号
+  */
+  --#{$treePrefixCls}-font-size: var(--ynfw-font-size-tree, 12px);
+  /**
+  * @desc 树：树选择-文字-字重
+  */
+  --#{$treePrefixCls}-font-weight: var(--ynfw-font-weight-tree, 400);
+  /**
+  * @desc 树：-图标-字号
+  */
+  --#{$treePrefixCls}-font-size-icon: var(--ynfw-font-size-icon-tree, 16px);
+  /**
+  * @desc 树：禁用-树选择-图标-颜色
+  */
+  --#{$treePrefixCls}-color-icon: var(--ynfw-color-icon-tree, var(--#{$wui-prefix}-base-text-color));
+
+  /**
+  * @desc 下拉菜单: 面板-文字-颜色
+  */
+  --#{$select-prefix-cls}-color-text: var(--ynfw-color-text-select, var(--#{$wui-prefix}-base-item-color));
+  /**
+  * @desc 禁用: 下拉菜单-面板-文字-颜色
+  */
+  --#{$select-prefix-cls}-color-text-disabled: var(--ynfw-color-text-select-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 下拉菜单: 面板-文字-字号
+  */
+  --#{$select-prefix-cls}-font-size: var(--ynfw-font-size-select, 12px);
+  /**
+  * @desc 下拉菜单: 面板-文字-字重
+  */
+  --#{$select-prefix-cls}-font-weight: var(--ynfw-font-weight-select, 400);
+  /**
+  * @desc 下拉菜单: 面板-分组-文字-颜色
+  */
+  --#{$select-prefix-cls}-color-text-group: var(--ynfw-color-text-group-select, #999);
+  /**
+  * @desc 下拉菜单: 面板-分组-文字-字号
+  */
+  --#{$select-prefix-cls}-font-size-group: var(--ynfw-font-size-group-select, 12px);
+  /**
+  * @desc 下拉菜单: 面板-分组-文字-字重
+  */
+  --#{$select-prefix-cls}-font-weight-group: var(--ynfw-font-weight-group-select, 400);
+  /**
+  * @desc 下拉菜单: 面板-辅助-文字-颜色
+  */
+  --#{$select-prefix-cls}-color-text-tertiary: var(--ynfw-color-text-tertiary-select, #999);
+  /**
+  * @desc 下拉菜单: 面板-辅助-文字-字号
+  */
+  --#{$select-prefix-cls}-font-size-tertiary: var(--ynfw-font-size-tertiary-select, 12px);
+  /**
+  * @desc 下拉菜单: 面板-辅助-文字-字重
+  */
+  --#{$select-prefix-cls}-font-weight-tertiary: var(--ynfw-font-weight-tertiary-select, 400);
+  /**
+  * @desc 多选: 文字-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-text: var(--ynfw-color-text-checkbox, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 禁用: 多选-文字-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-text-disabled: var(--ynfw-color-text-checkbox-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 多选: 文字-字号
+  */
+  --#{$checkbox-prefix-cls}-font-size: var(--ynfw-font-size-checkbox, 12px);
+  /**
+  * @desc 多选: 文字-字重
+  */
+  --#{$checkbox-prefix-cls}-font-weight: var(--ynfw-font-weight-checkbox, 400);
+  /**
+  * @desc 单选: 文字-颜色
+  */
+  --#{$radio-prefix-cls}-color-text: var(--ynfw-color-text-radio, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 禁用: 单选-文字-颜色
+  */
+  --#{$radio-prefix-cls}-color-text-disabled: var(--ynfw-color-text-radio-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 单选: 文字-字号
+  */
+  --#{$radio-prefix-cls}-font-size: var(--ynfw-font-size-radio, 12px);
+  /**
+  * @desc 单选: 文字-字重
+  */
+  --#{$radio-prefix-cls}-font-weight: var(--ynfw-font-weight-radio, 400);
+  /**
+  * @desc 单选: 组-文字-颜色
+  */
+  --#{$radio-prefix-cls}-button-color-text: var(--ynfw-color-text-radiobutton, var(--#{$wui-prefix}-dark-color));
+  /**
+  * @desc 选中: 单选-组-文字-颜色
+  */
+  --#{$radio-prefix-cls}-button-color-text-selected: var(--ynfw-color-text-radiobutton-selected, #111);
+  /**
+  * @desc 禁用: 单选-组-文字-颜色
+  */
+  --#{$radio-prefix-cls}-button-color-text-disabled: var(--ynfw-color-text-radiobutton-disabled, #999);
+  /**
+  * @desc 单选: 组-文字-字号
+  */
+  --#{$radio-prefix-cls}-button-font-size: var(--ynfw-font-size-radiobutton, 12px);
+  /**
+  * @desc 单选: 组-文字-字重
+  */
+  --#{$radio-prefix-cls}-button-font-weight: var(--ynfw-font-weight-radiobutton, 400);
+  // /**
+  // * @desc 单选: 选中禁用文字颜色
+  // */
+  // --#{$radio-prefix-cls}-text-radio-button-disabled: var(--ynfw-color-text-radio-button-disabled, #9CA3AF);
+  // /**
+  // * @desc 单选: 未选中禁用态-边框颜色变量
+  // */
+  // --#{$radio-prefix-cls}-border-button-radio-disabled: var(--ynfw-color-border-button-radio-disabled, #D1D5DB);
+  // /**
+  // * @desc 单选: 未选中禁用态-背景色变量
+  // */
+  // --#{$radio-prefix-cls}-bg-button-radio-disabled: var(--ynfw-color-bg-button-radio-disabled , #D1D5DB);
+  /**
+  * @desc 单选: 选中禁用-背景色变量
+  */
+  --#{$radio-prefix-cls}-bg-button-radio-disabled-selected: var(--ynfw-color-bg-button-radio-disabled-selected, #c1c7d0);
+  /**
+  * @desc 穿梭框: 头部-文字-颜色
+  */
+  --#{$transfer-prefix-cls}-color-text-header: var(--ynfw-color-text-header-transfer, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 穿梭框: 头部-文字-字号
+  */
+  --#{$transfer-prefix-cls}-font-size-header: var(--ynfw-font-size-header-transfer, 12px);
+  /**
+  * @desc 穿梭框: 头部-文字-字重
+  */
+  --#{$transfer-prefix-cls}-font-weight-header: var(--ynfw-font-weight-header-transfer, 400);
+  /**
+  * @desc 穿梭框: 内容-文字-颜色
+  */
+  --#{$transfer-prefix-cls}-color-text-content: var(--ynfw-color-text-content-transfer, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 禁用: 穿梭框-内容-文字-颜色
+  */
+  --#{$transfer-prefix-cls}-color-text-content-disabled: var(--ynfw-color-text-content-transfer-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 穿梭框: 内容-文字-字号
+  */
+  --#{$transfer-prefix-cls}-font-size-content: var(--ynfw-font-size-content-transfer, 12);
+  /**
+  * @desc 穿梭框: 内容-文字-字重
+  */
+  --#{$transfer-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-transfer, 400);
+  /**
+  * @desc 日期: 头部-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-header: var(--ynfw-color-text-header-datepicker, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 日期: 头部-文字-字号
+  */
+  --#{$picker-prefix}-font-size-header: var(--ynfw-font-size-header-datepicker, 14px);
+  /**
+  * @desc 日期: 头部-文字-字重
+  */
+  --#{$picker-prefix}-font-weight-header: var(--ynfw-font-weight-header-datepicker, 400);
+  /**
+  * @desc 日期: 周-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-week: var(--ynfw-color-text-week-datepicker, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 日期: 周-文字-字号
+  */
+  --#{$picker-prefix}-font-size-week: var(--ynfw-font-size-week-datepicker, 14px);
+  /**
+  * @desc 日期: 周-文字-字重
+  */
+  --#{$picker-prefix}-font-weight-week: var(--ynfw-font-weight-week-datepicker, 400);
+  /**
+  * @desc 日期: 内容-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-content: var(--ynfw-color-text-content-datepicker, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 禁用: 日期-内容-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-content-disabled: var(--ynfw-color-text-content-datepicker-disabled, var(--#{$input-prefix-cls}-color-disabled));
+  /**
+  * @desc 悬停: 日期-内容-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-content-hover: var(--ynfw-color-text-content-datepicker-hover, var(--#{$wui-prefix}-base-item-color-active));
+  /**
+  * @desc 选中: 日期-内容-文字-颜色
+  */
+  --#{$picker-prefix}-color-text-content-selected: var(--ynfw-color-text-content-datepicker-selected, #fff);
+  /**
+  * @desc 日期: 内容-文字-字号
+  */
+  --#{$picker-prefix}-font-size-content: var(--ynfw-font-size-content-datepicker, 14px);
+  /**
+  * @desc 日期: 内容-文字-字重
+  */
+  --#{$picker-prefix}-font-weight-content: var(--ynfw-font-weight-content-datepicker, 400);
+  /**
+  * @desc 时间: 文字-颜色
+  */
+  --#{$time-picker-prefix-cls}-color-text: var(--ynfw-color-text-timepicker, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 禁用: 时间-文字-颜色
+  */
+  --#{$time-picker-prefix-cls}-color-text-disabled: var(--ynfw-color-text-timepicker-disabled, var(--#{$input-prefix-cls}-color-disabled));
+  /**
+  * @desc 时间: 文字-字号
+  */
+  --#{$time-picker-prefix-cls}-font-size: var(--ynfw-font-size-timepicker, 12px);
+  /**
+  * @desc 时间: 文字-字重
+  */
+  --#{$time-picker-prefix-cls}-font-weight: var(--ynfw-font-weight-timepicker, var(--#{$wui-prefix}-base-input-font-weight));
+  /**
+  * @desc 卡片: 标题-文字-颜色
+  */
+  --#{$card-prefix-cls}-color-text-title: var(--ynfw-color-text-title-card, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 卡片: 标题-文字-字号
+  */
+  --#{$card-prefix-cls}-font-size-title: var(--ynfw-font-size-title-card, 16px);
+  /**
+  * @desc 卡片: 标题-文字-字重
+  */
+  --#{$card-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-card, 500);
+  /**
+  * @desc 折叠: 标题-文字-颜色
+  */
+  --#{$collapse-prefix-cls}-color-text-title: var(--ynfw-color-text-title-collapse, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 折叠: 标题-文字-字号
+  */
+  --#{$collapse-prefix-cls}-font-size-title: var(--ynfw-font-size-title-collapse, 14px);
+  /**
+  * @desc 折叠: 标题-文字-字重
+  */
+  --#{$collapse-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-collapse, 400);
+  /**
+  * @desc 折叠: 内容-文字-颜色
+  */
+  --#{$collapse-prefix-cls}-color-text-content: var(--ynfw-color-text-content-collapse, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 折叠: 内容-文字-字号
+  */
+  --#{$collapse-prefix-cls}-font-size-content: var(--ynfw-font-size-content-collapse, 12px);
+  /**
+  * @desc 折叠: 内容-文字-字重
+  */
+  --#{$collapse-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-collapse, 400);
+
+  --#{$collapse-prefix-cls}-list-bg-color: var(--ynfw-color-bg-list-collapse, #f9fbff);
+  --#{$collapse-prefix-cls}-list-title-height: var(--ynfw-size-height-title-list-collapse, 32px);
+  --#{$collapse-prefix-cls}-list-divider-color: var(--ynfw-color-border-divider-list-collapse, #d4d4d4);
+  --#{$collapse-prefix-cls}-list-divider-width: var(--ynfw-border-width-divider-list-collapse, 1px);
+  --#{$collapse-prefix-cls}-list-divider-style: var(--ynfw-border-style-divider-list-collapse, dashed);
+  --#{$collapse-prefix-cls}-list-text-color: var(--ynfw-color-text-title-list-collapse, #111);
+  --#{$collapse-prefix-cls}-list-text-font-size: var(--ynfw-font-size-title-list-collapse, 13px);
+  --#{$collapse-prefix-cls}-list-text-font-weight: var(--ynfw-font-weight-title-list-collapse, 700);
+  --#{$collapse-prefix-cls}-list-content-text-color: var(--ynfw-color-text-content-list-collapse, #333);
+  --#{$collapse-prefix-cls}-list-content-text-font-size: var(--ynfw-font-size-content-list-collapse, 13px);
+  --#{$collapse-prefix-cls}-list-content-font-weight: var(--ynfw-font-weight-content-list-collapse, 400);
+
+  --#{$collapse-prefix-cls}-card-bg-color: var(--ynfw-color-bg-card-collapse, #f9fbff);
+  --#{$collapse-prefix-cls}-card-title-height: var(--ynfw-size-height-title-card-collapse, 32px);
+  --#{$collapse-prefix-cls}-card-icon-size: var(--ynfw-font-size-icon-card-collapse, 16px);
+  // --#{$collapse-prefix-cls}-card-divider-width: var(--ynfw-border-width-divider-list-collapse, 1px);
+  // --#{$collapse-prefix-cls}-card-divider-style: var(--ynfw-border-style-divider-list-collapse, dashed);
+  --#{$collapse-prefix-cls}-card-text-color: var(--ynfw-color-text-title-card-collapse, #111);
+  --#{$collapse-prefix-cls}-card-text-font-size: var(--ynfw-font-size-title-card-collapse, 16px);
+  --#{$collapse-prefix-cls}-card-text-font-weight: var(--ynfw-font-weight-title-card-collapse, 700);
+  --#{$collapse-prefix-cls}-card-content-text-color: var(--ynfw-color-text-content-card-collapse, #333);
+  --#{$collapse-prefix-cls}-card-content-text-font-size: var(--ynfw-font-size-content-card-collapse, 13px);
+  --#{$collapse-prefix-cls}-card-content-font-weight: var(--ynfw-font-weight-content-card-collapse, 400);
+
+  --#{$collapse-prefix-cls}-list2-color-border: var(--ynfw-color-border-list2-collapse, #ef4444);
+  --#{$collapse-prefix-cls}-card2-color-bg: var(--ynfw-color-bg-card2-collapse, #eff6ff);
+  --#{$collapse-prefix-cls}-list2-color-bg: var(--ynfw-color-bg-list2-collapse, #ffffff);
+
+  /**
+  * @desc 列表: 标题-文字-颜色
+  */
+  --#{$list-prefix-cls}-color-text-title: var(--ynfw-color-text-title-list, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 列表: 标题-文字-字号
+  */
+  --#{$list-prefix-cls}-font-size-title: var(--ynfw-font-size-title-list, 16px);
+  /**
+  * @desc 列表: 标题-文字-字重
+  */
+  --#{$list-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-list, 400);
+  /**
+  * @desc 列表: 内容-文字-颜色
+  */
+  --#{$list-prefix-cls}-color-text-content: var(--ynfw-color-text-content-list, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 列表: 内容-文字-字号
+  */
+  --#{$list-prefix-cls}-font-size-content: var(--ynfw-font-size-content-list, 14px);
+  /**
+  * @desc 列表: 内容-文字-字重
+  */
+  --#{$list-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-list, 400);
+  /**
+  * @desc 时间轴: 标题-文字-颜色
+  */
+  // --#{$timeline-prefix-cls}-color-text-title: var(--ynfw-color-text-title-timeline, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 时间轴: 标题-文字-字号
+  */
+  // --#{$timeline-prefix-cls}-font-size-title: var(--ynfw-font-size-title-timeline, 14px);
+  /**
+  * @desc 时间轴: 标题-文字-字重
+  */
+  // --#{$timeline-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-timeline, 600);
+  /**
+  * @desc 时间轴: 内容-文字-颜色
+  */
+  --#{$timeline-prefix-cls}-color-text-content: var(--ynfw-color-text-content-timeline, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 时间轴: 内容-文字-字号
+  */
+  --#{$timeline-prefix-cls}-font-size-content: var(--ynfw-font-size-content-timeline, 12px);
+  /**
+  * @desc 时间轴: 内容-文字-字重
+  */
+  --#{$timeline-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-timeline,400);
+  /**
+  * @desc 时间轴: 时间-文字-颜色
+  */
+  --#{$timeline-prefix-cls}-color-text-time: var(--ynfw-color-text-time-timeline, #999);
+  /**
+  * @desc 时间轴: 时间-文字-字号
+  */
+  --#{$timeline-prefix-cls}-font-size-time: var(--ynfw-font-size-time-timeline, 12px);
+  /**
+  * @desc 时间轴: 时间-文字-字重
+  */
+  --#{$timeline-prefix-cls}-font-weight-time: var(--ynfw-font-weight-time-timeline, 400);
+  /**
+  * @desc 锚点: 文字-颜色
+  */
+  --#{$anchor-prefix-cls}-color-text: var(--ynfw-color-text-anchor, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 悬停: 锚点-文字-颜色
+  */
+  --#{$anchor-prefix-cls}-color-text-hover: var(--ynfw-color-text-anchor-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 选中: 锚点-文字-颜色
+  */
+  --#{$anchor-prefix-cls}-color-text-selected: var(--ynfw-color-text-anchor-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 锚点: 文字-字号
+  */
+  --#{$anchor-prefix-cls}-font-size: var(--ynfw-font-size-anchor, 12px);
+  /**
+  * @desc 锚点: 文字-字重
+  */
+  --#{$anchor-prefix-cls}-font-weight: var(--ynfw-font-weight-anchor, 400);
+  /**
+  * @desc 锚点: 横向-文字-字号
+  */
+  --#{$anchor-prefix-cls}-font-size-horizoncal: var(--ynfw-font-size-horizoncal-anchor, 16px);
+  /**
+  * @desc 选中: 锚点-文字-字重
+  */
+  --#{$anchor-prefix-cls}-font-weight-selected: var(--ynfw-font-weight-anchor-selected, 600);
+  /**
+  * @desc 步骤条: 文字-颜色
+  */
+  --#{$steps-prefix-cls}-color-text: var(--ynfw-color-text-steps, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 步骤条: 辅助文字-颜色
+  */
+  --#{$steps-prefix-cls}-color-text-tertiary: var(--ynfw-color-text-tertiary-steps, #666);
+  /**
+  * @desc 禁用: 步骤条-文字-颜色
+  */
+  --#{$steps-prefix-cls}-color-text-disabled: var(--ynfw-color-text-steps-disabled, var(--#{$wui-prefix}-base-text-color-disabled));
+  /**
+  * @desc 步骤条: 文字-字号
+  */
+  --#{$steps-prefix-cls}-font-size: var(--ynfw-font-size-steps, 12px);
+  /**
+  * @desc 步骤条-标题-文字-字号
+  */
+  --#{$steps-prefix-cls}-title-font-size: var(--ynfw-font-size-title-steps, 14px);
+  /**
+  * @desc 步骤条: 文字-字重
+  */
+  --#{$steps-prefix-cls}-font-weight: var(--ynfw-font-weight-steps, 400);
+  /**
+  * @desc 焦点: 步骤条-文字-字重
+  */
+  --#{$steps-prefix-cls}-font-weight-selected: var(--ynfw-font-weight-steps-selected, 500);
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  /**
+  * @desc 页签： 页签-line-文字-颜色
+  */
+  // --#{$tabs-prefix-cls}-color-text-line: var(--ynfw-color-text-line-tabs, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 页签： 悬停-页签-line-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-line-hover: var(--ynfw-color-text-line-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-line-文字-颜色
+  */
+  /**
+  * @desc 页签： 页签-line-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-line: var(--ynfw-font-size-line-tabs, 12px);
+  /**
+  * @desc 页签： 页签-line-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-line: var(--ynfw-font-weight-line-tabs, 400);
+  /**
+  * @desc 页签： 选中-页签-line-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-line-selected: var(--ynfw-font-weight-line-tabs-selected, 600);
+  /**
+  * @desc 页签： 悬停-页签-line-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-card-hover: var(--ynfw-color-text-card-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-card-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-card-selected: var(--ynfw-color-text-card-tabs-selected, var(--#{$tabs-prefix-cls}-color));
+  /**
+  * @desc 页签： 页签-card-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-card: var(--ynfw-font-size-card-tabs, 12);
+  /**
+  * @desc 页签： 页签-card-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-card: var(--ynfw-font-weight-card-tabs, 600);
+  /**
+  * @desc 页签： 选中-页签-card-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-card-selected: var(--ynfw-font-weight-card-tabs-selected, 600);
+  /**
+  * @desc 页签： 页签-editablecard-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-editablecard: var(--ynfw-color-text-editablecard-tabs, #666);
+  /**
+  * @desc 页签： 悬停-页签-editablecard-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-editablecard-hover: var(--ynfw-color-text-editablecard-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-editablecard-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-editablecard-selected: var(--ynfw-color-text-editablecard-tabs-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 页签-editablecard-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-editablecard: var(--ynfw-font-size-editablecard-tabs, 12px);
+  /**
+  * @desc 页签： 页签-editablecard-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-editablecard: var(--ynfw-font-weight-editablecard-tabs, 400);
+  /**
+  * @desc 页签： 选中-页签-editablecard-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-editablecard-selected: var(--ynfw-font-weight-editablecard-tabs-selected, 600);
+  /**
+  * @desc 页签： 页签-fill-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill: var(--ynfw-color-text-fill-tabs, #666);
+  /**
+  * @desc 页签： 悬停-页签-line-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill-hover: var(--ynfw-color-text-fill-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-fill-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill-selected: var(--ynfw-color-text-fill-tabs-selected, #fff);
+  /**
+  * @desc 页签： 页签-fill-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-fill: var(--ynfw-font-size-fill-tabs, 12px);
+  /**
+  * @desc 页签： 页签-fill-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fill: var(--ynfw-font-weight-fill-tabs, 600）);
+  /**
+  * @desc 页签： 选中-页签-fill-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fill-selected: var(--ynfw-font-weight-fill-tabs-selected, 600);
+  /**
+  * @desc 页签： 页签-trangle-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trangle: var(--ynfw-color-text-trangle-tabs, #333);
+  /**
+  * @desc 页签： 悬停-页签-trangle-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trangle-hover: var(--ynfw-color-text-trangle-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-trangle-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trangle-selected: var(--ynfw-color-text-trangle-tabs-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 页签-trangle-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-trangle: var(--ynfw-font-size-trangle-tabs, 12px);
+  /**
+  * @desc 页签： 页签-trangle-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-trangle: var(--ynfw-font-weight-trangle-tabs, 600);
+  /**
+  * @desc 页签： 选中-页签-trangle-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-trangle-selected: var(--ynfw-font-weight-trangle-tabs-selected, 600);
+  /**
+  * @desc 页签： 页签-fade-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fade: var(--ynfw-color-text-fade-tabs, #333);
+  /**
+  * @desc 页签： 悬停-页签-fade-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fade-hover: var(--ynfw-color-text-fade-tabs-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签： 选中-页签-fade-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fade-selected: var(--ynfw-color-text-fade-tabs-selected, #666);
+  /**
+  * @desc 页签： 页签-fade-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-fade: var(--ynfw-font-size-fade-tabs, 12px);
+  /**
+  * @desc 页签： 页签-fade-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fade: var(--ynfw-font-weight-fade-tabs, 600);
+  /**
+  * @desc 页签： 选中-页签-fade-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fade-selected: var(--ynfw-font-weight-fade-tabs-selected, 600);
+  /**
+  * @desc 页签： 页签-trapezoid-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trapezoid: var(--ynfw-color-text-trapezoid-tabs, #111827);
+  /**
+  * @desc 页签： 悬停-页签-trapezoid-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trapezoid-hover: var(--ynfw-color-text-trapezoid-tabs-hover, #374151);
+  /**
+  * @desc 页签： 选中-页签-trapezoid-文字-颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-trapezoid-selected: var(--ynfw-color-text-trapezoid-tabs-selected, #4b5563);
+  /**
+  * @desc 页签： 页签-trapezoid-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-trapezoid: var(--ynfw-font-size-trapezoid-tabs, 12px);
+  /**
+  * @desc 页签： 页签-trapezoid-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-trapezoid: var(--ynfw-font-weight-trapezoid-tabs, 600);
+  /**
+  * @desc 页签： 选中-页签-trapezoid-文字-字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-trapezoid-selected: var(--ynfw-font-weight-trapezoid-tabs-selected, 600);
+  /**
+  * @desc 页签： 选中-页签-trapezoid-选中背景色
+  */
+  --#{$tabs-prefix-cls}-color-bg-trapezoid-tabs-selected: var(--ynfw-color-bg-trapezoid-tabs-selected, #fff);
+  /**
+  * @desc 页签： 选中-页签-trapezoid-悬停背景色
+  */
+  --#{$tabs-prefix-cls}-color-bg-trapezoid-tabs-hover: var(--ynfw-color-bg-trapezoid-tabs-hover, #dbeafe);
+  /**
+  * @desc 页签： 页签-fill-line-文字-字号
+  */
+  --#{$tabs-prefix-cls}-font-size-fill-line: var(--ynfw-font-size-fill-line-tabs, 14px);
+  /**
+  * @desc 页签： 页签-fill-line-背景色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fill-line-tabs: var(--ynfw-color-bg-fill-line-tabs, #eff6ff);
+  /**
+  * @desc 页签： 页签-fill-line-选中背景色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fill-line-tabs-selected: var(--ynfw-color-bg-fill-line-tabs-selected, #fff);
+  /**
+  * @desc 页签： 页签-fill-line-悬停背景色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fill-line-tabs-hover: var(--ynfw-color-bg-fill-line-tabs-hover, #dbeafe);
+  /**
+  * @desc 页签： 页签-fill-line-文字颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill-line-tabs: var(--ynfw-color-text-fill-line-tabs, #374145);
+  /**
+  * @desc 页签： 页签-fill-line-文字选中颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill-line-tabs-selected: var(--ynfw-color-text-fill-line-tabs-selected, #111827);
+  /**
+  * @desc 页签： 页签-fill-line-文字悬停颜色
+  */
+  --#{$tabs-prefix-cls}-color-text-fill-line-tabs-hover: var(--ynfw-color-text-fill-line-tabs-hover, #374151);
+  /**
+  * @desc 页签： 页签-fill-line-文字字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fill-line-tabs: var(--ynfw-font-weight-fill-line-tabs, 600);
+  /**
+  * @desc 页签： 页签-fill-line-文字选中字重
+  */
+  --#{$tabs-prefix-cls}-font-weight-fill-line-tabs-selected: var(--ynfw-font-weight-fill-line-tabs-selected, 600);
+
+  /**
+  * @desc 平面提示: 文字-颜色
+  */
+  --#{$alert-prefix-cls}-color-text: var(--ynfw-color-text-alert, #111);
+  /**
+  * @desc 平面提示: 文字-字号
+  */
+  --#{$alert-prefix-cls}-font-size: var(--ynfw-font-size-alert, 14px);
+  /**
+  * @desc 平面提示: 文字-字重
+  */
+  --#{$alert-prefix-cls}-font-weight: var(--ynfw-font-weight-alert, 400);
+  /**
+  * @desc 平面提示: 反白-文字-颜色
+  */
+  --#{$alert-prefix-cls}-color-text-dark: var(--ynfw-color-text-alert-dark, #FFF);
+  /**
+  * @desc 抽屉: 标题-文字-颜色
+  */
+  --#{$drawer-prefix-cls}-color-text-title: var(--ynfw-color-text-title-drawer, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 抽屉: 标题-文字-字号
+  */
+  --#{$drawer-prefix-cls}-font-size-title: var(--ynfw-font-size-title-drawer, 14px);
+  /**
+  * @desc 抽屉: 标题-文字-字重
+  */
+  --#{$drawer-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-drawer, 600);
+  /**
+  * @desc 模态框: 标题-文字-颜色
+  */
+  --#{$modal-prefix-cls}-color-text-title: var(--ynfw-color-text-title-modal, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 模态框: 标题-文字-字号
+  */
+  --#{$modal-prefix-cls}-font-size-title: var(--ynfw-font-size-title-modal, 14px);
+  /**
+  * @desc 模态框: 标题-文字-字重
+  */
+  --#{$modal-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-modal, 600);
+  /**
+  * @desc 模态框: 内容-文字-颜色
+  */
+  --#{$modal-prefix-cls}-color-text-content: var(--ynfw-color-text-content-modal, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 模态框: 内容-文字-字号
+  */
+  --#{$modal-prefix-cls}-font-size-content: var(--ynfw-font-size-content-modal, 12px);
+  /**
+  * @desc 模态框: 内容-文字-字重
+  */
+  --#{$modal-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-modal, 400);
+  /**
+  * @desc 通知: 标题-文字-颜色
+  */
+  --#{$notification-prefix-cls}-color-text-title: var(--ynfw-color-text-title-notification, #111);
+  /**
+  * @desc 通知: 标题-文字-字号
+  */
+  --#{$notification-prefix-cls}-font-size-title: var(--ynfw-font-size-title-notification, 14px);
+  /**
+  * @desc 通知: 标题-文字-字重
+  */
+  --#{$notification-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-notification, 600);
+  /**
+  * @desc 通知: 内容-文字-颜色
+  */
+  --#{$notification-prefix-cls}-color-text-content: var(--ynfw-color-text-content-notification, #333);
+  /**
+  * @desc 通知: 内容-文字-字号
+  */
+  --#{$notification-prefix-cls}-font-size-content: var(--ynfw-font-size-content-notification, 14px);
+  /**
+  * @desc 通知: 内容-文字-字重
+  */
+  --#{$notification-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-notification, 400);
+  /**
+  * @desc 通知: 标题-反白-文字-颜色
+  */
+  --#{$notification-prefix-cls}-color-text-inverse-title: var(--ynfw-color-text-inverse-title-notification, #fff);
+  /**
+  * @desc 通知: 内容-反白-文字-颜色
+  */
+  --#{$notification-prefix-cls}-color-text-inverse-content: var(--ynfw-color-text-inverse-content-notification, #fff);
+  /**
+  * @desc 气泡弹窗: 标题-文字-颜色
+  */
+  --#{$popconfirm-prefix-cls}-color-text-title: var(--ynfw-color-text-title-popconfirm, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 气泡弹窗: 标题-文字-字号
+  */
+  --#{$popconfirm-prefix-cls}-font-size-title: var(--ynfw-font-size-title-popconfirm, 14px);
+  /**
+  * @desc 气泡弹窗: 标题-文字-字重
+  */
+  --#{$popconfirm-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-popconfirm, 600);
+  /**
+  * @desc 气泡弹窗: 内容-文字-颜色
+  */
+  --#{$popconfirm-prefix-cls}-color-text-content: var(--ynfw-color-text-content-popconfirm, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 气泡弹窗: 内容-文字-字号
+  */
+  --#{$popconfirm-prefix-cls}-font-size-content: var(--ynfw-font-size-content-popconfirm, 12px);
+  /**
+  * @desc 气泡弹窗: 内容-文字-字重
+  */
+  --#{$popconfirm-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-popconfirm, 400);
+  /**
+  * @desc 气泡卡片: 标题-文字-颜色
+  */
+  --#{$popover-prefix-cls}-color-text-title: var(--ynfw-color-text-title-popover, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 气泡卡片: 标题-文字-字号
+  */
+  --#{$popover-prefix-cls}-font-size-title: var(--ynfw-font-size-title-popover, 16px);
+  /**
+  * @desc 气泡卡片: 标题-文字-字重
+  */
+  --#{$popover-prefix-cls}-font-weight-title: var(--ynfw-font-weight-title-popover, 600);
+  /**
+  * @desc 气泡卡片: 内容-文字-颜色
+  */
+  --#{$popover-prefix-cls}-color-text-content: var(--ynfw-color-text-content-popover, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 气泡卡片: 内容-文字-字号
+  */
+  --#{$popover-prefix-cls}-font-size-content: var(--ynfw-font-size-content-popover, 14px);
+  /**
+  * @desc 气泡卡片: 内容-文字-字重
+  */
+  --#{$popover-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-popover, 400);
+  /**
+  * @desc 文字提示: 文字-颜色
+  */
+  --#{$tooltip-prefix-cls}-color-text: var(--ynfw-color-text-tooltip, #FFF);
+  /**
+  * @desc 文字提示: 文字-字号
+  */
+  --#{$tooltip-prefix-cls}-font-size: var(--ynfw-font-size-tooltip, 12px);
+  /**
+  * @desc 文字提示: 文字-字重
+  */
+  --#{$tooltip-prefix-cls}-font-weight: var(--ynfw-font-weight-tooltip, 400);
+  /**
+  * @desc 文字提示: 提示框边线颜色
+  */
+  --#{$tooltip-prefix-cls}-border-color-feedback: var(--ynfw-color-border-feedback, #d9d9d9);
+  /**
+  * @desc 文字提示: 提示框边线宽
+  */
+  --#{$tooltip-prefix-cls}-border-width-feedback: var(--ynfw-border-width-feedback, 1px);
+  /**
+  * @desc 文字提示: 提示框边线类型
+  */
+  --#{$tooltip-prefix-cls}-border-style-feedback: var(--ynfw-border-style-feedback, solid);
+  /**
+  * @desc 标签: 文字-颜色
+  */
+  --#{$tag-prefix-cls}-color-text: var(--ynfw-color-text-tag, var(--#{$wui-prefix}-dark-color));
+  /**
+  * @desc 禁用: 标签-文字-颜色
+  */
+  --#{$tag-prefix-cls}-color-text-disabled: var(--ynfw-color-text-tag-disabled, #999);
+  /**
+  * @desc 标签: 反白-文字-颜色
+  */
+  --#{$tag-prefix-cls}-color-text-dark: var(--ynfw-color-text-tag-dark, #FFF);
+  /**
+  * @desc 标签: 文字-字号
+  */
+  --#{$tag-prefix-cls}-font-size: var(--ynfw-font-size-tag, 12px);
+  /**
+  * @desc 标签: 文字-字重
+  */
+  // --#{$tag-prefix-cls}-font-weight: var(--ynfw-font-weight-tag, 400);
+  /**
+  * @desc 平面提示: 文字-颜色
+  */
+  // --#{$alert-prefix-cls}-color-text: var(--ynfw-color-text-alert, #111);
+  // /**
+  // * @desc 平面提示: 文字-字号
+  // */
+  // --#{$alert-prefix-cls}-font-size: var(--ynfw-font-size-alert, 14px);
+  // /**
+  // * @desc 平面提示: 文字-字重
+  // */
+  // --#{$alert-prefix-cls}-font-weight: var(--ynfw-font-weight-alert, 400);
+  /**
+  // * @desc 平面提示: 深色-文字-颜色
+  // */
+  // --#{$alert-prefix-cls}-color-text-dark: var(--ynfw-color-text-alert-dark, #FFF);
+  /**
+  * @desc 滑块: 文字-颜色
+  */
+  --#{$slider-prefix-cls}-color-text: var(--ynfw-color-text-slider, #666);
+  /**
+  * @desc 禁用: 滑块-文字-颜色
+  */
+  --#{$slider-prefix-cls}-color-text-disabled: var(--ynfw-color-text-slider-disabled, #999);
+  /**
+  * @desc 滑块: 文字-字号
+  */
+  --#{$slider-prefix-cls}-font-size: var(--ynfw-font-size-slider, 12px);
+  /**
+  * @desc 滑块: 文字-字重
+  */
+  --#{$slider-prefix-cls}-font-weight: var(--ynfw-font-weight-slider, 400);
+  /**
+  * @desc 焦点: 滑块-文字-字重
+  */
+  --#{$slider-prefix-cls}-font-weight-selected: var(--ynfw-font-weight-slider-selected, 600);
+  /**
+  * @desc 评分: 文字-颜色
+  */
+  --#{$rate-prefix-cls}-color-text: var(--ynfw-color-text-rate, #111）);
+  /**
+  * @desc 评分: 文字-字号
+  */
+  --#{$rate-prefix-cls}-font-size: var(--ynfw-font-size-rate, 14px);
+  /**
+  * @desc 评分: 文字-字重
+  */
+  --#{$rate-prefix-cls}-font-weight: var(--ynfw-font-weight-rate, 400);
+  /**
+  * @desc 开关: 文字-颜色
+  */
+  --#{$switch-prefix-cls}-color-text: var(--ynfw-color-text-switch, #FFF);
+  /**
+  * @desc 开关: 文字-字号
+  */
+  --#{$switch-prefix-cls}-font-size: var(--ynfw-font-size-switch, 14px);
+  /**
+  * @desc 开关: 文字-字重
+  */
+  --#{$switch-prefix-cls}-font-weight: var(--ynfw-font-weight-switch, 400);
+  /**
+  * @desc 标记: 文字-颜色
+  */
+  --#{$badge-prefix-cls}-color-text: var(--ynfw-color-text-badge, #FFF);
+  /**
+  * @desc 标记: 文字-字重
+  */
+  --#{$badge-prefix-cls}-font-weight: var(--ynfw-font-weight-badge, 400);
+  /**
+  * @desc 进度条: 文字-颜色（长条+圆环)
+  */
+  --#{$progress-prefix-cls}-color-text: var(--ynfw-color-text-progress, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 进度条: 标准-文字-字号
+  */
+  --#{$progress-prefix-cls}-font-size: var(--ynfw-font-size-progress, 12px);
+  /**
+  * @desc 进度条: 标准-文字-字重
+  */
+  --#{$progress-prefix-cls}-font-weight: var(--ynfw-font-weight-progress, 400);
+  /**
+  * @desc 面包屑: 文字-颜色
+  */
+  --#{$breadcrumb-prefix-cls}-color-text: var(--ynfw-color-text-breadcrumb, #333);
+  /**
+  * @desc 禁用: 面包屑-文字-颜色
+  */
+  --#{$breadcrumb-prefix-cls}-color-text-disabled: var(--ynfw-color-text-breadcrumb-disabled, #999);
+  /**
+  * @desc 面包屑: 文字-字号
+  */
+  --#{$breadcrumb-prefix-cls}-font-size: var(--ynfw-font-size-breadcrumb, 14px);
+  /**
+  * @desc 面包屑: 文字-字重
+  */
+  --#{$breadcrumb-prefix-cls}-font-weight: var(--ynfw-font-weight-breadcrumb, 400);
+  /**
+  * @desc 菜单: 文字-颜色
+  */
+  --#{$menu-prefix-cls}-color-text: var(--ynfw-color-text-menu, var(--#{$wui-prefix}-base-item-color));
+  /**
+  * @desc 禁用: 菜单-文字-颜色
+  */
+  --#{$menu-prefix-cls}-color-text-disabled: var(--ynfw-color-text-menu-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 选中: 菜单-文字-颜色
+  */
+  --#{$menu-prefix-cls}-color-text-selected: var(--ynfw-color-text-menu-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 菜单: 文字-字号
+  */
+  --#{$menu-prefix-cls}-font-size: var(--ynfw-font-size-menu, 12px);
+  /**
+  * @desc 菜单: 文字-字重
+  */
+  --#{$menu-prefix-cls}-font-weight: var(--ynfw-font-weight-menu, 400);
+    /**
+  * @desc 菜单: 分割模式悬停背景
+  */
+  --#{$menu-prefix-cls}-separate-hover: var(--ynfw-color-deepen-item-menu-hover , #E7EAEE);
+  /**
+  * @desc 分页: 文字-颜色
+  */
+  --#{$pagination-prefix-cls}-color-text: var(--ynfw-color-text-pagination, var(--wui-pagination-color));
+  /**
+  * @desc 禁用: 分页-文字-颜色
+  */
+  --#{$pagination-prefix-cls}-color-text-disabled: var(--ynfw-color-text-pagination-disabled, #999);
+  /**
+  * @desc 选中: 分页-文字-颜色
+  */
+  --#{$pagination-prefix-cls}-color-text-selected: var(--ynfw-color-text-pagination-selected, var(--wui-pagination-color-active));
+  /**
+  * @desc 分页: 文字-字号
+  */
+  --#{$pagination-prefix-cls}-font-size: var(--ynfw-font-size-pagination, 12px);
+  /**
+  * @desc 分页: 文字-字重
+  */
+  --#{$pagination-prefix-cls}-font-weight: var(--ynfw-font-weight-pagination, 400);
+  /**
+  * @desc 空状态: 文字-颜色
+  */
+  --#{$empty-prefix-cls}-color-text: var(--ynfw-color-text-empty, var(--#{$wui-prefix}-base-close-icon-color));
+  /**
+  * @desc 空状态: 文字-字号
+  */
+  --#{$empty-prefix-cls}-font-size: var(--ynfw-font-size-empty, 14px);
+  /**
+  * @desc 空状态: 文字-字重
+  */
+  --#{$empty-prefix-cls}-font-weight: var(--ynfw-font-weight-empty, 400);
+  /**
+  * @desc 加载提示: 文字-颜色
+  */
+  --#{$loading-prefix-cls}-color-text: var(--ynfw-color-text-spin, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 加载提示: 文字-字号
+  */
+  --#{$loading-prefix-cls}-font-size: var(--ynfw-font-size-spin, 12px);
+  /**
+  * @desc 加载提示: 文字-字重
+  */
+  --#{$loading-prefix-cls}-font-weight: var(--ynfw-font-weight-spin, 400);
+  /**
+  * @desc 悬停-下拉框-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-hover: var(--ynfw-color-bg-option-hover, var(--wui-base-item-bg-hover));
+  /**
+  * @desc 选中-下拉框-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected: var(--ynfw-color-bg-option-selected, #E9F0FA);
+  /**
+  * @desc 悬停-选中-下拉框-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected-hover: var(--ynfw-color-bg-option-selected-hover, #DBE0E5);
+  // /**
+  // * @desc 下拉框-背景-高度
+  // */
+  // --#{$wui-prefix}-size-height-bg-option: var(--ynfw-size-height-bg-option, 32px);
+  /**
+  * @desc 悬停-级联菜单-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-hover: var(--ynfw-color-bg-option-hover, var(--#{$wui-prefix}-base-item-bg-hover));
+  /**
+  * @desc 选中-级联菜单-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected: var(--ynfw-color-bg-option-selected, var(--#{$wui-prefix}-base-item-bg-hover));
+  /**
+  * @desc 悬停-选中-级联菜单-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected-hover: var(--ynfw-color-bg-option-selected-hover, var(--#{$wui-prefix}-base-item-bg-selected-hover));
+  /**
+  * @desc 级联菜单-背景-高度
+  */
+  --#{$wui-prefix}-size-height-bg-option: var(--ynfw-size-height-bg-option, 32px);
+  /**
+  * @desc 级联选择-各级菜单-面板宽度
+  */
+  --#{$cascader-prefix-cls}-size-width: var(--ynfw-size-width-cascader, 120px);
+  /**
+  * @desc 级联选择-下级-图标-字号
+  */
+  --#{$cascader-prefix-cls}-font-size-icon: var(--ynfw-font-size-icon-cascader, 12px);
+  /**
+  * @desc 默认-级联选择-下级-图标-颜色
+  */
+  --#{$cascader-prefix-cls}-color-icon: var(--ynfw-color-icon-cascader, #A8ABB3);
+  /**
+  * @desc 悬停-级联选择-下级-图标-颜色
+  */
+  --#{$cascader-prefix-cls}-color-icon-hover: var(--ynfw-color-icon-cascader-hover, #505766);
+  /**
+  * @desc 点击-级联选择-下级-图标-颜色
+  */
+  --#{$cascader-prefix-cls}-color-icon-pressed: var(--ynfw-color-icon-cascader-pressed, #505766);
+  /**
+  * @desc 级联选择-面板-分割线-颜色
+  */
+  --#{$cascader-prefix-cls}-color-divider: var(--ynfw-color-divider-cascader, #E9E9E9);
+  /**
+  * @desc 级联选择-面板-分割线-宽度
+  */
+  --#{$cascader-prefix-cls}-border-width-divider: var(--ynfw-border-width-divider-cascader, 1px);
+  /**
+  * @desc 级联选择-面板-分割线-类型
+  */
+  --#{$cascader-prefix-cls}-border-style-divider: var(--ynfw-border-style-divider-cascader, solid);
+  // /**
+  // * @desc 树-选项-背景-高度
+  // */
+  // --#{treePrefixCls}-size-height-bg-option: var(--ynfw-size-height-bg-option-tree, 28px);
+  /**
+  * @desc 树-面板-边框-圆角
+  */
+  --#{$wui-prefix}-border-radius-option: var(--ynfw-border-radius-option, 4px);
+  /**
+  * @desc 悬停-树-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-hover: var(--ynfw-color-bg-option-hover, var(--#{$wui-prefix}-base-item-bg-hover));
+  /**
+  * @desc 选中-树-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected: var(--ynfw-color-bg-option-selected, var(--#{$wui-prefix}-base-item-bg-selected));
+  /**
+  * @desc 悬停-选中-树-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-selected-hover: var(--ynfw-color-bg-option-selected-hover, var(--#{$wui-prefix}-base-item-bg-selected-hover));
+  /**
+  * @desc 树-自定义-图标-字号
+  */
+  --#{treePrefixCls}-font-size-icon: var(--ynfw-font-size-icon-tree, 12px);
+  /**
+  * @desc 树-自定义-图标-颜色
+  */
+  --#{treePrefixCls}-color-icon: var(--ynfw-color-icon-tree, #111111);
+  /**
+  * @desc 多选-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border: var(--ynfw-color-border-checkbox, var(--#{$wui-prefix}-input-border-color));
+  /**
+  * @desc 悬停-多选-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-hover: var(--ynfw-color-border-checkbox-hover, var(--#{$wui-prefix}-input-border-color-hover));
+  /**
+  * @desc 点击-多选-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-pressed: var(--ynfw-color-border-checkbox-pressed, var(--#{$wui-prefix}-input-border-color-focus));
+  /**
+  * @desc 禁用-多选-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-disabled: var(--ynfw-color-border-checkbox-disabled, var(--#{$wui-prefix}-input-border-color-disabled));
+  /**
+  * @desc 多选-边框-圆角
+  */
+  --#{$checkbox-prefix-cls}-border-radius: var(--ynfw-border-radius-checkbox, 2px);
+  /**
+  * @desc 多选-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg: var(--ynfw-color-bg-checkbox, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 禁用-多选-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-disabled: var(--ynfw-color-bg-checkbox-disabled, var(--#{$wui-prefix}-base-bg-color-disabled));
+  /**
+  * @desc 多选-填充-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill: var(--ynfw-color-bg-fill-checkbox, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 禁用-多选-填充-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill-disabled: var(--ynfw-color-bg-fill-checkbox-disabled, #999999);
+  /**
+  * @desc 多选-已选-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-mark-selected: var(--ynfw-color-bg-mark-checkbox-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 禁用-多选-已选-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-mark-selected-disabled: var(--ynfw-color-bg-mark-checkbox-selected-disabled, #CCCCCC);
+  /**
+  * @desc 多选-已选-反白-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-mark-fill-selected: var(--ynfw-color-bg-mark-fill-checkbox-selected, #FFFFFF);
+  /**
+  * @desc 单选-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border: var(--ynfw-color-border-radio, var(--#{$wui-prefix}-input-border-color));
+  /**
+  * @desc 悬停-单选-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-hover: var(--ynfw-color-border-radio-hover, var(--#{$wui-prefix}-input-border-color-hover));
+  /**
+  * @desc 禁用-单选-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-disabled: var(--ynfw-color-border-radio-disabled, var(--#{$wui-prefix}-input-border-color-disabled));
+  /**
+  * @desc 单选-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg: var(--ynfw-color-bg-radio, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 禁用-单选-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-disabled: var(--ynfw-color-bg-radio-disabled, var(--#{$wui-prefix}-base-bg-color-disabled));
+  /**
+  * @desc 单选-填充-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill: var(--ynfw-color-bg-fill-radio, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 单选-已选-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill-selected: var(--ynfw-color-bg-fill-radio-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 禁用-单选-已选-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-selected-disabled: var(--ynfw-color-bg-radio-selected-disabled, #CCCCCC);
+  /**
+  * @desc 单选-已选-反白-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-dot-fill-selected: var(--ynfw-color-bg-dot-fill-radio-selected, #FFFFFF);
+  /**
+  * @desc 单选-组合-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-button: var(--ynfw-color-border-button-radio, var(--wui-base-border-color));
+  /**
+  * @desc 悬停-单选-组合-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-button-hover: var(--ynfw-color-border-button-radio-hover, #989ea8);
+  /**
+  * @desc 选中-单选-组合-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-button-selected: var(--ynfw-color-border-button-radio-selected, var(--wui-dark-color));
+  /**
+  * @desc 禁用-单选-组合-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-button-disabled: var(--ynfw-color-border-button-radio-disabled, #eee);
+  /**
+  * @desc 单选-组合-高度-sx
+  */
+  --#{$radio-prefix-cls}-size-height-xs-button: var(--ynfw-size-height-xs-button-radio, 20px);
+  /**
+  * @desc 单选-组合-高度-md
+  */
+  --#{$radio-prefix-cls}-size-height-md-button: var(--ynfw-size-height-md-button-radio, 28px);
+  /**
+  * @desc 单选-组合-高度-lg
+  */
+  --#{$radio-prefix-cls}-size-height-lg-button: var(--ynfw-size-height-lg-button-radio, 32px);
+  /**
+  * @desc 单选-组合-圆角
+  */
+  --#{$radio-prefix-cls}-border-radius-button: var(--ynfw-border-radius-button-radio, 4px);
+  /**
+  * @desc 单选-组合-边线-粗细
+  */
+  --#{$radio-prefix-cls}-border-width-button: var(--ynfw-border-width-button-radio, 1px);
+  /**
+  * @desc 单选-组合-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-button: var(--ynfw-color-bg-button-radio, #FFFFFF);
+  /**
+  * @desc 悬停-单选-组合-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-button-hover: var(--ynfw-color-bg-button-radio-hover, #f3f5f9);
+  /**
+  * @desc 选中-单选-组合-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-button-selected: var(--ynfw-color-bg-button-radio-selected, #FFFFFF);
+  /**
+  * @desc 禁用-单选-组合-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-button-disabled: var(--ynfw-color-bg-button-radio-disabled, #f7f7f7);
+  /**
+  * @desc 穿梭框-边框-颜色
+  */
+  --#{$transfer-prefix-cls}-color-border: var(--ynfw-color-border-transfer, var(--#{$wui-prefix}-input-border-color));
+  /**
+  * @desc 穿梭框-边框-圆角
+  */
+  --#{$transfer-prefix-cls}-border-radius: var(--ynfw-border-radius-transfer, 4px);
+  /**
+  * @desc 穿梭框-边框-粗细
+  */
+  --#{$transfer-prefix-cls}-border-width: var(--ynfw-border-width-transfer, 1px);
+  /**
+  * @desc 穿梭框-背景-颜色
+  */
+  --#{$transfer-prefix-cls}-color-bg: var(--ynfw-color-bg-transfer, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 穿梭框-图标-尺寸
+  */
+  --#{$transfer-prefix-cls}-font-size-icon: var(--ynfw-font-size-icon-transfer, 12px);
+  /**
+  * @desc 穿梭框-图标-颜色
+  */
+  --#{$transfer-prefix-cls}-color-icon: var(--ynfw-color-icon-transfer, var(--#{$wui-prefix}-dark-color));
+  /**
+  * @desc 禁用-穿梭框-图标-颜色
+  */
+  --#{$transfer-prefix-cls}-color-icon-disabled: var(--ynfw-color-icon-transfer-disabled, var(--#{$wui-prefix}-base-text-color-disabled));
+  /**
+  * @desc 穿梭框-图标-背景-颜色
+  */
+  --#{$transfer-prefix-cls}-color-bg-icon: var(--ynfw-color-bg-icon-transfer, #edf1f7);
+  /**
+  * @desc 悬停-穿梭框-图标-背景-颜色
+  */
+  --#{$transfer-prefix-cls}-color-bg-icon-hover: var(--ynfw-color-bg-icon-transfer-hover, #dbe0e5);
+  /**
+  * @desc 禁用-穿梭框-图标-背景-颜色
+  */
+  --#{$transfer-prefix-cls}-color-bg-icon-disabled: var(--ynfw-color-bg-icon-transfer-disabled, #f7f7f7);
+  /**
+  * @desc 穿梭框-图标-背景-宽
+  */
+  --#{$transfer-prefix-cls}-size-width-icon: var(--ynfw-size-width-icon-transfer, 28px);
+  /**
+  * @desc 穿梭框-图标-背景-高
+  */
+  --#{$transfer-prefix-cls}-size-height-icon: var(--ynfw-size-height-icon-transfer, 34px);
+  /**
+  * @desc 穿梭框-图标-背景-圆角
+  */
+  --#{$transfer-prefix-cls}-border-radius-bg-icon: var(--ynfw-border-radius-bg-icon-transfer, 4px);
+  /**
+  * @desc 日期选择器-面板-背景-颜色
+  */
+  --#{$picker-prefix}-color-bg-panel: var(--ynfw-color-bg-panel-picker, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 日期选择器-面板-边线-颜色（边框线+列右边线）
+  */
+  --#{$picker-prefix}-color-border-panel: var(--ynfw-color-border-panel-picker, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 日期选择器-面板-边线-圆角（边框线+列右边线）
+  */
+  --#{$picker-prefix}-border-radius-panel: var(--ynfw-border-radius-panel-picker, 4px);
+  /**
+  * @desc 日期选择器-面板-边线-样式（边框线+列右边线）
+  */
+  --#{$picker-prefix}-border-style-panel: var(--ynfw-border-style-panel-picker, solid);
+  /**
+  * @desc 日期选择器-面板-边线-粗细（边框线+列右边线）
+  */
+  --#{$picker-prefix}-border-width-panel: var(--ynfw-border-width-panel-picker, 1px);
+  /**
+  * @desc 日期选择器-面板-阴影
+  */
+  --#{$picker-prefix}-box-shadow-panel: var(--ynfw-box-shadow-panel-picker, 0 2px 4px 0 rgba(0,0,0,.16));
+  /**
+  * @desc 日期选择器-头部-高度
+  */
+  --#{$picker-prefix}-size-height-header-panel: var(--ynfw-size-height-header-panel-datepicker, 40px);
+  /**
+  * @desc 日期选择器-周-高度
+  */
+  // --#{$picker-prefix}-size-height-week-panel: var(--ynfw-size-height-week-panel-datepicker, 30px);
+  /**
+  * @desc 日期选择器-图标-颜色（上下左右箭头）
+  */
+  --#{$picker-prefix}-color-icon-panel: var(--ynfw-color-icon-panel-datepicker, var(--#{$wui-prefix}-input-color-disabled));
+  /**
+  * @desc 悬停-日期选择器-图标-颜色（上下左右箭头）
+  */
+  --#{$picker-prefix}-color-icon-panel-hover: var(--ynfw-color-icon-panel-datepicker-hover, #505f79);
+  /**
+  * @desc 日期选择器-图标-字号（上下左右箭头）
+  */
+  --#{$picker-prefix}-font-size-panel: var(--ynfw-font-size-panel-datepicker, 12px);
+  /**
+  * @desc 悬停-日期选择器-单元格-背景-颜色
+  */
+  --#{$picker-prefix}-color-bg-cell-hover: var(--ynfw-color-bg-cell-datepicker-hover, var(--#{$wui-prefix}-primary-color-light));
+  /**
+  * @desc 选中-日期选择器-单元格-背景-颜色
+  */
+  --#{$picker-prefix}-color-bg-cell-selected: var(--ynfw-color-bg-cell-datepicker-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 焦点-日期选择器-单元格-边框-颜色
+  */
+  --#{$picker-prefix}-color-bg-cell-focus: var(--ynfw-color-bg-cell-datepicker-focus, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 禁用-焦点-日期选择器-单元格-边框-颜色
+  */
+  --#{$picker-prefix}-color-bg-cell-focus-disabled: var(--ynfw-color-bg-cell-datepicker-focus-disabled, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 日期选择器-单元格-宽度
+  */
+  --#{$picker-prefix}-size-width-cell: var(--ynfw-size-width-cell-datepicker, 24px);
+  /**
+  * @desc 日期选择器-日期-单元格-高度
+  */
+  // --#{$picker-prefix}-size-height-cell: var(--ynfw-size-height-cell-datepicker, 24px);
+  /**
+  * @desc 日期选择器-日期-单元格-圆角
+  */
+  --#{$picker-prefix}-border-radius-cell: var(--ynfw-border-radius-cell-datepicker, 4px);
+  /**
+  * @desc 日期选择器-文字按钮-字号
+  */
+  --#{$picker-prefix}-font-size-textbtn-footer: var(--ynfw-font-size-textbtn-footer-picker, 14px);
+  /**
+  * @desc 日期选择器-按钮区-高度
+  */
+  --#{$picker-prefix}-size-height-footer: var(--ynfw-size-height-footer-picker, 40px);
+  /**
+  * @desc 日期选择器-预设范围-圆角
+  */
+  --#{$picker-prefix}-border-radius-presuppose: var(--ynfw-border-radius-presuppose-datepicker, 100%);
+  /**
+  * @desc 日期选择器-预设范围-高度
+  */
+  --#{$picker-prefix}-size-height-presuppose: var(--ynfw-size-height-presuppose-datepicker, 26px);
+  /**
+  * @desc 日期选择器-预设范围-边线-颜色
+  */
+  --#{$picker-prefix}-color-border-presuppose: var(--ynfw-color-border-presuppose-datepicker, #d9d9d9);
+  /**
+  * @desc 悬停-日期选择器-预设范围-边线-颜色
+  */
+  --#{$picker-prefix}-color-border-presuppose-hover: var(--ynfw-color-border-presuppose-datepicker-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 选中-日期选择器-预设范围-边线-颜色
+  */
+  --#{$picker-prefix}-color-border-presuppose-selected: var(--ynfw-color-border-presuppose-datepicker-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 悬停-日期选择器-预设范围-背景-颜色
+  */
+  --#{$picker-prefix}-color-bg-presuppose-hover: var(--ynfw-color-bg-presuppose-datepicker-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 时间选择器-面板-宽度（每列）
+  */
+  // --#{$time-picker-prefix-cls}-size-width-panel: var(--ynfw-size-width-panel-timepicker, 60px);
+  /**
+  * @desc 时间选择器-单元格-背景-颜色
+  */
+  --#{$picker-prefix}-color-bg-cell: var(--ynfw-color-bg-cell-picker, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 悬停-时间选择器-单元格-背景-颜色
+  */
+  --#{$time-picker-prefix-cls}-color-bg-cell-hover: var(--ynfw-color-bg-cell-timepicker-hover, #FFF);
+  /**
+  * @desc 选中-时间选择器-单元格-背景-颜色
+  */
+  --#{$time-picker-prefix-cls}-color-bg-cell-selected: var(--ynfw-color-bg-cell-timepicker-selected, var(--wui-picker-cell-bg-color-selected));
+  /**
+  * @desc 时间选择器-时间-单元格-宽度
+  */
+  --#{$time-picker-prefix-cls}-size-width-cell: var(--ynfw-size-width-cell-timepicker, 48px);
+  /**
+  * @desc 时间选择器-时间-单元格-高度
+  */
+  --#{$time-picker-prefix-cls}-size-height-cell: var(--ynfw-size-height-cell-timepicker, 24px);
+  /**
+  * @desc 时间选择器-时间-单元格-圆角
+  */
+  --#{$time-picker-prefix-cls}-border-radius-cell: var(--ynfw-border-radius-cell-timepicker, 4px);
+  /**
+  * @desc 时间选择器-时间-边线-粗细（列右边线）
+  */
+  --#{$time-picker-prefix-cls}-border-width-rightborder-panel: var(--ynfw-border-width-rightborder-panel-timepicker, 0);
+  /**
+  * @desc 页签-line-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-line: var(--ynfw-size-height-line-tabs, 28px);
+  /**
+  * @desc 页签-line-下边线-颜色
+  */
+  --#{$tabs-prefix-cls}-line-border-color: var(--ynfw-color-border-down-line-tabs, #f0f0f0);
+  /**
+  * @desc 页签-line-下边线-类型
+  */
+  --#{$tabs-prefix-cls}-border-style-line: var(--ynfw-border-style-line-tabs, solid);
+  /**
+  * @desc 页签-line-下边线-粗细
+  */
+  --#{$tabs-prefix-cls}-border-width-down-line: var(--ynfw-border-width-down-line-tabs, 1px);
+  /**
+  * @desc 页签-line-下划线-颜色
+  */
+  --#{$tabs-prefix-cls}-color-border-underline-line: var(--ynfw-color-border-underline-line-tabs, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签-card-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-card: var(--ynfw-size-height-card-tabs, 35px);
+  /**
+  * @desc 页签-card-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-card-nav-bg-color: var(--ynfw-color-bg-card-tabs, #f7f9fd);
+  /**
+  * @desc 悬停-页签-card-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-card-bg-color-hover: var(--ynfw-color-bg-card-tabs-hover, #eceff4);
+  /**
+  * @desc 选中-页签-card-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-card-bg-color-active: var(--ynfw-color-bg-card-tabs-selected, #FFF);
+  /**
+  * @desc 页签-card-下边线-颜色
+  */
+  --#{$tabs-prefix-cls}-card-border-color: var(--ynfw-color-border-down-card-tabs, #e4e4e4);
+  /**
+  * @desc 页签-card-下边线-粗细
+  */
+  --#{$tabs-prefix-cls}-border-width-down-card: var(--ynfw-border-width-down-card-tabs, 1px);
+  /**
+  * @desc 选中-页签-card-上边线-颜色
+  */
+  --#{$tabs-prefix-cls}-card-border-color-active: var(--ynfw-color-border-top-card-tabs-selected, #505766);
+  /**
+  * @desc 选中-页签-card-上边线-粗细
+  */
+  --#{$tabs-prefix-cls}-card-border-width-active: var(--ynfw-border-width-top-card-tabs-selected, 1px);
+  /**
+  * @desc 选中-页签-card-左右边线-颜色
+  */
+  --#{$tabs-prefix-cls}-color-border-leftright-card: var(--ynfw-color-border-leftright-card-tabs, #e4e4e4);
+  /**
+  * @desc 选中-页签-card-左右边线-粗细
+  */
+  --#{$tabs-prefix-cls}-border-width-leftright-card: var(--ynfw-border-width-leftright-card-tabs, 1px);
+  /**
+  * @desc 页签-fill-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-fill: var(--ynfw-size-height-fill-tabs, 35px);
+  /**
+  * @desc 页签-fill-下边线-颜色
+  */
+  --#{$tabs-prefix-cls}-color-border-down-fill: var(--ynfw-color-border-down-fill-tabs, #f0f0f0);
+  /**
+  * @desc 页签-fill-下边线-粗细
+  */
+  --#{$tabs-prefix-cls}-border-width-down-fill: var(--ynfw-border-width-down-fill-tabs, 1px);
+  /**
+  * @desc 页签-fill-下边线-样式
+  */
+  --#{$tabs-prefix-cls}-border-style-fill: var(--ynfw-border-style-fill-tabs, solid);
+  /**
+  * @desc 选中-页签-fill-上右圆角
+  */
+  --#{$tabs-prefix-cls}-border-radius-fill: var(--ynfw-border-radius-fill-tabs, 8px);
+  /**
+  * @desc 页签-fill-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fill: var(--ynfw-color-bg-fill-tabs, #FFF);
+  /**
+  * @desc 选中-页签-fill-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fill-selected: var(--ynfw-color-bg-fill-tabs-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签-primary-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-primary: var(--ynfw-size-height-primary-tabs, 35px);
+  /**
+  * @desc 页签-primary-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-primary: var(--ynfw-color-bg-primary-tabs, #f5f5f5);
+  /**
+  * @desc 页签-primary-项-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-item-primary: var(--ynfw-size-height-item-primary-tabs, 28px);
+  /**
+  * @desc 未选中-页签-primary-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-primary-unselected: var(--ynfw-color-bg-primary-tabs-unselected, #fff);
+  /**
+  * @desc 选中-页签-primary-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-primary-selected: var(--ynfw-color-bg-primary-tabs-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 页签-primary-项-圆角
+  */
+  --#{$tabs-prefix-cls}-border-radius-item-primary: var(--ynfw-border-radius-item-primary-tabs, 0);
+  /**
+  * @desc 页签-trangle-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-trangle: var(--ynfw-size-height-trangle-tabs, 35px);
+  /**
+  * @desc 页签-trangle-下边线-颜色
+  */
+  --#{$tabs-prefix-cls}-trangle-border-color: var(--ynfw-color-border-down-trangle-tabs, #505766);
+  /**
+  * @desc 页签-trangle-下边线-粗细
+  */
+  --#{$tabs-prefix-cls}-trangle-border-width: var(--ynfw-border-width-down-trangle-tabs, 1px);
+  /**
+  * @desc 页签-fade-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-fade: var(--ynfw-size-height-fade-tabs, 35px);
+  /**
+  * @desc 页签-fade-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fade: var(--ynfw-color-bg-fade-tabs, #e4e7eb);
+  /**
+  * @desc 选中-页签-fade-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-fade-selected: var(--ynfw-color-bg-fade-tabs-selected, #FFF);
+  /**
+  * @desc 页签-fade-项-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-item-fade: var(--ynfw-size-height-item-fade-tabs, 30px);
+  /**
+  * @desc 页签-fade-圆角
+  */
+  --#{$tabs-prefix-cls}-border-radius-fade: var(--ynfw-border-radius-fade-tabs, 4px);
+  /**
+  * @desc 选中-页签-fade-圆角
+  */
+  --#{$tabs-prefix-cls}-border-radius-fade-selected: var(--ynfw-border-radius-fade-tabs-selected, 2px);
+  /**
+  * @desc 页签-trapezoid-高度
+  */
+  --#{$tabs-prefix-cls}-size-height-trapezoid: var(--ynfw-size-height-trapezoid-tabs, 35px);
+  /**
+  * @desc 页签-trapezoid-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-trapezoid: var(--ynfw-color-bg-trapezoid-tabs, #f5f5f5);
+  /**
+  * @desc 页签-trapezoid-项-背景-颜色
+  */
+  --#{$tabs-prefix-cls}-color-bg-item-trapezoid: var(--ynfw-color-bg-item-trapezoid-tabs, #FFF);
+  /**
+  * @desc 页签-trapezoid-边线-颜色
+  */
+  --#{$tabs-prefix-cls}-color-border-trapezoid: var(--ynfw-color-border-trapezoid-tabs, #f0f0f0);
+  /**
+  * @desc 页签-trapezoid-边线-样式
+  */
+  --#{$tabs-prefix-cls}-border-style-trapezoid: var(--ynfw-border-style-trapezoid-tabs, solid);
+  /**
+  * @desc 页签-trapezoid-边线-粗细
+  */
+  --#{$tabs-prefix-cls}-border-width-trapezoid: var(--ynfw-border-width-trapezoid-tabs, 1px);
+  /**
+  * @desc 回到顶部-尺寸-宽
+  */
+  --#{$back-prefix-cls}-size-width: var(--ynfw-size-width-backtop, 48px);
+  /**
+  * @desc 回到顶部-尺寸-高
+  */
+  --#{$back-prefix-cls}-size-height: var(--ynfw-size-height-backtop, 48px);
+  /**
+  * @desc 回到顶部-边框-圆角
+  */
+  --#{$back-prefix-cls}-border-radius: var(--ynfw-border-radius-backtop, 4px);
+  /**
+  * @desc 回到顶部-投影
+  */
+  --#{$back-prefix-cls}-box-shadow: var(--ynfw-box-shadow-backtop, 000 10% x：2 y：3);
+  /**
+  * @desc 回到顶部-边线-颜色
+  */
+  --#{$back-prefix-cls}-border-color: var(--ynfw-color-border-backtop, #D4D4D4);
+  /**
+  * @desc 悬停-回到顶部-边线-颜色
+  */
+  --#{$back-prefix-cls}-border-color-hover: var(--ynfw-color-border-backtop-hover, #505766);
+  /**
+  * @desc 点击-回到顶部-边线-颜色
+  */
+  --#{$back-prefix-cls}-color-border-pressed: var(--ynfw-color-border-backtop-pressed, #505766);
+  /**
+  * @desc 回到顶部-边线-粗细
+  */
+  --#{$back-prefix-cls}-border-width: var(--ynfw-border-width-backtop, 1px);
+  /**
+  * @desc 回到顶部-边线-样式
+  */
+  --#{$back-prefix-cls}-border-style: var(--ynfw-border-style-backtop, solid);
+  /**
+  * @desc 回到顶部-背景-颜色
+  */
+  --#{$back-prefix-cls}-bg-color: var(--ynfw-color-bg-backtop, #fff);
+  /**
+  * @desc 悬停-回到顶部-背景-颜色
+  */
+  --#{$back-prefix-cls}-bg-color-hover: var(--ynfw-color-bg-backtop-hover, #F0F0F0);
+  /**
+  * @desc 点击-回到顶部-背景-颜色
+  */
+  --#{$back-prefix-cls}-color-bg-pressed: var(--ynfw-color-bg-backtop-pressed, #E9F0FA);
+  /**
+  * @desc 回到顶部-图标-字号
+  */
+  --#{$back-prefix-cls}-font-size: var(--ynfw-font-size-backtop, 24px);
+  /**
+  * @desc 回到顶部-图标-颜色
+  */
+  --#{$back-prefix-cls}-font-color: var(--ynfw-color-icon-backtop, #505766);
+  /**
+  * @desc 抽屉-投影
+  */
+  --#{$drawer-prefix-cls}-box-shadow: var(--ynfw-box-shadow-drawer, 0 0 15px rgba(80, 87, 102, .2));
+  /**
+  * @desc 抽屉-圆角
+  */
+  --#{$drawer-prefix-cls}-border-radius: var(--ynfw-border-radius-drawer, 8px);
+  /**
+  * @desc 抽屉-背景-颜色
+  */
+  --#{$drawer-prefix-cls}-color-bg: var(--ynfw-color-bg-drawer, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 抽屉-边线-颜色
+  */
+  --#{$drawer-prefix-cls}-color-border: var(--ynfw-color-border-drawer, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 抽屉-边线-样式
+  */
+  --#{$drawer-prefix-cls}-border-style: var(--ynfw-border-style-drawer, solid);
+  /**
+  * @desc 抽屉-边线-粗细
+  */
+  --#{$drawer-prefix-cls}-border-width: var(--ynfw-border-width-drawer, 1px);
+  /**
+  * @desc 模态框-投影
+  */
+  --#{$modal-prefix-cls}-box-shadow: var(--ynfw-box-shadow-modal, 0 0 10px 0 rgba(0, 0, 0, 0.2));
+  /**
+  * @desc 模态框-圆角
+  */
+  --#{$modal-prefix-cls}-border-radius: var(--ynfw-border-radius-modal, 4px);
+  /**
+  * @desc 模态框-背景-颜色
+  */
+  --#{$modal-prefix-cls}-color-bg: var(--ynfw-color-bg-modal, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 模态框-边线-颜色
+  */
+  --#{$modal-prefix-cls}-color-border: var(--ynfw-color-border-modal, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 模态框-边线-样式
+  */
+  --#{$modal-prefix-cls}-border-style: var(--ynfw-border-style-modal, solid);
+  /**
+  * @desc 模态框-边线-粗细
+  */
+  --#{$modal-prefix-cls}-border-width: var(--ynfw-border-width-modal, 1px);
+  /**
+  * @desc 模态框-关闭-图标-字号
+  */
+  --#{$modal-prefix-cls}-font-size-feedback: var(--ynfw-font-size-feedback, 16px);
+  /**
+  * @desc 模态框-提示-图标-字号
+  */
+  --#{$modal-prefix-cls}-font-size-icon-info: var(--ynfw-font-size-icon-info-modal, 18px);
+  /**
+  * @desc 通知-投影
+  */
+  --#{$notification-prefix-cls}-box-shadow: var(--ynfw-box-shadow-notification, 0 0 10px 0 rgba(0, 0, 0, 0.2));
+  /**
+  * @desc 通知-圆角
+  */
+  --#{$notification-prefix-cls}-border-radius: var(--ynfw-border-radius-notification, 4px);
+  /**
+  * @desc 通知-背景-颜色
+  */
+  --#{$notification-prefix-cls}-color-bg: var(--ynfw-color-bg-notification, #FFF);
+  /**
+  * @desc 气泡弹窗-提示-图标-字号
+  */
+  --#{$popconfirm-prefix-cls}-font-size-icon-info: var(--ynfw-font-size-icon-info-popconfirm, 14px);
+  /**
+  * @desc 气泡卡片-投影
+  */
+  --#{$popover-prefix-cls}-box-shadow: var(--ynfw-box-shadow-popover, 0 1px 5px rgb(224,224,224));
+  /**
+  * @desc 气泡卡片-圆角
+  */
+  --#{$popover-prefix-cls}-border-radius: var(--ynfw-border-radius-popover, 4px);
+  /**
+  * @desc 气泡卡片-背景-颜色
+  */
+  --#{$popover-prefix-cls}-color-bg: var(--ynfw-color-bg-popover, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 文字提示-投影
+  */
+  --#{$tooltip-prefix-cls}-box-shadow: var(--ynfw-box-shadow-tooltip, 0 1px 5px rgb(224,224,224));
+  /**
+  * @desc 文字提示-圆角
+  */
+  --#{$tooltip-prefix-cls}-border-radius: var(--ynfw-border-radius-tooltip, 4px);
+  /**
+  * @desc 文字提示-背景-颜色
+  */
+  --#{$tooltip-prefix-cls}-color-bg: var(--ynfw-color-bg-tooltip, var(--#{$wui-prefix}-dark-color));
+  /**
+  * @desc 消息提示-投影
+  */
+  --#{$message-prefix-cls}-box-shadow: var(--ynfw-box-shadow-message, 0 4px 10px 0 rgba(0,0,0,0.15));
+  /**
+  * @desc 消息提示-圆角
+  */
+  --#{$message-prefix-cls}-border-radius: var(--ynfw-border-radius-message, 4px);
+  /**
+  * @desc 消息提示-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg: var(--ynfw-color-bg-message, #f7f9fb);
+  /**
+  * @desc 消息提示-边框-颜色
+  */
+  --#{$message-prefix-cls}-color-border: var(--ynfw-color-border-message, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 消息提示-边框-样式
+  */
+  --#{$message-prefix-cls}-border-style: var(--ynfw-border-style-message, solid);
+  /**
+  * @desc 消息提示-边框-粗细
+  */
+  --#{$message-prefix-cls}-border-width: var(--ynfw-border-width-message, 1px);
+  /**
+  * @desc 消息提示-提示-图标-字号
+  */
+  --#{$message-prefix-cls}-font-size-icon-info: var(--ynfw-font-size-icon-info-message, 18px);
+  /**
+  * @desc 平面提示-投影
+  */
+  --#{$alert-prefix-cls}-box-shadow: var(--ynfw-box-shadow-alert, 0 0 10 0(0.2));
+  /**
+  * @desc 平面提示-圆角
+  */
+  --#{$alert-prefix-cls}-border-radius: var(--ynfw-border-radius-alert, 0);
+  /**
+  * @desc 平面提示-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg: var(--ynfw-color-bg-alert, #FFF);
+  /**
+  * @desc 平面提示-提示-图标-字号
+  */
+  --#{$alert-prefix-cls}-font-size-icon-info: var(--ynfw-font-size-icon-info-alert, 18px);
+  /**
+  * @desc 卡片-四周边线-颜色
+  */
+  --#{$card-prefix-cls}-color-border: var(--ynfw-color-border-card, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 卡片-四周边线-样式
+  */
+  --#{$card-prefix-cls}-border-style: var(--ynfw-border-style-card, solid);
+  /**
+  * @desc 卡片-四周边线-粗细
+  */
+  --#{$card-prefix-cls}-border-width: var(--ynfw-border-width-card, 1px);
+  /**
+  * @desc 卡片-四周边线-圆角
+  */
+  --#{$card-prefix-cls}-border-radius: var(--ynfw-border-radius-card, 4px);
+  /**
+  * @desc 卡片-头部-下-边线-颜色
+  */
+  --#{$card-prefix-cls}-color-border-header: var(--ynfw-color-border-header-card, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 卡片-头部-下-边线-样式
+  */
+  --#{$card-prefix-cls}-border-style-header: var(--ynfw-border-style-header-card, solid);
+  /**
+  * @desc 卡片-头部-下-边线-粗细
+  */
+  --#{$card-prefix-cls}-border-width-header: var(--ynfw-border-width-header-card, 1px);
+  /**
+  * @desc 卡片-头部-背景-颜色
+  */
+  --#{$card-prefix-cls}-color-bg-header: var(--ynfw-color-bg-header-card, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 卡片-内容-背景-颜色
+  */
+  --#{$card-prefix-cls}-color-bg-body: var(--ynfw-color-bg-body-card, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 折叠-边线-颜色
+  */
+  --#{$collapse-prefix-cls}-color-border: var(--ynfw-color-border-collapse, var(--#{$wui-prefix}-base-border-color));
+  /**
+  * @desc 折叠-边线-样式
+  */
+  --#{$collapse-prefix-cls}-border-style: var(--ynfw-border-style-collapse, solid);
+  /**
+  * @desc 折叠-边线-粗细
+  */
+  --#{$collapse-prefix-cls}-border-width: var(--ynfw-border-width-collapse, 1px);
+  /**
+  * @desc 折叠-边线-圆角
+  */
+  --#{$collapse-prefix-cls}-border-radius: var(--ynfw-border-radius-collapse, 4px);
+  /**
+  * @desc 折叠-标题-背景-颜色
+  */
+  --#{$collapse-prefix-cls}-color-bg-header: var(--ynfw-color-bg-header-collapse, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 折叠-内容-背景-颜色
+  */
+  --#{$collapse-prefix-cls}-color-bg-body: var(--ynfw-color-bg-body-collapse, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 折叠-标题-高度
+  */
+  --#{$collapse-prefix-cls}-size-height-header: var(--ynfw-size-height-header-collapse, 40px);
+  /**
+  * @desc 列表-四周边线-颜色
+  */
+  --#{$list-prefix-cls}-color-border: var(--ynfw-color-border-list, #D9D9D9);
+  /**
+  * @desc 列表-四周边线-样式
+  */
+  --#{$list-prefix-cls}-border-style: var(--ynfw-border-style-list, solid);
+  /**
+  * @desc 列表-四周边线-粗细
+  */
+  --#{$list-prefix-cls}-border-width: var(--ynfw-border-width-list, 1px);
+  /**
+  * @desc 列表-四周边线-圆角
+  */
+  --#{$list-prefix-cls}-border-radius: var(--ynfw-border-radius-list, 2px);
+  /**
+  * @desc 列表-项-下-边线-颜色
+  */
+  --#{$list-prefix-cls}-color-border-item: var(--ynfw-color-border-item-list, #f0f0f0);
+  /**
+  * @desc 列表-项-下-边线-样式
+  */
+  --#{$list-prefix-cls}-border-style-item: var(--ynfw-border-style-item-list, solid);
+  /**
+  * @desc 列表-项-下-边线-粗细
+  */
+  --#{$list-prefix-cls}-border-width-item: var(--ynfw-border-width-item-list, 1px);
+
+  /**
+  * @desc 时间轴-连接线-颜色
+  */
+  --#{$timeline-prefix-cls}-line-border-color: var(--ynfw-color-border-line-timeline, #e9e9e9);
+  /**
+  * @desc 时间轴-连接线-类型
+  */
+  --#{$timeline-prefix-cls}-line-border-style: var(--ynfw-border-style-line-timeline, solid);
+  /**
+  * @desc 时间轴-连接线-粗细
+  */
+  --#{$timeline-prefix-cls}-line-border-width: var(--ynfw-border-width-line-timeline, 2px);
+  /**
+  * @desc 时间轴-连接线-圆角
+  */
+  // --#{$timeline-prefix-cls}-line-border-radius: var(--ynfw-border-radius-line-timeline, 100px);
+  /**
+  * @desc 时间轴-节点-未开始-边线-颜色
+  */
+  --#{$timeline-prefix-cls}-item-border-color-waited: var(--ynfw-color-border-item-timeline-waited, #f0f0f0);
+  /**
+  * @desc 时间轴-节点-已完成-边线-颜色
+  */
+  --#{$timeline-prefix-cls}-item-border-color-finished: var(--ynfw-color-border-item-timeline-finished, #18b681);
+  /**
+  * @desc 时间轴-节点-进行中-边线-颜色
+  */
+  --#{$timeline-prefix-cls}-item-border-color-ing: var(--ynfw-color-border-item-timeline-ing, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 时间轴-节点-报错-边线-颜色
+  */
+  --#{$timeline-prefix-cls}-item-border-color-danger: var(--ynfw-color-border-item-timeline-danger, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 时间轴-节点-边线-粗细
+  */
+  --#{$timeline-prefix-cls}-item-border-width: var(--ynfw-border-width-item-timeline, 2px);
+  /**
+  * @desc 时间轴-节点-背景-颜色
+  */
+  --#{$timeline-prefix-cls}-item-bg-color: var(--ynfw-color-bg-item-timeline, #fff);
+  /**
+  * @desc 时间轴-节点-宽
+  */
+  --#{$timeline-prefix-cls}-item-width: var(--ynfw-size-width-item-timeline, 12px);
+  /**
+  * @desc 时间轴-节点-高
+  */
+  --#{$timeline-prefix-cls}-item-height: var(--ynfw-size-height-item-timeline, 12px);
+  /**
+  * @desc 时间轴-节点-圆角
+  */
+  --#{$timeline-prefix-cls}-item-border-radius: var(--ynfw-border-radius-item-timeline, 100px);
+
+  /**
+  * @desc 锚点-连接线-颜色
+  */
+  --#{$anchor-prefix-cls}-line-border-color: var(--ynfw-color-border-line-anchor, #f0f0f0);
+  /**
+  * @desc 锚点-连接线-类型
+  */
+  --#{$anchor-prefix-cls}-line-border-style: var(--ynfw-border-style-line-anchor, solid);
+  /**
+  * @desc 锚点-连接线-粗细
+  */
+  --#{$anchor-prefix-cls}-line-border-width: var(--ynfw-border-width-line-anchor, 2px);
+  /**
+  * @desc 锚点-连接线-圆角
+  */
+  --#{$anchor-prefix-cls}-line-border-radius: var(--ynfw-border-radius-line-anchor, 100%);
+  /**
+  * @desc 锚点-横向-连接线-类型
+  */
+  --#{$anchor-prefix-cls}-crosswise-line-border-style: var(--ynfw-border-style-line-crosswise-anchor, dashed);
+  /**
+  * @desc 焦点-锚点-边线-颜色
+  */
+  --#{$anchor-prefix-cls}-focus-border-color: var(--ynfw-color-border-anchor-focus, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 焦点-锚点-边线-粗细
+  */
+  --#{$anchor-prefix-cls}-focus-border-width: var(--ynfw-border-width-anchor-focus, 2px);
+  /**
+  * @desc 焦点-锚点-边线-圆角
+  */
+  --#{$anchor-prefix-cls}-focus-border-radius: var(--ynfw-border-radius-anchor-focus, 8px);
+  /**
+  * @desc 选中-锚点-宽
+  */
+  --#{$anchor-prefix-cls}-selected-width: var(--ynfw-size-width-anchor-selected, 8px);
+  /**
+  * @desc 选中-锚点-高
+  */
+  --#{$anchor-prefix-cls}-selected-height: var(--ynfw-size-height-anchor-selected, 8px);
+  /**
+  * @desc 锚点-图标-颜色
+  */
+  --#{$anchor-prefix-cls}-nav-more-icon-color: var(--ynfw-color-icon-more-nav, #9CA3AF);
+  /**
+  * @desc 悬停-锚点-图标-颜色
+  */
+  --#{$anchor-prefix-cls}-nav-more-icon-color-hover: var(--ynfw-color-icon-more-nav-hover, #505766); //rgba(80, 87, 102, 0.6)改成#505766
+  /**
+  * @desc 禁用-锚点-图标-颜色
+  */
+  --#{$anchor-prefix-cls}-nav-more-icon-color-disbled: var(--ynfw-color-icon-anchor-disabled, #E5E7EB); // #999改成#E5E7EB
+  /**
+  * @desc 锚点-图标-字号
+  */
+  --#{$anchor-prefix-cls}-nav-more-icon-font-size: var(--ynfw-font-size-icon-more-nav, 16px);
+
+
+  /**
+  * @desc 步骤条-默认-连接线-颜色
+  */
+  --#{$steps-prefix-cls}-line-default-border-color: var(--ynfw-color-border-line-default-steps, #e8e8e8);
+  /**
+  * @desc 步骤条-默认-连接线-粗细
+  */
+  --#{$steps-prefix-cls}-line-default-border-width: var(--ynfw-border-width-line-default-steps, 1px);
+  /**
+  * @desc 步骤条-默认-未开始-连接线-类型
+  */
+  --#{$steps-prefix-cls}-default-waited-line-border-style: var(--ynfw-border-style-line-default-steps-waited, dashed); 
+  /**
+  * @desc 步骤条-默认-已完成-连接线-类型
+  */
+  --#{$steps-prefix-cls}-default-finished-line-border-style: var(--ynfw-border-style-line-default-steps-finished, solid);
+  /**
+  * @desc 步骤条-默认-已完成-图标-颜色
+  */
+  --#{$steps-prefix-cls}-default-finished-icon-color: var(--ynfw-color-icon-default-steps-finished, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 步骤条-默认-进行中-图标-颜色
+  */
+  --#{$steps-prefix-cls}-default-ing-icon-color: var(--ynfw-color-icon-default-steps-ing, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 步骤条-默认-未开始-图标-颜色
+  */
+  --#{$steps-prefix-cls}-default-waited-icon-color: var(--ynfw-color-icon-default-steps-waited, #dfe1e6);
+  /**
+  * @desc 步骤条-默认-报错-图标-颜色
+  */
+  --#{$steps-prefix-cls}-default-danger-icon-color: var(--ynfw-color-icon-default-steps-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+  * @desc 步骤条-默认-节点-图标-字号
+  */
+  --#{$steps-prefix-cls}-icon-font-size: var(--ynfw-font-size-icon-steps, 14px);
+  /**
+  * @desc 步骤条-默认-节点-图标-字重
+  */
+  --#{$steps-prefix-cls}-icon-font-weight: var(--ynfw-font-weight-icon-default-steps, 400);
+  /**
+  * @desc 步骤条-默认-更多-图标-字号
+  */
+  --#{$steps-prefix-cls}-more-icon-font-size: var(--ynfw-font-size-icon-more-nav, 14px);
+  /**
+  * @desc 步骤条-默认-更多-图标-颜色
+  */
+  --#{$steps-prefix-cls}-more-icon-color: var(--ynfw-color-icon-more-nav, rgba(80, 87, 102, 0.65));
+  /**
+  * @desc 悬停-步骤条-默认-更多-图标-颜色
+  */
+  --#{$steps-prefix-cls}-more-icon-color-hover: var(--ynfw-color-icon-more-nav-hover, #505766);
+  /**
+  * @desc 步骤条-数字-连接线-类型
+  */
+  --#{$steps-prefix-cls}-number-line-border-style: var(--ynfw-border-style-line-number-steps, solid);
+  /**
+  * @desc 步骤条-数字-连接线-粗细
+  */
+  --#{$steps-prefix-cls}-number-line-border-width: var(--ynfw-border-width-line-number-steps, 1px);
+  /**
+  * @desc 步骤条-数字-已完成-连接线-颜色
+  */
+  --#{$steps-prefix-cls}-number-finished-line-border-color: var(--ynfw-color-border-line-number-steps-finished, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 步骤条-数字-未开始-连接线-颜色
+  */
+  --#{$steps-prefix-cls}-number-waited-line-border-color: var(--ynfw-color-border-number-steps-waited, #d8d8d8);
+  /**
+  * @desc 步骤条-数字-已完成-项-边框-颜色
+  */
+  --#{$steps-prefix-cls}-number-finished-item-border-color: var(--ynfw-color-border-item-number-steps-finished, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 步骤条-数字-已完成-项-边框-粗细
+  */
+  --#{$steps-prefix-cls}-number-finished-item-border-width: var(--ynfw-border-width-item-number-steps-finished, 1px);
+  /**
+  * @desc 步骤条-数字-已完成-项-边框-类型
+  */
+  --#{$steps-prefix-cls}-number-finished-item-border-style: var(--ynfw-border-style-item-number-steps-finished, solid);
+  /**
+  * @desc 步骤条-数字-已完成-项-边框-圆角
+  */
+  --#{$steps-prefix-cls}-number-finished-item-border-radius: var(--ynfw-border-radius-item-number-steps-finished, 50%);
+  /**
+  * @desc 步骤条-数字-已完成-项-背景-颜色
+  */
+  --#{$steps-prefix-cls}-number-finished-item-bg-color: var(--ynfw-color-bg-number-steps-finished, #FFF);
+  /**
+  * @desc 步骤条-数字-进行中-项-背景-颜色
+  */
+  --#{$steps-prefix-cls}-number-ing-item-bg-color: var(--ynfw-color-bg-number-steps-ing, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 步骤条-数字-未开始-项-背景-颜色
+  */
+  --#{$steps-prefix-cls}-number-waited-item-bg-color: var(--ynfw-color-bg-number-steps-waited, #EEE);
+  /**
+  * @desc 步骤条-数字-项-宽度
+  */
+  --#{$steps-prefix-cls}-number-item-size-width: var(--ynfw-size-width-item-number-steps, 30px);
+  /**
+  * @desc 步骤条-数字-项-高度
+  */
+  --#{$steps-prefix-cls}-number-item-size-height: var(--ynfw-size-height-item-number-steps, 30px);
+  /**
+  * @desc 步骤条-数字-字号
+  */
+  --#{$steps-prefix-cls}-number-font-size: var(--ynfw-font-size-number-steps, 16px);
+  /**
+  * @desc 步骤条-数字-已完成-文字-颜色
+  */
+  --#{$steps-prefix-cls}-number-finished-text-color: var(--ynfw-color-text-number-steps-finished, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 步骤条-数字-进行中-文字-颜色
+  */
+  --#{$steps-prefix-cls}-number-ing-text-color: var(--ynfw-color-text-number-steps-ing, #FFF);
+  /**
+  * @desc 步骤条-数字-未开始-文字-颜色
+  */
+  --#{$steps-prefix-cls}-number-waited-text-color: var(--ynfw-color-text-number-steps-waited, #999);
+  /**
+  * @desc 步骤条-面性-未开始-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-waited-bg-color: var(--ynfw-color-bg-arrow-steps-waited, #f4f4f4);
+  /**
+  * @desc 悬停-步骤条-面性-未开始-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-waited-bg-color-hover: var(--ynfw-color-bg-arrow-steps-waited-hover, #ddd);
+  /**
+  * @desc 步骤条-面性-已完成-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-finished-bg-color: var(--ynfw-color-bg-arrow-steps-finished, #e7f8f2);
+  /**
+  * @desc 悬停-步骤条-面性-已完成-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-finished-bg-color-hover: var(--ynfw-color-bg-arrow-steps-finished-hover, #ace5cd);
+  /**
+  * @desc 步骤条-面性-进行中-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-ing-bg-color: var(--ynfw-color-bg-arrow-steps-ing, #77a1ee);
+  /**
+  * @desc 悬停-步骤条-面性-进行中-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-ing-bg-color-hover: var(--ynfw-color-bg-arrow-steps-ing-hover, #0754e2);
+  /**
+  * @desc 步骤条-面性-警告-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-warning-bg: var(--ynfw-color-bg-arrow-steps-warning, #fff9f0);
+  /**
+  * @desc 悬停-步骤条-面性-警告-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-warning-bg-hover: var(--ynfw-color-bg-arrow-steps-warning-hover, #ffecc6);
+  /**
+  * @desc 步骤条-面性-高度
+  */
+  --#{$steps-prefix-cls}-arrow-size-height: var(--ynfw-size-height-arrow-steps, 36px);
+  /**
+  * @desc 步骤条-面性-项-宽
+  */
+  --#{$steps-prefix-cls}-arrow-item-size-width: var(--ynfw-size-width-item-arrow-steps, 18px);
+  /**
+  * @desc 步骤条-面性-项-高
+  */
+  --#{$steps-prefix-cls}-arrow-item-size-height: var(--ynfw-size-height-item-arrow-steps, 18px);
+  /**
+  * @desc 步骤条-面性-项-背景色
+  */
+  --#{$steps-prefix-cls}-arrow-item-bg-color: var(--ynfw-color-bg-item-arrow-steps, #fff);
+  /**
+  * @desc 步骤条-面性-项-圆角
+  */
+  --#{$steps-prefix-cls}-arrow-item-border-radius: var(--ynfw-border-radius-item-arrow-steps, 50%);
+  /**
+  * @desc 步骤条-面性-项-字号
+  */
+  --#{$steps-prefix-cls}-arrow-item-font-size: var(--ynfw-font-size-item-arrow-steps, 14px);
+  /**
+  * @desc 步骤条-面性-项-已完成-文字-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-item-finished-text-color: var(--ynfw-color-text-item-arrow-steps-finished, #18b681);
+  /**
+  * @desc 步骤条-面性-项-进行中-文字-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-item-ing-text-color: var(--ynfw-color-text-item-arrow-steps-ing, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 步骤条-面性-项-警告-文字-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-item-warning-text-color: var(--ynfw-color-text-item-arrow-steps-warning, #ffa600);
+  /**
+  * @desc 步骤条-面性-项-未开始-文字-颜色
+  */
+  --#{$steps-prefix-cls}-arrow-item-waited-text-color: var(--ynfw-color-text-item-arrow-steps-waited, #111);
+  /**
+  * @desc 步骤条-点状-未开始-连接线-颜色
+  */
+  --#{$steps-prefix-cls}-dot-line-waited-border-color: var(--ynfw-color-border-line-dot-steps-waited, #d8d8d8);
+  /**
+  * @desc 步骤条-点状-已完成-连接线-颜色
+  */
+  --#{$steps-prefix-cls}-dot-line-finished-border-color: var(--ynfw-color-border-line-dot-steps-finished, #a5adba);
+  /**
+  * @desc 步骤条-点状-连接线-粗细
+  */
+  --#{$steps-prefix-cls}-dot-line-border-width: var(--ynfw-border-width-line-dot-steps, 3px);
+  /**
+  * @desc 步骤条-点状-连接线-类型
+  */
+  --#{$steps-prefix-cls}-dot-line-border-style: var(--ynfw-border-style-line-dot-steps, solid);
+  /**
+  * @desc 步骤条-点状-项-宽
+  */
+  --#{$steps-prefix-cls}-dot-item-size-width: var(--ynfw-size-width-item-dot-steps, 8px);
+  /**
+  * @desc 步骤条-点状-项-高
+  */
+  --#{$steps-prefix-cls}-dot-item-size-height: var(--ynfw-size-height-item-dot-steps, 8px);
+  /**
+  * @desc 焦点-步骤条-点状-项-宽
+  */
+  --#{$steps-prefix-cls}-dot-item-size-width-focus: var(--ynfw-size-width-item-dot-steps-focus, 10px);
+  /**
+  * @desc 焦点-步骤条-点状-项-高
+  */
+  --#{$steps-prefix-cls}-dot-item-size-height-focus: var(--ynfw-size-height-item-dot-steps-focus, 10px);
+  /**
+  * @desc 步骤条-点状-已完成-颜色ont-size-menu-selecte
+  */
+  --#{$steps-prefix-cls}-dot-finished-icon-color: var(--ynfw-color-icon-dot-steps-finished, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 步骤条-点状-未完成-颜色
+  */
+  --#{$steps-prefix-cls}-dot-waited-icon-color: var(--ynfw-color-icon-dot-steps-waited, #bfbfbf);
+
+
+  /**
+  * @desc 滑块-高度
+  */
+  --#{$slider-prefix-cls}-line-size-height: var(--ynfw-size-height-line-slider, 4px);
+  /**
+  * @desc 滑块-圆角
+  */
+  --#{$slider-prefix-cls}-handle-border-radius: var(--ynfw-border-radius-handle-slider, 6px);
+  /**
+  * @desc 滑块-背景-颜色
+  */
+  --#{$slider-prefix-cls}-line-bg-color: var(--ynfw-color-bg-line-slider, #e9e9e9);
+  /**
+  * @desc 滑块-已完成-背景-颜色
+  */
+  --#{$slider-prefix-cls}-line-finished-bg-color: var(--ynfw-color-bg-line-slider-finished, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 滑块-起始点-宽
+  */
+  --#{$slider-prefix-cls}-handle-size-width: var(--ynfw-size-width-handle-slider, 14px);
+  /**
+  * @desc 滑块-起始点-高
+  */
+  --#{$slider-prefix-cls}-handle-size-height: var(--ynfw-size-height-handle-slider, 14px);
+  /**
+  * @desc 滑块-起始点-背景-颜色
+  */
+  --#{$slider-prefix-cls}-handle-bg-color: var(--ynfw-color-bg-handle-slider, #fff);
+  /**
+  * @desc 滑块-起始点-边框-颜色
+  */
+  --#{$slider-prefix-cls}-handle-borfer-color: var(--ynfw-color-border-handle-slider, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 滑块-起始点-边框-粗细
+  */
+  --#{$slider-prefix-cls}-handle-border-width: var(--ynfw-border-width-handle-slider, 2px);
+
+
+  /**
+  * @desc 评分-图标-字号
+  */
+  --#{$rate-prefix-cls}-item-font-size: var(--ynfw-font-size-item-rate, 16px);
+  /**
+  * @desc 选中-评分-背景-颜色
+  */
+  --#{$rate-prefix-cls}-item-selected-color-bg: var(--ynfw-color-bg-item-rate-selected, #FFD400);
+  /**
+  * @desc 未选中-评分-边框-颜色
+  */
+  --#{$rate-prefix-cls}-item-border-color: var(--ynfw-color-border-item-rate, #d9d9d9);
+
+
+  /**
+  * @desc 开关-高度
+  */
+  --#{$switch-prefix-cls}-size-height: var(--ynfw-size-height-switch, 14px);
+  /**
+  * @desc 开关-宽度
+  */
+  --#{$switch-prefix-cls}-size-width: var(--ynfw-size-width-switch, 32px);
+  /**
+  * @desc 开关-圆角
+  */
+  --#{$switch-prefix-cls}-border-radius: var(--ynfw-border-radius-switch, 7px);
+  /**
+  * @desc 开关-默认-背景-颜色
+  */
+  --#{$switch-prefix-cls}-default-bg-color: var(--ynfw-color-bg-switch-default, linear-gradient(90deg, #858A94 0%, #B9BCC2 100%));
+  /**
+  * @desc 开关-打开-背景-颜色
+  */
+  --#{$switch-prefix-cls}-actived-bg-color: var(--ynfw-color-bg-switch-actived, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 点击-开关-边框-颜色
+  */
+  --#{$switch-prefix-cls}-pressed-border-color: var(--ynfw-color-border-switch-pressed, rgba(238, 34, 51, 0.1));
+  /**
+  * @desc 点击-开关-边框-粗细
+  */
+  --#{$switch-prefix-cls}-pressed-border-width: var(--ynfw-border-width-switch-pressed, 2px);
+  /**
+  * @desc 开关-圆点-背景-颜色
+  */
+  --#{$switch-prefix-cls}-handle-bg-color: var(--ynfw-color-bg-handle-switch, #FFF);
+  /**
+  * @desc 开关-圆点-宽度
+  */
+  --#{$switch-prefix-cls}-handle-width: var(--ynfw-size-width-handle-switch, 14px);
+  /**
+  * @desc 开关-圆点-高度
+  */
+  --#{$switch-prefix-cls}-handle-height: var(--ynfw-size-height-handle-switch, 14px);
+  /**
+  * @desc 开关-圆点-投影
+  */
+  --#{$switch-prefix-cls}-handle-box-shadow: var(--ynfw-box-shadow-handle-switch, 0px 1px 4px 0px rgba(80, 87, 102, 0.3));
+
+
+  /**
+  * @desc 标记-高度
+  */
+  --#{$badge-prefix-cls}-size-height: var(--ynfw-size-height-badge, 16px);
+  /**
+  * @desc 标记-圆角
+  */
+  --#{$badge-prefix-cls}-border-radius: var(--ynfw-border-radius-badge, 8px);
+  /**
+  * @desc 标记-圆角
+  */
+  --#{$badge-prefix-cls}-bg-color: var(--ynfw-color-bg-badge, var(--#{$wui-prefix}-primary-color));
+
+
+  /**
+  * @desc 进度条-高度
+  */
+  --#{$progress-prefix-cls}-size-height: var(--ynfw-size-height-line-progress, 8px);
+  /**
+  * @desc 进度条-圆角
+  */
+  --#{$progress-prefix-cls}-border-radius: var(--ynfw-border-radius-line-progress, 100px);
+  /**
+  * @desc 进度条-背景-颜色
+  */
+  --#{$progress-prefix-cls}-bg-color: var(--ynfw-color-bg-line-progress, #f5f5f5);
+  /**
+  * @desc 进度条-已完成-背景-颜色
+  */
+  --#{$progress-prefix-cls}-finished-bg-color: var(--ynfw-color-bg-line-progress-finished, var(--#{$wui-prefix}-info-color));
+
+
+  /**
+  * @desc 面包屑-背景-颜色
+  */
+  --#{$breadcrumb-prefix-cls}-bg-color: var(--ynfw-color-bg-breadcrumb, #f5f5f5);
+  /**
+  * @desc 面包屑-背景-高度
+  */
+  --#{$breadcrumb-prefix-cls}-size-height: var(--ynfw-size-height-breadcrumb, 36px);
+  /**
+  * @desc 面包屑-背景-圆角
+  */
+  --#{$breadcrumb-prefix-cls}-border-radius: var(--ynfw-border-radius-breadcrumb, 4px);
+
+
+  /**
+  * @desc 菜单-水平-分割线-高度
+  */
+  --#{$menu-prefix-cls}-horizontal-underline-border-width: var(--ynfw-border-width-underline-horizontal-menu, 1px);
+  /**
+  * @desc 菜单-水平-分割线-颜色
+  */
+  --#{$menu-prefix-cls}-horizontal-underline-border-color: var(--ynfw-color-border-underline-horizontal-menu, #d9d9d9);
+  /**
+  * @desc 菜单-水平-选中线-颜色
+  */
+  --#{$menu-prefix-cls}-horizontal-underline-selected-border-color: var(--ynfw-color-border-underline-horizontal-menu-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 菜单-背景-颜色
+  */
+  --#{$menu-prefix-cls}-bg-color: var(--ynfw-color-bg-menu, #FFF);
+  /**
+  * @desc 菜单-边框-颜色
+  */
+  --#{$menu-prefix-cls}-border-color: var(--ynfw-color-border-menu, #d9d9d9);
+  /**
+  * @desc 菜单-边框-粗细
+  */
+  --#{$menu-prefix-cls}-border-width: var(--ynfw-border-width-menu, 1px);
+  /**
+  * @desc 菜单-边框-圆角
+  */
+  --#{$menu-prefix-cls}-border-radius: var(--ynfw-border-radius-menu, 4px);
+  /**
+  * @desc 菜单-箭头图标-颜色
+  */
+  --#{$menu-prefix-cls}-arrow-icon-color: var(--ynfw-color-icon-arrow-item-menu, rgba(80, 87, 102, 0.6));
+  /**
+  * @desc 悬停-菜单-箭头图标-颜色
+  */
+  --#{$menu-prefix-cls}-arrow-icon-color-hover: var(--ynfw-color-icon-arrow-item-menu-hover, #505766);
+  /**
+  * @desc 菜单-箭头图标-字号
+  */
+  --#{$menu-prefix-cls}-arrow-icon-font-size: var(--ynfw-font-size-arrow-item-menu, 12px);
+  /**
+  * @desc 悬停-菜单-选项-颜色
+  */
+  --#{$menu-prefix-cls}-item-bg-color-hover: var(--ynfw-color-bg-item-menu-hover, #F0F0F0);
+  /**
+  * @desc 选中-菜单-选项-颜色
+  */
+  --#{$menu-prefix-cls}-item-bg-color-selected: var(--ynfw-color-bg-item-menu-selected, #E9F0FA);
+  /**
+  * @desc 悬停-选中-菜单-选项-颜色
+  */
+  --#{$menu-prefix-cls}-item-bg-color-selected-hover: var(--ynfw-color-bg-item-menu-selected-hover, #DBE0E5);
+  /**
+  * @desc 菜单-选项-高度
+  */
+  --#{$menu-prefix-cls}-item-size-height: var(--ynfw-size-height-item-menu, 42px);
+  /**
+  * @desc 菜单-选项-右边线-宽度
+  */
+  --#{$menu-prefix-cls}-item-border-width-selected: var(--ynfw-border-width-item-menu-selected, 3px);
+  /**
+  * @desc 菜单-选项-右边线-颜色
+  */
+  --#{$menu-prefix-cls}-item-border-color-selected: var(--ynfw-color-border-item-menu-selected, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 菜单-深色-选项-背景-颜色
+  */
+  --#{$menu-prefix-cls}-dark-bg-color: var(--ynfw-color-bg-dark-menu, #2e3c61);
+  /**
+  * @desc 悬停-菜单-深色-选项-背景-颜色
+  */
+  --#{$menu-prefix-cls}-dark-bg-color-hover: var(--ynfw-color-bg-dark-menu-hover, rgba(0, 0, 0, 0.2));
+  /**
+  * @desc 选中-菜单-深色-选项-背景-颜色
+  */
+  --#{$menu-prefix-cls}-dark-bg-color-selected: var(--ynfw-color-bg-dark-menu-selected, #000c17);
+  /**
+  * @desc 悬停-菜单-深色-箭头图标-颜色
+  */
+  --#{$menu-prefix-cls}-dark-arrow-icon-color-hover: var(--ynfw-color-icon-arrow-item-menu-dark-hover, #FFF);
+  /**
+  * @desc 菜单-深色-箭头图标-颜色
+  */
+  --#{$menu-prefix-cls}-dark-arrow-icon-color: var(--ynfw-color-icon-arrow-item-dark-menu, rgba(80, 87, 102, 0.6));
+
+
+  /**
+  * @desc 分页-箭头图标-颜色
+  */
+  --#{$pagination-prefix-cls}-arrow-icon-color: var(--ynfw-color-icon-arrow-pagination, #111);
+  /**
+  * @desc 悬停-分页-箭头图标-颜色
+  */
+  --#{$pagination-prefix-cls}-arrow-icon-color-hover: var(--ynfw-color-icon-arrow-pagination-hover, #111);
+  /**
+  * @desc 禁用-分页-箭头图标-颜色
+  */
+  --#{$pagination-prefix-cls}-arrow-icon-color-disabled: var(--ynfw-color-icon-arrow-pagination-disabled, #c1c7d0);
+  /**
+  * @desc 分页-数字-背景-颜色
+  */
+  --#{$pagination-prefix-cls}-pagenumber-bg-color: var(--ynfw-color-bg-pagenumber-pagination, #FFF);
+  /**
+  * @desc 悬停-分页-数字-背景-颜色
+  */
+  --#{$pagination-prefix-cls}-pagenumber-bg-color-hover: var(--ynfw-color-bg-pagenumber-pagination-hover, #edf1f7);
+  /**
+  * @desc 选中-分页-数字-背景-颜色
+  */
+  --#{$pagination-prefix-cls}-pagenumber-bg-color-selected: var(--ynfw-color-bg-pagenumber-pagination-selected, #adb4bc);
+  /**
+  * @desc 悬停-选中-分页-数字-背景-颜色
+  */
+  --#{$pagination-prefix-cls}-pagenumber-bg-color-selected-hover: var(--ynfw-color-bg-pagenumber-pagination-selected-hover, #6A7280);
+  /**
+  * @desc 分页-无间隔边框-颜色
+  */
+  --#{$pagination-prefix-cls}-nointerval-border-color: var(--ynfw-color-border-pagenumber-nointerval-pagination, rgba(80, 87, 102, 0.35));
+  /**
+  * @desc 悬停-分页-无间隔边框-颜色
+  */
+  --#{$pagination-prefix-cls}-nointerval-border-color-hover: var(--ynfw-color-border-pagenumber-nointerval-pagination-hover, rgba(80, 87, 102, 0.8));
+  /**
+  * @desc 焦点-分页-无间隔边框-颜色
+  */
+  --#{$pagination-prefix-cls}-nointerval-border-color-selected: var(--ynfw-color-border-pagenumber-nointerval-pagination-selected, #0091ff);
+  /**
+  * @desc 分页-边框-粗细
+  */
+  --#{$pagination-prefix-cls}-input-border-width: var(--ynfw-border-width-input-pagination, 1px);
+  /**
+  * @desc 分页-下拉框-宽度
+  */
+  --#{$pagination-prefix-cls}-input-size-width: var(--ynfw-size-width-input-pagination, 60px);
+  /**
+  * @desc 分页-无间隔边框-圆角
+  */
+  --#{$pagination-prefix-cls}-nointerval-border-radius: var(--ynfw-border-radius-pagenumber-nointerval-pagination, 0);
+  /**
+  * @desc 分页-边框-圆角
+  */
+  --#{$pagination-prefix-cls}-pagenumber-border-radius: var(--ynfw-border-radius-pagenumber-pagination, 3px);
+  /**
+  * @desc 分页-选项-高度
+  */
+  --#{$pagination-prefix-cls}-pagenumber-size-height: var(--ynfw-size-height-pagenumber-pagination, 20px);
+  /**
+  * @desc 分页-选项-宽度
+  */
+  --#{$pagination-prefix-cls}-pagenumber-size-width: var(--ynfw-size-width-pagenumber-pagination, 20px);
+
+
+  /**
+  * @desc 加载提示-宽
+  */
+  --#{$loading-prefix-cls}-size-width: var(--ynfw-size-width-spin, 32px);
+  /**
+  * @desc 加载提示-高
+  */
+  --#{$loading-prefix-cls}-size-height: var(--ynfw-size-height-spin, 32px);
+  /**
+  * @desc 加载提示-图标-颜色
+  */
+  --#{$loading-prefix-cls}-icon-color: var(--ynfw-color-icon-spin, var(--#{$wui-prefix}-primary-color));
+
+  /**
+  * @desc 折叠-卡片-背景-颜色
+  */
+  --#{$collapse-prefix-cls}-card-bg-color: var(--ynfw-color-bg-card-collapse, #F9FBFF);
+  /**
+  * @desc 折叠-卡片-标题-高度
+  */
+  --#{$collapse-prefix-cls}-card-title-size-height: var(--ynfw-size-height-title-card-collapse, 32px);
+  /**
+  * @desc 折叠-卡片-图标-字号
+  */
+  --#{$collapse-prefix-cls}-card-icon-font-size: var(--ynfw-font-size-icon-title-card-collapse, 16px);
+  /**
+  * @desc 折叠-卡片-标题-颜色
+  */
+  --#{$collapse-prefix-cls}-card-title-text-color: var(--ynfw-color-text-title-card-collapse, #111);
+  /**
+  * @desc 折叠-卡片-标题-字号
+  */
+  --#{$collapse-prefix-cls}-card-title-font-size: var(--ynfw-font-size-title-card-collapse, 16px);
+  /**
+  * @desc 折叠-卡片-标题-字重
+  */
+  --#{$collapse-prefix-cls}-card-title-font-weight: var(--ynfw-font-weight-title-card-collapse, 700);
+  /**
+  * @desc 折叠-卡片-内容-颜色
+  */
+  --#{$collapse-prefix-cls}-card-content-text-color: var(--ynfw-color-text-content-card-collapse, #333);
+  /**
+  * @desc 折叠-卡片-内容-字号
+  */
+  --#{$collapse-prefix-cls}-card-content-font-size: var(--ynfw-font-size-content-card-collapse, 13px);
+  /**
+  * @desc 折叠-卡片-内容-字重
+  */
+  --#{$collapse-prefix-cls}-card-content-font-weight: var(--ynfw-font-weight-content-card-collapse, 400);
+  /**
+  * @desc 折叠-list-背景-颜色
+  */
+  --#{$collapse-prefix-cls}-list-bg-color: var(--ynfw-color-bg-list-collapse, #F9FBFF);
+  /**
+  * @desc 折叠-list-标题-高度
+  */
+  --#{$collapse-prefix-cls}-list-title-size-height: var(--ynfw-size-height-title-list-collapse, 32px);
+  /**
+  * @desc 折叠-list-分割线-颜色
+  */
+  --#{$collapse-prefix-cls}-list--divider-border-color: var(--ynfw-color-border-divider-list-collapse, #D4D4D4);
+  /**
+  * @desc 折叠-list-分割线-粗细
+  */
+  --#{$collapse-prefix-cls}-list--divider-border-width: var(--ynfw-border-width-divider-list-collapse, 1px);
+  /**
+  * @desc 折叠-list-分割线-样式
+  */
+  --#{$collapse-prefix-cls}-list--divider-border-style: var(--ynfw-border-style-divider-list-collapse, dashed);
+  /**
+  * @desc 折叠-list-标题-颜色
+  */
+  --#{$collapse-prefix-cls}-list-title-text-color: var(--ynfw-color-text-title-list-collapse, #111);
+  /**
+  * @desc 折叠-list-标题-字号
+  */
+  --#{$collapse-prefix-cls}-list-title-font-size: var(--ynfw-font-size-title-list-collapse, 13px);
+  /**
+  * @desc 折叠-list-标题-字重
+  */
+  --#{$collapse-prefix-cls}-list-title-font-weight: var(--ynfw-font-weight-title-list-collapse, 700);
+  /**
+  * @desc 折叠-list-内容-颜色
+  */
+  --#{$collapse-prefix-cls}-list-content-text-color: var(--ynfw-color-text-content-list-collapse, #333);
+  /**
+  * @desc 折叠-list-内容-字号
+  */
+  --#{$collapse-prefix-cls}-list-content-font-size: var(--ynfw-font-size-content-list-collapse, 13px);
+  /**
+  * @desc 折叠-list-内容-字重
+  */
+  --#{$collapse-prefix-cls}-list-content-font-weight: var(--ynfw-font-weight-content-list-collapse, 400);
+
+  /**
+  * @desc 文字提示-反白-文字-颜色
+  */
+  --#{$tooltip-prefix-cls}-inverse-content-text-color: var(--ynfw-color-text-inverse-tooltip, #111);
+  /**
+  * @desc 气泡弹窗-标题-反白-文字-颜色
+  */
+  --#{$popconfirm-prefix-cls}-inverse-title-text-color: var(--ynfw-color-text-inverse-title-popconfirm, #fff);
+  /**
+  * @desc 气泡弹窗-内容-反白-文字-颜色
+  */
+  --#{$popconfirm-prefix-cls}-inverse-content-text-color: var(--ynfw-color-text-inverse-content-popconfirm, #fff);
+  /**
+  * @desc 气泡卡片-标题-反白-文字-颜色
+  */
+  --#{$popover-prefix-cls}-inverse-title-text-color: var(--ynfw-color-text-inverse-title-popover, #fff);
+  /**
+  * @desc 气泡卡片-内容-反白-文字-颜色
+  */
+  --#{$popover-prefix-cls}-inverse-content-text-color: var(--ynfw-color-text-inverse-content-popover, #fff);
+  
+  // start: 2021-09-22
+  /**
+  * @desc 下拉按钮-按钮-文字-字号
+  */
+  --#{$dropdown-prefix-cls}-font-size-btn: var(--ynfw-font-size-btn, 12px);
+  /**
+  * @desc 下拉按钮-按钮-文字-字重
+  */
+  --#{$dropdown-prefix-cls}-font-weight-btn: var(--ynfw-font-weight-btn, 400);
+  /**
+  * @desc 下拉按钮-按钮-文字-颜色
+  */
+  --#{$dropdown-prefix-cls}-color-text-btn-default: var(--ynfw-color-text-btn-default, #505766);
+  /**
+  * @desc 标签-图标-字号
+  */
+  --#{$tag-prefix-cls}-font-size-icon: var(--ynfw-font-size-icon-tag, 12px);
+
+  /**
+  * @desc 平面提示-成功-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-success: var(--ynfw-color-bg-alert-success, #eef9f5);
+  /**
+  * @desc 平面提示-提示-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-info: var(--ynfw-color-bg-alert-info, #edf4ff);
+  /**
+  * @desc 平面提示-警告-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-warning: var(--ynfw-color-bg-alert-warning, #fff7e8);
+  /**
+  * @desc 平面提示-危险-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-danger: var(--ynfw-color-bg-alert-danger, #fff4f2);
+  /**
+  * @desc 平面提示-深色模式-成功-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-fill-success: var(--ynfw-color-bg-fill-alert-success, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 平面提示-深色模式-提示-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-fill-info: var(--ynfw-color-bg-fill-alert-info, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 平面提示-深色模式-警告-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-fill-warning: var(--ynfw-color-bg-fill-alert-warning, var(--#{$wui-prefix}-warning-color));
+  /**
+  * @desc 平面提示-深色模式-危险-背景-颜色
+  */
+  --#{$alert-prefix-cls}-color-bg-fill-danger: var(--ynfw-color-bg-fill-alert-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+  * @desc 平面提示-反白-文字-颜色
+  */
+  --#{$alert-prefix-cls}-color-text-inverse-fill: var(--ynfw-color-text-inverse-fill-alert, #fff);
+  /**
+  * @desc 平面提示-反白-图标-颜色
+  */
+  --#{$alert-prefix-cls}-color-icon-inverse-fill: var(--ynfw-color-icon-inverse-fill-alert, #fff);
+
+  /**
+  * @desc 消息提示-成功-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-success: var(--ynfw-color-bg-message-success, #eef9f5);
+  /**
+  * @desc 消息提示-提示-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-info: var(--ynfw-color-bg-message-info, #edf4ff);
+  /**
+  * @desc 消息提示-警告-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-warning: var(--ynfw-color-bg-message-warning, #fff7e8);
+  /**
+  * @desc 消息提示-危险-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-danger: var(--ynfw-color-bg-message-danger, #fff4f2);
+  /**
+  * @desc 消息提示-成功-边框-颜色
+  */
+  --#{$message-prefix-cls}-color-border-success: var(--ynfw-color-border-message-success, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 消息提示-提示-边框-颜色
+  */
+  --#{$message-prefix-cls}-color-border-info: var(--ynfw-color-border-message-info, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 消息提示-警告-边框-颜色
+  */
+  --#{$message-prefix-cls}-color-border-warning: var(--ynfw-color-border-message-warning, var(--#{$wui-prefix}-warning-color));
+  /**
+  * @desc 消息提示-危险-边框-颜色
+  */
+  --#{$message-prefix-cls}-color-border-danger: var(--ynfw-color-border-message-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+    * @desc 消息提示-文字-颜色
+  */
+  --#{$message-prefix-cls}-color-text: var(--ynfw-color-text-message, #111);
+  /**
+  * @desc 消息提示-文字-字号
+  */
+  --#{$message-prefix-cls}-font-size: var(--ynfw-font-size-message, 14px);
+  /**
+  * @desc 消息提示-文字-字重
+  */
+  --#{$message-prefix-cls}-font-weight: var(--ynfw-font-weight-message, 400);
+  /**
+  * @desc 消息提示-成功-图标-颜色
+  */
+  --#{$message-prefix-cls}-color-icon-success: var(--ynfw-color-icon-message-success, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 消息提示-提示-图标-颜色
+  */
+  --#{$message-prefix-cls}-color-icon-info: var(--ynfw-color-icon-message-info, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 消息提示-警告-图标-颜色
+  */
+  --#{$message-prefix-cls}-color-icon-warning: var(--ynfw-color-icon-message-warning, var(--#{$wui-prefix}-warning-color));
+  /**
+  * @desc 消息提示-危险-图标-颜色
+  */
+  --#{$message-prefix-cls}-color-icon-danger: var(--ynfw-color-icon-message-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+  * @desc 消息提示-深色模式-成功-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-fill-success: var(--ynfw-color-bg-fill-message-success, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 消息提示-深色模式-提示-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-fill-info: var(--ynfw-color-bg-fill-message-info, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 消息提示-深色模式-警告-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-fill-warning: var(--ynfw-color-bg-fill-message-warning, var(--#{$wui-prefix}-warning-color));
+  /**
+  * @desc 消息提示-深色模式-危险-背景-颜色
+  */
+  --#{$message-prefix-cls}-color-bg-fill-danger: var(--ynfw-color-bg-fill-message-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+  * @desc 消息提示-反白—文字-颜色
+  */
+  --#{$message-prefix-cls}-color-text-inverse-fill: var(--ynfw-color-text-inverse-fill-message, #FFF);
+  /**
+  * @desc 消息提示-反白-图标-颜色
+  */
+  --#{$message-prefix-cls}-color-icon-inverse-fill: var(--ynfw-color-icon-inverse-fill-message, #FFF);
+  /**
+  * @desc 上传-文字-字号（照片墙+文件上传标题）
+  */
+  --#{$upload-prefix-cls}-font-size: var(--ynfw-font-size-upload, 14px);
+  /**
+  * @desc 上传-文字-字重
+  */
+  --#{$upload-prefix-cls}-font-weight: var(--ynfw-font-weight-upload, 400);
+  /**
+  * @desc 上传-文字-颜色
+  */
+  --#{$upload-prefix-cls}-color-text: var(--ynfw-color-text-upload, #111);
+  /**
+  * @desc 上传-提示-文字-字号
+  */
+  --#{$upload-prefix-cls}-font-size-hint: var(--ynfw-font-size-hint-upload, 12px);
+  /**
+  * @desc 上传-提示-文字-字重
+  */
+  --#{$upload-prefix-cls}-font-weight-hint: var(--ynfw-font-weight-hint-upload, 400);
+  /**
+  * @desc 上传-提示-文字-颜色
+  */
+  --#{$upload-prefix-cls}-color-text-hint: var(--ynfw-color-text-hint-upload, #666);
+  /**
+  * @desc 头像-文字-字号
+  */
+  --#{$avatar-prefix-cls}-font-size: var(--ynfw-font-size-avatar, 14px);
+
+  /**
+  * @desc 日历-头部-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-header: var(--ynfw-color-text-header-calendar, #111111);
+  /**
+  * @desc 日历-头部-文字-字号
+  */
+  --#{$calendar-prefix-cls}-font-size-header: var(--ynfw-font-size-header-calendar, 12px);
+  /**
+  * @desc 日历-头部-文字-字重
+  */
+  --#{$calendar-prefix-cls}-font-weight-header: var(--ynfw-font-weight-header-calendar, 400);
+  /**
+  * @desc 日历-周-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-week: var(--ynfw-color-text-week-calendar, #111);
+  /**
+  * @desc 日历-周-文字-字号
+  */
+  --#{$calendar-prefix-cls}-font-size-week: var(--ynfw-font-size-week-calendar, 12px);
+  /**
+  * @desc 日历-周-文字-字重
+  */
+  --#{$calendar-prefix-cls}-font-weight-week: var(--ynfw-font-weight-week-calendar, 400);
+  /**
+  * @desc 日历-内容-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-content: var(--ynfw-color-text-content-calendar, #111);
+  /**
+  * @desc 禁用-日历-内容-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-content-disabled: var(--ynfw-color-text-content-calendar-disabled, var(--#{$wui-prefix}-base-item-color-disabled));
+  /**
+  * @desc 悬停-日历-内容-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-content-hover: var(--ynfw-color-text-content-calendar-hover, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 选中-日历-内容-文字-颜色
+  */
+  --#{$calendar-prefix-cls}-color-text-content-selected: var(--ynfw-color-text-content-card-calendar-selected, #fff);
+  /**
+  * @desc 日历-内容-文字-字号
+  */
+  --#{$calendar-prefix-cls}-font-size-content: var(--ynfw-font-size-content-calendar, 14px);
+  /**
+  * @desc 日历-内容-文字-字重
+  */
+  --#{$calendar-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-calendar, 400);
+
+  /**
+  * @desc 卡片-内容-文字-颜色
+  */
+  --#{$card-prefix-cls}-color-text-content: var(--ynfw-color-text-content-card, #111);
+  /**
+  * @desc 卡片-内容-文字-字号
+  */
+  --#{$card-prefix-cls}-font-size-content: var(--ynfw-font-size-content-card, 12px);
+  /**
+  * @desc 卡片-内容-文字-字重
+  */
+  --#{$card-prefix-cls}-font-weight-content: var(--ynfw-font-weight-content-card, 400);
+
+  /**
+  * @desc 单选-组合-高度-sx
+  */
+  --#{$checkbox-prefix-cls}-size-height-xs-button: var(--ynfw-size-height-xs-button-checkbox, 20px);
+  /**
+  * @desc 单选-组合-高度-md
+  */
+  --#{$checkbox-prefix-cls}-size-height-md-button: var(--ynfw-size-height-md-button-checkbox, 28px);
+  /**
+  * @desc 单选-组合-高度-lg
+  */
+  --#{$checkbox-prefix-cls}-size-height-lg-button: var(--ynfw-size-height-lg-button-checkbox, 32px);
+  /**
+  * @desc 多选-填充模式-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-fill-checkbox: var(--ynfw-color-border-fill-checkbox, #D4D4D4);
+  /**
+  * @desc 悬停-多选-填充模式-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-fill-checkbox-hover: var(--ynfw-color-border-fill-checkbox-hover, #505766);
+  /**
+  * @desc 禁用-多选-填充模式-边框-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-border-fill-checkbox-disabled: var(--ynfw-color-border-fill-checkbox-disabled, #D1D5DB);
+  /**
+  * @desc 多选-填充模式-背景-颜色
+  */
+  // --#{$checkbox-prefix-cls}-color-bg-fill-checkbox: var(--ynfw-color-bg-fill-checkbox, #FFF);
+  --#{$checkbox-prefix-cls}-color-bg-fill-checkbox: #FFF;
+  /**
+  * @desc 禁用-多选-填充模式-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill-checkbox-disabled: var(--ynfw-color-bg-fill-checkbox-disabled, #F7f7f7);
+  /**
+  * @desc 选中-多选-填充模式-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill-checkbox-selected: var(--ynfw-color-bg-fill-checkbox-selected, #EE2233);
+  /**
+  * @desc 悬停-选中-多选-填充模式-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill-checkbox-selected-hover: var(--ynfw-color-bg-fill-checkbox-selected-hover, #be1b28);
+  /**
+  * @desc 禁用-选中-多选-填充模式-背景-颜色
+  */
+  --#{$checkbox-prefix-cls}-color-bg-fill-checkbox-selected-disabled: var(--ynfw-color-bg-fill-checkbox-selected-disabled, #F79099);
+  /**
+  * @desc 单选-填充模式-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-fill-radio: var(--ynfw-color-border-fill-radio, #D4D4D4);
+  /**
+  * @desc 悬停-单选-填充模式-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-fill-radio-hover: var(--ynfw-color-border-fill-radio-hover, #505766);
+  /**
+  * @desc 禁用-单选-填充模式-边框-颜色
+  */
+  --#{$radio-prefix-cls}-color-border-fill-radio-disabled: var(--ynfw-color-border-fill-radio-disabled, #D1D5DB);
+  /**
+  * @desc 单选-填充模式-背景-颜色
+  */
+  // --#{$radio-prefix-cls}-color-bg-fill-radio: var(--ynfw-color-bg-fill-radio, #FFF);
+  --#{$radio-prefix-cls}-color-bg-fill-radio: #FFF;
+  /**
+  * @desc 禁用-单选-填充模式-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill-radio-disabled: var(--ynfw-color-bg-fill-radio-disabled, #F7F7F7);
+  /**
+  * @desc 选中-单选-填充模式-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill-radio-selected: var(--ynfw-color-bg-fill-radio-selected, #EE2233);
+  /**
+  * @desc 悬停-选中-单选-填充模式-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill-radio-selected-hover: var(--ynfw-color-bg-fill-radio-selected-hover, #be1b28);
+  /**
+  * @desc 禁用-选中-单选-填充模式-背景-颜色
+  */
+  --#{$radio-prefix-cls}-color-bg-fill-radio-selected-disabled: var(--ynfw-color-bg-fill-radio-selected-disabled, #F79099);
+
+  // end: 2021-09-22
+
+
+  // 公共样式变量
+  /**
+  * @desc 关闭-图标-颜色
+  */
+  --#{$wui-prefix}-color-icon-close-feedback: var(--ynfw-color-icon-close-feedback, var(--#{$wui-prefix}-base-close-icon-color));
+  /**
+  * @desc 悬停-关闭-图标-颜色
+  */
+  --#{$wui-prefix}-color-icon-close-feedback-hover: var(--ynfw-color-icon-close-feedback-hover, var(--#{$wui-prefix}-base-close-icon-color-hover));
+  /**
+  * @desc 关闭-图标-字号
+  */
+  --#{$wui-prefix}-font-size-feedback: var(--ynfw-font-size-feedback, 12px);
+  /**
+  * @desc 成功-图标-颜色
+  */
+  --#{$wui-prefix}-color-success: var(--ynfw-color-success, var(--#{$wui-prefix}-success-color));
+  /**
+  * @desc 提示-图标-颜色
+  */
+  --#{$wui-prefix}-color-info: var(--ynfw-color-info, var(--#{$wui-prefix}-info-color));
+  /**
+  * @desc 警告-图标-颜色
+  */
+  --#{$wui-prefix}-color-warning: var(--ynfw-color-warning, var(--#{$wui-prefix}-warning-color));
+  /**
+  * @desc 错误-图标-颜色
+  */
+  --#{$wui-prefix}-color-danger: var(--ynfw-color-danger, var(--#{$wui-prefix}-danger-color));
+  /**
+  * @desc 树箭头默认-图标-颜色
+  */
+  --#{$wui-prefix}-color-icon-global-normal: var(--ynfw-color-icon-collapse-tree, #D1D5DB);
+  /**
+  * @desc 树箭头悬停-图标-颜色
+  */
+  --#{$wui-prefix}-color-icon-global-hover: var(--ynfw-color-icon-collapse-tree-hover, #4B5563);
+
+  // 下拉面板公共样式变量(AutoComplete、Cascader、DatePicker、Select、TimePicker、TreeSelect、Dropdown)
+  /**
+  * @desc 下拉框-面板-背景-颜色
+  */
+  --#{$wui-prefix}-color-bg-option-panel: var(--ynfw-color-bg-option-panel, var(--#{$wui-prefix}-base-panel-bg-color));
+  /**
+  * @desc 下拉框-面板-边框-粗细
+  */
+  --#{$wui-prefix}-border-width-option-panel: var(--ynfw-border-width-option-panel, 1px);
+  /**
+  * @desc 下拉框-面板-边框-颜色
+  */
+  --#{$wui-prefix}-color-border-option-panel: var(--ynfw-color-border-option-panel, #D9D9D9);
+  /**
+  * @desc 下拉框-面板-边框-圆角
+  */
+  --#{$wui-prefix}-border-radius-option-panel: var(--ynfw-border-radius-option-panel, 4px);
+  /**
+  * @desc 下拉框-面板-阴影
+  */
+  --#{$wui-prefix}-box-shadow-option-panel: var(--ynfw-box-shadow-option-panel, 0 2px 4px 0 rgba(0,0,0,.16));
+  /**
+  * @desc 组件-文字-字体
+  */
+  --#{$wui-prefix}-font-family: var(--ynfw-font-family-tnf, system-ui);
+}
+
+
+// 暗黑主题设置的颜色
+// :root {
+//   background: #000;
+//   /**
+//   * @desc 公共base变量：字体颜色；
+//   */
+//   --#{$wui-prefix}-base-text-color: #fff;
+//   /**
+//   * @desc 公共base变量：背景颜色；
+//   */
+//   --#{$wui-prefix}-base-bg-color: #404551; // #2e3c61 #404551
+//   /**
+//   * @desc 公共base变量：背景颜色 禁用态；
+//   */
+//   --#{$wui-prefix}-base-bg-color-disabled: #333; // item disabled背景色
+//   /**
+//   * @desc 公共输入框：字体颜色；
+//   */
+//   --#{$wui-prefix}-input-color: #fff;
+//   /**
+//   * @desc 公共输入框：背景色；
+//   */
+//   --#{$wui-prefix}-input-bg: transparent;
+//   /**
+//   * @desc 公共输入框：背景色 禁用态；
+//   */
+//   --#{$wui-prefix}-input-bg-disabled: #333333;
+//   /**
+//   * @desc 公共输入框：背景色 必填态；
+//   */
+//   --#{$wui-prefix}-input-bg-color-required: transparent;
+//   /**
+//   * @desc 公共base子项目：背景颜色 hover态；
+//   */
+//   --#{$wui-prefix}-base-item-bg-hover: rgba(0,0,0, .2);
+//   /**
+//   * @desc 公共base子项目：背景颜色 active态；
+//   */
+//   --#{$wui-prefix}-base-item-bg-active: rgba(0,0,0, .2);
+//   /**
+//   * @desc 公共base子项目：背景颜色 selected态；
+//   */
+//   --#{$wui-prefix}-base-item-bg-selected: rgba(0,0,0, .4);
+//   /**
+//   * @desc 公共base子项目：背景颜色 selected 的 hover态；
+//   */
+//   --#{$wui-prefix}-base-item-bg-selected-hover: rgba(0,0,0, .6);
+//   /**
+//   * @desc 表格：header背景色
+//   */
+//   --#{$table-prefix-cls}-head-bg-color: #404551;
+//   /**
+//   * @desc card标题的背景色
+//   */
+//   --#{$card-prefix-cls}-head-bg-color: #404551;
+//   /**
+//   * @desc 复选框：背景色
+//   */
+//   --#{$checkbox-prefix-cls}-bg-color: transparent;
+//   /**
+//   * @desc 单选框：背景色
+//   */
+//   --#{$radio-prefix-cls}-bg-color: transparent;
+//   /**
+//   * @desc 页签：基础文本颜色
+//   */
+//   --#{$tabs-prefix-cls}-color: #fff;
+//   /**
+//   * @desc 页签：溢出按钮文本颜色
+//   */
+//   --#{$tabs-prefix-cls}-overflow-btn-color: #ccc;
+//   /**
+//   * @desc 页签：line模式选中颜色
+//   */
+//   --#{$tabs-prefix-cls}-line-color-active: #fff;
+//   /**
+//   * @desc 页签：card模式菜单背景色
+//   */
+//   --#{$tabs-prefix-cls}-card-nav-bg-color: #404551;
+//   /**
+//   * @desc 页签：card模式active背景色
+//   */
+//   --#{$tabs-prefix-cls}-card-bg-color-active: #000;
+//   /**
+//   * @desc 步骤条：arrow模式的背景色
+//   */
+//   --#{$steps-prefix-cls}-arrow-bg-color: #000;
+//   /**
+//   * @desc 时间轴：自定义图标背景色
+//   */
+//   --#{$timeline-prefix-cls}-custom-bg-color: #000;
+// }

@@ -1,0 +1,155 @@
+@import "../../wui-core/scss/minxin-mixins";
+.drawerc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    width: 0;
+    height: 100%;
+}
+.#{$drawer-prefix-cls}-mask{
+    background-color: rgba(0,0,0,.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+.#{$drawer-prefix-cls}-close{
+    // position: absolute;
+    // top: 0;
+    // right: 19px;
+    font-size: var(--#{$wui-prefix}-font-size-feedback);
+    line-height: 40px;
+    cursor: pointer;
+    & .uf{
+        font-size: var(--#{$wui-prefix}-font-size-feedback);
+        padding: 0 2px;
+        color: var(--#{$wui-prefix}-color-icon-close-feedback);
+        &:hover {
+            color: var(--#{$wui-prefix}-color-icon-close-feedback-hover);
+        }
+    }
+}
+.#{$drawer-prefix-cls}-extra{
+    // position: absolute;
+    // line-height: 40px;
+    // width: 120px;
+    // height: 40px;
+    // overflow-y: auto;
+    flex: 1;
+    text-align: right;
+    line-height: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 0 5px;
+    @include set-scrollbar-style();
+}
+.#{$drawer-prefix-cls}{
+    position: absolute;
+    //background-color: #fff;
+    background-color: var(--#{$drawer-prefix-cls}-color-bg);
+    transition: transform 300ms ease-in-out;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    outline: none;
+    //使用bee-dnd时，组件错位问题
+    // .#{$drawer-prefix-cls}-body{
+    //     .u-drop {
+    //         .u-drag {
+    //             position: unset!important;
+    //         }
+    //     }
+    // }
+    .#{$drawer-prefix-cls}-footer {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        //border-top: 1px solid #e8e8e8;
+        border-top: var(--#{$drawer-prefix-cls}-border-width) var(--#{$drawer-prefix-cls}-border-style) var(--#{$drawer-prefix-cls}-color-border);
+        color: rgba(0,0,0,.65);
+        background: var(--#{$drawer-prefix-cls}-color-bg);
+        padding: 10px 24px;
+        text-align: right;
+    }
+}
+.#{$drawer-prefix-cls}-left{
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-top-right-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    border-bottom-right-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    box-shadow: var(--#{$drawer-prefix-cls}-box-shadow);
+}
+.#{$drawer-prefix-cls}-right{
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-top-left-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    border-bottom-left-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    box-shadow: var(--#{$drawer-prefix-cls}-box-shadow);
+}
+.#{$drawer-prefix-cls}-top{
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom-left-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    border-bottom-right-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    box-shadow: var(--#{$drawer-prefix-cls}-box-shadow);
+}
+.#{$drawer-prefix-cls}-bottom{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    border-top-right-radius: var(--#{$drawer-prefix-cls}-border-radius);
+    box-shadow: var(--#{$drawer-prefix-cls}-box-shadow);
+}
+.#{$drawer-prefix-cls}-header{
+    // padding: 16px 24px;
+    border-radius: 4px 4px 0 0;
+    // background: $base-panel-bg-color;
+    //color: rgba(0,0,0,.65);
+    color: $font-color-base;
+    //border-bottom: 1px solid #e8e8e8;
+    border-bottom: var(--#{$drawer-prefix-cls}-border-width) var(--#{$drawer-prefix-cls}-border-style) var(--#{$drawer-prefix-cls}-color-border);
+    height: 40px;
+    max-width: 60%;
+}
+.#{$drawer-prefix-cls}-header-title{
+    margin: 0;
+    font-size: var(--#{$drawer-prefix-cls}-font-size-title);
+    line-height: 40px;
+    font-weight: var(--#{$drawer-prefix-cls}-font-weight-title);
+    color: var(--#{$drawer-prefix-cls}-color-text-title);
+    padding-left: 24px;
+}
+.#{$drawer-prefix-cls}-body {
+    padding: 8px 24px;
+    overflow: auto;
+    color: $font-color-base;
+}
+.#{$drawer-prefix-cls}-header-box {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 19px;
+    border-bottom: var(--#{$drawer-prefix-cls}-border-width) var(--#{$drawer-prefix-cls}-border-style) var(--#{$drawer-prefix-cls}-color-border);
+    height: 40px;
+    // background: $base-panel-bg-color;
+    &.#{$drawer-prefix-cls}-header-box-ishead {
+        position: absolute;
+        right: 0px;
+        border: 0;
+    }
+}
+.#{$drawer-prefix-cls}-hidden-mask {
+    pointer-events: none;
+    .#{$drawer-prefix-cls} {
+        pointer-events: all;
+    }
+}

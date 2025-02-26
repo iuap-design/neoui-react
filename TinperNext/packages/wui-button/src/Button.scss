@@ -1,0 +1,643 @@
+@import "../../wui-core/scss/minxin-mixins";
+
+//$button-bg-color: #FFF;
+//$button-border-hover-bg-color: #F3F5F9;
+//$button-border-hover-bd-color: #505766;
+//$button-border-active-bd-color: #505766;
+$button-text-color: #fff;
+$button-padding-x-loading: 32px;
+$button-antd-hover-color: $button-dark-hover-color;
+$button-antd-active-color: $button-dark-active-color;
+$button-text-color-blue: var(--#{$button-prefix-cls}-text-color);
+$button-text-color-blue-light: var(--#{$button-prefix-cls}-text-color-hover);
+$button-text-color-blue-dark: var(--#{$button-prefix-cls}-text-color-active);
+$button-text-color-blue-disabled: var(--#{$button-prefix-cls}-text-color-disabled);
+$button-mask-color: rgba(0,0,0, .3);
+
+//$loadingState-icon-color: #fff;
+//.u-loading-state{
+//  position: relative;
+//  & > :not(.u-loading-backdrop){
+//      .u-loading.u-loading-custom > div , .u-loading.u-loading-rotate > div{
+//          left: 20px;
+//          > .rotate-icon-container {
+//              width: 22px;
+//              height: 22px;
+//              -webkit-animation: rotate 1s 0s linear infinite;
+//              animation: rotate 1s 0s linear infinite;
+//              > .uf {
+//                  padding: 0;
+//                  line-height: 22px;
+//                  color: $loadingState-icon-color;
+//              }
+//          }
+//      }
+//  }
+//  .u-loading-desc {
+//      position: absolute;
+//      left: 30px;
+//      top: 2px;
+//      font-size: 16px;
+//      color: #000;
+//      text-align: center;
+//  }
+//  &-label{
+//      margin-left: 20px;
+//  }
+//}
+
+//默认 flat 样式.
+.#{$button-prefix-cls} {
+  background: $base-bg-color;
+  border: $button-border-width $button-border-style var(--#{$button-prefix-cls}-default-border-color);
+  border-radius: var(--#{$button-prefix-cls}-border-radius);
+  color: var(--#{$button-prefix-cls}-default-color);
+  position: relative;
+  display: inline-block;
+  @include button-size($button-padding-y-lg, $button-padding-x-lg, var(--#{$button-prefix-cls}-default-font-size), var(--#{$button-prefix-cls}-default-height));
+  font-weight: var(--#{$button-prefix-cls}-default-font-weight);
+  //will-change: box-shadow, transform;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  min-width: $button-min-width;
+  //@include typo-button();
+  //overflow: hidden;
+  //line-height: $button-line-height;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover {
+    color: var(--#{$button-prefix-cls}-default-color-hover);
+    background-color: var(--#{$button-prefix-cls}-default-bg-color-hover);
+    border-color: var(--#{$button-prefix-cls}-default-border-color-hover);
+  }
+
+  &:active {
+    color: var(--#{$button-prefix-cls}-default-color-active);
+    background-color: var(--#{$button-prefix-cls}-default-bg-color-hover);
+    border-color: var(--#{$button-prefix-cls}-default-border-color-active);
+  }
+
+  &.colored {
+    color: $button-primary-color;
+
+    &:focus:not(:active) {
+      background-color: $button-focus-color;
+      border-color: $button-focus-border-color;
+    }
+  }
+  &:not(.#{$button-prefix-cls}-icon) i.uf{
+    // padding-left: 0;
+    line-height: normal;
+  }
+  i.uf{
+    font-size: var(--#{$button-prefix-cls}-default-font-size);
+    padding: 0;
+  }
+}
+.#{$button-prefix-cls}-has-max-width {
+  max-width: $button-max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.#{$button-prefix-cls}-sm, .#{$button-prefix-cls}-md {
+  i.uf{
+    font-size: $button-icon-size-sm;
+  }
+}
+
+
+input.#{$button-prefix-cls}[type="submit"] {
+  -webkit-appearance:none;
+}
+
+//Floating bottons
+.#{$button-prefix-cls}-floating {
+  border-radius: 50%;
+  font-size: $button-fab-font-size;
+  //height: $button-fab-size;
+  width: $button-fab-size;
+  margin: auto;
+  // min-width: $button-fab-size;
+  padding: 0;
+  line-height: normal;
+  border: 1px solid var(--#{$button-prefix-cls}-default-border-color);
+
+  &.colored {
+    background: $button-fab-color-alt;
+    color: $button-fab-text-color-alt;
+
+    &:hover {
+      background-color: $button-fab-hover-color-alt;
+    }
+
+    &:focus:not(:active) {
+      background-color: $button-fab-active-color-alt;
+    }
+
+    &:active {
+      background-color: $button-fab-active-color-alt;
+    }
+    background: $button-fab-ripple-color-alt;
+  }
+}
+
+.#{$button-prefix-cls}.#{$button-prefix-cls}-disabled, .#{$button-prefix-cls}[disabled] {
+    cursor: not-allowed;
+    &:not(.#{$button-prefix-cls}-text) {
+      background-color: var(--#{$button-prefix-cls}-default-bg-color-disabled); // 不传colors的普通禁用按钮样式
+      border-color: $button-disabled-bg-color;
+      color: var(--#{$button-prefix-cls}-text-color-disabled);
+
+      &.#{$button-prefix-cls} {
+        background: var(--#{$button-prefix-cls}-default-bg-color-disabled);
+        border: $button-border-width $button-border-style var(--#{$button-prefix-cls}-default-border-color-disabled);
+        color: var(--#{$button-prefix-cls}-text-color-disabled);
+      }
+      // 一些按钮禁用色使用特殊禁用色
+
+      &.#{$button-prefix-cls}-success,
+      &.#{$button-prefix-cls}-info,
+      &.#{$button-prefix-cls}-danger,
+      &.#{$button-prefix-cls}-warning {
+        color: $button-text-color;
+        opacity: 0.5;
+        border-color: transparent;
+      }
+
+      &.#{$button-prefix-cls}-dark {
+        background: var(--#{$button-prefix-cls}-text-color-disabled);
+        color: $button-text-color;
+        border-color: transparent;
+      }
+
+      &.#{$button-prefix-cls}-success {
+        background: $button-success-hover-color;
+      }
+
+      &.#{$button-prefix-cls}-info {
+        background: $button-info-hover-color;
+      }
+
+      &.#{$button-prefix-cls}-danger {
+        background: $button-danger-hover-color;
+      }
+
+      &.#{$button-prefix-cls}-warning {
+        background: $button-warning-hover-color;
+      }
+
+      &.#{$button-prefix-cls}-secondary {
+        // opacity: 0.5;
+        color: var(--#{$button-prefix-cls}-text-color-disabled);
+        border-color: transparent;
+        background: var(--#{$button-prefix-cls}-secondary-bg-color-disabled);
+      }
+
+      &.#{$button-prefix-cls}-primary {
+        background: var(--#{$button-prefix-cls}-primary-bg-color-disabled);
+        color: $button-text-color;
+        border: none;
+      }
+
+      &.#{$button-prefix-cls}-border {
+        &.#{$button-prefix-cls}-dark,
+        &.#{$button-prefix-cls}-success,
+        &.#{$button-prefix-cls}-info,
+        &.#{$button-prefix-cls}-danger,
+        &.#{$button-prefix-cls}-warning,
+        &.#{$button-prefix-cls}-primary {
+          background: #fff;
+        }
+
+        &.#{$button-prefix-cls}-dark {
+          color: $button-dark-color;
+          border: 1px solid $button-dark-color;
+        }
+
+        &.#{$button-prefix-cls}-success {
+          color: $button-success-color;
+          border: 1px solid $button-success-color;
+        }
+
+        &.#{$button-prefix-cls}-info {
+          color: $button-info-color;
+          border: 1px solid $button-info-color;
+        }
+
+        &.#{$button-prefix-cls}-danger {
+          color: $button-danger-color;
+          border: 1px solid $button-danger-color;
+        }
+
+        &.#{$button-prefix-cls}-warning {
+          color: $button-warning-color;
+          border: 1px solid $button-warning-color;
+        }
+
+        &.#{$button-prefix-cls}-secondary {
+          color: $button-secondary-color;
+          border: 1px solid $button-secondary-color;
+          background: #fff;
+        }
+
+        &.#{$button-prefix-cls}-primary {
+          color: var(--#{$button-prefix-cls}-primary-bg-color-disabled);
+          border: 1px solid var(--#{$button-prefix-cls}-primary-bg-color-disabled);
+        }
+      }
+
+      &.#{$button-prefix-cls}-plainText {
+        border: none;
+      }
+    }
+}
+
+//.#{$button-prefix-cls}-border{
+//  color: var(--#{$button-prefix-cls}-default-color);
+//  border: $button-border-width $button-border-style var(--#{$button-prefix-cls}-default-border-color);
+//  background: var(--#{$button-prefix-cls}-default-bg-color);;
+//  &:hover {
+//    color: var(--#{$button-prefix-cls}-default-color-hover);
+//    background-color: var(--#{$button-prefix-cls}-default-bg-color-hover);
+//    border-color: var(--#{$button-prefix-cls}-default-border-color-hover);
+//  }
+//
+//  &:active {
+//    color: var(--#{$button-prefix-cls}-default-color-active);
+//    background-color: var(--#{$button-prefix-cls}-default-bg-color-hover);
+//    border-color: var(--#{$button-prefix-cls}-default-border-color-active);
+//  }
+//}
+.#{$button-prefix-cls}-text{
+  @include button-text-styles-variant($button-text-color-blue, $button-text-color-blue-light);
+  font-weight: var(--#{$button-prefix-cls}-link-font-weight);
+  font-size: var(--#{$button-prefix-cls}-link-font-size);
+  &:hover {
+    .#{$button-prefix-cls}-text-wrap {
+      text-decoration:underline;
+      text-underline-offset: 1.5px;
+      //box-shadow: 0 1px;
+    }
+  }
+
+  &:active {
+    color: $button-text-color-blue-dark;
+    background: #fff;
+  }
+
+  &[disabled] {
+    color: $button-text-color-blue-disabled;
+    opacity: 1;
+    &:hover {
+      .#{$button-prefix-cls}-text-wrap {
+        text-decoration:none;
+      }
+    }
+  }
+}
+a.#{$button-prefix-cls}-link{
+  display: inline-block;
+  line-height: $button-height-lg;
+  &.#{$button-prefix-cls}-lg{
+    line-height: $button-height-lg;
+  }
+  &.#{$button-prefix-cls}-md{
+    line-height: $button-height-md;
+  }
+  &.#{$button-prefix-cls}-sm{
+    line-height: $button-height-sm;
+  }
+  &[disabled]{
+    pointer-events: none;
+  }
+}
+.#{$button-prefix-cls} {
+  &.#{$button-prefix-cls}-primary{
+    @include button-styles-variant( $button-text-color, $button-primary-color, $button-primary-hover-color, $button-primary-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-primary-color, $button-primary-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-secondary{
+    @include button-styles-variant( var(--#{$button-prefix-cls}-default-color), $button-secondary-color, $button-secondary-hover-color, $button-secondary-active-color);
+    &.active, &:active { // 点击时按钮文字的颜色与另外两个状态不一样
+      color: $font-color-base;
+    }
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-secondary-color, $button-secondary-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-info{
+    @include button-styles-variant( $button-text-color, $button-info-color, $button-info-hover-color, $button-info-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-info-color, $button-info-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-warning{
+    @include button-styles-variant( $button-text-color, $button-warning-color, $button-warning-hover-color, $button-warning-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-warning-color, $button-warning-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-success{
+    @include button-styles-variant( $button-text-color, $button-success-color, $button-success-hover-color, $button-success-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-success-color, $button-success-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-dark{
+    @include button-styles-variant( $button-text-color, $button-dark-color, $button-dark-hover-color, $button-dark-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-dark-color, $button-dark-hover-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-light{
+    @include button-styles-variant( $color-light, $button-light-color, $button-light-active-color, $button-light-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-light-color, $button-light-active-color);
+    }
+  }
+
+  &.#{$button-prefix-cls}-danger{
+    @include button-styles-variant( $button-text-color, $button-danger-color, $button-danger-hover-color, $button-danger-active-color);
+    &.#{$button-prefix-cls}-text {
+      @include button-text-styles-variant($button-danger-color, $button-danger-hover-color);
+    }
+  }
+}
+.#{$button-prefix-cls}-border {
+  &.#{$button-prefix-cls}-success{
+    @include border-button-styles-variant($button-success-color,$button-success-color,$button-success-hover-color,$button-success-active-color);
+  }
+
+  &.#{$button-prefix-cls}-warning{
+    @include border-button-styles-variant($button-warning-color,$button-warning-color,$button-warning-hover-color,$button-warning-active-color);
+  }
+
+  &.#{$button-prefix-cls}-info{
+    @include border-button-styles-variant($button-info-color,$button-info-color,$button-info-hover-color,$button-info-active-color);
+  }
+
+  &.#{$button-prefix-cls}-primary{
+    @include border-button-styles-variant($button-primary-color,$button-primary-color,$button-primary-hover-color,$button-primary-active-color);
+  }
+
+  &.#{$button-prefix-cls}-secondary{
+    @include border-button-styles-variant($button-secondary-color,$button-secondary-color,$button-secondary-active-color,$button-secondary-active-color);
+  }
+
+  &.#{$button-prefix-cls}-dark{
+    @include border-button-styles-variant($button-dark-color,$button-dark-color,$button-dark-hover-color,$button-dark-active-color);
+  }
+
+  &.#{$button-prefix-cls}-light{
+    @include border-button-styles-variant($button-dark-color,$button-light-color,$button-light-active-color,$button-light-active-color);
+  }
+
+  &.#{$button-prefix-cls}-danger{
+    @include border-button-styles-variant($button-danger-color,$button-danger-color,$button-danger-hover-color,$button-danger-active-color);
+  }
+}
+.#{$button-prefix-cls}.#{$button-prefix-cls}-dashed {
+  color: #333;
+  background: #fff;
+  border-color: #d9d9d9;
+  border-style: dashed;
+  &:hover{
+    background: #fff;
+    border-color: $button-antd-hover-color;
+    color: $button-antd-hover-color;
+  }
+  &:active{
+    background: #fff;
+    border-color: $button-antd-active-color;
+    color: $button-antd-active-color;
+  }
+  &.#{$button-prefix-cls}-danger{
+    @include color-button-active-variant($button-danger-color,$button-danger-color,$button-danger-hover-color,$button-danger-active-color);
+  }
+}
+.#{$button-prefix-cls}.#{$button-prefix-cls}-ghost{
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  &:hover{
+    background: transparent;
+    border-color: $button-antd-hover-color;
+    color: $button-antd-hover-color;
+  }
+  &:active{
+    background: transparent;
+    border-color: $button-antd-active-color;
+    color: $button-antd-active-color;
+  }
+  &.#{$button-prefix-cls}-success{
+    @include color-button-active-variant($button-success-color,$button-success-color,$button-success-hover-color,$button-success-active-color);
+  }
+  &.#{$button-prefix-cls}-warning{
+    @include color-button-active-variant($button-warning-color,$button-warning-color,$button-warning-hover-color,$button-warning-active-color);
+  }
+  &.#{$button-prefix-cls}-info{
+    @include color-button-active-variant($button-info-color,$button-info-color,$button-info-hover-color,$button-info-active-color);
+  }
+  &.#{$button-prefix-cls}-primary{
+    @include color-button-active-variant($button-primary-color,$button-primary-color,$button-primary-active-color,$button-primary-active-color);
+  }
+  &.#{$button-prefix-cls}-secondary{
+    @include color-button-active-variant($button-secondary-color,$button-secondary-color,$button-secondary-active-color,$button-secondary-active-color);
+  }
+  &.#{$button-prefix-cls}-dark{
+    @include color-button-active-variant($button-dark-color,$button-dark-color,$button-dark-hover-color,$button-dark-active-color);
+  }
+  &.#{$button-prefix-cls}-light{
+    @include color-button-active-variant($button-dark-color,$button-light-color,$button-light-active-color,$button-light-active-color);
+  }
+  &.#{$button-prefix-cls}-danger{
+    @include color-button-active-variant($button-danger-color,$button-danger-color,$button-danger-hover-color,$button-danger-active-color);
+  }
+}
+.#{$button-prefix-cls}-icon {
+    border-radius: 50%;
+    /*font-size: $button-fab-font-size;
+    opacity: 0.8;
+    margin: auto;
+    //height:$button-icon-size;
+    //min-width:$button-icon-size;
+    //width: $button-icon-size;
+    padding: 0;
+    line-height: normal;
+    border: 1px solid $button-border-color;
+
+    &.#{$button-prefix-cls} {
+      background: #fff;
+      border: 0;
+      color: $brand-default;
+
+      &:focus {
+        background: #fff;
+      }
+
+      &:hover {
+        background: $button-icon-hover-bg-color;
+        opacity: 1;
+      }
+
+      &:active {
+        background: $button-icon-active-bg-color;
+        opacity: 1;
+      }
+    }*/
+    //&.#{$button-prefix-cls}-loading > .#{$button-prefix-cls}-loading-label{
+    //  font-size: $font-size-md;
+    //  line-height: 1;
+    //  padding-right: $button-padding-x-md;
+    //}
+}
+//大型（默认）
+.#{$button-prefix-cls}-lg,.#{$button-prefix-cls} {
+  @include button-size($button-padding-y-lg, $button-padding-x-lg, var(--#{$button-prefix-cls}-default-font-size), $button-height-lg);
+}
+//特大型
+.#{$button-prefix-cls}-xg {
+  @include button-size($button-padding-y-xg, $button-padding-x-xg, $font-size-xg, $button-height-xg);
+}
+//中型
+.#{$button-prefix-cls}-md {
+  @include button-size($button-padding-y-md, $button-padding-x-md, $font-size-md, $button-height-md);
+  min-width: 48px;
+}
+//小型
+.#{$button-prefix-cls}-sm {
+  @include button-size($button-padding-y-sm, $button-padding-x-sm, $font-size-sm, $button-height-sm);
+  min-width: 44px;
+}
+
+.#{$button-prefix-cls}{
+  &-loading{
+    pointer-events: none;
+    overflow: visible;
+    & > &-wrapper {
+      margin-right: 4px;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      border: none !important; //兼容老版本，避免因引入组件的 js 和 css 版本不一致，导致样式混乱的问题
+      background: transparent !important;
+      line-height: 1;
+      & > i.uf{
+        line-height: 1;
+        display: inline-block;
+        -webkit-animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+        animation: rotate1 1s 0s linear infinite !important; //兼容老版本
+      }
+    }
+    &:before{
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      z-index: 9;
+      // display: none;
+      background: #fff;
+      border-radius: inherit;
+      opacity: 0.35;
+      transition: opacity .2s;
+      content: "";
+      pointer-events: none;
+    }
+  }
+  &-icon-cls{
+    // overflow: visible; // 已设置最大宽度 超出省略号显示 无需溢出显示了
+    & > &-wrapper {
+      animation-fill-mode: both;
+      border: none !important; //兼容老版本，避免因引入组件的 js 和 css 版本不一致，导致样式混乱的问题
+      background: transparent !important;
+    }
+    & > .#{$button-prefix-cls}-icon-cls-wrapper,& > .#{$button-prefix-cls}-loading-wrapper {
+      margin-right: 4px;
+    }
+  }
+  &-icon-only.#{$button-prefix-cls}.#{$button-prefix-cls}-icon-cls {
+    padding: 0;
+    width: $button-height-lg;
+    min-width: auto;
+    overflow: visible; // 只有icon，没有文字 无需省略号显示
+    & > .#{$button-prefix-cls}-icon-cls-wrapper{
+      margin: 0;
+    }
+    &.#{$button-prefix-cls}-md{
+      width: $button-height-md;
+    }
+    &.#{$button-prefix-cls}-sm{
+      width: $button-height-sm;
+    }
+    &.#{$button-prefix-cls}-block{
+      width: 100%;
+    }
+
+    &.#{$button-prefix-cls}-loading{
+      padding: 0;
+      .#{$button-prefix-cls}-loading-wrapper {
+        margin: 0;
+      }
+    }
+
+  }
+  &-text.#{$button-prefix-cls}-ghost {
+    color: var(--#{$button-prefix-cls}-text-inverse-color);
+    &:hover {
+      color: var(--#{$button-prefix-cls}-text-inverse-color-hover)
+
+    }
+  }
+}
+
+
+//方形按钮
+.#{$button-prefix-cls}-squared {
+  border-radius: 0;
+}
+
+// 圆形按钮
+
+.#{$button-prefix-cls}-round {
+  border-radius: 1000px;
+}
+
+//按钮充满整行
+.#{$button-prefix-cls}-block{
+  display: block;
+  width: 100%;
+}
+
+// 纯文本按钮
+.#{$button-prefix-cls}-plainText {
+  border: none;
+}
+
+//与.#{$button-prefix-cls}-round连用创建左半圆
+.#{$button-prefix-cls}-pill-left {
+  border-radius: 500px 0 0 500px;
+}
+//与.u-button-round连用创建右半圆
+.#{$button-prefix-cls}-pill-right {
+  border-radius: 0 500px 500px 0;
+}
+
+//加载按钮样式
+@keyframes rotate1 {
+  @include loading-rotate();
+}

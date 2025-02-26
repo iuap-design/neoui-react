@@ -1,0 +1,194 @@
+.position-icon {
+    z-index: 1;
+    position: fixed;
+    bottom: 164px;
+    right: 4px;
+    box-shadow: -2px 2px 12px 0 rgba(0, 0, 0, 0.10);
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    // overflow:hidden;
+    border-radius: 8px 0 0 8px;
+
+    .icon-box {
+        &:first-child {
+            .icon {
+                border-top-left-radius: 8px;
+            }
+        }
+
+        &:last-child {
+            .icon {
+                border-bottom-left-radius: 8px;
+            }
+        }
+    }
+}
+
+.feed-back,
+.contact-info {
+    position: relative;
+
+    .icon {
+        width: 68px;
+        height: 82px;
+        padding: 14px 0px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 14px;
+        box-sizing: border-box;
+        color: #333;
+
+        >i {
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: 4px;
+        }
+
+        >span {
+            display: block;
+        }
+
+        &:hover {
+            background-image: linear-gradient(270deg, #FF473A 0%, #FF8780 100%);
+            color: #fff;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 1px;
+            opacity: 0.5;
+            background: #ECECEC;
+        }
+
+        &:last-child::before {
+            opacity: 0;
+        }
+    }
+}
+
+.feed-back {
+    .icon {
+        >i {
+            background-image: url('../../../../public/positionicon/icon-feed.png');
+        }
+
+        &:hover {
+            >i {
+                background-image: url('../../../../public/positionicon/icon-feed-hover.png');
+            }
+        }
+    }
+
+    .popover {
+        display: none;
+        position: absolute;
+        bottom: 0px;
+        right: 80px;
+        width: 304px;
+        height: 218px;
+        background: #FFFFFF;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 8px;
+
+        .popover-title {
+            font-weight: 500;
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+
+            i {
+                display: inline-block;
+                background: url('../../../../public/positionicon/logo.png') no-repeat;
+                background-size: contain;
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+            }
+        }
+
+        .popover-img {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin: 0 12px;
+
+                >img {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                >span {
+                    display: block;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #666666;
+                    margin: 10px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.contact-info {
+    .icon {
+        >i {
+            background-image: url('../../../../public/positionicon/icon-contact.png');
+        }
+
+        &:hover {
+            >i {
+                background-image: url('../../../../public/positionicon/icon-contact-hover.png');
+            }
+        }
+    }
+
+    .popover {
+        display: none;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        z-index: -1;
+    }
+
+    .popover-content {
+        min-width: 240px;
+        padding: 14px 8px;
+        margin-right: 80px;
+        background: #FFFFFF;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 8px;
+        list-style: none;
+
+        li {
+            color: #666666;
+            margin: 0 12px;
+            white-space: nowrap;
+            font-size: 16px;
+
+            >span {
+                width: 56px;
+                line-height: 22px;
+                display: inline-flex;
+                justify-content: space-between;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+}

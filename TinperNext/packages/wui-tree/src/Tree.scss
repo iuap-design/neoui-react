@@ -1,0 +1,700 @@
+@import "../../wui-core/scss/minxin-mixins";
+$loading:url('data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7');
+
+//$treePrefixCls : $prefix-cls + "tree";
+
+//css 分割线
+
+.#{$treePrefixCls} {
+  margin: 0;
+  padding: 0 12px;
+  font-size: var(--#{$treePrefixCls}-font-size);
+  font-weight: var(--#{$treePrefixCls}-font-weight);
+  outline: none;
+
+  *, :after, :before {
+    box-sizing: border-box;
+  }
+
+  .#{$treePrefixCls}-checkbox {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+    height: 16px;
+    margin: 2px 0 0 8px;
+  }
+  .#{$treePrefixCls}-checkbox-inner {
+      position: relative;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 1px solid $border-color-dark;
+      border-radius: $border-radius-small;
+      // background-color: #fff;
+      background-color: $checkbox-bg-color;
+      // transition: all .3s;
+      box-sizing: border-box;
+
+      // 无选中，hover border颜色为黑色
+      &:hover, &:focus, &:active {
+        border-color: $hover-color-base;
+      }
+  }
+  // 半选中默认
+  .#{$treePrefixCls}-checkbox-indeterminate .#{$treePrefixCls}-checkbox-inner{
+    border-color: $checkbox-primary-bg;
+    background-color: $checkbox-primary-bg;
+    &:after {
+        position: absolute;
+        left: calc(50% - 6px);
+        top: calc(50% - 6px);
+        color: var(--#{$checkbox-prefix-cls}-color-bg-mark-fill-selected);
+        content: unicode("e6ce");
+        font-family: "uf";
+        font-size: 12px;
+        font-weight: bold;
+        transform: scale(0.8, 1);
+    }
+    &:hover{
+      border-color: $checkbox-primary-bg-hover;
+      background: $checkbox-primary-bg-hover;
+    }
+  }
+  // 全选中默认
+  .#{$treePrefixCls}-checkbox-checked .#{$treePrefixCls}-checkbox-inner{
+    border-color: $checkbox-primary-bg;
+    background-color: $checkbox-primary-bg;
+    &:after {
+      position: absolute;
+      left: calc(50% - 6px);
+      top: calc(50% - 6px);
+      color: var(--#{$checkbox-prefix-cls}-color-bg-mark-fill-selected);
+      content: unicode("e685");
+      font-family: 'next-icon';
+      font-size: 12px;
+      font-weight: bold;
+    }
+    &:hover {
+      border-color: $checkbox-primary-bg-hover;
+      background: $checkbox-primary-bg-hover;
+    }
+  }
+  // ================================== disabled ======================================
+  .#{$treePrefixCls}-checkbox-disabled .#{$treePrefixCls}-checkbox-inner {
+    border-color: $checkbox-disabled-border-color;
+    &:hover {
+      border-color: $checkbox-disabled-border-color;
+    }
+    cursor: not-allowed;
+    &:after {
+      animation-name: none;
+    }
+  }
+  .#{$treePrefixCls}-checkbox-disabled.#{$treePrefixCls}-checkbox-checked,
+  .#{$treePrefixCls}-checkbox-disabled.#{$treePrefixCls}-checkbox-indeterminate,
+  .#{$treePrefixCls}-checkbox-disabled.#{$treePrefixCls}-checkbox-checked.#{$treePrefixCls}-checkbox-inverse,
+  .#{$treePrefixCls}-checkbox-disabled.#{$treePrefixCls}-checkbox-indeterminate.#{$treePrefixCls}-checkbox-inverse{
+    .#{$treePrefixCls}-checkbox-inner{
+      background: $checkbox-disabled-bg-color;
+      &:after {
+        // animation-name: none;
+        //color: #c1c7d0;
+        //border-color: #c1c7d0;
+        color: $checkbox-disabled-checked-color;
+      }
+    }
+  }
+  // ================================== disabled ======================================
+  // inverse 半选中&全选中
+  .#{$treePrefixCls}-checkbox-checked.#{$treePrefixCls}-checkbox-inverse,
+  .#{$treePrefixCls}-checkbox-indeterminate.#{$treePrefixCls}-checkbox-inverse {
+    .#{$treePrefixCls}-checkbox-inner {
+      border-color: $border-color-dark;
+      background-color: $checkbox-bg-color;
+      &:hover {
+        border-color: $hover-color-base;
+      }
+      &:after {
+        color: var(--#{$checkbox-prefix-cls}-color-bg-mark-selected);
+      }
+    }
+  }
+  li {
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &.#{$treePrefixCls}-treenode-parent {
+      >span.#{$treePrefixCls}-checkbox {
+        margin-right: 0;
+      }
+    }
+    .#{$treePrefixCls}-treenode-line-content {
+      display: flex;
+      align-items: center;
+    }
+  }
+  li a[draggable],
+  li a[draggable="true"] {
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+  li.drag-over > .#{$treePrefixCls}-treenode-line-content > a[draggable],
+  li.drag-over > .#{$treePrefixCls}-line > a[draggable] {
+    background-color: #108ee9;
+    color: white;
+    opacity: 0.8;
+    position: relative;
+  }
+
+  li.drag-over-gap-top > .#{$treePrefixCls}-treenode-line-content > a[draggable],
+  li.drag-over-gap-top > .#{$treePrefixCls}-line > a[draggable] {
+    & .#{$treePrefixCls}-node-before {
+      top: 0;
+      border-color: #108ee9;
+    }
+    & .#{$treePrefixCls}-node-after {
+      top: 3px;
+      background-color:#108ee9;
+    }
+  }
+  li.drag-over-gap-bottom > .#{$treePrefixCls}-treenode-line-content > a[draggable],
+  li.drag-over-gap-bottom > .#{$treePrefixCls}-line > a[draggable] {
+    position: relative;
+    border-radius: 0;
+    & .#{$treePrefixCls}-node-before {
+      border-color: #108ee9;
+    }
+    & .#{$treePrefixCls}-node-after {
+      background-color:#108ee9;
+    }
+  }
+  li.#{$treePrefixCls}-treenode-filter-node > a,
+  li.#{$treePrefixCls}-treenode-filter-node > .#{$treePrefixCls}-line > a {
+    color: #f50;
+    font-weight: bold;
+  }
+  li ul {
+    margin: 0;
+    padding: 0 0 0 26px;
+  }
+
+  li a.#{$treePrefixCls}-node-content-wrapper {
+    padding: 3px 5px;
+    // min-width: calc(100% - 44px);
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    margin-left: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: middle;
+    color: var(--#{$treePrefixCls}-color-text);
+    transition: all .3s ease;
+    position: relative;
+    // z-index: 1;
+    & .#{$treePrefixCls}-node-before {
+      position: absolute;
+      bottom: -3px;
+      left: 4px;
+      content: ' ';
+      width: 8px;
+      height: 8px;
+      border: 2px solid transparent;
+      border-radius: 99px;
+      opacity: 1;
+    }
+    & .#{$treePrefixCls}-node-after {
+      position: absolute;
+      bottom: 0px;
+      left: 12px;
+      right: 0;
+      content: ' ';
+      height: 2px;
+      opacity: 1;
+    }
+    .#{$treePrefixCls}-title {
+      flex: 1;
+      max-width: 100%;
+    }
+  }
+  li.#{$treePrefixCls}-treenode-drag-x-right a.#{$treePrefixCls}-node-content-wrapper {
+    & .#{$treePrefixCls}-node-before {
+      left: 28px;
+    }
+    & .#{$treePrefixCls}-node-after {
+      left: 34px;
+      width: calc(100% - 8px);
+    }
+  }
+  li.#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-treenode-line-content > a.#{$treePrefixCls}-node-content-wrapper,
+  li.#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-content-wrapper {
+    cursor: not-allowed;
+  }
+  // ========expandOnClickNode为true模式==========
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-treenode-line-content,
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line {
+    > a.#{$treePrefixCls}-node-content-wrapper {
+      z-index: 1;
+      &::before {
+        width: 100%;
+        min-height: 28px;
+        content: " ";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        z-index: -9;
+        visibility: hidden;
+      }
+    }
+  }
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-treenode-line-content:hover,
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line:hover {
+    > a.#{$treePrefixCls}-node-content-wrapper::before {
+      background-color: $base-item-bg-color-hover;
+      visibility: visible;
+    }
+    background-color: $base-item-bg-color-hover;
+    & > .#{$treePrefixCls}-switcher {
+      background-color: $base-item-bg-color-hover;
+    }
+  }
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled).#{$treePrefixCls}-treenode-selected > .#{$treePrefixCls}-treenode-line-content,
+  &.#{$treePrefixCls}-expand-on-click li:not(.#{$treePrefixCls}-treenode-disabled).#{$treePrefixCls}-treenode-selected > .#{$treePrefixCls}-line {
+    > a.#{$treePrefixCls}-node-content-wrapper::before {
+      visibility: visible;
+      background-color: $base-item-bg-color-selected;
+    }
+    background-color: $base-item-bg-color-selected;
+    & > .#{$treePrefixCls}-switcher {
+      background-color: $base-item-bg-color-selected;
+    }
+    &:hover {
+      > a.#{$treePrefixCls}-node-content-wrapper::before {
+        visibility: visible;
+        background-color: $base-item-bg-color-selected-hover;
+      }
+      background-color: $base-item-bg-color-selected-hover;
+      & > .#{$treePrefixCls}-switcher {
+        background-color: $base-item-bg-color-selected-hover;
+      }
+    }
+  }
+  // ========expandOnClickNode为true模式==========
+  // ========expandOnClickNode为false模式==========
+  &:not(.#{$treePrefixCls}-expand-on-click) li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-treenode-line-content > a.#{$treePrefixCls}-node-content-wrapper:hover,
+  &:not(.#{$treePrefixCls}-expand-on-click) li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-content-wrapper:hover {
+    background-color: $base-item-bg-color-hover;
+  }
+  &:not(.#{$treePrefixCls}-expand-on-click) li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-treenode-line-content > a.#{$treePrefixCls}-node-selected,
+  &:not(.#{$treePrefixCls}-expand-on-click) li:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-selected {
+    background-color: $base-item-bg-color-selected;
+    &:hover {
+      background-color: $base-item-bg-color-selected-hover;
+    }
+  }
+    // ========expandOnClickNode为false模式==========
+  li.#{$treePrefixCls}-treenode-focused:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-treenode-line-content > a.#{$treePrefixCls}-node-content-wrapper, // 快捷键路过未选中的节点，背景色和hover的一致
+  li.#{$treePrefixCls}-treenode-focused:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-content-wrapper {
+    background-color: $base-item-bg-color-hover;
+  }
+  li.#{$treePrefixCls}-treenode-focused.#{$treePrefixCls}-treenode-selected:not(.#{$treePrefixCls}-treenode-disabled) > a.#{$treePrefixCls}-node-content-wrapper,
+  li.#{$treePrefixCls}-treenode-focused.#{$treePrefixCls}-treenode-selected:not(.#{$treePrefixCls}-treenode-disabled) > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-content-wrapper {
+    background-color: $base-item-bg-color-selected-hover; // 快捷键路过已选中的节点，是深色背景色
+  }
+
+  li.#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-treenode-line-content > a.#{$treePrefixCls}-node-selected:hover,
+  li.#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-line > a.#{$treePrefixCls}-node-selected:hover {
+    background-color: $base-item-bg-color-selected;
+  }
+  li span.#{$prefix-cls}checkbox {
+    margin: 2px 4px 0 0;
+  }
+  li span.#{$treePrefixCls}-switcher,
+  li span.#{$treePrefixCls}-iconEle {
+    margin: 0 4px 0 2px;
+    width: 12px;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    color: var(--#{$treePrefixCls}-color-icon);
+    i.uf{
+      font-size: var(--#{$treePrefixCls}-font-size-icon);
+      padding: 0px;
+    }
+    + .#{$treePrefixCls}-title{
+      margin-left: 2px;
+      color: var(--#{$treePrefixCls}-color-text);
+    }
+  }
+  li span.#{$treePrefixCls}-iconEle {
+    font-size: var(--#{treePrefixCls}-font-size-icon);
+  }
+  // &-rtl{
+  //   li span.#{$treePrefixCls}-switcher.icon-none {
+  //     i.#{$treePrefixCls}-switcher-state-icon {
+  //       &::before {
+  //         display: inline-block;
+  //         transform: rotate(270deg) scale(0.75);
+  //       }
+  //     }
+  //   }
+
+  // }
+  li span.#{$treePrefixCls}-switcher.icon-none {
+      i.#{$treePrefixCls}-switcher-state-icon {
+        display: inline-block;
+        color: var(--#{$wui-prefix}-color-icon-global-normal);
+        font-size: 12px;
+        &:hover {
+          // background: var(--#{$menu-prefix-cls}-separate-hover);
+          border-radius: 2px;
+          color: var(--#{$wui-prefix}-color-icon-global-hover);
+        }
+        &::before {
+          display: inline-block;
+          /*!rtl:ignore*/
+          transform: rotate(-90deg) scale(0.75);
+          font-weight: 700;
+        }
+      }
+      &.#{$treePrefixCls}-noline_open,
+      &.#{$treePrefixCls}-roots_open,
+      &.#{$treePrefixCls}-center_open,
+      &.#{$treePrefixCls}-bottom_open {
+        i.#{$treePrefixCls}-switcher-state-icon::before {
+          transform: rotate(0deg) scale(0.75);
+        }
+      }
+  }
+  li span.#{$treePrefixCls}-icon_loading:after {
+    display: inline-block;
+    // margin-right: 2px;
+    vertical-align: middle;
+    background: $loading no-repeat scroll 0 0 transparent;
+    // text-rendering: optimizeLegibility;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+    content: "";
+    // -webkit-animation: loadingCircle 1s infinite linear;
+    //         animation: loadingCircle 1s infinite linear;
+     width: 14px;
+     height: 14px;
+  }
+  li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-switcher-noop {
+    min-width: 14px;
+    cursor: default;
+    pointer-events: none;
+    // margin-right: 18px;
+
+    &.#{$treePrefixCls}-center_docu {
+      &+ a {
+        margin-left: 5px;
+      }
+    }
+  }
+  div.#{$treePrefixCls}-line span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-switcher-noop {
+    margin-right: 4px;
+  }
+  li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_open,
+  li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_open,
+  li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_open,
+  li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_open {
+    // margin-right: 4px;
+    // margin-left: 1px;
+    display: inline-flex;
+    position: relative;
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    line-height: 1;
+    // border: 1px solid $border-color-dark;
+    border-radius: $border-radius-small;
+    z-index: 2;
+    > i.#{$treePrefixCls}-switcher-state-icon {
+      margin-top: 2px;
+    }
+    // background-color: #fff;
+    &:hover {
+      background-color: $base-item-bg-color-hover;
+    }
+  }
+  // li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_open:after,
+  // li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_open:after,
+  // li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_open:after,
+  // li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_open:after {
+  //   font-size: 12px;
+  //   // font-size: 7px \9;
+  //   /* IE6-IE8 */
+  //   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+  //   zoom: 1;
+  //   display: inline-block;
+  //   // font-family: 'uf';
+  //   text-rendering: optimizeLegibility;
+  //   -webkit-font-smoothing: antialiased;
+  //   -moz-osx-font-smoothing: grayscale;
+  //   color: $brand-default;
+  //   width: 12px;
+  //   font-weight: bold;
+  //   /* position: relative; */
+  //   top: calc(50% - 1px);
+  //   left: 50%;
+  //   position: absolute;
+  //   content: "-";
+  //   // transform: translate(-50%,-50%);
+  //   transform: translate(-50%, -50%) scale(1.6, 1);
+
+  // }
+  .#{$treePrefixCls}-child-tree {
+    display: none;
+  }
+  .#{$treePrefixCls}-child-tree-open {
+    display: block;
+  }
+  .#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-treenode-line-content,
+  .#{$treePrefixCls}-treenode-disabled > .#{$treePrefixCls}-line {
+    > a,
+    > .#{$treePrefixCls}-checkbox-disabled,
+    > a span {
+      color: $base-item-text-color-disabled;
+      cursor: not-allowed;
+      &:hover{
+        background: transparent;
+      }
+    }
+  }
+  .#{$treePrefixCls}-icon__open {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+  .#{$treePrefixCls}-icon__close {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+  .#{$prefix-cls}motion-collapse {
+    overflow: hidden;
+  }
+  .#{$prefix-cls}motion-collapse-active {
+    transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
+.#{$treePrefixCls}-block-node {
+  li a.#{$treePrefixCls}-node-content-wrapper {
+    // width: calc(100% - 43px); // 减掉checkbox的14width+8marginLeft
+    flex: auto;
+  }
+}
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_open:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_open:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_open:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_open:after {
+//   filter: none;
+// }
+.#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_close,
+.#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_close,
+.#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_close,
+.#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_close {
+  position: relative;
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  // border: 1px solid $border-color-dark;
+  border-radius: $border-radius-small;
+  z-index: 2;
+  // background-color: #fff;
+  &:hover {
+    background-color: $base-item-bg-color-hover;
+  }
+}
+// .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_close:after,
+// .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_close:after,
+// .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_close:after,
+// .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_close:after {
+//   transform: translate(0, -2px);
+//   width: 12px;
+//   line-height: 14px;
+//   font-size: 14px;
+//   /* IE6-IE8 */
+//   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+//   zoom: 1;
+//   display: inline-block;
+//   font-family: 'uf';
+//   text-rendering: optimizeLegibility;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   content: "+";
+//   font-weight: bold;
+//   color: $brand-default;
+// }
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-roots_close:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-center_close:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-bottom_close:after,
+// :root .#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.#{$treePrefixCls}-noline_close:after {
+//   filter: none;
+// }
+
+/**
+ * 自定义switcher图标
+ */
+
+.#{$treePrefixCls} li span.#{$treePrefixCls}-switcher.icon-none {
+
+  // &:after{
+  //   content:"";
+  // }
+  .uf {
+    padding: 0px;
+    font-size: 12px;
+  }
+}
+
+
+// 连接线情况下树的样式。由于现在的树还是嵌套结构，所以会多使用">"选择器。
+.#{$treePrefixCls} {
+  &.#{$treePrefixCls}-show-line {
+
+    .#{$treePrefixCls}-line { // 拥有连接线dom节点的父容器
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    > .#{$treePrefixCls}-treenode:only-child // 唯一子节点没有纵向连接线
+      > .#{$treePrefixCls}-line
+        > span.#{$treePrefixCls}-treenode-line {
+          &::before {
+            border: 0;
+          }
+    }
+
+    .#{$treePrefixCls}-treenode > .#{$treePrefixCls}-line > span.#{$treePrefixCls}-indents {
+      position: absolute;
+      height: 100%;
+
+      .#{$treePrefixCls}-indent {
+        display: inline-block;
+        width: 26px; // 与ul的padding保持一致
+      }
+      .#{$treePrefixCls}-indent:not(.#{$treePrefixCls}-indent-end) { // 第一类线：不是最后一个的tree-node，有向下连接的小竖线
+        position: relative;
+        height: 100%;
+        &::before {
+          position: absolute;
+          left: 7px;
+          border-left: 1px dashed #d0d0d0;
+          content: " ";
+          height: 100%;
+        }
+      }
+    }
+
+    > .#{$treePrefixCls}-treenode:only-child // 唯一子节点没有纵向连接线
+      > .#{$treePrefixCls}-line
+        > span.#{$treePrefixCls}-treenode-line {
+          &::before {
+            border: 0;
+          }
+    }
+
+    .#{$treePrefixCls}-treenode span.#{$treePrefixCls}-treenode-line {
+      width: 1px;
+      height: 100%;
+      display: inline-block;
+      position: absolute;
+      margin-top: 0px;
+
+      &::before { // 第二类线：除最后一个子节点(li)，都拥有和上一个节点组合(ul)或兄弟节点(li)相连接的竖线
+        content: " ";
+        height: 100%;
+        border-left: 1px dashed #d0d0d0;
+        position: absolute;
+        left: 7px;
+        top: -1px;
+      }
+
+      &::after { // 第三类线：每一个节点都有的横线
+        content: " ";
+        width: 15px;
+        border-top: 1px dashed #d0d0d0;
+        position: absolute;
+        top: calc( 50% - 1px );
+        left: 9px;
+      }
+    }
+
+    > .#{$treePrefixCls}-treenode:first-of-type > .#{$treePrefixCls}-line { // 全树都第一个节点没有向上连接的长度部分
+      span.#{$treePrefixCls}-treenode-line {
+        &::before {
+          height: 50%;
+          top: 50%;
+        }
+      }
+    }
+
+    .#{$treePrefixCls}-treenode:last-of-type > .#{$treePrefixCls}-line { // 每颗树（根节点或者子树）最后一个treenode没有向下连接的长度部分
+      > span.#{$treePrefixCls}-treenode-line {
+        &::before {
+          height: 50%;
+        }
+      }
+    }
+  }
+
+  :focus {
+      outline: none;
+  }
+}
+
+.#{$treePrefixCls}-infinite-scroll { // 懒加载树start-node和end-node之间的3种特殊节点处理
+  @include set-scrollbar-style(); 
+
+  .#{$treePrefixCls}-show-line {
+
+    .#{$prefix-cls}treenode-start + .#{$treePrefixCls}-treenode:nth-last-of-type(2) { // 1.懒加载树的唯一根节点（除去虚拟节点start-node和end-node）没有任何竖连接线
+      > .#{$treePrefixCls}-line > span.#{$treePrefixCls}-treenode-line,
+      > .#{$treePrefixCls}-child-tree-open {
+        &::before {
+          border: 0;
+        }
+      }
+    }
+
+
+    .#{$prefix-cls}treenode-start + .#{$treePrefixCls}-treenode { // 2.懒加载树的第一个非唯一根节点（除去虚拟节点start-node和end-node的第一个根节点），只有向下连接的线。
+      > .#{$treePrefixCls}-line {
+        > span.#{$treePrefixCls}-treenode-line {
+          &::before {
+            height: 50%;
+            top: 50%;
+          }
+        }
+      }
+    }
+
+    > .#{$treePrefixCls}-treenode:nth-last-of-type(2) > .#{$treePrefixCls}-line { // 3.懒加载树的最后一个非唯一根节点（除去虚拟节点start-node和end-node的最后一个根节点），只有向上连接的线
+      > span.#{$treePrefixCls}-treenode-line {
+        &::before {
+          height: 50%;
+        }
+      }
+    }
+
+  }
+}

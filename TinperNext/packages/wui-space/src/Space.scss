@@ -1,0 +1,302 @@
+@import '../../wui-core/scss/minxin-mixins';
+
+//$space-prefix-cls: $prefix-cls+'space';
+$space-item-prefix-cls: $prefix-cls + 'space-item';
+
+// dropdown.button
+$dropdown-group-btn-cls: $button-group-prefix-cls + '.' + $dropdown-group-btn;
+// input
+$input-cls: $prefix-cls + 'input';
+// inputnumber
+$inputnumber-out-cls: $input-cls + '-number-out';
+$inputnumber-cls: $inputnumber-out-cls + ' > .' + $input-cls + '-number';
+// select
+$select-cls: $prefix-cls + 'select';
+// datepicker
+$datepicker-cls: $prefix-cls + 'picker';
+// timepicker
+$timepicker-cls: $prefix-cls + 'time-picker';
+// cascader
+$cascader-cls: $prefix-cls + 'cascader-picker';
+$cascader-input-cls: $cascader-cls + ' > .' + $prefix-cls + 'cascader-input';
+// autocomplete
+$autocomplete-cls: $prefix-cls + 'autocomplete';
+$autocomplete-input-cls: $autocomplete-cls + ' > .' + $prefix-cls + 'input';
+
+.#{$space-prefix-cls} {
+    display: inline-flex;
+
+    &-rtl {
+        /*!rtl:ignore*/
+        direction: rtl;
+    }
+
+    &-vertical {
+        flex-direction: column;
+    }
+
+    &-align {
+        &-center {
+            align-items: center;
+        }
+
+        &-start {
+            align-items: flex-start;
+        }
+
+        &-end {
+            align-items: flex-end;
+        }
+
+        &-baseline {
+            align-items: baseline;
+        }
+    }
+}
+
+.#{$space-item-prefix-cls} {
+    &:empty {
+        display: none;
+    }
+}
+
+/*
+* Compact 组件样式
+*/
+// 横向样式
+/*!rtl:begin:ignore*/
+.#{$space-prefix-cls}-compact {
+    display: inline-flex;
+
+    & > :first-child:not(:last-child) {
+        &.#{$dropdown-group-btn-cls} > .#{$button-prefix-cls}:last-child,
+        &.#{$input-cls},
+        &.#{$inputnumber-cls},
+        &.#{$select-cls},
+        &.#{$datepicker-cls},
+        &.#{$timepicker-cls},
+        &.#{$cascader-input-cls},
+        &.#{$autocomplete-input-cls},
+        &.#{$button-prefix-cls} {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+
+    & > :last-child:not(:first-child) {
+        &.#{$dropdown-group-btn-cls} > .#{$button-prefix-cls}:first-child,
+        &.#{$input-cls},
+        &.#{$inputnumber-cls},
+        &.#{$select-cls},
+        &.#{$datepicker-cls},
+        &.#{$timepicker-cls},
+        &.#{$cascader-input-cls},
+        &.#{$autocomplete-input-cls},
+        &.#{$button-prefix-cls} {
+            /*!rtl:ignore*/
+            border-bottom-left-radius: 0;
+            /*!rtl:ignore*/
+            border-top-left-radius: 0;
+        }
+    }
+
+    &-rtl{
+        /*!rtl:ignore*/
+        & > :not(:first-child):not(:last-child) {
+            &.#{$dropdown-group-btn-cls} {
+                & > .#{$button-prefix-cls}:first-child {
+                    /*!rtl:ignore*/
+                    border-bottom-right-radius: 0;
+                    /*!rtl:ignore*/
+                    border-top-right-radius: 0;
+                }
+    
+                & > .#{$button-prefix-cls}:last-child {
+                    /*!rtl:ignore*/
+                    border-bottom-left-radius: 0;
+                    /*!rtl:ignore*/
+                    border-top-left-radius: 0;
+                }
+            }
+        }
+        & > :last-child:not(:first-child) {
+            &.#{$dropdown-group-btn-cls} > .#{$button-prefix-cls}:first-child,
+            &.#{$input-cls},
+            &.#{$inputnumber-cls},
+            &.#{$select-cls},
+            &.#{$datepicker-cls},
+            &.#{$timepicker-cls},
+            &.#{$cascader-input-cls},
+            &.#{$autocomplete-input-cls},
+            &.#{$button-prefix-cls} {
+                /*!rtl:ignore*/
+                border-bottom-right-radius: 0;
+                /*!rtl:ignore*/
+                border-top-right-radius: 0;
+                border-bottom-left-radius:  var(--#{$button-prefix-cls}-border-radius);
+                border-top-left-radius:  var(--#{$button-prefix-cls}-border-radius);
+            }
+        }
+        & > :first-child:not(:last-child) {
+            &.#{$dropdown-group-btn-cls} > .#{$button-prefix-cls}:last-child,
+            &.#{$input-cls},
+            &.#{$inputnumber-cls},
+            &.#{$select-cls},
+            &.#{$datepicker-cls},
+            &.#{$timepicker-cls},
+            &.#{$cascader-input-cls},
+            &.#{$autocomplete-input-cls},
+            &.#{$button-prefix-cls} {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius:  var(--#{$button-prefix-cls}-border-radius);
+                border-top-right-radius:  var(--#{$button-prefix-cls}-border-radius);
+            }
+        }
+        & > :not(:first-child) {
+            margin-right: -1px;
+        }
+    }
+
+    & > :not(:first-child):not(:last-child) {
+        &.#{$input-cls},
+        &.#{$inputnumber-cls},
+        &.#{$select-cls},
+        &.#{$datepicker-cls},
+        &.#{$timepicker-cls},
+        &.#{$cascader-input-cls},
+        &.#{$autocomplete-input-cls},
+        &.#{$button-prefix-cls} {
+            border-radius: 0;
+        }
+
+        &.#{$dropdown-group-btn-cls} {
+            & > .#{$button-prefix-cls}:first-child {
+                /*!rtl:ignore*/
+                border-bottom-left-radius: 0;
+                /*!rtl:ignore*/
+                border-top-left-radius: 0;
+            }
+
+            & > .#{$button-prefix-cls}:last-child {
+                /*!rtl:ignore*/
+                border-bottom-right-radius: 0;
+                /*!rtl:ignore*/
+                border-top-right-radius: 0;
+            }
+        }
+    }
+
+    & > .#{$button-prefix-cls},
+    & > .#{$input-cls},
+    & > .#{$inputnumber-out-cls},
+    & > .#{$select-cls},
+    & > .#{$datepicker-cls},
+    & > .#{$timepicker-cls},
+    & > .#{$cascader-cls},
+    & > .#{$autocomplete-cls},
+    & > .#{$dropdown-group-btn-cls} {
+        &:hover,
+        &:active {
+            z-index: 3;
+        }
+    }
+
+    & > .#{$select-cls}-focused,
+    & > .#{$datepicker-cls}-focused,
+    & > .#{$timepicker-cls}-focused,
+    & > .#{$cascader-cls}-focused,
+    & > .#{$autocomplete-cls}:focus-within,
+    & > .#{$inputnumber-out-cls}:focus-within,
+    & > .#{$input-cls}:focus {
+        z-index: 2;
+    }
+   
+    & > :not(:first-child) {
+        margin-left: -1px;
+    }
+
+    & > .#{$inputnumber-out-cls} {
+        width: unset;
+    }
+}
+/*!rtl:end:ignore*/
+
+
+// 竖向样式
+.#{$space-prefix-cls}-compact-vertical {
+    flex-direction: column;
+
+    & > :first-child:not(:last-child) {
+        &.#{$button-prefix-cls} {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        &.#{$dropdown-group-btn-cls} {
+            & > .#{$button-prefix-cls}:first-child {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 4px;
+            }
+
+            & > .#{$button-prefix-cls}:last-child {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 4px;
+            }
+        }
+    }
+
+    & > :last-child:not(:first-child) {
+        &.#{$button-prefix-cls} {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        &.#{$dropdown-group-btn-cls} {
+            & > .#{$button-prefix-cls}:first-child {
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 0;
+            }
+
+            & > .#{$button-prefix-cls}:last-child {
+                border-bottom-right-radius: 4px;
+                border-top-right-radius: 0;
+            }
+        }
+    }
+
+    & > :not(:first-child):not(:last-child) {
+        &.#{$button-prefix-cls} {
+            border-radius: 0;
+        }
+
+        &.#{$dropdown-group-btn-cls} {
+            & > .#{$button-prefix-cls}:first-child {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+
+            & > .#{$button-prefix-cls}:last-child {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+    }
+
+    & > .#{$button-prefix-cls} + .#{$button-prefix-cls},
+    & > .#{$button-prefix-cls} + .#{$dropdown-group-btn-cls},
+    & > .#{$dropdown-group-btn-cls} + .#{$dropdown-group-btn-cls},
+    & > .#{$dropdown-group-btn-cls} + .#{$button-prefix-cls} {
+        margin-top: -1px;
+        margin-left: 0;
+    }
+}
+
+.#{$space-prefix-cls}-compact-block {
+    display: flex;
+    width: 100%;
+}

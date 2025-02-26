@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown label style and custom arrow <test prop:: label> <test prop:: arrow>  1`] = `
+<div>
+  <div
+    class="mui-dropdown"
+    data-testid="dropdown"
+  >
+    <div
+      class="mui-dropdown-nav"
+    >
+      <div
+        class="mui-dropdown-item"
+        data-testid="item"
+      >
+        <div
+          class="mui-dropdown-item-title mui-dropdown-item-title-label"
+        >
+          <span
+            class="mui-dropdown-item-title-text"
+          >
+            sorter
+          </span>
+          <span
+            class="mui-dropdown-item-title-arrow"
+          >
+            <svg
+              fill="currentColor"
+              height="0.32rem"
+              id="arcarrow-down-s-Fill"
+              viewBox="0 0 1024 1024"
+              width="0.32rem"
+            >
+              <path
+                d="M512 725.333333c-21.589333 0-42.24-9.941333-56.576-27.392L275.669333 480.426667a88.96 88.96 0 0 1-11.050666-94.336C277.632 358.485333 303.530667 341.333333 332.245333 341.333333h359.509334c28.714667 0 54.613333 17.152 67.626666 44.757334 14.762667 31.274667 10.453333 68.266667-11.008 94.293333l-179.797333 217.557333c-14.336 17.450667-34.986667 27.392-56.576 27.392z"
+                fill="currentColor"
+                height="0.32rem"
+                viewBox="0 0 48 48"
+                width="0.32rem"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

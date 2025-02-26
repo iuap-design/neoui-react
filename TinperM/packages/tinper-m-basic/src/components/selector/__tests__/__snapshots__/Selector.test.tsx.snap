@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector Component  should be 2 columns <test prop:: columns> 1`] = `
+<div
+  class="mui-selector"
+  role="listbox"
+  style="--flex: auto; --item-width: 1.44rem;"
+>
+  <div
+    class="mui-grid"
+    style="--columns: 2;"
+  >
+    <div
+      aria-selected="false"
+      class="mui-selector-item"
+      fieldid="undefined-1"
+      role="option"
+    >
+      <div
+        class="mui-selector-item-label"
+      >
+         
+        选项1
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="mui-selector-item"
+      fieldid="undefined-2"
+      role="option"
+    >
+      <div
+        class="mui-selector-item-label"
+      >
+         
+        选项2
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="mui-selector-item"
+      fieldid="undefined-3"
+      role="option"
+    >
+      <div
+        class="mui-selector-item-label"
+      >
+         
+        选项3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Selector Component  should be fixed width <test prop:: widthAdjustment> 1`] = `
+<div
+  class="mui-selector"
+  role="listbox"
+  style="--flex: none; --item-width: 200px;"
+>
+  <div
+    class="mui-space mui-space-block mui-space-horizontal"
+    style="--gap: 0.08rem;"
+  >
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-1"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项1
+        </div>
+      </div>
+    </div>
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-2"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项2
+        </div>
+      </div>
+    </div>
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-3"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Selector Component  should not render checkMark <test prop:: showCheckMark> 1`] = `
+<div
+  aria-selected="true"
+  class="mui-selector-item mui-selector-item-active mui-selector-with-no-badge"
+  fieldid="undefined-1"
+  role="option"
+>
+  <div
+    class="mui-selector-item-label"
+  >
+     
+    选项1
+  </div>
+</div>
+`;
+
+exports[`Selector Component  width should be determined by the content <test prop:: widthAdjustment> 1`] = `
+<div
+  class="mui-selector"
+  role="listbox"
+  style="--flex: none; --item-width: auto;"
+>
+  <div
+    class="mui-space mui-space-block mui-space-horizontal"
+    style="--gap: 0.08rem;"
+  >
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-1"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项1
+        </div>
+      </div>
+    </div>
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-2"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项2
+        </div>
+      </div>
+    </div>
+    <div
+      class="mui-space-item"
+    >
+      <div
+        aria-selected="false"
+        class="mui-selector-item"
+        fieldid="undefined-3"
+        role="option"
+      >
+        <div
+          class="mui-selector-item-label"
+        >
+           
+          选项3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

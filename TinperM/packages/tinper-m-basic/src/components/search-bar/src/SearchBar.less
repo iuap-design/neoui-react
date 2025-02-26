@@ -1,0 +1,98 @@
+@import (reference) '../../../theme/index.less';
+
+.search-icon(@color){
+  color: @color;
+  width: 0.44rem;
+  height: 0.44rem;
+}
+
+.@{search-bar-prefix-cls} {
+  // 搜索框的css变量
+  --background-input: ~"var(--@{search-bar-prefix-cls}-color-bg-input-searchbar)";
+  --background-input-focused: ~"var(--@{search-bar-prefix-cls}-color-bg-input-searchbar-focused)";
+  --border-input: 1px solid ~"var(--@{search-bar-prefix-cls}-color-border-input-searchbar)";
+  --border-input-focused: 1px solid ~"var(--@{search-bar-prefix-cls}-color-border-input-searchbar-focused)";
+  --border-radius-input: ~"var(--@{search-bar-prefix-cls}-border-radius-searchbar)";
+  --prefix-icon-color: ~"var(--@{search-bar-prefix-cls}-color-icon-prefixicon-searchbar)";
+  --suffix-icon-color: ~"var(--@{search-bar-prefix-cls}-color-icon-suffixicon-searchbar)";
+  --placeholder-color: ~"var(--@{search-bar-prefix-cls}-color-text-placeholder-searchbar)";
+  // 外层容器的css变量
+  --background: ~"var(--@{search-bar-prefix-cls}-color-bg-searchbar)";
+  --border-radius: 0;
+  --pading-left: 0.22rem;
+  --height: 0.88rem;
+}
+
+.@{search-bar-prefix-cls} {
+  height: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  >:only-child {
+    margin: 0 0.24rem;
+  }
+
+  &-search-form{
+    display: contents;
+  }
+
+  &-input {
+    --color: ~"var(--@{search-bar-prefix-cls}-color-text-content-searchbar)";
+  }
+  &-input-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.60rem;
+    margin-left: 0.24rem;
+    background: var(--background-input);
+    width: 100%;
+    border-radius: var(--border-radius-input);
+    border: var(--border-input);
+    &-focused{
+      background: var(--background-input-focused);
+      border: var(--border-input-focused);
+    }
+  }
+  &-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--pading-left);
+    svg {
+      .search-icon(var(--prefix-icon-color))
+    }
+  }
+  &-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.24rem;
+    &-in{
+      margin-right: 0.22rem;
+      margin-left: 0;
+    }
+    svg {
+      .search-icon(var(--suffix-icon-color))
+    }
+  }
+  &-input{
+    padding-left: 0.08rem;
+    padding-right: 0.08rem;
+    --color-text-placeholder-input: var(--placeholder-color);
+  }
+
+  &-cancel-btn{
+    // width: 72px;
+    // white-space: nowrap;
+    min-width: unset;
+    color: ~"var(--@{search-bar-prefix-cls}-color-text-btn-searchbar)";
+    /* margin-left: 0.16rem;
+    height: 0.54rem;
+    font-size: 0.34rem;
+    font-weight: 400;
+    color: #111111;
+    line-height: 0.54rem; */
+  }
+}

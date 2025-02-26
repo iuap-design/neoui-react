@@ -1,0 +1,368 @@
+@import './prefix';
+@import './../minxin-colors';
+
+:root {
+  /**
+  * @desc 主色；
+  */
+  --#{$wui-prefix}-primary-color: var(--ynfw-color-primary, rgb(238, 34, 51)); // #ee2233
+  /**
+  * @desc 主色 hover态；
+  */
+  --#{$wui-prefix}-primary-color-hover: var(--ynfw-color-primary-hover, rgb(190, 27, 40)); // #be1b28
+  /**
+  * @desc 主色 active态；
+  */
+  --#{$wui-prefix}-primary-color-active: var(--ynfw-color-primary-pressed, rgb(190, 27, 40));
+  /**
+  * @desc 主色 浅色态；
+  */
+  --#{$wui-prefix}-primary-color-light: var(--ynfw-color-primary-light, rgba(238, 34, 51, 0.1));
+
+  /**
+  * @desc 次要色；
+  */
+  --#{$wui-prefix}-secondary-color:	var(--ynfw-color-bg-secondary, #dbe0e5);
+  /**
+  * @desc 主色 hover态；
+  */
+  --#{$wui-prefix}-secondary-color-hover: var(--ynfw-color-bg-secondary-hover, #c4c9cd);
+  /**
+  * @desc 主色 active态；
+  */
+  --#{$wui-prefix}-secondary-color-active: var(--ynfw-color-bg-secondary-pressed, #c4c9cd);
+
+  /**
+  * @desc 成功色；
+  */
+  --#{$wui-prefix}-success-color: var(--ynfw-color-success, #18b681);
+  /**
+  * @desc 成功色 hover态；
+  */
+  --#{$wui-prefix}-success-color-hover: var(--ynfw-color-success, #139167);
+  /**
+  * @desc 成功色 active态；
+  */
+  --#{$wui-prefix}-success-color-active: var(--ynfw-color-success, #139167);
+
+  /**
+  * @desc 提示色；
+  */
+  --#{$wui-prefix}-info-color: var(--ynfw-color-info, #588ce9);
+  /**
+  * @desc 提示色 hover态；
+  */
+  --#{$wui-prefix}-info-color-hover: var(--ynfw-color-info-hover, #4670ba);
+  /**
+  * @desc 提示色 active态；
+  */
+  --#{$wui-prefix}-info-color-active: var(--ynfw-color-info, #4670ba);
+
+  /**
+  * @desc 警告色；
+  */
+  --#{$wui-prefix}-warning-color: var(--ynfw-color-warning, #ffa600);
+  /**
+  * @desc 警告色 hover态；
+  */
+  --#{$wui-prefix}-warning-color-hover: var(--ynfw-color-warning, #cc8400);
+  /**
+  * @desc 警告色 active态；
+  */
+  --#{$wui-prefix}-warning-color-active: var(--ynfw-color-warning, #cc8400);
+
+  /**
+  * @desc 危险色；
+  */
+  --#{$wui-prefix}-danger-color: var(--ynfw-color-danger, #ff5735);
+  /**
+  * @desc 危险色 hover态；
+  */
+  --#{$wui-prefix}-danger-color-hover: var(--ynfw-color-danger, #cc452a);
+  /**
+  * @desc 危险色 active态；
+  */
+  --#{$wui-prefix}-danger-color-active: var(--ynfw-color-danger, #cc452a);
+
+  /**
+  * @desc 黑暗色；
+  */
+  --#{$wui-prefix}-dark-color: var(--ynfw-color-dark, #505766);
+  /**
+  * @desc 黑暗色 hover态；
+  */
+  --#{$wui-prefix}-dark-color-hover: var(--ynfw-color-dark-hover, #404551);
+  /**
+  * @desc 黑暗色 active态；
+  */
+  --#{$wui-prefix}-dark-color-active: var(--ynfw-color-dark-pressed, #404551);
+
+  // ? 公共base变量
+  // ! 面板及弹窗类
+  // 适用于Calendar/Card/Cascader/Collapse/DatePicker/Dropdown/Drawer/Menu/Modal/
+  // Popconfirm/Select/Tabs/TimePicker/Treeselect/Tooltip等
+  /**
+  * @desc 公共base变量：字体颜色；
+  */
+  --#{$wui-prefix}-base-text-color: var(--ynfw-color-text-option-panel, #111);
+  /**
+  * @desc 公共base变量：字体颜色 禁用态；
+  */
+  --#{$wui-prefix}-base-text-color-disabled: var(--ynfw-color-text-option-panel-disabled, #999);
+  /**
+  * @desc 公共base变量：边框颜色；
+  */
+  --#{$wui-prefix}-base-border-color: var(--ynfw-color-border-default, #d9d9d9);
+  /**
+  * @desc 公共base变量：边框颜色 禁用态；
+  */
+  --#{$wui-prefix}-base-border-color-disabled: var(--ynfw-color-border-disabled, #e4e4e4);
+  /**
+  * @desc 公共base变量：背景颜色；
+  */
+  --#{$wui-prefix}-base-bg-color: var(--ynfw-color-bg-global-default, #fff);
+  /**
+  * @desc 公共base变量：背景颜色 禁用态；
+  */
+  --#{$wui-prefix}-base-bg-color-disabled: var(--ynfw-color-bg-global-disabled, #f7f7f7);
+  /**
+  * @desc 公共base变量：面板背景颜色；
+  */
+  --#{$wui-prefix}-base-panel-bg-color: var(--ynfw-color-bg-panel, var(--#{$wui-prefix}-base-bg-color));
+
+  // ! 子项目类
+  // 适用于Callapse、Cascader、Calendar、DatePicker、TimePicker、Dropdown、Drawer、
+  // Menu、Select、Transfer、Treeselect、Tabs等
+  /**
+  * @desc 公共base子项目：字体颜色；
+  */
+  --#{$wui-prefix}-base-item-color: var(--ynfw-color-text-option-panel, var(--#{$wui-prefix}-base-text-color));
+  /**
+  * @desc 公共base子项目：字体颜色 active态；
+  */
+  --#{$wui-prefix}-base-item-color-active: var(--ynfw-color-primary, var(--#{$wui-prefix}-primary-color));
+  /**
+  * @desc 公共base子项目：字体颜色 禁用态；
+  */
+  --#{$wui-prefix}-base-item-color-disabled: var(--ynfw-color-text-option-panel-disabled, var(--#{$wui-prefix}-base-text-color-disabled));
+  /**
+  * @desc 公共base子项目：背景颜色 hover态；
+  */
+  --#{$wui-prefix}-base-item-bg-hover: var(--ynfw-color-bg-global-hover, #f0f0f0);
+  /**
+  * @desc 公共base子项目：背景颜色 selected态；
+  */
+  --#{$wui-prefix}-base-item-bg-selected: var(--ynfw-color-bg-global-selected, #e9f0fa);
+  /**
+  * @desc 公共base子项目：背景颜色 selected 的 hover态；
+  */
+  --#{$wui-prefix}-base-item-bg-selected-hover: var(--ynfw-color-bg-global-selected-hover, #dbe0e5);
+
+  // ! 清除图标
+  /**
+  * @desc 公共base清除图标：图标颜色；
+  */
+  --#{$wui-prefix}-base-clear-icon-color: var(--ynfw-color-icon-input-suffix, #ccc);
+  /**
+  * @desc 公共base清除图标：图标颜色 hover态；
+  */
+  --#{$wui-prefix}-base-clear-icon-color-hover: var(--ynfw-color-icon-input-suffix-hover, #505766);
+
+  // ! 关闭按钮
+  /**
+  * @desc 公共base关闭图标：图标颜色；
+  */
+  --#{$wui-prefix}-base-close-icon-color: var(--ynfw-color-icon-input-suffix, #999);
+  /**
+  * @desc 公共base关闭图标：图标颜色 hover态；
+  */
+  --#{$wui-prefix}-base-close-icon-color-hover: var(--ynfw-color-icon-input-suffix-hover, #505766);
+
+  // ! 输入框类
+  // 适用于Input、InputGroup、InputNumber、Pagination、DatePicker、Select、TimePicker、
+  // AutoComplete、Checkbox、Radio、Tree、TreeSelect、Transfer、Table等
+
+  /**
+  * @desc 公共输入框：字体颜色；
+  */
+  --#{$wui-prefix}-input-color: var(--ynfw-color-text-primary-global, #111);
+  /**
+  * @desc 公共输入框：字体颜色 禁用态；
+  */
+  --#{$wui-prefix}-input-color-disabled: var(--ynfw-color-text-disabled, var(--#{$wui-prefix}-base-text-color-disabled));
+  /**
+  * @desc 公共输入框：背景色；
+  */
+  --#{$wui-prefix}-input-bg: var(--ynfw-color-bg-input, var(--#{$wui-prefix}-base-bg-color));
+  /**
+  * @desc 公共输入框：背景色 必填态；
+  */
+  --#{$wui-prefix}-input-bg-color-required: var(--ynfw-color-bg-input-required, #fffcea);
+  /**
+  * @desc 公共输入框：背景色 禁用态；
+  */
+  --#{$wui-prefix}-input-bg-disabled: var(--ynfw-color-bg-global-disabled, var(--#{$wui-prefix}-base-bg-color-disabled));
+  /**
+  * @desc 公共输入框：边框颜色 必填态（下划线模式）；
+  */
+  --#{$wui-prefix}-input-border-bottom-color: var(--ynfw-color-border-underline-input, #F59E0B);
+  /**
+  * @desc 公共输入框：边框颜色；
+  */
+  --#{$wui-prefix}-input-border-color: var(--ynfw-color-border-input, rgba(80, 87, 102, 0.35)); // UE透明度0.5改为0.35
+  /**
+  * @desc 公共输入框：边框颜色 hover态；
+  */
+  --#{$wui-prefix}-input-border-color-hover: var(--ynfw-color-border-input-hover, rgba(80, 87, 102, 0.8));
+  /**
+  * @desc 公共输入框：边框颜色 focus态；
+  */
+  --#{$wui-prefix}-input-border-color-focus: var(--ynfw-color-border-focused, #0091ff);
+  /**
+  * @desc 公共输入框：边框颜色 禁用态；
+  */
+  --#{$wui-prefix}-input-border-color-disabled: var(--ynfw-color-border-input-disabled, rgba(80, 87, 102, 0.2));
+  /**
+  * @desc 公共输入框：placeholder占位符；
+  */
+  --#{$wui-prefix}-input-placeholder-color: var(--ynfw-color-text-input-placeholder, #ccc);
+  /**
+  * @desc 公共输入框：placeholder占位符字号；
+  */
+  --#{$wui-prefix}-input-placeholder-font-size: var(--ynfw-font-size-input, 12px);
+  /**
+  * @desc 公共输入框：后缀图标颜色；
+  */
+  --#{$wui-prefix}-input-suffix-icon-color: var(--ynfw-color-icon-input-suffix, rgba(80, 87, 102, 0.6));
+    /**
+  * @desc 公共输入框：后缀图标颜色 hover态；
+  */
+  --#{$wui-prefix}-input-suffix-icon-color-hover: var(--ynfw-color-icon-input-suffix-hover, rgba(80, 87, 102, 1));
+  /**
+    * @desc 公共输入框：后缀图标颜色 disabled态；
+    */
+  --#{$wui-prefix}-input-suffix-icon-color-disabled: var(--ynfw-color-icon-input-suffix-disabled, #ccc);
+    /**
+  * @desc 公共输入框：边框宽度；
+  */
+  --#{$wui-prefix}-base-input-border-width: var(--ynfw-border-width-input, 1px);
+      /**
+  * @desc 公共输入框：边框类型；
+  */
+  --#{$wui-prefix}-base-input-border-style: var(--ynfw-border-style-input, solid);
+      /**
+  * @desc 公共输入框：边框弧度；
+  */
+  --#{$wui-prefix}-base-input-border-radius: var(--ynfw-border-radius-input, 4px);
+      /**
+  * @desc 公共输入框：光标颜色  焦点态；
+  */
+  --#{$wui-prefix}-base-input-caret-color: var(--ynfw-color-cursor, #111);
+      /**
+  * @desc 公共输入框：文字 粗细程度；
+  */
+  --#{$wui-prefix}-base-input-font-weight: var(--ynfw-font-weight-input, 400);
+      /**
+  * @desc 公共输入框：多行文本设置行高；
+  */
+  --#{$wui-prefix}-base-textarea-line-height: var(--ynfw-font-line-height-input, 20px);
+      /**
+  * @desc 公共输入框：后缀图标点击色；
+  */
+  --#{$wui-prefix}-input-suffix-icon-color-active: var(--ynfw-color-icon-input-suffix-pressed, rgba(80, 87, 102, 1));
+      /**
+  * @desc 公共输入框：后缀图标背景颜色 hover态；
+  */
+  --#{$wui-prefix}-input-suffix-icon-background-color-hover: var(--ynfw-color-bg-icon-input-hover, transparent);
+  /**
+  * @desc 表格：行高
+  */
+  --#{$wui-prefix}-table-row-height: var(--ynfw-size-height-row-table, 35px);
+  /**
+  * @desc 表格：表头行高
+  */
+  --#{$wui-prefix}-table-row-header-height: var(--ynfw-size-height-header-table, 30px);
+
+  /**
+  * @desc tag 标签：背景颜色
+  */
+  --#{$wui-prefix}-tag-info-bg: var(--ynfw-color-bg-info-tag, #EFF6FF);
+  --#{$wui-prefix}-tag-warning-bg: var(--ynfw-color-bg-warning-tag, #FFFBEB);
+  --#{$wui-prefix}-tag-success-bg: var(--ynfw-color-bg-success-tag, #ECFDF5);
+  --#{$wui-prefix}-tag-danger-bg: var(--ynfw-color-bg-danger-tag, #FFF1F2);
+  --#{$wui-prefix}-tag-invalid-bg: var(--ynfw-color-bg-invalid-tag, #F3F4F6);
+  --#{$wui-prefix}-tag-start-bg: var(--ynfw-color-bg-start-tag, #F0F9FF);
+  --#{$wui-prefix}-tag-light-bg: var(--ynfw-color-bg-tag, #F3F4F6);
+  --#{$wui-prefix}-tag-dark-bg: var(--ynfw-color-bg-tag-dark, #4B5563);
+
+   /**
+  * @desc tag 标签：边框颜色
+  */
+
+  --#{$wui-prefix}-tag-info-border: var(--ynfw-color-border-info-tag, #DBEAFE);
+  --#{$wui-prefix}-tag-warning-border: var(--ynfw-color-border-warning-tag, #FEF3C7);
+  --#{$wui-prefix}-tag-success-border: var(--ynfw-color-border-success-tag, #D1FAE5);
+  --#{$wui-prefix}-tag-danger-border: var(--ynfw-color-border-danger-tag, #FEE2E2);
+  --#{$wui-prefix}-tag-invalid-border: var(--ynfw-color-border-invalid-tag, #E5E7EB);
+  --#{$wui-prefix}-tag-start-border: var(--ynfw-color-border-start-tag, #BAE6FD);
+  --#{$wui-prefix}-tag-light-border: var(--ynfw-color-border-tag, transparent);
+  --#{$wui-prefix}-tag-dark-border: var(--ynfw-color-border-tag-dark, transparent);
+
+  /**
+  * @desc tag 标签：文字颜色
+  */
+
+  --#{$wui-prefix}-tag-info-text: var(--ynfw-color-text-info-tag, #3B82F6);
+  --#{$wui-prefix}-tag-warning-text: var(--ynfw-color-text-warning-tag, #F59E0B);
+  --#{$wui-prefix}-tag-success-text: var(--ynfw-color-text-success-tag, #10B981);
+  --#{$wui-prefix}-tag-danger-text: var(--ynfw-color-text-danger-tag, #EF4444);
+  --#{$wui-prefix}-tag-invalid-text: var(--ynfw-color-text-invalid-tag, #4B5563);
+  --#{$wui-prefix}-tag-start-text: var(--ynfw-color-text-start-tag, #0EA5E9);
+  // --#{$wui-prefix}-tag-light-text: var(--ynfw-color-text-tag, transparent);
+  --#{$wui-prefix}-tag-dark-text: var(--ynfw-color-text-tag-dark, #FFF);
+
+  /**
+  * @desc tag 标签：字重
+  */
+
+  --#{$wui-prefix}-tag-font-weight: var(--ynfw-font-weight-semantic-tag, 600);
+
+
+  /**
+  * @desc 滚动条-轨道-颜色
+  */
+  --#{$wui-prefix}-scrollbar-bg-color: var(--ynfw-color-bg-scrollbg-scrollbar, #f4f4f4);
+  /**
+  * @desc 滚动条-轨道-宽度 (浏览器当前不支持单独设置轨道宽度)
+  */
+  --#{$wui-prefix}-scrollbar-bg-width: var(--ynfw-size-width-bg-scrollbar, 14px);
+  /**
+  * @desc 滚动条-边框-颜色
+  */
+  --#{$wui-prefix}-scrollbar-border-color: var(--ynfw-color-border-scrollbar, #dedede);
+  /**
+  * @desc 默认-滚动条-颜色
+  */
+  --#{$wui-prefix}-scrollbar-color: var(--ynfw-color-bg-scroll-scrollbar, #99a3b0);
+  /**
+  * @desc 默认-滚动条-宽度
+  */
+  --#{$wui-prefix}-scrollbar-width: var(--ynfw-size-width-scroll-scrollbar, 8px);
+  /**
+  * @desc 悬停-滚动条-颜色
+  */
+  --#{$wui-prefix}-scrollbar-hover-color: var(--ynfw-color-bg-scroll-scrollbar-hover, #687281);
+  /**
+  * @desc 悬停-滚动条-宽度
+  */
+  --#{$wui-prefix}-scrollbar-hover-width: var(--ynfw-size-width-scroll-scrollbar-hover, 12px);
+}
+
+
+/**
+--#{$wui-prefix}-input-border-color-error
+:var(--#{$wui-prefix}-input-color-error);
+
+
+
+*/

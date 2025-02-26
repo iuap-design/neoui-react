@@ -1,0 +1,53 @@
+@import (reference) '../../../theme/index.less';
+
+.@{skeleton-prefix-cls}  {
+  --width: ~"var(--@{skeleton-prefix-cls}-size-width-skeleton)";
+  --height: ~"var(--@{skeleton-prefix-cls}-size-height-skeleton)";
+  --border-radius: ~'var(--@{skeleton-prefix-cls}-border-radius)';
+
+  background-color: rgba(190, 190, 190, 0.2);
+  border-radius: var(--border-radius);
+  width: var(--width);
+  height: var(--height);
+  display: block;
+
+  &-animated {
+    background: linear-gradient(
+      90deg,
+      rgba(190, 190, 190, 0.2) 25%,
+      rgba(129, 129, 129, 0.24) 37%,
+      rgba(190, 190, 190, 0.2) 63%
+    );
+    background-size: 400% 100%;
+    animation: mui-skeleton-loading 1.4s ease infinite;
+  }
+
+  &-title {
+    --width: 42%;
+    --height: 0.4rem;
+    --border-radius: ~'var(--@{skeleton-prefix-cls}-border-radius)';;
+    margin-bottom: 0.26rem;
+    margin-top: 0.26rem;
+  }
+
+  &-paragraph {
+  }
+  &-paragraph-line {
+    --height: 0.24rem;
+    --border-radius: ~'var(--@{skeleton-prefix-cls}-border-radius)';;
+    margin-top: 0.24rem;
+    margin-bottom: 0.24rem;
+    &:last-child {
+      --width: 80%;
+    }
+  }
+}
+
+@keyframes mui-skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

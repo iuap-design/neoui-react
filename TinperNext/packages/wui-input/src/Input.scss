@@ -1,0 +1,537 @@
+@import './../../wui-core/scss/minxin-mixins';
+
+//$input-prefix-cls: $prefix-cls + 'input';
+
+$border: calc(var(--#{$wui-prefix}-base-input-border-width) * 2);
+$suffix-prefix-margin: 8px;
+
+@mixin size($height, $border: $border) {
+  // height: $height;
+  // line-height: $height;
+
+  .#{$input-prefix-cls} {
+    text-overflow: ellipsis;
+    height: calc($height - $border);
+    line-height: calc($height - $border);
+  }
+
+  .#{$input-prefix-cls}-simple-suffix {
+    height: calc($height - $border);
+  }
+
+  .#{$input-prefix-cls}-suffix,
+  .#{$input-prefix-cls}-simple-suffix {
+    display: flex;
+    line-height: calc($height - $border);
+
+    .#{$wui-prefix}-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: calc($height - $border);
+      line-height: calc($height - $border);
+    }
+  }
+
+  .#{$input-prefix-cls}-limit {
+    display: inline-block;
+    height: calc($height - $border);
+    line-height: calc($height - $border);
+    font-size: 12px;
+    margin-left: $suffix-prefix-margin;
+    color: $base-input-placeholder-color;
+    pointer-events: none;
+
+    .#{$input-prefix-cls}-limit-current {
+      color: $base-input-color;
+
+      &-warning {
+        color: $input-text-highlight-color;
+      }
+    }
+  }
+}
+
+@mixin simpleSize($height, $fontSize: $form-control-default-font-size) {
+  font-size: $fontSize;
+  height: $height;
+  line-height: $height;
+}
+
+.#{$input-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  // min-width: var(--#{$wui-prefix}-base-input-min-width);
+  font-size: var(--#{$input-prefix-cls}-font-size);
+  font-weight: var(--#{$wui-prefix}-base-input-font-weight);
+  height: $form-control-default-height;
+  line-height: $form-control-default-height;
+  color: $base-input-color;
+  caret-color: var(--#{$wui-prefix}-base-input-caret-color);
+  background-color: $base-input-bg;
+  border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+  border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+  transition: all 0.3s;
+  box-shadow: inset 0 0 0 1000px $base-input-bg;
+
+  &:hover {
+    border-color: $base-input-border-color-hover;
+    outline: 0;
+    cursor: default;
+  }
+
+  &:focus {
+    border-color: $base-input-border-color-focus;
+    box-shadow: 0 0 0 2px rgba(#0091ff,0.2); // rgba不支持嵌套的css变量
+    outline: 0;
+    cursor: text;
+  }
+
+  @include required-style();
+
+  &.popdropdown-textarea,
+  &.#{$input-prefix-cls}-border-bottom,
+  &.#{$input-prefix-cls}-border-none {
+    &:focus{
+      box-shadow: none;
+    }
+  }
+
+  &::-ms-clear,
+  &::-ms-reveal {
+    // 修复Edge在某些机型(如联想)多余小眼睛问题
+    display: none;
+  }
+
+  &-prefix-suffix {
+    padding: 0 30px;
+  }
+
+  &::placeholder {
+    color: $base-input-placeholder-color;
+    font-size: var(--#{$wui-prefix}-input-placeholder-font-size);
+    line-height: inherit;
+  }
+
+  &:placeholder-shown {
+    // QDJCJS-11636 占位符溢出省略
+    text-overflow: ellipsis;
+  }
+
+  &[disabled] {
+    &:not(.#{$input-prefix-cls}-border-bottom) {
+      border-color: $base-input-border-color-disabled;
+      background: $base-input-bg-disabled;
+    }
+    color: $base-input-color-disabled;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &-xs {
+    $height: $form-control-xs-height;
+    @include simpleSize($height);
+  }
+
+  &-sm {
+    $height: $form-control-sm-height;
+    @include simpleSize($height);
+  }
+
+  &-nm {
+    $height: $form-control-nm-height;
+    @include simpleSize($height);
+  }
+
+  &-md {
+    $height: $form-control-md-height;
+    @include simpleSize($height);
+  }
+
+  &-lg {
+    $height: $form-control-lg-height;
+    @include simpleSize($height);
+  }
+
+  &-search-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $form-control-default-height;
+    line-height: $form-control-default-height;
+    padding: 4px;
+    width: 100%;
+  }
+
+  &-search#{&}-with-button {
+    padding-right: 0;
+  }
+
+  &-affix-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    padding: 0 8px;
+    border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color;
+    border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+    font-size: var(--#{$input-prefix-cls}-font-size);
+    color: $base-input-color;
+    background-color: $base-input-bg;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: $base-input-border-color-hover;
+      outline: 0;
+    }
+
+    &.#{$input-prefix-cls}-affix-focus {
+      z-index: 1;
+      border-color: $base-input-border-color-focus;
+      outline: 0;
+
+      &:not(.#{$input-prefix-cls}-border-none, .#{$input-prefix-cls}-border-bottom) {
+        box-shadow: 0 0 0 2px rgba(#0091ff,0.2);
+      }
+    }
+
+    @include required-style();
+
+    &.#{$input-prefix-cls}-affix-wrapper-disabled {
+      box-shadow: inset 0 0 0 1000px var(--wui-input-bg-disabled);
+      background: $base-input-bg-disabled;
+      border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-disabled;
+      cursor: not-allowed;
+
+      &:hover {
+        border: var(--#{$wui-prefix}-base-input-border-width) var(--#{$wui-prefix}-base-input-border-style) $base-input-border-color-disabled;
+      }
+
+      .#{$input-prefix-cls}-suffix {
+        cursor: not-allowed;
+
+        &:hover {
+
+          .uf-search-light-2,
+          .uf-eye,
+          .uf-eye-o {
+            color: $suffix-icon-base-color;
+          }
+        }
+
+        & i.uf.uf-close-c:hover {
+          color: $clear-icon-base-color;
+        }
+      }
+    }
+
+    .#{$input-prefix-cls} {
+      // min-width: unset;
+      border: none;
+      padding: 0;
+      margin: 0;
+      caret-color: var(--#{$wui-prefix}-base-input-caret-color);
+      // height: calc($form-control-md-height - $border);
+      // line-height: calc($form-control-md-height - $border);
+      background: transparent; // #QDJCJS-7689
+      box-shadow: inset 0 0 0 0 transparent; // #QDJCJS-7689
+      border-radius: unset;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:-webkit-autofill {
+        // password自动填充时浏览器默认颜色清除
+        box-shadow: inset 0 0 0 1000px $base-input-bg;
+      }
+    }
+
+    .#{$input-prefix-cls}-prefix,
+    &:not(.#{$input-prefix-cls}-with-button) .#{$input-prefix-cls}-suffix {
+      display: inline-flex;
+      align-items: center;
+      color: $suffix-icon-base-color;
+      line-height: 1.4; //#QDJCJS-7567
+
+      :hover,
+      :focus {
+        color: $suffix-icon-hover-color;
+      }
+
+      :active {
+        color: var(--#{$wui-prefix}-input-suffix-icon-color-active);
+      }
+
+      & i.uf {
+        padding: 0;
+        width: 16px;
+        // font-size: 12px;
+        font-size: $suffix-icon-font-size;
+
+        &.uf-close-c {
+          color: $clear-icon-base-color;
+          font-size: $clear-icon-font-size;
+
+          &:hover {
+            color: $clear-icon-hover-color;
+          }
+        }
+      }
+    }
+
+    .#{$input-prefix-cls}-prefix,
+    &:not(.#{$input-prefix-cls}-affix-wrapper-disabled) .#{$input-prefix-cls}-suffix {
+      :hover::before {
+        color: $base-input-suffix-icon-color-hover;
+        background-color: var(--#{$wui-prefix}-input-suffix-icon-background-color-hover);
+      }
+    }
+
+    &#{&}-xs {
+      $height: $form-control-xs-height;
+      @include size($height);
+    }
+
+    &#{&}-sm {
+      $height: $form-control-sm-height;
+      @include size($height);
+    }
+
+    &#{&}-nm {
+      $height: $form-control-nm-height;
+      @include size($height);
+    }
+
+    &#{&}-md {
+      $height: $form-control-md-height;
+      @include size($height);
+    }
+
+    &#{&}-lg {
+      $height: $form-control-lg-height;
+      @include size($height);
+    }
+
+    .#{$input-prefix-cls}-suffix {
+      margin-left: $suffix-prefix-margin;
+      cursor: pointer;
+
+      &.has-close {
+        display: flex;
+        flex: none;
+        align-items: center;
+      }
+
+      .#{$input-prefix-cls}-enterbutton {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    .#{$input-prefix-cls}-simple-prefix,
+    .#{$input-prefix-cls}-simple-suffix {
+      display: flex;
+      flex: none;
+      align-items: center;
+      // height: calc($form-control-md-height - $border);
+      // line-height: calc($form-control-md-height - $border);
+
+      i.uf {
+        color: $suffix-icon-base-color;
+
+        &:hover,
+        &:focus {
+          color: $suffix-icon-hover-color;
+        }
+      }
+
+      :hover,
+      :focus {
+        color: $suffix-icon-hover-color;
+      }
+
+      &>i.uf {
+        // font-size: 12px;
+        font-size: $suffix-icon-font-size;
+        padding: 0;
+      }
+    }
+
+    .#{$input-prefix-cls}-simple-prefix {
+      margin-right: $suffix-prefix-margin;
+    }
+
+    .#{$input-prefix-cls}-simple-suffix {
+      margin-left: $suffix-prefix-margin;
+    }
+
+    &.#{$wui-prefix}-textarea-affix-wrapper {
+      padding: 0;
+      height: unset;
+      line-height: unset;
+
+      .#{$wui-prefix}-textarea {
+        padding: 0 8px 0 8px;
+      }
+
+      .#{$input-prefix-cls}-suffix {
+        margin: 0;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+    }
+
+  }
+
+  &-affix-wrapper-disabled:not(.#{$input-prefix-cls}-with-button) .#{$input-prefix-cls}-suffix {
+    color: $base-input-suffix-icon-color-disabled;
+  }
+
+  &-close {
+    .uf-close-c {
+      opacity: 0;
+      transition: 0.3s all;
+    }
+
+    &:not(.#{$input-prefix-cls}-affix-wrapper-disabled):hover .uf-close-c {
+      opacity: 1;
+    }
+
+    &.#{$wui-prefix}-textarea-affix-wrapper .#{$wui-prefix}-textarea {
+      padding: 0 16px 0 8px; // 右侧包括clear
+    }
+  }
+
+  &#{&}-border-none,
+  &-affix-wrapper#{&}-border-none {
+    @include borderTransparent(true, true, true, true);
+    border-radius: 0;
+
+    &:hover,
+    &:focus,
+    &.#{$input-prefix-cls}-affix-focus,
+    &.#{$input-prefix-cls}-affix-wrapper-disabled {
+      @include borderTransparent(true, true, true, true);
+    }
+  }
+
+  &#{&}-border-bottom,
+  &-affix-wrapper#{&}-border-bottom,
+  &-affix-wrapper#{&}-border-bottom #{&} {
+    @include borderTransparent();
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover,
+    &:focus,
+    &.#{$input-prefix-cls}-affix-focus,
+    &.#{$input-prefix-cls}-affix-wrapper-disabled {
+      @include borderTransparent();
+    }
+  }
+
+  @each $align in $align-arr {
+    &-align-#{$align} {
+
+      @at-root #{input}#{&},
+      #{textarea}#{&},
+      & input {
+        text-align: $align;
+      }
+    }
+  }
+
+  &.#{$wui-prefix}-textarea {
+    // simple模式
+    min-height: 36px;
+    padding: 0 8px;
+    transition: all 0.3s, height 0s;
+    line-height: var(--#{$wui-prefix}-base-textarea-line-height);
+
+    &::-webkit-scrollbar {
+      width: 16px;
+      border-radius: 5px;
+      background-color: transparent;
+      cursor: default;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-corner {
+      display: none;
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: var(--#{$wui-prefix}-scrollbar-hover-color);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-bg;
+        border-radius: 8px;
+        border-style: solid;
+        border-color: transparent;
+        border-left-width: 4px;
+        border-right-width: 4px;
+        background-clip: padding-box;
+
+        &:hover {
+          background-color: var(--#{$wui-prefix}-scrollbar-hover-color);
+        }
+      }
+
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-track-piece {
+        border-radius: 4px;
+      }
+    }
+
+    &#{&}-has-limit {
+      padding: 2px 8px 14px;
+      line-height: var(--#{$wui-prefix}-base-textarea-line-height); // UE需求
+    }
+
+    &#{&}-no-limit {
+      padding: 3px 8px;
+    }
+
+    &+.#{$wui-prefix}-textarea-limit {
+      // background-color: $base-input-bg;
+      $right: 16px;
+      display: inline-block;
+      line-height: 16px;
+      position: absolute;
+      top: calc(100% - 16px);
+      right: $right;
+      width: calc(100% - $right); // 减去右侧right，避免遮挡滚动条和右下角拖拽角标
+      border-radius: var(--#{$wui-prefix}-base-input-border-radius);
+      text-align: right;
+      font-size: 12px;
+      color: $base-input-placeholder-color;
+      pointer-events: none;
+
+      .#{$wui-prefix}-textarea-limit-current {
+        color: $base-input-color;
+
+        &-warning {
+          color: $input-text-highlight-color;
+        }
+      }
+    }
+  }
+}

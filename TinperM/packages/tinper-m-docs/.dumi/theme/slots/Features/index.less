@@ -1,0 +1,135 @@
+@import (reference) '../../styles/variables.less';
+
+.@{prefix}-features {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 60%;
+  // height: 440px;
+  margin: 60px auto -60px;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 999;
+
+  &-title {
+    text-align: center;
+    height: 37px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 26px;
+    color: #333333;
+    letter-spacing: 0;
+
+    @{dark-selector} & {
+      color: @c-text-dark;
+    }
+  }
+
+  &-description {
+    text-align: center;
+    height: 20px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #BFBFBF;
+    letter-spacing: 0;
+  }
+
+  &-item {
+    position: relative;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+
+    // float: left;
+    img {
+
+      width: 100%;
+      z-index: 0;
+    }
+
+    >i {
+      font-size: 64px;
+      font-style: normal;
+
+      @media @mobile {
+        font-size: 48px;
+      }
+    }
+
+    >h3 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 35px 6% 0px;
+      font-weight: normal;
+      font-size: 20px;
+      z-index: 1;
+      height: 22px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      font-size: 20px;
+      color: #333333;
+      letter-spacing: 0;
+      line-height: 22px;
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
+
+      a {
+        color: @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+        }
+
+        &:not(:hover) {
+          text-decoration: none;
+        }
+      }
+
+      @media @mobile {
+        font-size: 18px;
+      }
+    }
+
+    >p {
+      position: absolute;
+      left: 0;
+      top: 67px;
+      margin: 10px 6%;
+      font-size: 16px;
+      line-height: 1.475;
+      z-index: 1;
+      width: 53%;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 12px;
+      color: #999999;
+      letter-spacing: 0;
+
+      @{dark-selector} & {
+        color: @c-text-secondary-dark;
+      }
+
+      @media @mobile {
+        font-size: 14px;
+      }
+
+      a {
+        color: @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+        }
+
+        &:not(:hover) {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

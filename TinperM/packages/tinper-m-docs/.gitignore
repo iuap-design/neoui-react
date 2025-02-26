@@ -1,0 +1,13 @@
+node_modules
+/dist
+.dumi/tmp
+.dumi/tmp-production
+.DS_Store
+/docs/basic-components
+.dumi/theme/demoInfo.json
+.dumi/uno.css
+
+public/static/*.map
+public/static/*.xml
+public/static/*.json
+public/static/*.md

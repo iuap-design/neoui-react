@@ -1,0 +1,50 @@
+module.exports = {
+    'lang': 'zh-cn',
+    'remove': '移除文件',
+    'down': '下载文件',
+    'fileLoading': '文件上传中',
+    'toview': '查看大图',
+    'preview': '大图预览',
+    'zh-cn': {
+        'remove': '移除文件',
+        'down': '下载文件',
+        'fileLoading': '文件上传中',
+        'toview': '查看大图',
+        'preview': '大图预览',
+    },
+    'en-us': {
+        'remove': 'delete',
+        'down': 'download',
+        'fileLoading': 'The file on the cross',
+        'toview': 'To View',
+        'preview': 'Large image preview',
+    },
+    'zh-tw': {
+        'remove': '移除文件',
+        'down': '下載文件',
+        'fileLoading': '文件上傳中',
+        'toview': '查看大圖',
+        'preview': '大圖預覽',
+    },
+    'vi-vn': {
+        'remove': 'Loại bỏ tập tin',
+        'down': 'Tải về tập tin',
+        'fileLoading': 'Giấy tờ được chuyển đi',
+        'toview': 'Xem hình ảnh',
+        'preview': 'Xem thử hình ảnh lớn',
+    },
+    'id-id': {
+        'remove': 'Hapus Berkas',
+        'down': 'Unduh Berkas',
+        'fileLoading': 'Sedang mengunggah berkas',
+        'toview': 'Lihat gambar besar',
+        'preview': 'Pratinjau gambar besar',
+    },
+    'ar-sa': {
+        'remove': 'حذف ملف',
+        'down': 'تنزيل الملف',
+        'fileLoading': 'جاري تحميل الملف',
+        'toview': 'عرض الصورة الكبيرة',
+        'preview': 'معاينة الصورة الكبيرة',
+    }
+}

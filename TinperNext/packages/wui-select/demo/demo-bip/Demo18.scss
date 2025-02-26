@@ -1,0 +1,24 @@
+.custom-options .wui-select-item-option-content{
+    h3{
+        font-size: 12px;
+        font-weight: 400;
+        color: #333333;
+        line-height: 18px;
+        margin: 0 0 5px 0;
+    }
+    span{
+        font-size: 12px;
+        color: #999999;
+        line-height: 18px;
+        white-space: break-spaces;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;  // 不建议使用
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        // 使用组件库内部 注册的css变量 整体风格保持一致
+        color: var(--wui-select-color-text-tertiary);
+        font-size: var(--wui-select-font-size-tertiary);
+        font-weight: var(--wui-select-font-weight-tertiary);
+    }
+}

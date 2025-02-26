@@ -1,0 +1,534 @@
+@import "../../wui-core/scss/minxin-mixins";
+// @import "../node_modules/bee-button/src/Button";
+
+//$pagination-prefix-cls: $prefix-cls + 'pagination';
+// 分页新规范
+$border-radius-base:3px;
+$pagination-lg-size:40px;
+$pagination-sm-size:22px;
+//$border-color-base:#E4E4E4;
+//$pag-hover-border-color: #A8ABB3;
+//$pag-active-bg-color: #ADB4BC;
+//$pag-active-border-color: #ADB4BC;
+.#{$pagination-prefix-cls}.#{$pagination-prefix-cls}-simple {
+  min-width: 160px;
+  .#{$pagination-prefix-cls}-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+
+}
+.#{$pagination-prefix-cls}.#{$pagination-prefix-cls}-simple.#{$pagination-prefix-cls}-rtl{
+  .#{$pagination-prefix-cls}-list{
+    .#{$prefix-cls}icon-rtl{
+      transform: scaleX(1);
+    }
+  }
+}
+
+.#{$pagination-prefix-cls} {
+  font-size: var(--#{$pagination-prefix-cls}-font-size);
+  font-weight: var(--#{$pagination-prefix-cls}-font-weight);
+  text-align: left;
+  display: flex;
+  min-width: 550px;
+  margin-right: 20px;
+  align-items: center;
+  //flex-direction: row-reverse;
+  justify-content: flex-end;
+  color: var(--#{$pagination-prefix-cls}-color-text, var(--#{$pagination-prefix-cls}-color));
+  flex-wrap: wrap;
+  &-list {
+    margin: 4px;
+    display: flex;
+    &.#{$pagination-prefix-cls}-gap > li.#{$pagination-prefix-cls}-item-ellipsis > a {
+      border: none;
+      padding: 0;
+    }
+    & > li > a, & > li > span {
+      display: inline-block;
+      text-decoration: none;
+      border-top: 1px solid var(--#{$pagination-prefix-cls}-nointerval-border-color);
+      border-bottom: 1px solid var(--#{$pagination-prefix-cls}-nointerval-border-color);
+      border-left: 1px solid var(--#{$pagination-prefix-cls}-nointerval-border-color);
+      border-right: 1px solid var(--#{$pagination-prefix-cls}-nointerval-border-color);
+      background-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color);
+      border-radius: var(--#{$pagination-prefix-cls}-nointerval-border-radius);
+      // width: var(--#{$pagination-prefix-cls}-pagenumber-size-width);
+      // width: 9px;
+      // height: var(--#{$pagination-prefix-cls}-pagenumber-size-height);
+      text-align: center;
+      //color: $pag-color;
+      color: var(--#{$pagination-prefix-cls}-color);
+      padding: 5px 12px;
+      line-height: 1.57142857;
+    }
+    &.#{$pagination-prefix-cls}-no-border > li > a, & > li > span{
+        border-radius: var(--#{$pagination-prefix-cls}-pagenumber-border-radius);
+        margin-left: 4px;
+    }
+    & > li:first-child > a, & > li:first-child > span {
+      margin-left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    & > li:last-child > a, & > li:last-child > span {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    & > li[role="next"] > a {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-right: 1px solid var(--#{$pagination-prefix-cls}-border-color);
+    }
+    & > li {
+      // float: left;
+      list-style-type: none;
+      > a:hover, > span:hover, > a:focus, > span:focus {
+        cursor: pointer;
+        //color: $pag-hover-color;
+        //background-color: $pag-hover-bg-color;
+        //border-color: $border-color-base;
+        color: var(--#{$pagination-prefix-cls}-arrow-icon-color-hover);
+        background-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color-hover);
+        border-color: var(--#{$pagination-prefix-cls}-nointerval-border-color-hover);
+      }
+      > a > i {
+        color: var(--#{$pagination-prefix-cls}-arrow-icon-color);
+      }
+    }
+    & > .active {
+      & > a, > span{
+        z-index: 2;
+        cursor: default;
+        //color: $pag-active-color;
+        //background-color: $pag-active-bg-color;
+        //border-color: $pag-active-border-color;
+        color: var(--#{$pagination-prefix-cls}-color-active);
+        background-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color-selected);
+        border-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color-selected);
+      }
+      & > a:hover, > span:hover, > a:focus, > span:focus {
+        z-index: 2;
+        cursor: default;
+        //color: $pag-active-color;
+        //background-color: $pag-active-bg-color;
+        //border-color: $pag-active-border-color;
+        color: var(--#{$pagination-prefix-cls}-color-active);
+        background-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color-selected-hover);
+        border-color: var(--#{$pagination-prefix-cls}-pagenumber-bg-color-selected-hover);
+      }
+    }
+    & > .disabled {
+      > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+        cursor: not-allowed;
+        //color: $pag-disabled-color;
+        //background-color: transparent;
+        //border-color: $disabled-border-color;
+        color: var(--#{$pagination-prefix-cls}-color-disabled);
+        background-color: var(--#{$pagination-prefix-cls}-bg-color-disabled);
+        border-color: var(--#{$pagination-prefix-cls}-border-color-disabled);
+
+      }
+      > a > i {
+        color: var(--#{$pagination-prefix-cls}-arrow-icon-color-disabled);
+      }
+    }
+    & > li[role="gap"] > a {
+      background-color: var(--#{$pagination-prefix-cls}-bg-color);
+      border-bottom: 0 solid var(--#{$pagination-prefix-cls}-border-color);
+      border-top: 0 solid var(--#{$pagination-prefix-cls}-border-color);
+      padding: 7px 11px;
+      line-height: 1.57142857;
+    }
+    & > li[role="gap"] {
+      > a:hover, > a:focus {
+        background-color: var(--#{$pagination-prefix-cls}-bg-color);
+      }
+    }
+    // input {
+    //   box-sizing: border-box;
+    //   -moz-box-sizing: border-box;
+    //   -webkit-box-sizing: border-box;
+    // }
+    li, a {
+      // box-sizing: content-box;
+    }
+    i.uf, i.fa {
+      padding: 0px;
+      font-size: $font-size-base;
+    }
+    & > li:last-child > a, & > li:last-child > span {
+      border-right: 1px solid var(--#{$pagination-prefix-cls}-border-color);
+    }
+    i.uf-circle-loading{
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      padding: 2px;
+      margin-right: -4px;
+      background-image: linear-gradient(to bottom, transparent 60%, #fff 60%, #fff 100%), linear-gradient(to right, transparent 0px, #e23 100%);
+      animation: rotate1 1s 0s linear infinite;
+      &::before{
+        display: block;
+        content: ' ';
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #fff;
+      }
+    }
+  }
+
+  // .temp-main {
+  //   width: 100px;
+  //   height: 100px;
+  //   border: 1px solid #000;
+  // }
+  // .enhanced_pagination {
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-items: center;
+  //   flex-wrap: nowrap;
+  //   min-width: 700px;
+  //   overflow: auto;
+  //   -webkit-box-pack: center;
+  //   justify-content: center;
+  // }
+  // .enhanced_pagination .u_float_pagination {
+  //   float: left;
+  // }
+  .data_per_select {
+    display: flex;
+    justify-items: center;
+    margin: 0 4px;
+    align-items: center;
+    // &>span{
+    //   display: inline-block;
+    //   line-height: 32px;
+    // }
+    .#{$prefix-cls}select {
+      // 解决bug QDJCJS-6159 下拉框宽度自适应
+      width: auto;
+      min-width: var(--#{$pagination-prefix-cls}-input-size-width); // 62px;
+      margin: 0 8px 0 0;
+      // height: 28px;
+      // .#{$prefix-cls}select-selection {
+      //   height: 32px;
+      //   border-color: $border-color-base;
+      //   color: #333;
+      //   &:hover{
+      //     border-color: $pag-hover-border-color;
+      //   }
+      //   .#{$prefix-cls}select-selection-rendered {
+      //     line-height: 32px;
+      //   }
+      // }
+    }
+  }
+  // .#{$prefix-cls}select-open.#{$prefix-cls}select {
+  //   .#{$prefix-cls}select-selection{
+  //     border-color: $brand-default !important;
+  //   }
+  // }
+  
+  // .data_select {
+  //   outline: none;
+  //   -webkit-appearance: none;
+  //   height: 36px;
+  //   background: #fff;;
+  //   border-color: #d7d7d7;
+  //   border-radius: 4px;
+  //   line-height: 28px;
+  //   padding: 0 15px;
+  //   text-align: center;
+  //   font-size: 14px;
+  //   margin: 0 6px;
+  // }
+  .page_jump {
+    margin: 4px;
+    display: flex;
+    align-items: center;
+  }
+  .page_jump_value {
+    // outline: none;
+    // -webkit-appearance: none;
+    // background: #fff;
+    // border-radius: $border-radius-base;
+    width: var(--#{$pagination-prefix-cls}-input-size-width); // 50px;
+    border-width: var(--#{$pagination-prefix-cls}-input-border-width);
+    border-radius: var(--#{$pagination-prefix-cls}-pagenumber-border-radius);
+    text-align: center;
+    // border: 1px solid $border-color-base;
+    // &:hover {
+    //   border-color: $pag-hover-border-color;
+    // }
+    // &:focus {
+    //   border-color: $brand-default;
+    // }
+
+  }
+  .page_jump_btn,
+  .page_jump_value {
+    margin: 0 8px;
+    padding: 0;
+    // height: 28px;
+    // line-height: 26px;
+    // box-sizing: border-box;
+  }
+  &-total{
+    // height: 32px;
+    // line-height: 32px;
+    margin: 4px;
+    order: -1;
+    span { padding:0 4px; }
+  }
+  &.#{$pagination-prefix-cls}-disabled{
+    position: relative;
+    .#{$pagination-prefix-cls}-disabled-mask{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(2655,255,255,0.6);
+      z-index: 2;
+      cursor: not-allowed;
+    }
+  }
+  // .#{$prefix-cls}select .#{$prefix-cls}select-selector {
+  //   min-height: 20px;
+  // }
+}
+
+/*rtl:ignore*/
+.#{$pagination-prefix-cls}-rtl {
+  .#{$pagination-prefix-cls}-last, .#{$pagination-prefix-cls}-first, .#{$pagination-prefix-cls}-prev, .#{$pagination-prefix-cls}-next {
+    transform: rotate(180deg);
+  }
+}
+
+// .pagination-state {
+//   float: left;
+//   height: 34px;
+//   line-height: 34px;
+//   text-align: center;
+//   font-size: 12px;
+//   color: $pag-hover-color;
+//   margin-left: 10px;
+//   & > .page_j {
+//     margin: 0 4px;
+//     width: 40px;
+//     border: 1px solid #ddd;
+//     padding-left: 2px;
+//     height: 35px;
+//     line-height: 35px;
+//     color: #333333;
+//   }
+//   & > .page_z {
+//     margin: 0 4px;
+//     width: 50px;
+//     border: 1px solid #ddd;
+//     padding-left: 2px;
+//     height: 35px;
+//     line-height: 35px;
+//     color: #333333;
+//   }
+//   & > .pagination-jump {
+//     margin: 0 10px;
+//     width: 50px;
+//     line-height: 30px;
+//     border: 1px solid #ddd;
+//     background-color: white;
+//     font-size: 14px;
+//     cursor: pointer;
+//     color: #333333;
+//     height: 35px;
+//   }
+//   & > .pagination-jump:hover {
+//     background-color: #eee;
+//   }
+// }
+
+//Size Modifier
+.#{$pagination-prefix-cls}-lg {
+  @include pagination-size( $pagination-lg-padding-vertical,
+                            $pagination-lg-padding-horizontal,
+                            $pagination-lg-font-size,
+                            var(--#{$pagination-prefix-cls}-font-weight),
+                            // $line-height-large,
+                            40px,
+                            $border-radius-large,
+                            $pagination-lg-size,
+                            40px);
+}
+
+.#{$pagination-prefix-cls}-sm {
+  @include pagination-size( $pagination-small-padding-vertical,
+                            $pagination-small-padding-horizontal,
+                            $pagination-small-font-size,
+                            var(--#{$pagination-prefix-cls}-font-weight),
+                            var(--#{$pagination-prefix-cls}-pagenumber-size-height),
+                            // $line-height-small,
+                            $border-radius-small,
+                            $pagination-sm-size,
+                            var(--#{$pagination-prefix-cls}-pagenumber-size-width));
+}
+.#{$pagination-prefix-cls}-lg {
+  & > li.iconBtn > a {
+    padding: 0px 12px;
+  }
+  // .page_jump_simple {
+  //   .page_jump_value_simple {
+  //    height: $pagination-lg-size;
+  //    line-height: $pagination-lg-size;
+  //   }
+  // }
+  // & + .#{$pagination-prefix-cls}total + .data_per_select {
+  //   .#{$prefix-cls}select{
+  //     height: $pagination-lg-size;
+  //     .#{$prefix-cls}select-selector {
+  //       // height: $pagination-lg-size;
+  //       // line-height: $pagination-lg-size;
+  //       min-height: calc($pagination-lg-size - 2px);
+  //       .#{$prefix-cls}select-selection-item, .#{$prefix-cls}select-selection-search{
+  //         line-height: calc($pagination-lg-size - 2px);
+  //       }
+  //     }
+  //     // .#{$prefix-cls}select-selection{
+  //     //   height: $pagination-lg-size;
+  //     //   .#{$prefix-cls}select-selection-rendered{
+  //     //     line-height: $pagination-lg-size;
+  //     //   }
+  //     // }
+  //   }
+  //   & + .page_jump > .page_jump_value{
+  //     height: $pagination-lg-size;
+  //     line-height: $pagination-lg-size;
+  //   }
+  // }
+  // & + .#{$pagination-prefix-cls}-total {
+  //   & + .page_jump {
+  //     .page_jump_value{
+  //       height: $pagination-lg-size;
+  //       line-height: $pagination-lg-size;
+  //       // &:hover {
+  //       //   border-color: $pag-hover-border-color;
+  //       // }
+  //       // &:focus {
+  //       //   border-color: $brand-default;
+  //       // }
+  //     }
+  //   }
+  // }
+}
+.#{$pagination-prefix-cls}-sm {
+  & > li.iconBtn > a {
+    padding: 0px 3px;
+  }
+  // line-height: 100%;
+  // .page_jump_simple {
+  //   .page_jump_value_simple {
+  //     height: $pagination-sm-size;
+  //     line-height: $pagination-sm-size;
+  //   }
+  // }
+  // & + .#{$prefix-cls}pagination-total + .data_per_select{
+  //   .#{$prefix-cls}select{
+  //     height: $pagination-sm-size;
+  //     .#{$prefix-cls}select-selector {
+  //       // height: $pagination-sm-size;
+  //       // line-height: $pagination-sm-size;
+  //       min-height: calc($pagination-sm-size - 2px);
+  //       .#{$prefix-cls}select-selection-item, .#{$prefix-cls}select-selection-search{
+  //         line-height: calc($pagination-sm-size - 2px);
+  //       }
+  //     }
+  //     // .#{$prefix-cls}select-selection{
+  //     //   height: $pagination-sm-size;
+  //     //   .#{$prefix-cls}select-selection-rendered{
+  //     //     line-height: $pagination-sm-size;
+  //     //   }
+  //     // }
+  //   }
+  //   & + .page_jump {
+  //     .page_jump_value{
+  //       height: $pagination-sm-size;
+  //       line-height: $pagination-sm-size;
+  //       // &:hover {
+  //       //   border-color: $pag-hover-border-color;
+  //       // }
+  //       // &:focus {
+  //       //   border-color: $brand-default;
+  //       // }
+  //     }
+  //   }
+  // }
+  // & > li.iconBtn > a {
+  //   padding: 0px 3px;
+  //   line-height: 1.5;
+  // }
+
+  // & + .#{$pagination-prefix-cls}-total {
+  //   & + .page_jump {
+  //     .page_jump_value{
+  //       height: $pagination-sm-size;
+  //       line-height: $pagination-sm-size;
+  //       // &:hover {
+  //       //   border-color: $pag-hover-border-color;
+  //       // }
+  //       // &:focus {
+  //       //   border-color: $brand-default;
+  //       // }
+  //     }
+  //   }
+  // }
+}
+//无边框
+.#{$pagination-prefix-cls}-no-border:not(.#{$pagination-prefix-cls}-gap){
+  > li > a, > li[role="next"] > a {
+    border: none;
+  }
+  > li:last-child > a, > li:last-child > span {
+    border: none;
+  }
+}
+
+// *border-radius* $border-radius-small全局定义的为2px，分页改为了4px，同$border-radius-small一样
+
+// 有间距的分页
+.#{$pagination-prefix-cls}-gap > li:first-child > a,
+.#{$pagination-prefix-cls}-gap > li:last-child > a {
+  border-radius: 4px;
+}
+
+.#{$pagination-prefix-cls}-gap {
+  > li {
+    > a {
+      margin: 0 4px;
+      border-radius: 4px;
+      border: 1px solid var(--#{$pagination-prefix-cls}-border-color);
+      &:hover {
+        //background-color: #F1F1F1;
+        background-color: var(--#{$pagination-prefix-cls}-bg-color-hover);
+      }
+    }
+    &:last-child > a{
+      margin-right: 0;
+    }
+    &:first-child,
+    &:last-child {
+      > a {
+        border-radius: 4px;
+      }
+    }
+  }
+  > li[role="gap"] {
+    > a {
+      border: 0 solid var(--#{$pagination-prefix-cls}-border-color);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.demos-wui-input-number {
+  .demo18 {
+    .com,
+    .http {
+      .demo18-input-number-addonAfter,
+      .demo18-input-number-addonBefore {
+        display: inline-flex;
+        align-items: center;
+
+        & > div {
+          border: 0;
+        }
+      }
+    }
+  }
+}

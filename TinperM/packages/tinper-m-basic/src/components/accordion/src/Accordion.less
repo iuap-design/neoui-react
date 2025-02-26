@@ -1,0 +1,77 @@
+@import (reference) '../../../theme/index.less';
+
+.@{accordion-prefix-cls} {
+  --title-padding-right: ~'var(--@{accordion-prefix-cls}-spacing-padding-right-title)';
+  --title-padding-left: ~'var(--@{accordion-prefix-cls}-spacing-padding-left-title)';
+  --content-padding-right: ~'var(--@{accordion-prefix-cls}-spacing-padding-right-content)';
+  --content-padding-left: ~'var(--@{accordion-prefix-cls}-spacing-padding-left-content)';
+  & .mui-list {
+    --border-bottom: 0;
+    --border-top: 0;
+    --border-inner: 0;
+    &-body {
+      background-color: transparent;
+    }
+  }
+
+  &-panel-header {
+    background-color: var(--mui-color-background);
+    --active-background-color: var(--mui-color-background);
+    border-radius: 0.16rem;
+    transition: border-radius 2s;
+    padding-left: var(--title-padding-left);
+    & .mui-list-item-content {
+      padding-right: var(--title-padding-right);
+      height: 0.88rem;
+      &-main {
+        font-size: 0.32rem;
+        font-weight: 500;
+      }
+    }
+  }
+  &-panel-header-active {
+    background-color: var(--mui-color-background);
+    --active-background-color: var(--mui-color-background);
+    border-radius: 0.16rem 0.16rem 0 0;
+    padding-left: var(--title-padding-left);
+    & .mui-list-item-content {
+      padding-right: var(--title-padding-right);
+      height: 0.88rem;
+      &-main {
+        font-size: 0.32rem;
+        font-weight: 500;
+      }
+    }
+  }
+  &-arrow {
+    transform: rotate(0deg);
+    display: flex;
+    align-items: center;
+    &-active {
+      transform: rotate(-180deg);
+    }
+    transition: all ease 0.3s;
+  }
+  &-panel-content {
+    font-size: var(--mui-font-size-main);
+    background-color: var(--mui-color-background);
+    overflow: hidden;
+    border-radius: 0 0 0.16rem 0.16rem;
+    &-active {
+      border-radius: 0 0 0.16rem 0.16rem;
+    }
+    & .mui-list-item {
+      padding-left: var(--content-padding-left);
+    }
+    & .mui-list-item-content {
+      padding-right: var(--content-padding-right);
+      &-main {
+        padding-top: 0;
+        width: 100%;
+      }
+    }
+  }
+  &-line {
+    height: 0.16rem;
+  }
+}

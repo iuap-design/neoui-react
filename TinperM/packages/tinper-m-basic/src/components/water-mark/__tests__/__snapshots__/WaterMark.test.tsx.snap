@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WaterMark component component: WaterMark, <test prop:: content> 1`] = `
+<div>
+  <div
+    class="mui-water-mark mui-water-mark-full-page"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
+  />
+</div>
+`;
+
+exports[`WaterMark component component: WaterMark, <test prop:: gapX>, <test prop:: gapY>, <test prop:: width>, <test prop:: height>, <test prop:: rotate>, <test prop:: fontColor>, <test prop:: fontStyle>, <test prop:: fontFamily>, <test prop:: fontWeight>, <test prop:: fontSize> 1`] = `
+<div>
+  <div
+    class="mui-water-mark mui-water-mark-full-page"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
+  />
+</div>
+`;
+
+exports[`WaterMark component component: WaterMark, <test prop:: image>, <test prop:: imageWidth>, <test prop:: imageHeight> 1`] = `
+<div>
+  <div
+    class="mui-water-mark mui-water-mark-full-page"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
+  />
+</div>
+`;

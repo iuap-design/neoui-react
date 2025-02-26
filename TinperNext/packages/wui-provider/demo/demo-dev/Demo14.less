@@ -1,0 +1,62 @@
+.provider-demo-13{
+	.stripes {
+		width: 500px;
+		height: 400px !important;;
+		// float: left;
+	
+		margin: 10px;
+	
+		-webkit-background-size: 16px 16px;
+		-moz-background-size: 16px 16px;
+		background-size: 16px 16px; /* 控制条纹的大小 */
+	
+		-moz-box-shadow: 1px 1px 8px #ccc;
+		-webkit-box-shadow: 1px 1px 8px #ccc;
+		box-shadow: 1px 1px 8px #ccc;
+	  }
+	
+	  .out-wrapper {
+		height: 100px;
+		width: 527px;
+		overflow-y: scroll;
+	  }
+	
+	  .checkered {
+		padding-top: 40px;
+		background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #ccc), color-stop(.25, transparent), to(transparent)),
+		-webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #ccc), color-stop(.25, transparent), to(transparent)),
+		-webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #ccc)),
+		-webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #ccc));
+		background-image: -moz-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),
+		-moz-linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),
+		-moz-linear-gradient(45deg, transparent 75%, #ccc 75%),
+		-moz-linear-gradient(-45deg, transparent 75%, #ccc 75%);
+		background-image: -o-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),
+		-o-linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),
+		-o-linear-gradient(45deg, transparent 75%, #ccc 75%),
+		-o-linear-gradient(-45deg, transparent 75%, #ccc 75%);
+		background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),
+		linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),
+		linear-gradient(45deg, transparent 75%, #ccc 75%),
+		linear-gradient(-45deg, transparent 75%, #ccc 75%);
+	  }
+	  .affixtest{
+		overflow: auto;
+		.affixTitle{
+		  width: 100%;
+		  height: 30px;
+		  line-height: 30px;
+		  background-color: aquamarine;
+		}
+	  }
+	  .out-wrapper-f {
+		height: 300px;
+		background: #ccc;
+		//border-bottom: 1px solid #e3e7ee;
+		// overflow: scroll;
+		overflow-y: scroll;
+	  }
+	  img {
+		width: 100px;
+	  }
+}

@@ -1,0 +1,15 @@
+.tag-multi-selected::after {
+    color: #fff;
+    content: "\e685";
+    font-family: "next-icon" !important;
+    line-height: 6px;
+    font-size: 6px;
+    width: 8px;
+    height: 8px;
+    background: #588CE9;
+    border-bottom-left-radius: 8px;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    right: 0;
+}
